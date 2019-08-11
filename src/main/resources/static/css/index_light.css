@@ -1,0 +1,1414 @@
+/*!
+ **
+ * Copyright 2020. 이승환(Lee Seunghwan) All pictures cannot be copied without permission.
+ *
+ * name : 이승환(Lee Seunghwan)
+ * description : index.html 문서에 대한 layout css
+ **
+ */
+
+
+/********************/
+/**** default [[ ****/
+/********************/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+}
+
+html {
+    height: 100%;
+    color: #333;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+input,
+select {
+    border: none;
+}
+
+*:focus,
+input:focus {
+    outline: none;
+}
+
+.clear_both {
+    clear: both;
+}
+
+.layer-open {
+    overflow: hidden;
+}
+
+::selection {
+    background: #ffb500;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #ffb500;
+    color: #fff;
+}
+
+/* 브라우저 스크롤 스타일 */
+html {
+    /* Internet Explorer */
+    scrollbar-3dLight-Color: #efefef;
+    scrollbar-arrow-color: #dfdfdf;
+    scrollbar-base-color: #efefef;
+    scrollbar-Face-Color: #dfdfdf;
+    scrollbar-Track-Color: #efefef;
+    scrollbar-DarkShadow-Color: #efefef;
+    scrollbar-Highlight-Color: #efefef;
+    scrollbar-Shadow-Color: #efefef
+}
+
+/* Webkit(Safari, Chrome) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #efefef;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    width: 50px;
+    background: rgba(0, 0, 0, .2);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+/* //브라우저 스크롤 스타일 */
+
+/********************/
+/**** ]] default ****/
+/********************/
+
+
+/********************/
+/**** 데스크탑 [[ ****/
+/********************/
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    margin: 0 auto;
+}
+
+.left_side {
+    width: 90px;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 9999;
+    box-shadow: 0 0 6px 0;
+    background-color: #bd5c38;
+}
+
+.left_side .small_photo {
+    width: 57px;
+    height: 57px;
+
+    position: absolute;
+    top: 25px;
+    left: 16px;
+
+    text-align: center;
+
+    border-radius: 100%;
+    transition: all .4s;
+    background-color: #cb8065;
+}
+
+.left_side .small_photo:hover {
+    transition: all .4s;
+    background-color: #d6a898;
+}
+
+.left_side .small_photo img {
+    width: 50px;
+    height: 50px;
+    margin-top: 3.5px;
+
+    border-radius: 100%;
+}
+
+.menu .menu_title {
+    display: none;
+}
+
+.menu .mobile_popup_btn {
+    display: none;
+}
+
+.menu .menu_button {
+    display: block;
+
+    margin-left: 30px;
+
+    position: absolute;
+    top: 45%;
+    left: auto;
+}
+
+.menu .menu_button .fa-bars {
+    display: block;
+
+    color: #dead9b;
+    font-size: 33px;
+    transition: all .4s;
+}
+
+.menu .menu_button .fa-bars:hover {
+    color: #fff;
+    font-size: 33px;
+    transition: all .4s;
+}
+
+.menu .menu_button .fa-times {
+    display: none;
+
+    position: absolute;
+    top: -3px;
+
+    color: #fff;
+    font-size: 40px;
+    transition: all .4s;
+}
+
+
+.menu .menu_contents {
+    display: none;
+
+    width: 300px;
+    height: 100%;
+    margin-left: 90px;
+
+    position: absolute;
+
+    background-color: #bd5c38;
+}
+
+.menu .menu_contents .menu_list .domain_title {
+    position: absolute;
+    top: -225px;
+    left: -96px;
+
+    color: #deae9c;
+    transform: rotate(90deg);
+    font-size: 80px;
+    font-weight: 900;
+    font-family: "Raleway script=all rev=1", "Adobe Blank";
+}
+
+.menu_contents .mobile_menu_close,
+.menu .menu_contents .menu_close {
+    display: none;
+}
+
+.menu .menu_contents .menu_list {
+    position: absolute;
+    top: 292px;
+    left: 35px;
+}
+
+.menu .menu_contents .menu_list > ul {
+    margin-top: 5px;
+}
+
+.menu .menu_contents .menu_list > ul li a p {
+    width: 250px;
+    line-height: 60px;
+
+    color: #deae9c;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+    font-family: "Raleway script=all rev=1", "Adobe Blank";
+}
+
+.menu .menu_contents .menu_list > ul li a p:hover {
+    color: #fff2ed;
+    transition: all 0.2s;
+}
+
+.menu .menu_contents .menu_list > ul li a p.on {
+    color: #fff;
+}
+
+/* 메뉴클릭시 뎁스 애니메이션 효과 */
+.menu_contents .menu_list > ul li {
+    transform: translateX(-30px);
+    transition-duration: .5s;
+}
+
+.menu_contents .menu_list > .on li {
+    transform: translateX(0);
+}
+
+.menu_contents .menu_list > ul li:nth-child(1) {
+    transition-delay: .1s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(2) {
+    transition-delay: .15s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(3) {
+    transition-delay: .2s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(4) {
+    transition-delay: .25s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(5) {
+    transition-delay: .3s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(6) {
+    transition-delay: .35s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(7) {
+    transition-delay: .4s;
+}
+
+.menu_contents .menu_list > ul li:nth-child(8) {
+    transition-delay: .45s;
+}
+
+/* //메뉴클릭시 뎁스 애니메이션 효과 */
+
+
+.menu_background {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 999;
+    opacity: 0.5;
+    background-color: #333;
+}
+
+
+.functions {
+    position: absolute;
+    bottom: 20px;
+}
+
+.functions > ul li {
+    width: 90px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.functions .fa-moon,
+.functions .fa-sun,
+.functions .fa-history,
+.functions .fa-envelope-open-text {
+    color: #dead9b;
+    font-size: 30px;
+    transition: all .4s;
+}
+
+.functions .fa-sun,
+.functions .fa-history,
+.functions .fa-lock {
+    color: #dead9b;
+    font-size: 34px;
+    transition: all .4s;
+}
+
+.functions .fa-moon:hover,
+.functions .fa-sun:hover,
+.functions .fa-history:hover,
+.functions .fa-envelope-open-text:hover,
+.functions .fa-lock:hover {
+    color: #fff;
+    transition: all .4s;
+}
+
+
+.darkmode_help {
+    display: none;
+
+    width: 300px;
+    height: 165px;
+
+    position: absolute;
+    bottom: 0;
+    left: 90px;
+
+    border-radius: 0 5px 0 0;
+    background-color: #bd5b38;
+}
+
+.darkmode_help > p {
+    width: 290px;
+    padding-bottom: 8px;
+    margin-top: 11px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+
+    vertical-align: middle;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: #eebfae;
+    font-family: "Nanum Gothic", "Adobe Blank";
+    border-bottom: 1px solid #eebfae;
+}
+
+.darkmode_help > .fa-info-circle {
+    font-size: 14px;
+}
+
+.darkmode_help > ul li p {
+    width: 280px;
+    margin-top: 15.5px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+
+    font-size: 11.7px;
+    font-weight: bold;
+    color: #eebfae;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.darkmode_help .fa-info-circle {
+    margin-right: 5px;
+}
+
+.darkmode_help .fa-moon,
+.darkmode_help .fa-sun,
+.darkmode_help .fa-history {
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.darkmode_help .auto span {
+    margin-left: 25px;
+}
+
+
+.popup {
+    width: 100%;
+    height: 45px;
+
+    position: fixed;
+
+    z-index: 99;
+    box-shadow: 0 0 3px 0;
+    background-color: #ffb500;
+}
+
+.popup .popup_title {
+    width: 100%;
+    padding: 13px;
+
+    position: absolute;
+    top: 0;
+    left: 90px;
+
+    text-align: center;
+}
+
+.popup .popup_title .fa-bell {
+    margin-right: 7px;
+
+    vertical-align: middle;
+
+    color: #fff194;
+    font-size: 18px;
+}
+
+.popup .popup_title > ul li {
+    line-height: 15px;
+    letter-spacing: 2px;
+
+    color: #4b4b4b;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.popup .popup_btn .fa-sort-down {
+    display: block;
+
+    width: 40px;
+
+    position: absolute;
+    top: -5px;
+    right: 30px;
+
+    font-size: 40px;
+    text-align: center;
+    color: #3b3b3b;
+    transition: all .4s;
+}
+
+.popup .popup_btn .fa-sort-down:hover {
+    color: #555;
+    transition: all .4s;
+}
+
+.popup .popup_btn .fa-times {
+    display: none;
+
+    width: 40px;
+
+    position: absolute;
+    top: 7px;
+    right: 30px;
+
+    font-size: 30px;
+    text-align: center;
+    color: #3b3b3b;
+    transition: all .4s;
+}
+
+.popup .popup_btn .fa-times:hover {
+    color: #555;
+    transition: all .4s;
+}
+
+.popup .popup_list {
+    display: none;
+
+    width: 100%;
+
+    position: fixed;
+    top: 44px;
+    left: 90px;
+
+    text-align: center;
+    background-color: #ffde00;
+}
+
+.popup .popup_list > ul {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.popup .popup_list > ul li p {
+    line-height: 27px;
+
+    color: #4b4b4b;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.popup .popup_list .mobile_popup_title {
+    display: none;
+}
+
+.popup_background {
+    display: none;
+
+    width: 100%;
+
+    position: fixed;
+    top: 44px;
+    left: 0;
+    bottom: 0;
+
+    z-index: 9;
+    opacity: 0.5;
+    background-color: #333;
+}
+
+
+.not_found {
+    margin-left: 90px;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+}
+
+.not_found .fa-times {
+    margin-top: 0;
+
+    vertical-align: middle;
+
+    font-size: 35px;
+    color: #616161;
+}
+
+.not_found > .not_found_text {
+    margin-left: 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    font-family: "Nanum Gothic script=all rev=3", "Adobe Blank";
+}
+
+.contents_guide {
+    margin-left: 100px;
+
+    position: absolute;
+    top: 45px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.contents_guide > div {
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 0 20px;
+
+    border-top: 1px solid #dee3eb;
+    border-bottom: 1px solid #dee3eb;
+}
+
+.contents_guide > div:nth-child(1) {
+    display: none;
+}
+
+
+.window_bax {
+    width: 300px;
+    padding: 12px 15px;
+
+    position: fixed;
+    top: 140px;
+    right: 100px;
+
+    z-index: 9999;
+
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #d35452;
+    background-color: #f2dede;
+
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.window_bax .title {
+    font-size: 13px;
+    padding-bottom: 6px;
+    margin-bottom: 11px;
+    border-bottom: 1px solid #ff9795;
+}
+
+.window_bax .bax_text {
+    width: 268px;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.window_bax .fa-exclamation-triangle {
+    color: #e6514e;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logpage {
+    width: 1000px;
+    height: 800px;
+    margin-top: -380px;
+    margin-left: -455px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    z-index: 2;
+    border: 2px solid #dda895;
+    border-radius: 4.5px;
+    background-color: #eee;
+}
+
+.logpage .close {
+    width: 35px;
+    height: 45px;
+
+    position: fixed;
+    top: 53px;
+    left: 83%;
+
+    font-size: 50px;
+}
+
+
+.logpage .left {
+    width: 50%;
+    height: 100%;
+
+    float: left;
+    position: relative;
+
+}
+
+.logpage .left .login_text {
+    width: 100%;
+
+    position: absolute;
+    top: 45%;
+
+    text-align: center;
+
+    color: #dead9b;
+    font-size: 65px;
+    font-weight: 900;
+    font-family: "Raleway script=all rev=1", "Adobe Blank";
+}
+
+.logpage .right {
+    width: 50%;
+    height: 100%;
+    padding: 190px 40px 190px 40px;
+
+    float: right;
+    position: relative;
+
+    border-left: 2px solid #cecdcd;
+}
+
+.logpage .right ul {
+    width: 100%;
+}
+
+.logpage .right .id_title {
+    width: 50px;
+
+    position: absolute;
+    top: 182px;
+    left: 51px;
+
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .right .pwd_title {
+    width: 65px;
+
+    position: absolute;
+    top: 267px;
+    left: 50px;
+
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .right .id_edge {
+    height: 60px;
+    padding: 0 18px 0 18px;
+    margin-bottom: 25px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right .pwd_edge {
+    height: 60px;
+    padding: 0 18px 0 18px;
+    margin-bottom: 25px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right .id_edge .input_id,
+.logpage .right .pwd_edge .input_password {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .right .captcha {
+    height: 90px;
+    line-height: 85px;
+    margin-bottom: 50px;
+
+    text-align: center;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+    background-color: #e6e6e6;
+}
+
+.logpage .right .login_btn {
+    height: 65px;
+    margin-bottom: 25px;
+
+    text-align: center;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #ffb500;
+    box-shadow: 0 0 1.5px 0;
+}
+
+.logpage .right .login_submit {
+    width: 100%;
+    height: 65px;
+    line-height: 66px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+
+    border-radius: 4px;
+    box-shadow: 0 0 1.5px 0;
+    background-color: #ffb500;
+}
+
+.logpage .right .fa-unlock-alt {
+    position: absolute;
+    top: 524px;
+    left: 205px;
+
+    font-size: 17px;
+}
+
+.logpage .right .user_add {
+    float: left;
+
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .right .user_find {
+    float: right;
+
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.login_background {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+    opacity: 0.5;
+    background-color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.right_side {
+    display: block;
+
+    width: 90px;
+    height: 100%;
+    min-height: 550px;
+    margin-right: 20px;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.right_side > ul {
+    position: absolute;
+    top: 41%;
+    left: 40px;
+}
+
+.right_side > ul li {
+    margin-bottom: 10px;
+}
+
+.right_side > ul li a {
+    color: #dead9b;
+    font-size: 13px;
+}
+
+.right_side > ul li a:hover {
+    color: #bd5b38;
+    transition: all .4s;
+}
+
+.right_side > ul li a.on {
+    color: #bd5b38;
+    transition: all .4s;
+}
+
+
+.site_up,
+.mobile_menu_button {
+    display: none;
+}
+
+
+progress {
+    width: 100%;
+    height: 6px;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: #ff9800;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #fcd59e;
+}
+
+progress::-webkit-progress-value {
+    background-color: #ff9800;
+}
+
+progress::-moz-progress-bar {
+    background-color: #fcd59e;
+}
+
+
+/********************/
+/**** ]] 데스크탑 ****/
+/********************/
+
+
+/********************/
+/**** 스마트폰 [[ ****/
+/********************/
+
+@media screen and (max-width: 991px) {
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .left_side {
+        width: 100%;
+        height: 60px;
+        padding: 15px;
+
+        position: fixed;
+
+        background-color: #bd5c38;
+    }
+
+    .menu .menu_title {
+        display: block;
+
+        width: 250px;
+
+        min-width: 300px;
+        margin-top: 5px;
+    }
+
+    .menu .menu_title > a {
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Nanum Gothic script=all rev=3", "Adobe Blank";
+    }
+
+    .left_side .small_photo {
+        display: none;
+    }
+
+
+    .menu .mobile_popup_btn {
+        display: block;
+    }
+
+
+    .menu .mobile_popup_btn .fa-bell {
+        display: block;
+
+        position: absolute;
+        top: 18px;
+        right: 25px;
+
+
+        color: #ffebe3;
+        font-size: 26px;
+    }
+
+    .menu .mobile_popup_btn .fa-times-circle {
+        display: none;
+
+        position: absolute;
+        top: 18px;
+        right: 23px;
+
+        color: #ffebe3;
+        font-size: 27px;
+    }
+
+    .menu .menu_button {
+        display: none;
+    }
+
+    .menu .menu_contents {
+        display: none;
+
+        width: 100%;
+        height: 360px;
+        margin-left: -15px;
+
+        position: fixed;
+        bottom: 0;
+
+        z-index: 9999;
+        border-radius: 30px 30px 0 0;
+    }
+
+    .menu .menu_contents .menu_list .domain_title {
+        position: absolute;
+        top: -80px;
+        left: -2px;
+
+        transform: rotate(0deg);
+        color: #fff;
+        font-size: 30px;
+        font-weight: 900;
+        font-family: "Raleway script=all rev=1", "Adobe Blank";
+    }
+
+    .menu_contents .mobile_menu_close {
+        display: block;
+
+        position: absolute;
+        top: 45%;
+        right: 20px;
+
+        text-align: center;
+    }
+
+    .menu_contents .mobile_menu_close > img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu .menu_contents .menu_list {
+        position: absolute;
+        top: 24px;
+    }
+
+    .menu .menu_contents .menu_list > ul li a p {
+        width: 250px;
+
+        line-height: 40px;
+
+
+        color: #deae9c;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        transition: all 0.2s;
+        font-family: "Raleway script=all rev=1", "Adobe Blank";
+    }
+
+    .menu .menu_contents .menu_list > ul li a p:hover {
+        color: #fff2ed;
+        transition: all 0.2s;
+    }
+
+    .menu .menu_contents .menu_list > ul li a p.on {
+        color: #ffebe3;
+    }
+
+    .menu_contents .menu_list > ul li {
+        transform: translateX(-20px);
+        transition-duration: .5s;
+    }
+
+    .menu_contents .menu_list > .on li {
+        transform: translateX(0);
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(1) {
+        transition-delay: .1s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(2) {
+        transition-delay: .15s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(3) {
+        transition-delay: .2s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(4) {
+        transition-delay: .25s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(5) {
+        transition-delay: .3s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(6) {
+        transition-delay: .35s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(7) {
+        transition-delay: .4s;
+    }
+
+    .menu_contents .menu_list > ul li:nth-child(8) {
+        transition-delay: .45s;
+    }
+
+
+    .menu_background {
+        display: none;
+
+        width: 100%;
+        height: 100%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: 999;
+        opacity: 0.5;
+        background-color: #333;
+    }
+
+
+    .left_side .functions {
+        display: none;
+    }
+
+
+    .darkmode_help {
+        display: none;
+    }
+
+
+    .popup .popup_title,
+    .popup .popup_btn {
+        display: none;
+    }
+
+    .popup .popup_list {
+        display: none;
+        margin-left: -90px;
+
+        position: fixed;
+        top: 60px;
+        left: 90px;
+
+        text-align: center;
+        border-radius: 0 0 7px 7px;
+        background-color: #ffde00;
+    }
+
+    .popup .popup_list > ul li p {
+        margin: 10px;
+        line-height: 25px;
+
+        color: #4b4b4b;
+        text-align: left;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: "Raleway script=all rev=1", "Adobe Blank";
+    }
+
+    .popup .popup_list .mobile_popup_title {
+        height: 40px;
+        padding: 10px;
+        margin-top: 5px;
+
+        border-radius: 6px 6px 6px 6px;
+        background-color: #ffb500;
+    }
+
+    .popup .popup_list .mobile_popup_title {
+        display: block;
+    }
+
+    .popup .popup_list .mobile_popup_title .fa-bell {
+        position: absolute;
+        top: 17px;
+        left: 15px;
+
+        vertical-align: middle;
+
+        color: #ffebe3;
+        font-size: 17px;
+    }
+
+    .popup .popup_list .mobile_popup_title > p {
+        margin-top: 2px;
+        margin-left: 28px;
+
+        vertical-align: middle;
+
+        color: #4b4b4b;
+        text-align: left;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Raleway script=all rev=1", "Adobe Blank";
+    }
+
+
+    .popup_background {
+        display: none;
+
+        width: 100%;
+
+        position: fixed;
+        top: 60px;
+        left: 0;
+        bottom: 0;
+
+        z-index: 9;
+        opacity: 0.5;
+        background-color: #333;
+    }
+
+
+    .contents_guide {
+        margin-left: 0;
+
+        position: absolute;
+        top: 50px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .contents_guide > div {
+        width: 100%;
+        height: 100%;
+        padding: 80px 20px 0 20px;
+
+        border-top: 1px solid #dee3eb;
+    }
+
+    .contents_guide > div:nth-child(1) {
+        display: none;
+    }
+
+
+    .right_side {
+        display: none;
+    }
+
+
+    .not_found {
+        margin-left: 0;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        text-align: center;
+    }
+
+    .not_found .fa-times {
+        margin-top: 0;
+
+        vertical-align: middle;
+
+        font-size: 35px;
+        color: #616161;
+    }
+
+    .not_found > .not_found_text {
+        margin-left: 10px;
+
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 700;
+        font-family: "Nanum Gothic script=all rev=3", "Adobe Blank";
+    }
+
+
+    .site_up .fa-chevron-circle-up {
+        display: block;
+        margin-bottom: 20px;
+
+        position: fixed;
+        right: 40px;
+        bottom: 120px;
+
+        font-size: 65px;
+        color: #bd5c38;
+    }
+
+    .mobile_menu_button {
+        display: block;
+    }
+
+    .mobile_menu_button .fa-circle {
+        position: fixed;
+        right: 40px;
+        bottom: 60px;
+
+        font-size: 65px;
+        color: #bd5c38;
+    }
+
+    .mobile_menu_button .fa-bars {
+        position: fixed;
+        right: 56px;
+        bottom: 74px;
+
+        font-size: 37px;
+        color: #fff;
+    }
+
+
+    .process {
+        width: 100%;
+        height: 8px;
+
+        position: fixed;
+        left: -0;
+        bottom: 0;
+
+        background-color: #ff9800;
+    }
+
+}
+
+/********************/
+/**** ]] 스마트폰 ****/
+/********************/
+
+
+/********************/
+/***** 테블릿 [[ *****/
+/********************/
+
+@media screen and (min-width: 992px) and (max-width: 1366px) {
+
+    .left_side {
+        width: 90px;
+        height: 100%;
+
+        background-color: #bd5c38;
+    }
+
+}
+
+/********************/
+/***** ]] 테블릿 *****/
+/********************/

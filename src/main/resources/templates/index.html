@@ -1,10 +1,378 @@
+<!--
+    현재 개발중인 사이트 입니다.
+    기획과 코드는 얼마든지 바뀔 수 있습니다.
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="theme-color" content="#bd5d38"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="author" content="이승환"/>
+    <meta name="description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
+    <meta property="og:url" content="/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="img/profile.jpg"/>
+    <meta property="og:title" content="승화니, 사심 가득한 포트폴리오"/>
+    <meta property="og:site_name" content="승화니, 사심 가득한 포트폴리오"/>
+    <meta property="og:description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
+
+    <title>승화니' 사심 가득한 포트폴리오</title>
+
+    <!-- TODO
+         1. 스프링에 붙일때 CSS/JS 파일명 뒤에(?v=) 현재날짜와 시간을 붙여넣자.
+         2. 구글폰트는 완성되면 파일로 만들자.
+         3. 주석은 완성되면 서버단 주석으로 바꾸자.
+    -->
+    <link href="css/index_light.css?v=" rel="stylesheet"/>    <!-- main layout css -->
 </head>
 <body>
-    Title
+<div class="wrapper">
+    <div class="left_side">
+
+        <div class="small_photo">
+            <a href="" class="01" title="승화니'">
+                <img src="img/profile.jpg" alt="승화니'">
+            </a>
+        </div>
+
+        <div class="menu">
+
+            <div class="menu_title">
+                <a href="" class="01" title="승화니' 사심 가득한 포트폴리오'">
+                    <p>승화니' 사심 가득한 포트폴리오</p>
+                </a>
+            </div>
+
+            <div class="mobile_popup_btn">
+                <i class="fas fa-bell animated swing faster"></i>
+                <i class="far fa-times-circle"></i>
+            </div>
+
+            <div class="menu_button">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div class="menu_contents">
+
+                <div class="mobile_menu_close">
+                    <img src="img/close_white.png" art="닫기"/>
+                </div>
+
+                <div class="menu_list">
+
+                    <div class="domain_title">
+                        <span>MENU.</span>
+                    </div>
+
+                    <ul class="">
+                        <li>
+                            <a href="" class="01" title="">
+                                <p class="on">ABOUT</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="02" title="">
+                                <p class="">DEV-CONSOLE</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="03" title="">
+                                <p class="">SKILLS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="04" title="">
+                                <p class="">SELF PROJECTS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="05" title="">
+                                <p class="">WORK PROJECTS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="06" title="">
+                                <p class="">EDUCATION</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="07" title="">
+                                <p class="">COMING SOON...</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="08" title="">
+                                <p class="">COMING SOON...</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="functions">
+            <ul>
+                <li class="dark_mode">
+                    <a href="" title="다크모드">
+                        <i class="fas fa-moon"></i>
+                        <!-- <i class="fas fa-sun"></i>
+                        <i class="fas fa-history"></i> -->
+                    </a>
+                </li>
+                <li class="question">
+                    <a href="" title="문의하기">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </a>
+                </li>
+                <li class="login">
+                    <a href="" title="로그인">
+                        <i class="fas fa-lock"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="darkmode_help">
+            <p><i class="fas fa-info-circle"></i>다크/라이트 모드란?</p>
+            <ul>
+                <li class="dark">
+                    <p><i class="fas fa-moon"></i>레이아웃, 콘텐츠를 어둡게(Dark) 변경합니다.</p>
+                </li>
+                <li class="light">
+                    <p><i class="fas fa-sun"></i>레이아웃, 콘텐츠를 밝게(Light) 변경합니다.</p>
+                </li>
+                <li class="auto">
+                    <p>
+                        <i class="fas fa-lohistory"></i>레이아웃, 콘텐츠를 시간에 맞춰 변경합니다.<br>
+                        <span>(06:00~17:59 Light, 18:00~05:59 Dark)</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="menu_shadow_off">
+        <span class="menu_background"></span>
+    </div>
+
+    <div class="popup">
+        <div class="popup_title">
+            <ul>
+                <li>
+                    <p><i class="fas fa-bell"></i>알려드립니다!</p>
+                </li>
+            </ul>
+        </div>
+        <div class="popup_btn">
+            <i class="fas fa-sort-down"></i>
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="popup_list">
+            <div class="mobile_popup_title">
+                <i class="fas fa-bell animated swing faster"></i>
+                <p>알려드립니다!</p>
+            </div>
+            <ul>
+                <li>
+                    <p>사이트 운영은 평일 09:00 ~ 21:00, 주말은 랜덤! 입니다.</p>
+                </li>
+                <li>
+                    <p>사이트는 크롬, 파이어폭스, 사파리 브라우저에 최적화 되어 있습니다.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="popup_shadow_off">
+        <span class="popup_background"></span>
+    </div>
+
+    <div class="not_found">
+        <i class="far fa-times"></i>
+        <p class="not_found_text">페이지가 더 이상 존재하지 않습니다.</p>
+    </div>
+
+    <div class="contents_guide">
+
+        <div class="00" id="00">
+            <!-- 스크립트 개선될때까지 임시로 추가 -->
+        </div>
+
+        <div class="01" id="01">
+            <p>01</p>
+        </div>
+
+        <div class="02" id="02">
+            <p>02</p>
+        </div>
+
+        <div class="03" id="03">
+            <p>03</p>
+        </div>
+
+        <div class="04" id="04">
+            <p>04</p>
+        </div>
+
+        <div class="05" id="05">
+            <p>05</p>
+        </div>
+
+        <div class="06" id="06">
+            <p>06</p>
+        </div>
+
+        <div class="07" id="07">
+            <p>07</p>
+        </div>
+
+        <div class="08" id="08">
+            <p>08</p>
+        </div>
+
+    </div>
+
+    <div class="window_bax" style="display: none">
+        <p class="title">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="title_text">사이트 알림</span>
+        </p>
+        <p class="bax_text">발견된 알림이 없습니다.</p>
+    </div>
+
+    <div class="logpage">
+
+        <!-- <div class="close">
+            <i class="fas fa-times"></i>
+        </div> -->
+
+        <div class="left">
+            <p class="login_text">LOGIN<span class="test_action">.</span></p>
+        </div>
+        <form id=form action="/" method="post">
+            <div class="right">
+                <ul>
+                    <li>
+                        <p class="id_title">아이디</p>
+                        <div class="id_edge">
+                            <input type="text" class="input_id" name="user_id" id="user_id" placeholder="아이디를 입력하세요." />
+                        </div>
+                    </li>
+                    <li>
+                        <p class="pwd_title">비밀번호</p>
+                        <div class="pwd_edge">
+                            <input type="password" class="input_password" name="user_password" id="user_password" placeholder="비밀번호를 입력하세요." />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="captcha">
+                            나중에 스프링 붙일때 캡차API 넣을꺼임.
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-unlock-alt"></i><input type="submit" class="login_submit" value=" LOGIN" />
+                    </li>
+                    <li>
+                        <div class="user_add">
+                            <a href="/" title="계정 만들기">
+                                <p>계정 만들기</p>
+                            </a>
+                        </div>
+                        <div class="user_find">
+                            <a href="/" title="아이디/비밀번호 찾기">
+                                <p>아이디/비밀번호 찾기</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <div class="clear_both"></div>
+    </div>
+
+    <div class="login_shadow_off">
+        <div class="login_background"></div>
+    </div>
+
+    <div class="right_side">
+        <ul>
+            <li class="01">
+                <a href="" class="on" title="">
+                    <i class="fas fa-circle"></i>
+                </a>
+            </li>
+            <li class="02">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="03">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="04">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="05">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="06">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="07">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="08">
+                <a href="" class="" title="문의하기">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="site_up">
+        <ul>
+            <li>
+                <a href="" class="01" title="">
+                    <i class="fas fa-chevron-circle-up"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mobile_menu_button ">
+        <i class="fas fa-circle animated rubberBand faster"></i>
+        <i class="fas fa-bars"></i>
+    </div>
+
+</div>
+
+<div class="progress_bar">
+    <progress value="0" max="0" class="process"></progress>
+</div>
+
+<!-- 우선순위가 낮은 CSS파일은 HTML문서 하단에 배치한다. -->
+<link href="css/animate.min.css?v=" rel="stylesheet"/>    <!-- animate css -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway|Source+Sans+Pro&display=swap?v="
+      rel="stylesheet"/>    <!-- Raleway, Nanum Gothic, Source Sans Pro -->
+
+<script src="js/jquery-3.4.1.min.js?v="></script>          <!-- jquery 3.4.1 -->
+<script src="js/font_awesome_all.js?v="></script>          <!-- font awesome icon -->
+<script src="js/index_frame.js?v="></script>               <!-- main layout js -->
 </body>
 </html>
