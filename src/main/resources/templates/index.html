@@ -131,6 +131,7 @@
                 <li class="login">
                     <a href="" title="로그인">
                         <i class="fas fa-lock"></i>
+                        <i class="fas fa-times"></i>
                     </a>
                 </li>
             </ul>
@@ -148,7 +149,7 @@
                 </li>
                 <li class="auto">
                     <p>
-                        <i class="fas fa-lohistory"></i>레이아웃, 콘텐츠를 시간에 맞춰 변경합니다.<br>
+                        <i class="fas fa-history"></i>레이아웃, 콘텐츠를 시간에 맞춰 변경합니다.<br>
                         <span>(06:00~17:59 Light, 18:00~05:59 Dark)</span>
                     </p>
                 </li>
@@ -246,14 +247,16 @@
         <p class="bax_text">발견된 알림이 없습니다.</p>
     </div>
 
-    <div class="logpage">
+    <div class="logpage" style="display: none">
 
         <!-- <div class="close">
             <i class="fas fa-times"></i>
         </div> -->
 
         <div class="left">
-            <p class="login_text">LOGIN<span class="test_action">.</span></p>
+            <p class="login_title">LOGIN<span class="test_action">.</span></p>  <!-- .test_action 효과를 줄까말까 고민중이다. -->
+            <p class="login_text_ko">등록된 계정을 입력하여, 사이트를 이용해보세요.</p>
+            <p class="login_text_en">Please enter a registered account to use the site.</p>
         </div>
         <form id=form action="/" method="post">
             <div class="right">
@@ -276,7 +279,8 @@
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-unlock-alt"></i><input type="submit" class="login_submit" value=" LOGIN" />
+                        <i class="fas fa-unlock-alt"></i>
+                        <input type="button" id="form_btn" class="login_submit" value=" LOGIN" />
                     </li>
                     <li>
                         <div class="user_add">

@@ -344,6 +344,7 @@ html {
 
 .functions > ul li {
     width: 90px;
+    height: 30px;
     margin-top: 20px;
     text-align: center;
 }
@@ -371,6 +372,14 @@ html {
 .functions .fa-envelope-open-text:hover,
 .functions .fa-lock:hover {
     color: #fff;
+    transition: all .4s;
+}
+
+.functions .fa-times {
+    display: none;
+
+    color: #fff;
+    font-size: 40px;
     transition: all .4s;
 }
 
@@ -680,7 +689,7 @@ html {
     left: 50%;
 
     z-index: 2;
-    border: 2px solid #dda895;
+    border: 3px solid #ffb500;
     border-radius: 4.5px;
     background-color: #eee;
 }
@@ -706,7 +715,7 @@ html {
 
 }
 
-.logpage .left .login_text {
+.logpage .left .login_title {
     width: 100%;
 
     position: absolute;
@@ -714,16 +723,48 @@ html {
 
     text-align: center;
 
-    color: #dead9b;
+    color: #ffb500;
     font-size: 65px;
     font-weight: 900;
     font-family: "Raleway script=all rev=1", "Adobe Blank";
 }
 
+.logpage .left .login_text_ko {
+    display: none;
+
+    width: 100%;
+
+    position: absolute;
+    top: 53%;
+
+    text-align: center;
+
+    color: #f0811a;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .left .login_text_en {
+    display: none;
+
+    width: 100%;
+
+    position: absolute;
+    top: 56%;
+
+    text-align: center;
+
+    color: #f0811a;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
 .logpage .right {
     width: 50%;
     height: 100%;
-    padding: 190px 40px 190px 40px;
+    padding: 187.5px 40px 187.5px 40px;
 
     float: right;
     position: relative;
@@ -761,7 +802,7 @@ html {
 
 .logpage .right .id_edge {
     height: 60px;
-    padding: 0 18px 0 18px;
+    padding: 0 14px 0 14px;
     margin-bottom: 25px;
 
     border-radius: 4px;
@@ -770,7 +811,7 @@ html {
 
 .logpage .right .pwd_edge {
     height: 60px;
-    padding: 0 18px 0 18px;
+    padding: 0 14px 0 14px;
     margin-bottom: 25px;
 
     border-radius: 4px;
@@ -829,7 +870,7 @@ html {
 
 .logpage .right .fa-unlock-alt {
     position: absolute;
-    top: 524px;
+    top: 522px;
     left: 205px;
 
     font-size: 17px;
@@ -852,7 +893,7 @@ html {
 }
 
 .login_background {
-    display: block;
+    display: none;
 
     width: 100%;
     height: 100%;
@@ -1305,6 +1346,23 @@ progress::-moz-progress-bar {
     .contents_guide > div:nth-child(1) {
         display: none;
     }
+
+
+
+
+
+    .window_bax {
+        display: none;
+    }
+
+    .logpage,
+    .login_shadow_off {
+        display: none;
+    }
+
+
+
+
 
 
     .right_side {

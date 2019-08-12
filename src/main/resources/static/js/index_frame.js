@@ -16,6 +16,7 @@
 // 5. 로그인 창 닫기버튼 마우스가 벋어나면 초기화가 안된다.
 // 6. 로그인 창 input 빈 값 체크하는 스크립트 넣기.
 // 7. 로그인 버튼 누르면 열고/닫는 스크립트 넣기.
+// 8. 사이트운영 자동알림은 소켓통신으로 있어보이게 만들자.
 
 $(document).ready(function () {
 
@@ -24,7 +25,7 @@ $(document).ready(function () {
         Darkmode_Help = $('.darkmode_help'),
         Functions_Li_01 = $('.dark_mode'),
         Functions_Li_02 = $('.question'),
-        Functions_Li_03 = $('.login');
+        Functions_Li_03 = $('.login, .login_background');
 
 
     //********************************
@@ -82,9 +83,11 @@ $(document).ready(function () {
     // 다크모드 도움말
     Functions_Li_01.on({
         'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
             Darkmode_Help.stop().animate({width: 'toggle'}, 300);
         },
         'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
             Darkmode_Help.stop().animate({width: 'toggle'}, 300);
         }
     });
@@ -101,7 +104,7 @@ $(document).ready(function () {
         return false;
     });
     Functions_Li_03.on('click', function () {    // 로그인
-        site_alert(Site_Notice_Text, '로그인 기능은 준비중 입니다.', 3000);
+        //site_alert(Site_Notice_Text, '로그인 기능은 준비중 입니다.', 3000);
         return false;
     });
 
@@ -117,6 +120,11 @@ $(document).ready(function () {
 
     // 로그인 되었을 시 알림
     // site_alert(Site_Notice_Text, '이승환님, 안녕하세요. 2019년00월00일 00시00분 로그인되었습니다.', 5000);
+
+
+
+
+
 
     // 계정만들기
     $('.user_add p').on('click', function () {
@@ -158,18 +166,45 @@ $(document).ready(function () {
         }
     });
 
-    // 로그인창 닫기버튼
-    $('.logpage .close .fa-times').on({
-        'mouseenter': function () {     // 마우스오버 시 회전한다.
-            document.querySelector('.logpage .close .fa-times').classList.add('animated', 'rotateIn', 'faster');
-        },
-        'mouseleave': function () {     // 영역이 벋어날 시 초기화된다.
-            // 작동안됨 개선방안 찾기
-            $('logpage .close > .fa-times').removeClass('animated rotateIn faster');
-            $('ogpage .close > .fa-times').addClass('fas fa-times');
-        }
+    // 로그인창 input값 체크
+    $('#form_btn').click(function(){
+        let form_result = login_input_check() == true ? true : false;
     });
 
+    // 로그인창 닫기버튼 - 잠시기능을 주석한다.(삭제할 가능성 있다.)
+    // $('.logpage .close .fa-times').on({
+    //     'mouseenter': function () {     // 마우스오버 시 회전한다.
+    //         document.querySelector('.logpage .close .fa-times').classList.add('animated', 'rotateIn', 'faster');
+    //     },
+    //     'mouseleave': function () {     // 영역이 벋어날 시 초기화된다.
+    //         // 작동안됨 개선방안 찾기
+    //         $('logpage .close > .fa-times').removeClass('animated rotateIn faster');
+    //         $('ogpage .close > .fa-times').addClass('fas fa-times');
+    //     }
+    // });
+
+
+
+
+
+    Functions_Li_03.click(function(){
+        if ($('.login_shadow_off').attr('class') == 'login_shadow_off') {
+            $('.functions .login .fa-lock').stop().hide();
+            $('.functions .login .fa-times').stop().fadeIn('fast');
+            $('.login_background').stop().fadeIn('fast');
+            $('.logpage').stop().fadeIn('fast');
+            $('.login_shadow_off').attr('class', 'login_shadow_on');
+            login_effect();
+            document.querySelector('.functions .login .fa-times').classList.add('animated', 'rotateIn', 'faster');
+        } else {
+            $('.functions .login .fa-times').stop().hide();
+            $('.functions .login .fa-lock').stop().fadeIn('fast');
+            $('.login_background').stop().fadeOut('fast');
+            $('.logpage').stop().fadeOut('fast');
+            $('.login_shadow_on').attr('class', 'login_shadow_off');
+            document.querySelector('.functions .login .fa-lock').classList.add('animated', 'fadeInRight', 'faster');
+        }
+    });
 
 
 
@@ -357,3 +392,40 @@ function site_alert(title, text, time) {
     }, time); // 시간
 }
 
+// form안의 모든 input 조회
+function login_input_check() {
+    const Site_Notice_Text = '사이트 알림';
+    // 모든 input 값을 대입한다.
+    const Input_Type = $('#form :input');
+    for(let i = 0; i < Input_Type.length; i++){
+        if('' == $(Input_Type[i]).val() || null == $(Input_Type[i]).val()){
+            let input_id_value = $(Input_Type[i]).attr('id');   // 값이없는 input id값을 얻어온다.
+            $('#' + input_id_value).focus();                    // 값이없는 input에 포커스가 이동한다.
+            if(input_id_value == 'user_id'){
+                site_alert(Site_Notice_Text, '아이디 입력은 필수입력 입니다.', 3000);
+                return false;   // return false;를 안해주면 마지막 값 먼저 포커스 이동 현상이 나타난다.
+            }
+            if(input_id_value == 'user_password') {
+                site_alert(Site_Notice_Text, '비밀번호 입력은 필수입력 입니다.', 3000);
+                return false;   // return false;를 안해주면 마지막 값 먼저 포커스 이동 현상이 나타난다.
+            }
+        }
+    }
+    // 정보전송
+    // 연속적인 큐를 제거하기 위해 .clearQueue()를 사용.
+    $('#form').clearQueue().submit();
+}
+
+// 로그인 효과
+function login_effect(){
+    $('.left .login_title').stop().animate({top: '310'}, 1000);
+    let text_ko = setTimeout(function () {
+        $('.left .login_text_ko').stop().fadeIn('slow');
+    }, 500);
+    let text_en = setTimeout(function () {
+        $('.left .login_text_en').stop().fadeIn('slow');
+    }, 700);
+    $('#user_id').focus();
+    $('.id_edge').css('border','2px solid #b00020');
+    $('.id_title').css('color','#b00020');
+}
