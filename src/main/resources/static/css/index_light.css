@@ -48,6 +48,10 @@ select {
     border: none;
 }
 
+input[type=button] {
+    cursor: pointer;
+}
+
 *:focus,
 input:focus {
     outline: none;
@@ -170,6 +174,21 @@ html {
     margin-top: 3.5px;
 
     border-radius: 100%;
+}
+
+.left_side .small_photo .count {
+    width: 24px;
+    height: 24px;
+    padding-top: 2px;
+
+    position: absolute;
+    top: -8px;
+    left: 35px;
+
+    color: #fff;
+    font-size: 13px;
+    border-radius: 100%;
+    background-color: red;
 }
 
 .menu .menu_title {
@@ -384,6 +403,167 @@ html {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.message_box {
+    width: 340px;
+    height: 450px;
+
+    position: absolute;
+    top: 5px;
+    left: 96px;
+
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.message_box .message_head {
+    width: 100%;
+    height: 80px;
+
+    border-radius: 5px 5px 0 0;
+    background-color: #bd5c38;
+}
+
+.message_box .message_photo {
+    width: 57px;
+    height: 57px;
+
+    position: absolute;
+    top: 11px;
+    left: 16px;
+
+    text-align: center;
+
+    border-radius: 100%;
+    transition: all .4s;
+    background-color: #cb8065;
+}
+
+.message_box .message_photo:hover {
+    transition: all .4s;
+    background-color: #d6a898;
+}
+
+.message_box .message_head img {
+    width: 50px;
+    height: 50px;
+    margin-top: 3.5px;
+
+    border-radius: 100%;
+}
+
+.message_box .message_head {
+    letter-spacing: 1px;
+
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.message_box .message_head .main_text {
+    position: absolute;
+    top: 21px;
+    left: 85px;
+}
+
+.message_box .message_head .sub_text {
+    position: absolute;
+    top: 42px;
+    left: 85px;
+}
+
+.message_box .message_body {
+    width: 100%;
+    height: 370px;
+
+    overflow: auto;
+
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #c3c3c3;
+}
+
+.message_box .message_body .guest_message {
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+    position: relative;
+
+    background-color: #dfdfdf;
+}
+
+.message_box .message_body .guest_message .message_login_text {
+    width: 100%;
+
+    position: absolute;
+    top: 40%;
+
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.message_box .message_body .guest_message .message_login_btn {
+    width: 50px;
+    height: 25px;
+
+    position: absolute;
+    top: 50%;
+    left: 145px;
+
+    cursor: pointer;
+
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+
+    border-radius: 3px;
+    box-shadow: 0 0 1.5px 0;
+    background-color: #e6e6e6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .darkmode_help {
     display: none;
 
@@ -467,6 +647,7 @@ html {
     left: 90px;
 
     text-align: center;
+    cursor: pointer;
 }
 
 .popup .popup_title .fa-bell {
@@ -501,6 +682,8 @@ html {
     text-align: center;
     color: #3b3b3b;
     transition: all .4s;
+
+    cursor: pointer;
 }
 
 .popup .popup_btn .fa-sort-down:hover {
@@ -521,6 +704,8 @@ html {
     text-align: center;
     color: #3b3b3b;
     transition: all .4s;
+
+    cursor: pointer;
 }
 
 .popup .popup_btn .fa-times:hover {
@@ -678,6 +863,19 @@ html {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 .logpage {
     width: 1000px;
     height: 800px;
@@ -706,7 +904,7 @@ html {
 }
 
 
-.logpage .left {
+.logpage .left_login {
     width: 50%;
     height: 100%;
 
@@ -715,7 +913,7 @@ html {
 
 }
 
-.logpage .left .login_title {
+.logpage .left_login .login_title {
     width: 100%;
 
     position: absolute;
@@ -729,7 +927,7 @@ html {
     font-family: "Raleway script=all rev=1", "Adobe Blank";
 }
 
-.logpage .left .login_text_ko {
+.logpage .left_login .login_text_ko {
     display: none;
 
     width: 100%;
@@ -745,7 +943,7 @@ html {
     font-family: "Nanum Gothic", "Adobe Blank";
 }
 
-.logpage .left .login_text_en {
+.logpage .left_login .login_text_en {
     display: none;
 
     width: 100%;
@@ -761,10 +959,65 @@ html {
     font-family: "Nanum Gothic", "Adobe Blank";
 }
 
-.logpage .right {
+.logpage .left_find {
     width: 50%;
     height: 100%;
-    padding: 187.5px 40px 187.5px 40px;
+
+    float: left;
+    position: relative;
+
+}
+
+.logpage .left_find .login_title {
+    width: 100%;
+
+    position: absolute;
+    top: 45%;
+
+    text-align: center;
+
+    color: #ffb500;
+    font-size: 65px;
+    font-weight: 900;
+    font-family: "Raleway script=all rev=1", "Adobe Blank";
+}
+
+.logpage .left_find .login_text_ko {
+    display: none;
+
+    width: 100%;
+
+    position: absolute;
+    top: 53%;
+
+    text-align: center;
+
+    color: #f0811a;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .left_find .login_text_en {
+    display: none;
+
+    width: 100%;
+
+    position: absolute;
+    top: 56%;
+
+    text-align: center;
+
+    color: #f0811a;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .right_login {
+    width: 50%;
+    height: 100%;
+    padding: 178px 40px 178px 40px;
 
     float: right;
     position: relative;
@@ -772,15 +1025,15 @@ html {
     border-left: 2px solid #cecdcd;
 }
 
-.logpage .right ul {
+.logpage .right_login ul {
     width: 100%;
 }
 
-.logpage .right .id_title {
+.logpage .right_login .id_title {
     width: 50px;
 
     position: absolute;
-    top: 182px;
+    top: 170px;
     left: 51px;
 
     font-size: 13px;
@@ -788,11 +1041,11 @@ html {
     background-color: #eee;
 }
 
-.logpage .right .pwd_title {
+.logpage .right_login .pwd_title {
     width: 65px;
 
     position: absolute;
-    top: 267px;
+    top: 255px;
     left: 50px;
 
     font-size: 13px;
@@ -800,26 +1053,26 @@ html {
     background-color: #eee;
 }
 
-.logpage .right .id_edge {
+.logpage .right_login .id_edge {
     height: 60px;
-    padding: 0 14px 0 14px;
+    padding: 0 45px 0 14px;
     margin-bottom: 25px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
 }
 
-.logpage .right .pwd_edge {
+.logpage .right_login .pwd_edge {
     height: 60px;
-    padding: 0 14px 0 14px;
+    padding: 0 45px 0 14px;
     margin-bottom: 25px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
 }
 
-.logpage .right .id_edge .input_id,
-.logpage .right .pwd_edge .input_password {
+.logpage .right_login .id_edge .input_id,
+.logpage .right_login .pwd_edge .input_password {
     width: 100%;
     height: 56px;
 
@@ -828,10 +1081,28 @@ html {
     background-color: transparent;
 }
 
-.logpage .right .captcha {
+.logpage .right_login .id_edge .fa-fingerprint {
+    position: absolute;
+    top: 196px;
+    right: 52px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .right_login .pwd_edge .fa-keyboard {
+    position: absolute;
+    top: 282px;
+    right: 52px;
+
+    font-size: 23px;
+    color: #bfbfbf;
+}
+
+.logpage .right_login .captcha {
     height: 90px;
     line-height: 85px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     text-align: center;
     font-size: 12px;
@@ -840,18 +1111,7 @@ html {
     background-color: #e6e6e6;
 }
 
-.logpage .right .login_btn {
-    height: 65px;
-    margin-bottom: 25px;
-
-    text-align: center;
-    font-size: 12px;
-    border-radius: 4px;
-    background-color: #ffb500;
-    box-shadow: 0 0 1.5px 0;
-}
-
-.logpage .right .login_submit {
+.logpage .right_login .login_submit {
     width: 100%;
     height: 65px;
     line-height: 66px;
@@ -865,18 +1125,10 @@ html {
 
     border-radius: 4px;
     box-shadow: 0 0 1.5px 0;
-    background-color: #ffb500;
+    background-color: #e6e6e6;
 }
 
-.logpage .right .fa-unlock-alt {
-    position: absolute;
-    top: 522px;
-    left: 205px;
-
-    font-size: 17px;
-}
-
-.logpage .right .user_add {
+.logpage .right_login .user_add {
     float: left;
 
     font-size: 14px;
@@ -884,13 +1136,407 @@ html {
     font-family: "Nanum Gothic", "Adobe Blank";
 }
 
-.logpage .right .user_find {
+.logpage .right_login .user_find {
     float: right;
 
     font-size: 14px;
     font-weight: 500;
     font-family: "Nanum Gothic", "Adobe Blank";
 }
+
+.logpage .right_find {
+    width: 50%;
+    height: 100%;
+    padding: 178px 40px 178px 40px;
+
+    float: right;
+    position: relative;
+
+    border-left: 2px solid #cecdcd;
+}
+
+.logpage .right_find .find_category ul {
+    font-size: 0;
+}
+
+.logpage .right_find .find_category ul li {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 26px;
+
+    display: inline-block;
+
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+    border-bottom: 4px solid #b6b6b6;
+}
+
+.logpage .right_find .find_category ul li p {
+    height: 40px;
+    padding-left: 5px;
+
+    color: #a5a5a5;
+}
+
+.logpage .right_find .find_category .on {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 26px;
+    color: #333;
+    border-bottom: 4px solid #ffb500;
+}
+
+
+
+
+
+
+
+
+
+
+
+.logpage .right_find .id_find {
+    width: 100%;
+    height: 357px;
+}
+
+.logpage .right_find .find_id_edge {
+    width: 84%;
+    height: 60px;
+    padding: 0 45px 0 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+    position: absolute;
+    top: 229px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right_find .id_find .find_email_edge {
+    width: 84%;
+    height: 60px;
+    padding: 0 45px 0 20px;
+    margin-bottom: 15px;
+
+    position: absolute;
+    top: 288px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right_find .pwd_find .find_email_edge {
+    width: 84%;
+    height: 60px;
+    padding: 0 45px 0 20px;
+    margin-bottom: 15px;
+
+    position: absolute;
+    top: 344px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right_find .find_id_title {
+    width: 50px;
+
+    position: absolute;
+    top: 246px;
+    left: 57px;
+
+    z-index: 1;
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .right_find .find_email_title {
+    width: 50px;
+
+    position: absolute;
+    top: 280px;
+    left: 57px;
+
+    z-index: 1;
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+
+
+.logpage .right_find .find_email_edge .find_email {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .right_find .id_find .fa-at {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .right_find .id_find .or {
+    width: 84%;
+
+    position: absolute;
+    top: 383px;
+
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .right_find .pwd_find .or {
+    width: 84%;
+
+    position: absolute;
+    top: 426px;
+
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .right_find .id_find .find_tel_edge {
+    width: 84%;
+    height: 60px;
+    padding: 0 13px 0 20px;
+    margin-bottom: 15px;
+
+    position: absolute;
+    top: 435px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right_find .pwd_find .find_tel_edge {
+    width: 84%;
+    height: 60px;
+    padding: 0 13px 0 20px;
+    margin-bottom: 15px;
+
+    position: absolute;
+    top: 465px;
+
+    border-radius: 4px;
+    border: 2px solid #c2c2c2;
+}
+
+.logpage .right_find .find_tel_title {
+    width: 60px;
+
+    position: absolute;
+    top: 427px;
+    left: 57px;
+
+    z-index: 1;
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .right_find .find_tel_edge .find_tel {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .right_find .id_find .fa-phone {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .right_find .form_id_submit {
+    width: 84%;
+    height: 55px;
+    letter-spacing: 1px;
+
+    position: absolute;
+    top: 560px;
+
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+
+    border-radius: 4px;
+    box-shadow: 0 0 1.5px 0;
+    background-color: #e6e6e6;
+}
+
+.logpage .right_find .division {
+    width: 100%;
+    border: 1px solid #d6d6d6;
+}
+
+.logpage .right_find .backward {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
+.logpage .right_find .backward .fa-backward {
+    position: absolute;
+    top: 642px;
+
+    color: #616161;
+}
+
+.logpage .right_find .backward p {
+    position: absolute;
+    top: 641px;
+    left: 60px;
+
+    color: #616161;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logpage .pwd_find {
+    width: 100%;
+    height: 397px;
+}
+
+.logpage .pwd_find .find_email_title {
+    width: 50px;
+
+    position: absolute;
+    top: 336px;
+    left: 57px;
+
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .pwd_find .find_tel_title {
+    width: 60px;
+
+    position: absolute;
+    top: 457px;
+    left: 57px;
+
+    font-size: 13px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.logpage .pwd_find .fa-fingerprint {
+    position: absolute;
+    top: 17px;
+    right: 13px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .pwd_find .fa-at {
+    position: absolute;
+    top: 16px;
+    right: 13px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .pwd_find .fa-phone {
+    position: absolute;
+    top: 16px;
+    right: 13px;
+
+    font-size: 25px;
+    color: #bfbfbf;
+}
+
+.logpage .pwd_find .find_id_pwd {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .pwd_find .find_email_pwd {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .pwd_find .find_tel_pwd {
+    width: 100%;
+    height: 56px;
+
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.logpage .pwd_find .form_pwd_submit {
+    width: 84%;
+    height: 55px;
+    letter-spacing: 1px;
+    margin-top: 7px;
+
+    position: absolute;
+    top: 553px;
+
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+
+    border-radius: 4px;
+    box-shadow: 0 0 1.5px 0;
+    background-color: #e6e6e6;
+}
+
+
+
+
+
+
+
 
 .login_background {
     display: none;

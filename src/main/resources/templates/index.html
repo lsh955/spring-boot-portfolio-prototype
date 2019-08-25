@@ -1,6 +1,7 @@
 <!--
     현재 개발중인 사이트 입니다.
-    기획과 코드는 얼마든지 바뀔 수 있습니다.
+    기획과 코드는 얼마든지 변동될 수 있습니다.
+    진행상황 : 8% (아직 갈 길이 멉니다.)
 -->
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,8 +34,9 @@
     <div class="left_side">
 
         <div class="small_photo">
-            <a href="" class="01" title="승화니'">
+            <a href="" title="승화니'">
                 <img src="img/profile.jpg" alt="승화니'">
+                <p class="count">99..</p>  <!-- 메시지 건수를 카운트로 알려준다.(99건 이상부턴 숫자뒤에 '..'으로 처리) -->
             </a>
         </div>
 
@@ -137,6 +139,26 @@
             </ul>
         </div>
 
+        <div class="message_box" style="display: none">
+            <div class="message_head">
+                <div class="message_photo">
+                    <img src="img/profile.jpg" alt="승화니'">
+                </div>
+                <p class="main_text">안녕하세요.</p>
+                <p class="sub_text">로그인 후 서비스를 이용하세요.</p>    <!-- 시간에 따라 타이틀 변경할것. -->
+            </div>
+            <!-- TODO
+                 01. 메시지 확인기능
+                 02. 회원정보 수정기능
+                 03. 회원쪽지 보내기 -->
+            <div class="message_body">
+                <!-- 비회원즉, 로그인 안할때 guest_message 박스를 기본으로 보여준다. -->
+                <div class="guest_message">
+                    <p class="message_login_text">로그인 후 서비스를 이용하실 수 있습니다.</p>
+                    <input type="button" class="message_login_btn" value="로그인" />
+                </div>
+            </div>
+        </div>
 
         <div class="darkmode_help">
             <p><i class="fas fa-info-circle"></i>다크/라이트 모드란?</p>
@@ -253,24 +275,33 @@
             <i class="fas fa-times"></i>
         </div> -->
 
-        <div class="left">
+        <div class="left_login" style="display: block">
             <p class="login_title">LOGIN<span class="test_action">.</span></p>  <!-- .test_action 효과를 줄까말까 고민중이다. -->
             <p class="login_text_ko">등록된 계정을 입력하여, 사이트를 이용해보세요.</p>
-            <p class="login_text_en">Please enter a registered account to use the site.</p>
+            <p class="login_text_en">We will find the lost account information with a simple information.</p>
         </div>
-        <form id=form action="/" method="post">
-            <div class="right">
+
+        <div class="left_find" style="display: none">
+            <p class="login_title">Find<span class="test_action">.</span></p>  <!-- .test_action 효과를 줄까말까 고민중이다. -->
+            <p class="login_text_ko">간단한 정보로 잃어버린 계정정보를 찾아드립니다.</p>
+            <p class="login_text_en">We will find the lost account with simple information.</p>
+        </div>
+
+        <div class="right_login" style="display: block">
+            <form id="form" action="/" method="post">
                 <ul>
                     <li>
                         <p class="id_title">아이디</p>
                         <div class="id_edge">
                             <input type="text" class="input_id" name="user_id" id="user_id" placeholder="아이디를 입력하세요." />
+                            <i class="fas fa-fingerprint"></i>
                         </div>
                     </li>
                     <li>
                         <p class="pwd_title">비밀번호</p>
                         <div class="pwd_edge">
                             <input type="password" class="input_password" name="user_password" id="user_password" placeholder="비밀번호를 입력하세요." />
+                            <i class="far fa-keyboard"></i>
                         </div>
                     </li>
                     <li>
@@ -279,8 +310,7 @@
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-unlock-alt"></i>
-                        <input type="button" id="form_btn" class="login_submit" value=" LOGIN" />
+                        <input type="button" id="form_btn" class="login_submit" value="LOGIN" />
                     </li>
                     <li>
                         <div class="user_add">
@@ -295,8 +325,91 @@
                         </div>
                     </li>
                 </ul>
+            </form>
+        </div>
+        <div class="right_find">
+            <div class="find_category">
+                <ul>
+                    <li>
+                        <a href="/" title="아이디 찾기">
+                            <p class="on">아이디 찾기</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" title="비밀번호 찾기">
+                            <p class="">비밀번호 찾기</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </form>
+            <div class="id_find" style="display: block">
+                <form id="find_id_form" action="/" method="post">
+                    <ul >
+                        <li>
+                            <p class="find_email_title">이메일</p>
+                            <div class="find_email_edge">
+                                <input type="text" class="find_email" name="user_email_find" id="user_email_find" placeholder="이메일을 입력하세요." />
+                                <i class="fas fa-at"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="or">또는</p>
+                        </li>
+                        <li>
+                            <p class="find_tel_title">전화번호</p>
+                            <div class="find_tel_edge">
+                                <input type="password" class="find_tel" name="user_tel_find" id="user_tel_find" placeholder="전화번호를 입력하세요." />
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="button" id="form_id_btn" class="form_id_submit" value="Find" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="pwd_find" style="display: none">
+                <form id="find_pwd_form" action="/" method="post">
+                    <ul>
+                        <li>
+                            <p class="find_id_title">아이디</p>
+                            <div class="find_id_edge">
+                                <input type="text" class="find_id_pwd" name="user_id_find_pwd" id="user_id_find_pwd" placeholder="아이디를 입력하세요." />
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="find_email_title">이메일</p>
+                            <div class="find_email_edge">
+                                <input type="text" class="find_email_pwd" name="user_email_find_pwd" id="user_email_find_pwd" placeholder="이메일을 입력하세요." />
+                                <i class="fas fa-at"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="or">또는</p>
+                        </li>
+                        <li>
+                            <p class="find_tel_title">전화번호</p>
+                            <div class="find_tel_edge">
+                                <input type="password" class="find_tel_pwd" name="user_tel_find_pwd" id="user_tel_find_pwd" placeholder="전화번호를 입력하세요." />
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="button" id="form_pwd_btn" class="form_pwd_submit" value="Find" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <div class="backward">
+                <a href="/" title="로그인 하기">
+                    <i class="fas fa-backward"></i>
+                    <p>로그인 하기</p>
+                </a>
+            </div>
+
+        </div>
         <div class="clear_both"></div>
     </div>
 

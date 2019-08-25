@@ -25,7 +25,7 @@ $(document).ready(function () {
         Darkmode_Help = $('.darkmode_help'),
         Functions_Li_01 = $('.dark_mode'),
         Functions_Li_02 = $('.question'),
-        Functions_Li_03 = $('.login, .login_background');
+        Functions_Li_03 = $('.login, .login_background, .message_login_btn');
 
 
     //********************************
@@ -36,7 +36,7 @@ $(document).ready(function () {
     setInterval("autotime()",1000);
 
     // 리로드시 animated 효과
-    $('.small_photo').addClass('animated rubberBand faster');                   // 왼쪽사이드 프로필 사진
+    $('.message_photo').addClass('animated rubberBand faster delay-1s');        // 메시지 박스 프로필 사진
     $('.popup_title .fa-bell').addClass('animated swing faster');               // 데스크탑 팝업 벨 아이콘
     $('.domain_title span').addClass('animated fadeIn faster');                 // 영문메뉴 큰 타이틀
     $('.popup_btn .fa-times').addClass('animated rotateIn faster');             // 모바일 팝업 닫기 아이콘
@@ -104,9 +104,59 @@ $(document).ready(function () {
         return false;
     });
     Functions_Li_03.on('click', function () {    // 로그인
-        //site_alert(Site_Notice_Text, '로그인 기능은 준비중 입니다.', 3000);
+        // site_alert(Site_Notice_Text, '로그인 기능은 준비중 입니다.', 3000);
+        setTimeout(function () {
+            $('.left_login').stop().fadeIn('fast');
+            $('.right_login').stop().fadeIn('fast');
+            $('.left_find').stop().fadeOut('fast');
+            $('.right_find').stop().fadeOut('fast');
+        }, 200);
         return false;
     });
+
+    $('.menu_list .07, .menu_list .08').on('click', function () {    // 로그인
+        site_alert(Site_Notice_Text, '준비중인 페이지 입니다.', 3000);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //********************************
+    //**** 메시지 박스 이벤트 ********
+    //********************************
+
+    $('.small_photo').on('click', function () {
+        if($('.message_box').css('display') == 'none'){     // 메시지 박스가 있는지 없는지 검증한다.
+            $('.message_box').stop().fadeIn('fast');        // none이면 보이게 하고
+        }else {
+            $('.message_box').stop().fadeOut('fast');       // black이면 숨기게 한다.
+        }
+        return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,12 +169,7 @@ $(document).ready(function () {
     //********************************
 
     // 로그인 되었을 시 알림
-    // site_alert(Site_Notice_Text, '이승환님, 안녕하세요. 2019년00월00일 00시00분 로그인되었습니다.', 5000);
-
-
-
-
-
+    //site_alert(Site_Notice_Text, '이승환님, 안녕하세요. 2019년00월00일 00시00분 로그인되었습니다.', 5000);
 
     // 계정만들기
     $('.user_add p').on('click', function () {
@@ -133,10 +178,10 @@ $(document).ready(function () {
     });
 
     // 아이디/비밀번호 찾기
-    $('.user_find p').on('click', function () {
-        site_alert(Site_Notice_Text, '아이디/비밀번호 찾기 기능은 준비중 입니다.', 3000);
-        return false;
-    });
+    // $('.user_find p').on('click', function () {
+    //     site_alert(Site_Notice_Text, '아이디/비밀번호 찾기 기능은 준비중 입니다.', 3000);
+    //     return false;
+    // });
 
     // 아이디 input
     $('.input_id').on({
@@ -167,7 +212,7 @@ $(document).ready(function () {
     });
 
     // 로그인창 input값 체크
-    $('#form_btn').click(function(){
+    $('#form_btn').on('click', function(){
         let form_result = login_input_check() == true ? true : false;
     });
 
@@ -183,17 +228,16 @@ $(document).ready(function () {
     //     }
     // });
 
-
-
-
-
-    Functions_Li_03.click(function(){
-        if ($('.login_shadow_off').attr('class') == 'login_shadow_off') {
+    Functions_Li_03.on('click', function(){
+        if ($('.logpage').css('display') == 'none') {
             $('.functions .login .fa-lock').stop().hide();
             $('.functions .login .fa-times').stop().fadeIn('fast');
             $('.login_background').stop().fadeIn('fast');
             $('.logpage').stop().fadeIn('fast');
             $('.login_shadow_off').attr('class', 'login_shadow_on');
+            $('#form input[id^=user_]').val('');
+            $('.login_submit').css('background-color', '#e6e6e6');
+            $('.message_box').stop().fadeOut('fast');       // 로그인이 뜨면 message_box를 숨긴다.
             login_effect();
             document.querySelector('.functions .login .fa-times').classList.add('animated', 'rotateIn', 'faster');
         } else {
@@ -205,6 +249,79 @@ $(document).ready(function () {
             document.querySelector('.functions .login .fa-lock').classList.add('animated', 'fadeInRight', 'faster');
         }
     });
+
+    // 아이디/비밀번호 입력값 실시간 감지(나중에 캡차 반환값 얻어서 추가 해야됨)
+    $('#form').on({
+        'propertychange change keyup paste input': function() {         // 이 라인은 검색해서 갔다 쓴거임.
+            let id_currentVal = $('input[id=user_id]').val();           // 아이디
+            let pwd_currentVal = $('input[id=user_password]').val();    // 비밀번호
+            if('' == id_currentVal || null == id_currentVal || '' == pwd_currentVal || null == pwd_currentVal){
+                $('.login_submit').css('background-color', '#e6e6e6');  // 모든항목에 input값이 없을시
+            }else {
+                $('.login_submit').css('background-color', '#ffb500');  // 모든항목에 input값이 있을시
+            }
+        },
+        'keydown': function(e) {
+            if (e.keyCode == 13) {
+                $(this).clearQueue().submit();  // Enter 입력시 정보가 전송된다.
+            }
+        }
+    });
+
+    $('.user_find').on('click', function() {
+        setTimeout(function () {
+            $('.left_login').stop().fadeOut('fast');
+            $('.right_login').stop().fadeOut('fast');
+        }, 0);
+        setTimeout(function () {
+            $('.left_find').stop().fadeIn('fast');
+            $('.right_find').stop().fadeIn('fast');
+        }, 300);
+        return false;   // 이벤트 종료를 안해주면 div창이 닫아진다.
+    });
+
+    $('.backward').on('click', function() {
+        setTimeout(function () {
+            $('.left_login').stop().fadeIn('fast');
+            $('.right_login').stop().fadeIn('fast');
+
+            $('.find_category ul li p').eq(0).addClass('on');
+            $('.find_category ul li p').eq(1).removeClass('on');
+            $('.id_find').show().fadeIn('fast');
+            $('.pwd_find').show().fadeOut('fast');
+        }, 300);
+        setTimeout(function () {
+            $('.left_find').stop().fadeOut('fast');
+            $('.right_find').stop().fadeOut('fast');
+        }, 0);
+        return false;   // 이벤트 종료를 안해주면 div창이 닫아진다.
+    });
+
+    // 아이디/비밀번로 찾기
+    $('.find_category ul li').on('click', function () {
+        let li_value = $(this).index();
+        $('.find_category ul li p').removeClass('on');
+        $('.find_category ul li p').eq(li_value).addClass('on');
+        if(li_value == 0){
+            $('.id_find').show();
+            $('.pwd_find').hide();
+        }else {
+            $('.pwd_find').show();
+            $('.id_find').hide();
+        }
+        return false;
+    });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -243,12 +360,11 @@ $(document).ready(function () {
     });
 
     // 메뉴클릭시 부드러운 스크롤
-    // .small_photo a      :  사진_클릭시_상단바로가기_데스크탑
     // .menu_title a       :  헤더_클릭시_상단바로가기_모바일
     // .site_up a          :  상단_바로가기_모바일
     // .right_side a       :  오른쪽메뉴_데스크탑
     // .menu_list a        :  왼쪽메뉴_데스크탑
-    $('.small_photo a, .menu_title a, .site_up a, .right_side li, .menu_list a').on('click', function () {
+    $('.menu_title a, .site_up a, .right_side li, .menu_list a').on('click', function () {
         let class_value = $(this).attr('class');
         $('html').animate({
             scrollTop: $('#' + class_value).offset().top
@@ -268,6 +384,38 @@ $(document).ready(function () {
             }
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //********************************
@@ -418,13 +566,15 @@ function login_input_check() {
 
 // 로그인 효과
 function login_effect(){
-    $('.left .login_title').stop().animate({top: '310'}, 1000);
-    let text_ko = setTimeout(function () {
-        $('.left .login_text_ko').stop().fadeIn('slow');
+    setTimeout(function () {
+        $('.login_title').stop().animate({top: '310'}, 900);
     }, 500);
-    let text_en = setTimeout(function () {
-        $('.left .login_text_en').stop().fadeIn('slow');
-    }, 700);
+    setTimeout(function () {
+        $('.login_text_ko').stop().fadeIn('slow');
+    }, 800);
+    setTimeout(function () {
+        $('.login_text_en').stop().fadeIn('slow');
+    }, 1000);
     $('#user_id').focus();
     $('.id_edge').css('border','2px solid #b00020');
     $('.id_title').css('color','#b00020');
