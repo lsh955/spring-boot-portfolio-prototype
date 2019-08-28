@@ -5,13 +5,6 @@
 
 <mapper namespace="dev.springboot_portfolio.mybatis_mapper.TestMapper">
 
-    <!-- <select id="SelectData" resultType="TestData">
-            SELECT ID
-                  ,NAME
-                  ,COUNTRY
-                  ,POPULATION
-              FROM CITY
-             WHERE ID = #{id}
-         </select> -->
+    <!-- <select id="SelectData" resultType="TestData"> SELECT * FROM TEST_DATA </select> -->
 
 </mapper>
