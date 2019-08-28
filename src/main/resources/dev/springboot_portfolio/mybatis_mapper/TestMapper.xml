@@ -9,6 +9,6 @@
     <!-- <select id="SelectData" resultType="select"> SELECT * FROM TEST_DATA </select> -->
 
     <!-- 데이터 입력-->
-    <!-- <select id="InsertData" resultType="insert"> INSERT * INTO TEST_DATA VALUES('','','','','','') </select> -->
+    <!-- <select id="InsertData" resultType="insert"> INSERT INTO TEST_DATA VALUES ('','','','','') </select> -->
 
 </mapper>
