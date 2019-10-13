@@ -5,13 +5,10 @@
 
 <mapper namespace="dev.springboot_portfolio.mybatis_mapper.TestMapper">
 
-    <!-- <select id="SelectData" resultType="TestData">
-            SELECT ID
-                  ,NAME
-                  ,COUNTRY
-                  ,POPULATION
-              FROM CITY
-             WHERE ID = #{id}
-         </select> -->
+    <!-- 데이터 가져오기-->
+    <!-- <select id="SelectData" resultType="select"> SELECT * FROM TEST_DATA </select> -->
+
+    <!-- 데이터 입력-->
+    <!-- <select id="InsertData" resultType="insert"> INSERT INTO TEST_DATA VALUES ('','','','','') </select> -->
 
 </mapper>
