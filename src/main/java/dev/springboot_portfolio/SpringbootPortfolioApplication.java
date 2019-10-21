@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 // DB연결을 하지않을 때 아래의 어노테이션을 적용한다.
 //@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class}
 public class SpringbootPortfolioApplication {
-    
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootPortfolioApplication.class, args);
