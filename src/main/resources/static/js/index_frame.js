@@ -125,14 +125,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
     //********************************
     //**** 메시지 박스 이벤트 ********
     //********************************
@@ -145,11 +137,6 @@ $(document).ready(function () {
         }
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
-
-
-
-
-
 
 
 
@@ -312,6 +299,19 @@ $(document).ready(function () {
         return false;
     });
 
+    // 아이디/비밀번로 찾기 왼쪽문구 이벤트(1회성)
+    $('.user_find a p').on('click', function () {
+        setTimeout(function () {
+            $('.login_title_find').stop().animate({top: '310'}, 900);
+        }, 500);
+        setTimeout(function () {
+            $('.login_text_find_ko').stop().fadeIn('slow');
+        }, 800);
+        setTimeout(function () {
+            $('.login_text_find_en').stop().fadeIn('slow');
+        }, 1000);
+    });
+
 
 
 
@@ -464,6 +464,7 @@ function device_display() {
     } else {
         // 991px 미만에서 사용할 모바일 Script
         menu_contents.stop().animate({height: 'toggle'}, 300);
+        $('.window_bax').css('display', 'none');    // 모바일에서는 데스크탑 전용 알림창을 보이지 않을 것이다.
     }
 }
 
@@ -566,14 +567,15 @@ function login_input_check() {
 
 // 로그인 효과
 function login_effect(){
+    // 왼쪽 문구이벤트는 1회성
     setTimeout(function () {
-        $('.login_title').stop().animate({top: '310'}, 900);
+        $('.login_title_login').stop().animate({top: '310'}, 900);
     }, 500);
     setTimeout(function () {
-        $('.login_text_ko').stop().fadeIn('slow');
+        $('.login_text_login_ko').stop().fadeIn('slow');
     }, 800);
     setTimeout(function () {
-        $('.login_text_en').stop().fadeIn('slow');
+        $('.login_text_login_en').stop().fadeIn('slow');
     }, 1000);
     $('#user_id').focus();
     $('.id_edge').css('border','2px solid #b00020');

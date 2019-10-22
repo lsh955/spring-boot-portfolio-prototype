@@ -75,6 +75,116 @@ input:focus {
     color: #fff;
 }
 
+/********** 공통폰트 ***********/
+@font-face{
+    font-family:'NanumGothicLight';     /* 글꼴 유형 */
+    font-style:normal;                  /* 글자 스타일 */
+    font-weight:normal;                 /* 글자 굵기 */
+    src:/*local('NanumGothic'),*/
+            url(fonts/NanumGothic-Light.eot),
+            url(fonts/NanumGothic-Light.eot?#iefix) format('embedded-opentype'),
+            url(fonts/NanumGothic-Light.woff) format('woff'),                         /* 웹 오픈 폰트 형식 */
+            url(fonts/NanumGothic-Light.ttf) format('truetype');                      /* 트루타입(TrueType)은 외곽선 글꼴 표준 */
+}
+@font-face{
+    font-family:'NanumGothicRegular';
+    font-style:normal;
+    font-weight:normal;
+    src:/*local('NanumGothic'),*/
+            url(fonts/NanumGothic-Regular.eot),
+            url(fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+            url(fonts/NanumGothic-Regular.woff) format('woff'),
+            url(fonts/NanumGothic-Regular.ttf) format('truetype');
+}
+@font-face{
+    font-family:'NanumGothicBold';
+    font-style:normal;
+    font-weight:normal;
+    src:/*local('NanumGothic'),*/
+            url(fonts/NanumGothic-Bold.eot),
+            url(fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+            url(fonts/NanumGothic-Bold.woff) format('woff'),
+            url(fonts/NanumGothic-Bold.ttf) format('truetype');
+}
+@font-face{
+    font-family:'NanumGothicExtraBold';
+    font-style:normal;
+    font-weight:normal;
+    src:/*local('NanumGothic'),*/
+            url(fonts/NanumGothic-ExtraBold.eot),
+            url(fonts/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'),
+            url(fonts/NanumGothic-ExtraBold.woff) format('woff'),
+            url(fonts/NanumGothic-ExtraBold.ttf) format('truetype');
+}
+
+/* Noto */
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:100;
+    src:local('Noto Sans Thin'), local('NotoSans-Thin'),
+    url(fonts/NotoSansKR-Thin-Hestia.eot),
+    url(fonts/NotoSansKR-Thin-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Thin-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Thin-Hestia.otf) format('opentype');
+}
+
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:300;
+    src:local('Noto Sans Light'), local('NotoSans-Light'),
+    url(fonts/NotoSansKR-Light-Hestia.eot),
+    url(fonts/NotoSansKR-Light-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Light-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Light-Hestia.otf) format('opentype');
+}
+
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:400;
+    src:local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url(fonts/NotoSansKR-Regular-Hestia.eot),
+    url(fonts/NotoSansKR-Regular-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Regular-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Regular-Hestia.otf) format('opentype');
+}
+
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:500;
+    src:local('Noto Sans Medium'), local('NotoSans-Medium'),
+    url(fonts/NotoSansKR-Medium-Hestia.eot),
+    url(fonts/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Medium-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Medium-Hestia.otf) format('opentype');
+}
+
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:700;
+    src:local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url(fonts/NotoSansKR-Bold-Hestia.eot),
+    url(fonts/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Bold-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Bold-Hestia.otf) format('opentype');
+}
+
+@font-face{
+    font-family:'Noto Sans KR';
+    font-style:normal;
+    font-weight:900;
+    src:local('Noto Sans Black'), local('NotoSans-Black'),
+    url(fonts/NotoSansKR-Black-Hestia.eot),
+    url(fonts/NotoSansKR-Black-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(fonts/NotoSansKR-Black-Hestia.woff) format('woff'),
+    url(fonts/NotoSansKR-Black-Hestia.otf) format('opentype');
+}
+/********** 공통폰트 ***********/
+
 /* 브라우저 스크롤 스타일 */
 html {
     /* Internet Explorer */
@@ -116,8 +226,9 @@ html {
     border-radius: 8px;
     -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
 }
-
 /* //브라우저 스크롤 스타일 */
+
+
 
 /********************/
 /**** ]] default ****/
@@ -913,7 +1024,7 @@ html {
 
 }
 
-.logpage .left_login .login_title {
+.logpage .left_login .login_title_login {
     width: 100%;
 
     position: absolute;
@@ -927,7 +1038,7 @@ html {
     font-family: "Raleway script=all rev=1", "Adobe Blank";
 }
 
-.logpage .left_login .login_text_ko {
+.logpage .left_login .login_text_login_ko {
     display: none;
 
     width: 100%;
@@ -943,7 +1054,7 @@ html {
     font-family: "Nanum Gothic", "Adobe Blank";
 }
 
-.logpage .left_login .login_text_en {
+.logpage .left_login .login_text_login_en {
     display: none;
 
     width: 100%;
@@ -968,7 +1079,7 @@ html {
 
 }
 
-.logpage .left_find .login_title {
+.logpage .left_find .login_title_find {
     width: 100%;
 
     position: absolute;
@@ -982,7 +1093,7 @@ html {
     font-family: "Raleway script=all rev=1", "Adobe Blank";
 }
 
-.logpage .left_find .login_text_ko {
+.logpage .left_find .login_text_find_ko {
     display: none;
 
     width: 100%;
@@ -998,7 +1109,7 @@ html {
     font-family: "Nanum Gothic", "Adobe Blank";
 }
 
-.logpage .left_find .login_text_en {
+.logpage .left_find .login_text_find_en {
     display: none;
 
     width: 100%;
@@ -1407,7 +1518,7 @@ html {
 
 .logpage .right_find .backward p {
     position: absolute;
-    top: 641px;
+    top: 640px;
     left: 60px;
 
     color: #616161;
