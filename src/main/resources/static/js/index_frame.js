@@ -367,7 +367,7 @@ $(document).ready(function () {
     $('.menu_title a, .site_up a, .right_side li, .menu_list a').on('click', function () {
         let class_value = $(this).attr('class');
         $('html').animate({
-            scrollTop: $('#' + class_value).offset().top
+            scrollTop: $('#' + class_value).offset().top - 45
         }, 1000);
         return false;
     });
