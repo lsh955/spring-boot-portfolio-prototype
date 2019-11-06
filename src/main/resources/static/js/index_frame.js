@@ -368,7 +368,7 @@ $(document).ready(function () {
         let class_value = $(this).attr('class');
         $('html').animate({
             scrollTop: $('#' + class_value).offset().top - 45
-        }, 1000);
+        }, 700);
         return false;
     });
 
