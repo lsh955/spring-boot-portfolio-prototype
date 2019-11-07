@@ -158,6 +158,8 @@ $(document).ready(function () {
     // 로그인 되었을 시 알림
     //site_alert(Site_Notice_Text, '이승환님, 안녕하세요. 2019년00월00일 00시00분 로그인되었습니다.', 5000);
 
+    $('.right_find').stop().fadeOut('fast');
+
     // 계정만들기
     $('.user_add p').on('click', function () {
         site_alert(Site_Notice_Text, '관리자만 로그인 되며, 계정생성은 당분간 지원하지 않습니다.', 5000);
