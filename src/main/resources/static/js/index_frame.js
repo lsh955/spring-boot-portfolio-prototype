@@ -304,7 +304,7 @@ $(document).ready(function () {
     // 아이디/비밀번로 찾기 왼쪽문구 이벤트(1회성)
     $('.user_find a p').on('click', function () {
         setTimeout(function () {
-            $('.login_title_find').stop().animate({top: '310'}, 900);
+            $('.login_title_find').stop().animate({top: '230'}, 900);
         }, 500);
         setTimeout(function () {
             $('.login_text_find_ko').stop().fadeIn('slow');
@@ -369,7 +369,7 @@ $(document).ready(function () {
     $('.menu_title a, .site_up a, .right_side li, .menu_list a').on('click', function () {
         let class_value = $(this).attr('class');
         $('html').animate({
-            scrollTop: $('#' + class_value).offset().top - 45
+            scrollTop: $('#' + class_value).offset().top - 43
         }, 700);
         return false;
     });
@@ -571,7 +571,7 @@ function login_input_check() {
 function login_effect(){
     // 왼쪽 문구이벤트는 1회성
     setTimeout(function () {
-        $('.login_title_login').stop().animate({top: '310'}, 900);
+        $('.login_title_login').stop().animate({top: '230'}, 900);
     }, 500);
     setTimeout(function () {
         $('.login_text_login_ko').stop().fadeIn('slow');

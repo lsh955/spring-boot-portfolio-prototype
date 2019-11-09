@@ -75,116 +75,6 @@ input:focus {
     color: #fff;
 }
 
-/********** 공통폰트 ***********/
-@font-face{
-    font-family:'NanumGothicLight';     /* 글꼴 유형 */
-    font-style:normal;                  /* 글자 스타일 */
-    font-weight:normal;                 /* 글자 굵기 */
-    src:/*local('NanumGothic'),*/
-            url(fonts/NanumGothic-Light.eot),
-            url(fonts/NanumGothic-Light.eot?#iefix) format('embedded-opentype'),
-            url(fonts/NanumGothic-Light.woff) format('woff'),                         /* 웹 오픈 폰트 형식 */
-            url(fonts/NanumGothic-Light.ttf) format('truetype');                      /* 트루타입(TrueType)은 외곽선 글꼴 표준 */
-}
-@font-face{
-    font-family:'NanumGothicRegular';
-    font-style:normal;
-    font-weight:normal;
-    src:/*local('NanumGothic'),*/
-            url(fonts/NanumGothic-Regular.eot),
-            url(fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
-            url(fonts/NanumGothic-Regular.woff) format('woff'),
-            url(fonts/NanumGothic-Regular.ttf) format('truetype');
-}
-@font-face{
-    font-family:'NanumGothicBold';
-    font-style:normal;
-    font-weight:normal;
-    src:/*local('NanumGothic'),*/
-            url(fonts/NanumGothic-Bold.eot),
-            url(fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
-            url(fonts/NanumGothic-Bold.woff) format('woff'),
-            url(fonts/NanumGothic-Bold.ttf) format('truetype');
-}
-@font-face{
-    font-family:'NanumGothicExtraBold';
-    font-style:normal;
-    font-weight:normal;
-    src:/*local('NanumGothic'),*/
-            url(fonts/NanumGothic-ExtraBold.eot),
-            url(fonts/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'),
-            url(fonts/NanumGothic-ExtraBold.woff) format('woff'),
-            url(fonts/NanumGothic-ExtraBold.ttf) format('truetype');
-}
-
-/* Noto */
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:100;
-    src:local('Noto Sans Thin'), local('NotoSans-Thin'),
-    url(fonts/NotoSansKR-Thin-Hestia.eot),
-    url(fonts/NotoSansKR-Thin-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Thin-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Thin-Hestia.otf) format('opentype');
-}
-
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:300;
-    src:local('Noto Sans Light'), local('NotoSans-Light'),
-    url(fonts/NotoSansKR-Light-Hestia.eot),
-    url(fonts/NotoSansKR-Light-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Light-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Light-Hestia.otf) format('opentype');
-}
-
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:400;
-    src:local('Noto Sans Regular'), local('NotoSans-Regular'),
-    url(fonts/NotoSansKR-Regular-Hestia.eot),
-    url(fonts/NotoSansKR-Regular-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Regular-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Regular-Hestia.otf) format('opentype');
-}
-
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:500;
-    src:local('Noto Sans Medium'), local('NotoSans-Medium'),
-    url(fonts/NotoSansKR-Medium-Hestia.eot),
-    url(fonts/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Medium-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Medium-Hestia.otf) format('opentype');
-}
-
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:700;
-    src:local('Noto Sans Bold'), local('NotoSans-Bold'),
-    url(fonts/NotoSansKR-Bold-Hestia.eot),
-    url(fonts/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Bold-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Bold-Hestia.otf) format('opentype');
-}
-
-@font-face{
-    font-family:'Noto Sans KR';
-    font-style:normal;
-    font-weight:900;
-    src:local('Noto Sans Black'), local('NotoSans-Black'),
-    url(fonts/NotoSansKR-Black-Hestia.eot),
-    url(fonts/NotoSansKR-Black-Hestia.eot?#iefix) format('embedded-opentype'),
-    url(fonts/NotoSansKR-Black-Hestia.woff) format('woff'),
-    url(fonts/NotoSansKR-Black-Hestia.otf) format('opentype');
-}
-/********** 공통폰트 ***********/
-
 /* 브라우저 스크롤 스타일 */
 html {
     /* Internet Explorer */
@@ -989,8 +879,8 @@ html {
 
 .logpage {
     width: 1000px;
-    height: 800px;
-    margin-top: -380px;
+    height: 621px;
+    margin-top: -265px;
     margin-left: -455px;
 
     position: fixed;
@@ -999,7 +889,7 @@ html {
 
     z-index: 2;
     border: 3px solid #ffb500;
-    border-radius: 4.5px;
+    border-radius: 5px;
     background-color: #eee;
 }
 
@@ -1060,7 +950,7 @@ html {
     width: 100%;
 
     position: absolute;
-    top: 56%;
+    top: 57%;
 
     text-align: center;
 
@@ -1115,7 +1005,7 @@ html {
     width: 100%;
 
     position: absolute;
-    top: 56%;
+    top: 57%;
 
     text-align: center;
 
@@ -1128,7 +1018,7 @@ html {
 .logpage .right_login {
     width: 50%;
     height: 100%;
-    padding: 178px 40px 178px 40px;
+    padding: 98px 40px 178px 40px;
 
     float: right;
     position: relative;
@@ -1144,7 +1034,7 @@ html {
     width: 50px;
 
     position: absolute;
-    top: 170px;
+    top: 90px;
     left: 51px;
 
     font-size: 13px;
@@ -1156,7 +1046,7 @@ html {
     width: 65px;
 
     position: absolute;
-    top: 255px;
+    top: 175px;
     left: 50px;
 
     font-size: 13px;
@@ -1194,7 +1084,7 @@ html {
 
 .logpage .right_login .id_edge .fa-fingerprint {
     position: absolute;
-    top: 196px;
+    top: 116px;
     right: 52px;
 
     font-size: 25px;
@@ -1203,7 +1093,7 @@ html {
 
 .logpage .right_login .pwd_edge .fa-keyboard {
     position: absolute;
-    top: 282px;
+    top: 201px;
     right: 52px;
 
     font-size: 23px;
@@ -1258,7 +1148,7 @@ html {
 .logpage .right_find {
     width: 50%;
     height: 100%;
-    padding: 178px 40px 178px 40px;
+    padding: 69px 40px 69px 40px;
 
     float: right;
     position: relative;
@@ -1311,6 +1201,8 @@ html {
 .logpage .right_find .id_find {
     width: 100%;
     height: 357px;
+
+    position: relative;
 }
 
 .logpage .right_find .find_id_edge {
@@ -1321,20 +1213,20 @@ html {
     margin-bottom: 15px;
 
     position: absolute;
-    top: 229px;
+    top: 215px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
 }
 
 .logpage .right_find .id_find .find_email_edge {
-    width: 84%;
+    width: 100%;
     height: 60px;
     padding: 0 45px 0 20px;
     margin-bottom: 15px;
 
     position: absolute;
-    top: 288px;
+    top: 39px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
@@ -1347,7 +1239,7 @@ html {
     margin-bottom: 15px;
 
     position: absolute;
-    top: 344px;
+    top: 143px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
@@ -1357,7 +1249,7 @@ html {
     width: 50px;
 
     position: absolute;
-    top: 246px;
+    top: 233px;
     left: 57px;
 
     z-index: 1;
@@ -1370,8 +1262,8 @@ html {
     width: 50px;
 
     position: absolute;
-    top: 280px;
-    left: 57px;
+    top: 32px;
+    left: 21px;
 
     z-index: 1;
     font-size: 13px;
@@ -1400,10 +1292,10 @@ html {
 }
 
 .logpage .right_find .id_find .or {
-    width: 84%;
+    width: 100%;
 
     position: absolute;
-    top: 383px;
+    top: 145px;
 
     font-size: 13px;
     text-align: center;
@@ -1415,7 +1307,7 @@ html {
     width: 84%;
 
     position: absolute;
-    top: 426px;
+    top: 333px;
 
     font-size: 13px;
     text-align: center;
@@ -1424,13 +1316,13 @@ html {
 }
 
 .logpage .right_find .id_find .find_tel_edge {
-    width: 84%;
+    width: 100%;
     height: 60px;
     padding: 0 13px 0 20px;
     margin-bottom: 15px;
 
     position: absolute;
-    top: 435px;
+    top: 205px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
@@ -1443,7 +1335,7 @@ html {
     margin-bottom: 15px;
 
     position: absolute;
-    top: 465px;
+    top: 379px;
 
     border-radius: 4px;
     border: 2px solid #c2c2c2;
@@ -1453,8 +1345,8 @@ html {
     width: 60px;
 
     position: absolute;
-    top: 427px;
-    left: 57px;
+    top: 197px;
+    left: 21px;
 
     z-index: 1;
     font-size: 13px;
@@ -1481,12 +1373,12 @@ html {
 }
 
 .logpage .right_find .form_id_submit {
-    width: 84%;
+    width: 100%;
     height: 55px;
     letter-spacing: 1px;
 
     position: absolute;
-    top: 560px;
+    top: 324px;
 
     text-align: center;
     font-size: 17px;
@@ -1511,14 +1403,14 @@ html {
 
 .logpage .right_find .backward .fa-backward {
     position: absolute;
-    top: 642px;
+    top: 526px;
 
     color: #616161;
 }
 
 .logpage .right_find .backward p {
     position: absolute;
-    top: 640px;
+    top: 524px;
     left: 60px;
 
     color: #616161;
@@ -1549,7 +1441,7 @@ html {
     width: 50px;
 
     position: absolute;
-    top: 336px;
+    top: 135px;
     left: 57px;
 
     font-size: 13px;
@@ -1561,7 +1453,7 @@ html {
     width: 60px;
 
     position: absolute;
-    top: 457px;
+    top: 371px;
     left: 57px;
 
     font-size: 13px;
@@ -1630,7 +1522,7 @@ html {
     margin-top: 7px;
 
     position: absolute;
-    top: 553px;
+    top: 452px;
 
     text-align: center;
     font-size: 17px;
