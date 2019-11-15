@@ -368,7 +368,7 @@ $(document).ready(function () {
     // .menu_list a        :  왼쪽메뉴_데스크탑
     $('.menu_title a, .site_up a, .right_side li, .menu_list a').on('click', function () {
         let class_value = $(this).attr('class');
-        $('html').animate({
+        $('html').stop().animate({
             scrollTop: $('#' + class_value).offset().top - 43
         }, 700);
         return false;
