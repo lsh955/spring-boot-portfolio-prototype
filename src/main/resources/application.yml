@@ -12,7 +12,7 @@ spring:
     active: Mariadb   # 기본 데이터베이스 환경 선택
 ---
 spring:
-  profiles: Mariadb   # 운영 데이터베이스
+  profiles: Mariadb-Test   # 테스트 데이터베이스
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://218.237.179.69:3306/test_user_01
