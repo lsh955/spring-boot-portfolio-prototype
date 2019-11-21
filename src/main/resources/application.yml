@@ -10,14 +10,15 @@ spring:
 spring:
   profiles:
     active: Mariadb   # 기본 데이터베이스 환경 선택
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
 ---
 spring:
   profiles: Mariadb   # 데이터베이스
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-#    url: jdbc:mariadb://218.237.179.69:3306/portfolio    # 운영 데이터베이스
+#    url: jdbc:mariadb://218.237.179.69:3306/portfolio?characterEncoding=UTF-8   # 운영 데이터베이스
 #    username: portfolio
 #    password: tmdghks05)%
-    url: jdbc:mariadb://218.237.179.69:3306/test_user_01  # 테스트 데이터베이스
+    url: jdbc:mariadb://218.237.179.69:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
