@@ -24,6 +24,11 @@ public class DatabaseConfig {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        
+        // .setMapperLocations()
+        // 실제 쿼리문이 존재하는 xml파일들의 위치를 지정.(여기에서는 mybatis/mapper 폴더 하위에 모든 xml을 명시)
+        // 해당 mapper xml들에 오류가 있는지 문법 체크까지 모두 한 뒤에 Factory가 생성되게 되는 것이므로,
+        // 중간중간 오류가 발생하지는 않는지 꼭 확인을 해야한다.
         sessionFactory.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/*.xml"));
         return sessionFactory.getObject();
     }
