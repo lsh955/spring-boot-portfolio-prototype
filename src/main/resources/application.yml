@@ -12,6 +12,11 @@ spring:
     active: Mariadb   # 기본 데이터베이스 환경 선택
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      idleTimeout: 10000
+      connection-timeout: 10000
+      validation-timeout: 10000
+      maxLifetime: 580000
 ---
 spring:
   profiles: Mariadb   # 데이터베이스
