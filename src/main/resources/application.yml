@@ -1,11 +1,13 @@
 spring:
-  http:               # HTTP 인코딩
+  http:                   # HTTP 인코딩
     encoding:
-      charset: UTF-8  # 요청/응답의 인코딩
-      enabled: true   # 인코딩 지원 활성화
-      force: true     # 구성된 인코딩을 강제 활성화
+      charset: UTF-8      # 요청/응답의 인코딩
+      enabled: true       # 인코딩 지원 활성화
+      force: true         # 구성된 인코딩을 강제 활성화
   mustache:
-    suffix: .html     # 템플릿 확장자 변경
+    suffix: .html         # 템플릿 확장자 변경
+  jpa:
+    open-in-view: false   # OSIV는 항상 끄자('JpaProperties'선언을 전혀 다르게 myapp.jpa로 했더라도, 'spring.jpa'open-in-view'로 한다.)
 ---
 spring:
   profiles:
@@ -24,7 +26,7 @@ spring:
     #    url: jdbc:mariadb://218.237.179.69:3306/portfolio?characterEncoding=UTF-8   # 운영 데이터베이스
     #    username: portfolio
     #    password: tmdghks05)%
-    url: jdbc:mariadb://218.237.179.69:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
+    url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
 
