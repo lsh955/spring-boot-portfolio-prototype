@@ -1,9 +1,13 @@
-package com.springboot_portfolio.controller;
+package com.springboot_portfolio.service;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+/**
+ * @author 이승환
+ * @since 2019-11-26
+ */
 public class MySessionListener implements HttpSessionListener {
     
     @Override

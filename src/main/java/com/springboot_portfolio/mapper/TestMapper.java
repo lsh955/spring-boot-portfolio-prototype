@@ -1,12 +1,16 @@
 package com.springboot_portfolio.mapper;
 
-import com.springboot_portfolio.vo.Test01;
+import com.springboot_portfolio.vo.TestVo;
 
 import java.util.List;
 
+/**
+ * @author 이승환
+ * @since 2019-11-26
+ */
 public interface TestMapper {
     
     // 메소드이름은 Test-mapper.xml 파일의 select태그 id
-    public List<Test01> getAll() throws Exception;
+    public List<TestVo> getAll() throws Exception;
     
 }
