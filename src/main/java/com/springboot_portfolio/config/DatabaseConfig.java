@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dev.config;
+package com.springboot_portfolio.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

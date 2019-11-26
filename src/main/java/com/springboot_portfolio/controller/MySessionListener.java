@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dev.controller;
+package com.springboot_portfolio.controller;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;

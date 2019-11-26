@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dev.vo;
+package com.springboot_portfolio.vo;
 
 import lombok.Getter;
 import lombok.Setter;
