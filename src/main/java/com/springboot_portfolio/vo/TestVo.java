@@ -43,7 +43,4 @@ public class TestVo {
         this.tel = tel;
     }
     
-   
-    
-    
 }
