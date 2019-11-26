@@ -22,3 +22,4 @@ spring:
     url: jdbc:mariadb://218.237.179.69:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
+

@@ -1,4 +1,4 @@
-package dev.springboot_portfolio;
+package com.springboot_portfolio.dev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
