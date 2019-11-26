@@ -17,5 +17,5 @@ public class MySessionListener implements HttpSessionListener {
         // 세션이 없어질때
         HttpSession session = event.getSession();
     }
-
+    
 }

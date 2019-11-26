@@ -33,7 +33,7 @@ $(document).ready(function () {
     //********************************
 
     // 서버운영 종료 자동알림
-    setInterval("autotime()",1000);
+    setInterval("autotime()", 1000);
 
     // 리로드시 animated 효과
     $('.message_photo').addClass('animated rubberBand faster delay-1s');        // 메시지 박스 프로필 사진
@@ -79,7 +79,6 @@ $(document).ready(function () {
     });
 
 
-
     // 다크모드 도움말
     Functions_Li_01.on({
         'mouseenter': function () {
@@ -119,36 +118,18 @@ $(document).ready(function () {
     });
 
 
-
-
-
-
-
-
     //********************************
     //**** 메시지 박스 이벤트 ********
     //********************************
 
     $('.small_photo').on('click', function () {
-        if($('.message_box').css('display') == 'none'){     // 메시지 박스가 있는지 없는지 검증한다.
+        if ($('.message_box').css('display') == 'none') {     // 메시지 박스가 있는지 없는지 검증한다.
             $('.message_box').stop().fadeIn('fast');        // none이면 보이게 하고
-        }else {
+        } else {
             $('.message_box').stop().fadeOut('fast');       // black이면 숨기게 한다.
         }
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //********************************
@@ -175,33 +156,33 @@ $(document).ready(function () {
     // 아이디 input
     $('.input_id').on({
         'focus': function () {      // 포커스가 있으면 테두리 색상이 컬러로 변한다.
-            $('.id_edge').css('border','2px solid #b00020');
-            $('.id_title').css('color','#b00020');
-            $('.pwd_edge').css('border','2px solid #c2c2c2');
-            $('.pwd_title').css('color','#333');
+            $('.id_edge').css('border', '2px solid #b00020');
+            $('.id_title').css('color', '#b00020');
+            $('.pwd_edge').css('border', '2px solid #c2c2c2');
+            $('.pwd_title').css('color', '#333');
         },
         'focusout': function () {   // 포커스가 벋어나면 input 색상이 흑백으로 변한다.
-            $('.id_edge').css('border','2px solid #c2c2c2');
-            $('.id_title').css('color','#333');
+            $('.id_edge').css('border', '2px solid #c2c2c2');
+            $('.id_title').css('color', '#333');
         }
     });
 
     // 비밀번호 input
     $('.input_password').on({
         'focus': function () {      // 포커스가 있으면 테두리 색상이 컬러로 변한다.
-            $('.pwd_edge').css('border','2px solid #b00020');
-            $('.pwd_title').css('color','#b00020');
-            $('.id_edge').css('border','2px solid #c2c2c2');
-            $('.id_title').css('color','#333');
+            $('.pwd_edge').css('border', '2px solid #b00020');
+            $('.pwd_title').css('color', '#b00020');
+            $('.id_edge').css('border', '2px solid #c2c2c2');
+            $('.id_title').css('color', '#333');
         },
         'focusout': function () {   // 포커스가 벋어나면 input 색상이 흑백으로 변한다.
-            $('.pwd_edge').css('border','2px solid #c2c2c2');
-            $('.pwd_title').css('color','#333');
+            $('.pwd_edge').css('border', '2px solid #c2c2c2');
+            $('.pwd_title').css('color', '#333');
         }
     });
 
     // 로그인창 input값 체크
-    $('#form_btn').on('click', function(){
+    $('#form_btn').on('click', function () {
         let form_result = login_input_check() == true ? true : false;
     });
 
@@ -217,7 +198,7 @@ $(document).ready(function () {
     //     }
     // });
 
-    Functions_Li_03.on('click', function(){
+    Functions_Li_03.on('click', function () {
         if ($('.logpage').css('display') == 'none') {
             $('.functions .login .fa-lock').stop().hide();
             $('.functions .login .fa-times').stop().fadeIn('fast');
@@ -241,23 +222,23 @@ $(document).ready(function () {
 
     // 아이디/비밀번호 입력값 실시간 감지(나중에 캡차 반환값 얻어서 추가 해야됨)
     $('#form').on({
-        'propertychange change keyup paste input': function() {         // 이 라인은 검색해서 갔다 쓴거임.
+        'propertychange change keyup paste input': function () {         // 이 라인은 검색해서 갔다 쓴거임.
             let id_currentVal = $('input[id=user_id]').val();           // 아이디
             let pwd_currentVal = $('input[id=user_password]').val();    // 비밀번호
-            if('' == id_currentVal || null == id_currentVal || '' == pwd_currentVal || null == pwd_currentVal){
+            if ('' == id_currentVal || null == id_currentVal || '' == pwd_currentVal || null == pwd_currentVal) {
                 $('.login_submit').css('background-color', '#e6e6e6');  // 모든항목에 input값이 없을시
-            }else {
+            } else {
                 $('.login_submit').css('background-color', '#ffb500');  // 모든항목에 input값이 있을시
             }
         },
-        'keydown': function(e) {
+        'keydown': function (e) {
             if (e.keyCode == 13) {
                 $(this).clearQueue().submit();  // Enter 입력시 정보가 전송된다.
             }
         }
     });
 
-    $('.user_find').on('click', function() {
+    $('.user_find').on('click', function () {
         setTimeout(function () {
             $('.left_login').stop().fadeOut('fast');
             $('.right_login').stop().fadeOut('fast');
@@ -269,7 +250,7 @@ $(document).ready(function () {
         return false;   // 이벤트 종료를 안해주면 div창이 닫아진다.
     });
 
-    $('.backward').on('click', function() {
+    $('.backward').on('click', function () {
         setTimeout(function () {
             $('.left_login').stop().fadeIn('fast');
             $('.right_login').stop().fadeIn('fast');
@@ -291,10 +272,10 @@ $(document).ready(function () {
         let li_value = $(this).index();
         $('.find_category ul li p').removeClass('on');
         $('.find_category ul li p').eq(li_value).addClass('on');
-        if(li_value == 0){
+        if (li_value == 0) {
             $('.id_find').show();
             $('.pwd_find').hide();
-        }else {
+        } else {
             $('.pwd_find').show();
             $('.id_find').hide();
         }
@@ -313,26 +294,6 @@ $(document).ready(function () {
             $('.login_text_find_en').stop().fadeIn('slow');
         }, 1000);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //********************************
@@ -386,38 +347,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //********************************
@@ -512,13 +441,13 @@ function layer_release() { // 해제
 }
 
 // 서버운영 자동알림
-function autotime(){
+function autotime() {
     const Site_Notice_Text = '사이트 알림';
 
     var date = new Date(),
         currentTime = date.getHours() + '' + date.getMinutes();
 
-    switch (currentTime){
+    switch (currentTime) {
         case '2050':
             site_alert(Site_Notice_Text, '잠시 후(21시00분) 서버 운영이 종료됩니다.', 7000);
             break;
@@ -548,15 +477,15 @@ function login_input_check() {
     const Site_Notice_Text = '사이트 알림';
     // 모든 input 값을 대입한다.
     const Input_Type = $('#form :input');
-    for(let i = 0; i < Input_Type.length; i++){
-        if('' == $(Input_Type[i]).val() || null == $(Input_Type[i]).val()){
+    for (let i = 0; i < Input_Type.length; i++) {
+        if ('' == $(Input_Type[i]).val() || null == $(Input_Type[i]).val()) {
             let input_id_value = $(Input_Type[i]).attr('id');   // 값이없는 input id값을 얻어온다.
             $('#' + input_id_value).focus();                    // 값이없는 input에 포커스가 이동한다.
-            if(input_id_value == 'user_id'){
+            if (input_id_value == 'user_id') {
                 site_alert(Site_Notice_Text, '아이디 입력은 필수입력 입니다.', 3000);
                 return false;   // return false;를 안해주면 마지막 값 먼저 포커스 이동 현상이 나타난다.
             }
-            if(input_id_value == 'user_password') {
+            if (input_id_value == 'user_password') {
                 site_alert(Site_Notice_Text, '비밀번호 입력은 필수입력 입니다.', 3000);
                 return false;   // return false;를 안해주면 마지막 값 먼저 포커스 이동 현상이 나타난다.
             }
@@ -568,7 +497,7 @@ function login_input_check() {
 }
 
 // 로그인 효과
-function login_effect(){
+function login_effect() {
     // 왼쪽 문구이벤트는 1회성
     setTimeout(function () {
         $('.login_title_login').stop().animate({top: '230'}, 900);
@@ -580,6 +509,6 @@ function login_effect(){
         $('.login_text_login_en').stop().fadeIn('slow');
     }, 1000);
     $('#user_id').focus();
-    $('.id_edge').css('border','2px solid #b00020');
-    $('.id_title').css('color','#b00020');
+    $('.id_edge').css('border', '2px solid #b00020');
+    $('.id_title').css('color', '#b00020');
 }

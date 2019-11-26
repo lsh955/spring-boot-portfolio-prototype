@@ -36,7 +36,7 @@ public class DatabaseConfig {
     @Bean
     // @Bean sqlSessionTemplate
     // 실제 DB접속에 이용되는 sqlSessionTemplate를 생성하여 Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws  Exception {
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws Exception {
         final SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory);
         return sqlSessionTemplate;
     }
