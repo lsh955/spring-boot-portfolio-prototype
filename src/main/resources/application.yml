@@ -5,7 +5,7 @@ spring:
       enabled: true       # 인코딩 지원 활성화
       force: true         # 구성된 인코딩을 강제 활성화
   mustache:
-    suffix: .html         # 기본(.mustache) 템플릿 확장자를 'html'로 변경
+    suffix: .html         # 기본(.mustache) 템플릿 확장자를 '.html'로 변경
   jpa:
     open-in-view: false   # OSIV는 항상 끄자('JpaProperties'선언을 전혀 다르게 myapp.jpa로 했더라도, 'spring.jpa'open-in-view'로 한다.)
 ---
