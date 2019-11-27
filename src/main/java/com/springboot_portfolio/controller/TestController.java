@@ -22,7 +22,7 @@ public class TestController {
     
     // Call한 결과를 Return 한다.
     @RequestMapping("/testquery")
-    public @ResponseBody List<TestVo> query() throws Exception{
+    public @ResponseBody List<TestVo> query() throws Exception {
         return testService.getAll();
     }
 
