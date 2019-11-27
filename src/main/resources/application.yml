@@ -15,7 +15,7 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림..-,-)
-      maxLifetime: 1000000          # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
+      maxLifetime: 700000          # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
       connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
       validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정
 ---
