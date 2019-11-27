@@ -33,7 +33,6 @@ dependencies {
     implementation 'org.springframework.session:spring-session-core'
     implementation 'org.mariadb.jdbc:mariadb-java-client'
     implementation "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
-    runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
