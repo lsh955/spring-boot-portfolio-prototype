@@ -51,7 +51,7 @@ public class MemberVo {
         return ID;
     }
     
-    public void setID(Integer ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
     
