@@ -1,7 +1,6 @@
 package com.springboot_portfolio.vo;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 /**
