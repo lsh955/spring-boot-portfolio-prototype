@@ -1,9 +1,6 @@
 package com.springboot_portfolio.vo;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -16,27 +13,33 @@ import javax.persistence.*;
 @Table(name = "USERS_MEMBER")
 public class MemberEntity {
     
+    /**
+     * @Id : 테이블의 기본키로 매핑한다.
+     * @Column : 필드를 컬럼에 매핑한다.
+     * @GeneratedValue : 기본 키 값을 대한 생성을 지정한다.
+     * GenerationType : 기본 키 생성 전략
+     * IDENTITY : Mariadb의 경우 AUTO_INCREMENT를 사용하여 기본키를 생성한다.
+     */
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
     
-    @Column
+    @Column(name = "MEMBER_NAME", nullable = false)
     private String MEMBER_NAME;
     
-    @Column
+    @Column(name = "MEMBER_ID", nullable = false)
     private String MEMBER_ID;
     
-    @Column
+    @Column(name = "MEMBER_PWD", nullable = false)
     private String MEMBER_PWD;
     
-    @Column
+    @Column(name = "MEMBER_EMAIL", nullable = false)
     private String MEMBER_EMAIL;
     
-    @Column
+    @Column(name = "MEMBER_TEL", nullable = false)
     private String MEMBER_TEL;
     
-    @Column
+    @Column(name = "MEMBER_IP", nullable = false)
     private String MEMBER_IP;
     
     @Builder

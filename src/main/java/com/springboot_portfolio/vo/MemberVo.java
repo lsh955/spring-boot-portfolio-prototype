@@ -1,8 +1,6 @@
 package com.springboot_portfolio.vo;
 
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -25,18 +23,18 @@ public class MemberVo {
     private LocalDateTime MEMBER_LASTDATE;
     
     @Builder
-    public MemberVo(Integer ID, String MEMBER_NAME, String MEMBER_ID, String MEMBER_PWD, String MEMBER_EMAIL, String MEMBER_TEL, String MEMBER_IP) {
+    public MemberVo(int ID, String MEMBER_NAME, String MEMBER_ID, String MEMBER_PWD, String MEMBER_EMAIL, String MEMBER_TEL, String MEMBER_IP) {
         this.ID = ID;
         this.MEMBER_NAME = MEMBER_NAME;
         this.MEMBER_ID = MEMBER_ID;
-        this.MEMBER_PWD = MEMBER_PWD;
+        this.MEMBER_NAME = MEMBER_PWD;
         this.MEMBER_EMAIL = MEMBER_EMAIL;
         this.MEMBER_TEL = MEMBER_TEL;
         this.MEMBER_IP = MEMBER_IP;
     }
     
     public MemberEntity toEntity() {
-        return MemberEntity.builder()
+        MemberEntity memberEntity = MemberEntity.builder()
                 .ID(ID)
                 .MEMBER_NAME(MEMBER_NAME)
                 .MEMBER_ID(MEMBER_ID)
@@ -45,6 +43,7 @@ public class MemberVo {
                 .MEMBER_TEL(MEMBER_TEL)
                 .MEMBER_IP(MEMBER_IP)
                 .build();
+        return memberEntity;
     }
     
     public int getID() {
