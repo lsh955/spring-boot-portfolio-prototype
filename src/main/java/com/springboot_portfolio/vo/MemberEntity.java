@@ -13,9 +13,9 @@ import javax.persistence.*;
 public class MemberEntity {
     
     /**
-     * @Id : 테이블의 기본키로 매핑한다.
-     * @Column : 필드를 컬럼에 매핑한다.
-     * @GeneratedValue : 기본 키 값을 대한 생성을 지정한다.
+     * Id : 테이블의 기본키로 매핑한다.
+     * Column : 필드를 컬럼에 매핑한다.
+     * GeneratedValue : 기본 키 값을 대한 생성을 지정한다.
      * GenerationType : 기본 키 생성 전략
      * IDENTITY : Mariadb의 경우 AUTO_INCREMENT를 사용하여 기본키를 생성한다.
      */
