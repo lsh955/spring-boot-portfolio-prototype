@@ -34,7 +34,7 @@ public class MemberVo {
     }
     
     public MemberEntity toEntity() {
-        MemberEntity memberEntity = MemberEntity.builder()
+        return MemberEntity.builder()
                 .ID(ID)
                 .MEMBER_NAME(MEMBER_NAME)
                 .MEMBER_ID(MEMBER_ID)
@@ -43,7 +43,6 @@ public class MemberVo {
                 .MEMBER_TEL(MEMBER_TEL)
                 .MEMBER_IP(MEMBER_IP)
                 .build();
-        return memberEntity;
     }
     
     public int getID() {
