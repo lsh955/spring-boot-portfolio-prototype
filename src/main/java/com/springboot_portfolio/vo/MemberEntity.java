@@ -51,7 +51,7 @@ public class MemberEntity {
         this.MEMBER_TEL = MEMBER_TEL;
         this.MEMBER_IP = MEMBER_IP;
     }
-    
+
     public int getID() {
         return ID;
     }
