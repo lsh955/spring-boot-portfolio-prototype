@@ -22,7 +22,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
-    private MemberService memberService;
+    private MemberService memberservice;
     
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -38,6 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                // 페이지 권한 설정
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/myinfo").hasRole("MEMBER")
+                .antMatchers("/**").permitAll()
             .and()
                 .formLogin()    // 로그인 설정
                 .loginPage("/user/login")
@@ -54,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(memberservice).passwordEncoder(passwordEncoder());
     }
     
 }

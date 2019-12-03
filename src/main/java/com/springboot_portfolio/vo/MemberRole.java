@@ -8,18 +8,15 @@ import lombok.Getter;
  * @since 2019-11-28
  */
 @AllArgsConstructor
-public enum Role {
+public enum MemberRole {
     
     ADMIN("ROLE_ADMIN"),
     MEMBER("ROLE_MEMBER");
     
     private String value;
-    
+
     public String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

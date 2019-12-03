@@ -44,75 +44,75 @@ public class MemberVo {
                 .MEMBER_IP(MEMBER_IP)
                 .build();
     }
-    
+
     public int getID() {
         return ID;
     }
-    
+
     public void setID(int ID) {
         this.ID = ID;
     }
-    
+
     public String getMEMBER_NAME() {
         return MEMBER_NAME;
     }
-    
+
     public void setMEMBER_NAME(String MEMBER_NAME) {
         this.MEMBER_NAME = MEMBER_NAME;
     }
-    
+
     public String getMEMBER_ID() {
         return MEMBER_ID;
     }
-    
+
     public void setMEMBER_ID(String MEMBER_ID) {
         this.MEMBER_ID = MEMBER_ID;
     }
-    
+
     public String getMEMBER_PWD() {
         return MEMBER_PWD;
     }
-    
+
     public void setMEMBER_PWD(String MEMBER_PWD) {
         this.MEMBER_PWD = MEMBER_PWD;
     }
-    
+
     public String getMEMBER_EMAIL() {
         return MEMBER_EMAIL;
     }
-    
+
     public void setMEMBER_EMAIL(String MEMBER_EMAIL) {
         this.MEMBER_EMAIL = MEMBER_EMAIL;
     }
-    
+
     public String getMEMBER_TEL() {
         return MEMBER_TEL;
     }
-    
+
     public void setMEMBER_TEL(String MEMBER_TEL) {
         this.MEMBER_TEL = MEMBER_TEL;
     }
-    
+
     public String getMEMBER_IP() {
         return MEMBER_IP;
     }
-    
+
     public void setMEMBER_IP(String MEMBER_IP) {
         this.MEMBER_IP = MEMBER_IP;
     }
-    
+
     public LocalDateTime getMEMBER_FIRSTDATE() {
         return MEMBER_FIRSTDATE;
     }
-    
+
     public void setMEMBER_FIRSTDATE(LocalDateTime MEMBER_FIRSTDATE) {
         this.MEMBER_FIRSTDATE = MEMBER_FIRSTDATE;
     }
-    
+
     public LocalDateTime getMEMBER_LASTDATE() {
         return MEMBER_LASTDATE;
     }
-    
+
     public void setMEMBER_LASTDATE(LocalDateTime MEMBER_LASTDATE) {
         this.MEMBER_LASTDATE = MEMBER_LASTDATE;
     }

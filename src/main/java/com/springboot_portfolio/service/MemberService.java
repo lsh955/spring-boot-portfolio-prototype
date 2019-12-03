@@ -3,8 +3,9 @@ package com.springboot_portfolio.service;
 import com.springboot_portfolio.vo.MemberEntity;
 import com.springboot_portfolio.mapper.MemberMapper;
 import com.springboot_portfolio.vo.MemberVo;
-import com.springboot_portfolio.vo.Role;
+import com.springboot_portfolio.vo.MemberRole;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -26,8 +27,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class MemberService implements UserDetailsService {
-    
-    private MemberMapper memberMapper;
+
+    private MemberMapper membermapper;
     
     /**
      * joinUser()
@@ -38,8 +39,8 @@ public class MemberService implements UserDetailsService {
     public String joinUser(MemberVo memberVo){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberVo.setMEMBER_PWD(passwordEncoder.encode(memberVo.getMEMBER_PWD()));
-        
-        return memberMapper.save(memberVo.toEntity()).getMEMBER_ID();
+
+        return membermapper.save(memberVo.toEntity()).getMEMBER_ID();
     }
     
     /**
@@ -49,15 +50,15 @@ public class MemberService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String MEMBER_EMAIL) throws UsernameNotFoundException {
-        Optional<MemberEntity> userEntityWrapper = memberMapper.findByEmail(MEMBER_EMAIL);
+        Optional<MemberEntity> userEntityWrapper = membermapper.findByEmail(MEMBER_EMAIL);
         MemberEntity userEntity = userEntityWrapper.get();
     
         List<GrantedAuthority> authorities = new ArrayList<>();
         
         if(("admin@example.com").equals(MEMBER_EMAIL)){
-            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+            authorities.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue()));
         }else {
-            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+            authorities.add(new SimpleGrantedAuthority(MemberRole.MEMBER.getValue()));
         }
         
         return new User(userEntity.getMEMBER_EMAIL(), userEntity.getMEMBER_PWD(), authorities);
