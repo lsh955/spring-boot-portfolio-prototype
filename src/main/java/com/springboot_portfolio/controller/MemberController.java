@@ -31,8 +31,8 @@ public class MemberController {
 
     // 회원가입 처리
     @PostMapping("/user/signup")
-    public String execSignup(MemberVo memberVo) {
-        memberservice.joinUser(memberVo);
+    public String execSignup(MemberVo membervo) {
+        memberservice.joinUser(membervo);
 
         return "redirect:/user/login";
     }
