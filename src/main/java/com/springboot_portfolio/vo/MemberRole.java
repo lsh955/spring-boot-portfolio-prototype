@@ -10,6 +10,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MemberRole {
     
+    /**
+     * ADMIN을 가진 사용자만 접근 가능
+     * MEMBER를 가진 사용자만 접근 가능
+     */
     ADMIN("ROLE_ADMIN"),
     MEMBER("ROLE_MEMBER");
     

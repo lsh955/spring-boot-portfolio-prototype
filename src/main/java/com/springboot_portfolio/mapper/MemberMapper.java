@@ -3,7 +3,7 @@ package com.springboot_portfolio.mapper;
 import com.springboot_portfolio.vo.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-        import java.util.Optional;
+import java.util.Optional;
 
 /**
  * @author 이승환
