@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
  * @author 이승환
  * @since 2019-11-27
  */
+@Getter
+@Setter
 @ToString
 @NoArgsConstructor
 public class MemberVo {
