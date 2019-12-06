@@ -6,6 +6,9 @@ spring:
       force: true         # 구성된 인코딩을 강제 활성화
   mustache:
     suffix: .html
+  output:
+    ansi:
+      enabled: always     # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
 ---
 spring:
   profiles:
