@@ -1,4 +1,4 @@
-package dev.springboot_portfolio;
+package com.springboot_portfolio;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
