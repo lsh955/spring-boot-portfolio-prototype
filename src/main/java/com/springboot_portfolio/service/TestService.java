@@ -15,12 +15,12 @@ import java.util.List;
 @Service
 public class TestService {
     
-    // TestMapper interface를 Autowired 걸고
-    TestMapper testMapper;
-
-    // 그 안에 getAll()함수를 Call한다.
-    public List<TestVo> getAll() throws Exception {
-        return testMapper.getAll();
-    }
+//    // TestMapper interface를 Autowired 걸고
+//    TestMapper testMapper;
+//
+//    // 그 안에 getAll()함수를 Call한다.
+//    public List<TestVo> getAll() throws Exception {
+//        return testMapper.getAll();
+//    }
     
 }

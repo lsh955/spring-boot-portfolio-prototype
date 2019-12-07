@@ -16,13 +16,13 @@ import java.util.List;
 @Controller
 public class TestController {
     
-    // Service를 @Autowired로 걸고
-    TestService testService;
-    
-    // Call한 결과를 Return 한다.
-    @RequestMapping("/testquery")
-    public @ResponseBody List<TestVo> query() throws Exception {
-        return testService.getAll();
-    }
+//    // Service를 @Autowired로 걸고
+//    TestService testService;
+//
+//    // Call한 결과를 Return 한다.
+//    @RequestMapping("/testquery")
+//    public @ResponseBody List<TestVo> query() throws Exception {
+//        return testService.getAll();
+//    }
 
 }
