@@ -4,8 +4,8 @@
 <!-- MyBatis를 이용하는 가장 큰 이유는 무엇인가..
      XML을 기반으로 SQL을 깔끔하게 관리할 수 있는 장점인것 같다. -->
 
-<!--<mapper namespace="com.springboot_portfolio.mapper.TestMapper">-->
-<!--    <select id="getAll" resultType="com.springboot_portfolio.vo.TestVo">-->
-<!--        SELECT * FROM TEST01    &lt;!&ndash;테스트로 전체 값을 불러온다.&ndash;&gt;-->
-<!--    </select>-->
-<!--</mapper>-->
+<mapper namespace="com.springboot_portfolio.mapper.TestMapper">
+    <select id="getAll" resultType="com.springboot_portfolio.vo.TestVo">
+        SELECT * FROM TEST01    <!--테스트로 전체 값을 불러온다.-->
+    </select>
+</mapper>

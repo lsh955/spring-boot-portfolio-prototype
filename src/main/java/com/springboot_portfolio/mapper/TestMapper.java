@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface TestMapper {
     
-//    // 메소드이름은 mapper xml의 select태그의 id값
-//    public List<TestVo> getAll() throws Exception;
+    // 메소드이름은 mapper xml의 select태그의 id값
+    public List<TestVo> getAll() throws Exception;
     
 }
