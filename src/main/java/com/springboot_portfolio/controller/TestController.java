@@ -17,7 +17,6 @@ import java.util.List;
 public class TestController {
     
     // Service를 @Autowired로 걸고
-    @Autowired
     TestService testService;
     
     // Call한 결과를 Return 한다.

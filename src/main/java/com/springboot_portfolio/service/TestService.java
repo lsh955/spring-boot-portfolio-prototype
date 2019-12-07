@@ -3,6 +3,7 @@ package com.springboot_portfolio.service;
 import com.springboot_portfolio.mapper.TestMapper;
 import com.springboot_portfolio.vo.TestVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,7 @@ import java.util.List;
 @Service
 public class TestService {
     
-    // TestMapper interface를 Autowired 걸고,
-    @Autowired
+    // TestMapper interface를 Autowired 걸고
     TestMapper testMapper;
 
     // 그 안에 getAll()함수를 Call한다.
