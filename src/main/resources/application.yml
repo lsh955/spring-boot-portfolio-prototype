@@ -14,7 +14,7 @@ spring:
 ---
 spring:
   profiles:
-    active: Mariadb   # 기본 데이터베이스 환경 선택
+    active: Mariadb       # 기본 데이터베이스 환경 선택
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림..-,-)
@@ -23,7 +23,7 @@ spring:
       validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정
 ---
 spring:
-  profiles: Mariadb   # 데이터베이스
+  profiles: Mariadb       # 데이터베이스
   datasource:
     #    url: jdbc:mariadb://codedot.co.kr:3306/portfolio?characterEncoding=UTF-8   # 운영 데이터베이스
     #    username: portfolio
@@ -32,7 +32,7 @@ spring:
     username: test_user_01
     password: dl945pa
 ---
-google: # 리캡챠에서 기본적으로 제공해주는 테스트 용도 key,secret
+google:                   # 리캡챠에서 기본적으로 제공해주는 테스트 용도 key,secret
   recaptcha:
     key:
       site: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
