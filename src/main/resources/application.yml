@@ -4,8 +4,8 @@ spring:
       charset: UTF-8      # 요청/응답의 인코딩
       enabled: true       # 인코딩 지원 활성화
       force: true         # 구성된 인코딩을 강제 활성화
-  mustache:
-    suffix: .html
+  thymeleaf:
+    suffix: .html         # 템플릿 기본확장자
   output:
     ansi:
       enabled: always     # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
