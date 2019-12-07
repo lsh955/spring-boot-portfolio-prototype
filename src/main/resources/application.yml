@@ -35,10 +35,3 @@ spring:
     url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
----
-google:                   # 리캡챠에서 기본적으로 제공해주는 테스트 용도 key,secret
-  recaptcha:
-    key:
-      site: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
-      secret: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-      url: https://www.google.com/recaptcha/api/siteverify
