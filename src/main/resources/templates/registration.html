@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration Form</title>
+    <title>회원가입</title>
     <link rel="icon" th:href="@{/img/spring_icon.png}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,14 +11,14 @@
 </head>
 <body>
 <form th:action="@{/login}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="submit">Go To Login Page</button>
+    <button class="btn btn-md btn-warning btn-block" type="submit">로그인페이지로 돌아가기</button>
 </form>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <form autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" method="post" class="form-horizontal" role="form">
-                <h2>Registration Form</h2>
+                <h2>회원가입 입력</h2>
 
                 <div class="form-group">
                     <div class="col-sm-9">
@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                        <button type="submit" class="btn btn-primary btn-block">사용자등록</button>
                     </div>
                 </div>
 
