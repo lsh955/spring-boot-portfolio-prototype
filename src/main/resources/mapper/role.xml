@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bkjeon.example.mapper.user.RoleMapper">
-    <resultMap id="Role" type="com.bkjeon.example.entity.user.Role">
+<mapper namespace="com.springboot_portfolio.mapper.RoleMapper">
+    <resultMap id="Role" type="com.springboot_portfolio.vo.Role">
         <result property="id" column="role_id"/>
         <result property="role" column="role"/>
     </resultMap>
