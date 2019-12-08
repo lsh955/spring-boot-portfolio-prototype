@@ -12,12 +12,14 @@ spring:
   output:
     ansi:
       enabled: always     # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
-  security:               # 기본 security 계정정보 보안구성(추후삭제 예정)
-    user:
-      name: admin
-      password: dl945pa
+#  security:               # 기본 security 계정정보 보안구성(추후삭제 예정)
+#    user:
+#      name: admin
+#      password: dl945pa
   mybatis:
     mapper-locations: classpath:mapper/*.xml
+  basic:
+    enabled: false
 ---
 spring:
   profiles:
