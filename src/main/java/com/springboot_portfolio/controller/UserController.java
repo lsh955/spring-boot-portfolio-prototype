@@ -24,13 +24,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // 메인화면
     @GetMapping(value = {"/"})
-    public ModelAndView gethome() {
+    public ModelAndView getindex() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
     }
 
+    // 로그인
     @GetMapping(value = {"login"})
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
@@ -71,8 +73,8 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
         System.out.println(userPrincipal.toString());
-        modelAndView.addObject("userName", "Welcome " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
-        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
+        modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
+        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");
         modelAndView.setViewName("home");
         return modelAndView;
     }

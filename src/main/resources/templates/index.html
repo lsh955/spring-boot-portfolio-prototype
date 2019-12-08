@@ -16,7 +16,7 @@
     <meta name="description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
     <meta property="og:url" content="/"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="img/profile.jpg"/>
+    <meta property="og:image" th:content="@{img/profile.jpg}"/>
     <meta property="og:title" content="승화니, 사심 가득한 포트폴리오"/>
     <meta property="og:site_name" content="승화니, 사심 가득한 포트폴리오"/>
     <meta property="og:description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
@@ -28,7 +28,7 @@
          2. 구글폰트는 완성되면 파일로 만들자.
          3. 주석은 완성되면 서버단 주석으로 바꾸자.
     -->
-    <link th:href="@{/css/index_light.css?v=}" rel="stylesheet"/>    <!-- main layout css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index_light.css}" />    <!-- main layout css -->
 </head>
 <body>
 <div class="wrapper">
