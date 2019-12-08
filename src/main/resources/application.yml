@@ -5,7 +5,9 @@ spring:
       enabled: true       # 인코딩 지원 활성화
       force: true         # 구성된 인코딩을 강제 활성화
   thymeleaf:
+    mode: HTML            # 템플릿 모드
     suffix: .html         # 템플릿 기본확장자
+    encoding: UTF-8       # 텔플릿 인코딩
   output:
     ansi:
       enabled: always     # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
