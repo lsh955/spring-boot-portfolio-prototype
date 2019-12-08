@@ -24,7 +24,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = {"/", "login"})
+    @GetMapping(value = {"/"})
+    public ModelAndView gethome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+    @GetMapping(value = {"login"})
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");

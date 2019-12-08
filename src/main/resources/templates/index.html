@@ -5,7 +5,7 @@
     완료일정 : 2020년 언젠가...
 -->
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
@@ -28,7 +28,7 @@
          2. 구글폰트는 완성되면 파일로 만들자.
          3. 주석은 완성되면 서버단 주석으로 바꾸자.
     -->
-    <link href="css/index_light.css?v=" rel="stylesheet"/>    <!-- main layout css -->
+    <link th:href="@{/css/index_light.css?v=}" rel="stylesheet"/>    <!-- main layout css -->
 </head>
 <body>
 <div class="wrapper">
@@ -38,7 +38,7 @@
             <a href="" title="승화니'">
                 <p class="count">99..</p>  <!-- 메시지 건수를 카운트로 알려준다.(99건 이상부턴 숫자뒤에 '..'으로 처리) -->
                 <!-- TODO : 내 사진은 나중에 CSS background 로 처리하자 -->
-                <img src="img/profile.jpg" alt="승화니'">
+                <img th:src="@{img/profile.jpg}" alt="승화니'">
             </a>
         </div>
 
@@ -63,7 +63,7 @@
             <div class="menu_contents">
 
                 <div class="mobile_menu_close">
-                    <img src="img/close_white.png" art="닫기"/>
+                    <img th:src="@{img/close_white.png}" art="닫기"/>
                 </div>
 
                 <div class="menu_list">
@@ -144,7 +144,7 @@
         <div class="message_box" style="display: none">
             <div class="message_head">
                 <div class="message_photo">
-                    <img src="img/profile.jpg" alt="승화니'">
+                    <img th:src="@{img/profile.jpg}" alt="승화니'">
                 </div>
                 <p class="main_text">안녕하세요.</p>
                 <p class="sub_text">로그인 후 서비스를 이용하세요.</p>    <!-- 시간에 따라 타이틀 변경할것. -->
@@ -494,12 +494,12 @@
 </div>
 
 <!-- 우선순위가 낮은 CSS파일은 HTML문서 하단에 배치한다. -->
-<link href="css/animate.min.css?v=" rel="stylesheet"/>    <!-- animate css -->
+<link th:href="@{/css/animate.min.css?v=}" rel="stylesheet"/>    <!-- animate css -->
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway|Source+Sans+Pro&display=swap?v="
       rel="stylesheet"/>    <!-- Raleway, Nanum Gothic, Source Sans Pro -->
 
-<script src="js/jquery-3.4.1.min.js?v="></script>          <!-- jquery 3.4.1 -->
-<script src="js/font_awesome_all.js?v="></script>          <!-- font awesome icon -->
-<script src="js/index_frame.js?v="></script>               <!-- main layout js -->
+<script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
+<script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
+<script th:src="@{js/index_frame.js?v=}"></script>               <!-- main layout js -->
 </body>
 </html>
