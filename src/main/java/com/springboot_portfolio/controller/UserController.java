@@ -27,7 +27,7 @@ public class UserController {
     @GetMapping(value = {"/", "login"})
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/login");
+        modelAndView.setViewName("login");
         return modelAndView;
     }
 
@@ -36,7 +36,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
         modelAndView.addObject("user", user);
-        modelAndView.setViewName("user/registration");
+        modelAndView.setViewName("registration");
         return modelAndView;
     }
 
@@ -48,12 +48,12 @@ public class UserController {
             bindingResult.rejectValue("loginId", "error.loginId", "There is already a user registered with the loginId provided");
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("user/registration");
+            modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("user/registration");
+            modelAndView.setViewName("registration");
         }
         return modelAndView;
     }
@@ -66,14 +66,14 @@ public class UserController {
         System.out.println(userPrincipal.toString());
         modelAndView.addObject("userName", "Welcome " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-        modelAndView.setViewName("user/home");
+        modelAndView.setViewName("home");
         return modelAndView;
     }
 
     @GetMapping("exception")
     public ModelAndView getUserPermissionExceptionPage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("user/access-denied");
+        mv.setViewName("access-denied");
         return mv;
     }
 

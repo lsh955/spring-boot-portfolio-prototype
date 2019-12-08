@@ -5,7 +5,7 @@ spring:
       enabled: true       # 인코딩 지원 활성화
       force: true         # 구성된 인코딩을 강제 활성화
   thymeleaf:
-    mode: HTML            # 템플릿 모드
+    mode: HTML5            # 템플릿 모드
     suffix: .html         # 템플릿 기본확장자
     encoding: UTF-8       # 텔플릿 인코딩
   output:
