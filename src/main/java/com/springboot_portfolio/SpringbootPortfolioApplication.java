@@ -24,5 +24,5 @@ public class SpringbootPortfolioApplication extends SpringBootServletInitializer
     public static void main(String[] args) {
         SpringApplication.run(SpringbootPortfolioApplication.class, args);
     }
-    
+
 }
