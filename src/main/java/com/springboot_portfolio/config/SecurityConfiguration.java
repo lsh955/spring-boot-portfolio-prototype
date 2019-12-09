@@ -48,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/home").hasRole("ADMIN")         // "ADMIN"권한만 "/home"에 접근가능
+                .antMatchers("/home").hasAuthority("ADMIN")         // "ADMIN"권한만 "/home"에 접근가능
             .anyRequest()
                 .authenticated()
                 .and().csrf().disable()
