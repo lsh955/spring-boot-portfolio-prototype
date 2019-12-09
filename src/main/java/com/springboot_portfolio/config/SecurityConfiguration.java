@@ -67,7 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) {
+    public void configure(WebSecurity web) throws Exception {
         // 인증이 필요없는 구간은 풀어준다.
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
     }
