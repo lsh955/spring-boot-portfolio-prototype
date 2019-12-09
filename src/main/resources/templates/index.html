@@ -292,19 +292,19 @@
         </div>
 
         <div class="right_login" style="display: block">
-            <form id="form" action="/" method="post">
+            <form id="form" method="post" th:action="@{/login}">
                 <ul>
                     <li>
                         <p class="id_title">아이디</p>
                         <div class="id_edge">
-                            <input class="input_id" id="user_id" name="user_id" placeholder="아이디를 입력하세요." type="text"/>
+                            <input class="input_id" id="user_id" name="loginId" placeholder="아이디를 입력하세요." th:placeholder="LoginId" type="text"/>
                             <i class="fas fa-fingerprint"></i>
                         </div>
                     </li>
                     <li>
                         <p class="pwd_title">비밀번호</p>
                         <div class="pwd_edge">
-                            <input class="input_password" id="user_password" name="user_password" placeholder="비밀번호를 입력하세요."
+                            <input class="input_password" id="user_password" name="password" placeholder="비밀번호를 입력하세요." th:placeholder="Password"
                                    type="password"/>
                             <i class="far fa-keyboard"></i>
                         </div>
@@ -315,7 +315,15 @@
                         </div>
                     </li>
                     <li>
-                        <input class="login_submit" id="form_btn" type="button" value="LOGIN"/>
+                        <div align="center" th:if="${param.error}">
+                            <p>아이디 패스워드가 올바르지 않거나 비활성화된 회원입니다.</p>
+                        </div>
+                        <div align="center" th:if="${param.authError}">
+                            <p>만료된 토큰이거나 토큰값을 갱신하여 주시길 바랍니다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <input class="login_submit" id="form_btn" type="Submit" value="LOGIN"/>
                     </li>
                     <li>
                         <div class="user_add">

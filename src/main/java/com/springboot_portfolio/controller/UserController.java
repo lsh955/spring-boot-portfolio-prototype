@@ -36,7 +36,7 @@ public class UserController {
     @GetMapping(value = {"login"})
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("index");
         return modelAndView;
     }
 
