@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper
 public interface UserRoleMapper {
-
+    
     void setUserRoleInfo(@Param("param") UserRole param);
-
+    
 }
