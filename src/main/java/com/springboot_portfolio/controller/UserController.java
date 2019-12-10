@@ -20,10 +20,10 @@ import javax.validation.Valid;
  */
 @Controller
 public class UserController {
-
+    
     @Autowired
     private UserService userService;
-
+    
     // 메인화면
     @GetMapping(value = {"/"})
     public ModelAndView getindex() {
@@ -31,7 +31,7 @@ public class UserController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
-
+    
     // 로그인
     @GetMapping(value = {"login"})
     public ModelAndView getLoginPage() {
@@ -39,7 +39,7 @@ public class UserController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
-
+    
     @GetMapping("registration")
     public ModelAndView getRegistrationPage() {
         ModelAndView modelAndView = new ModelAndView();
@@ -48,7 +48,7 @@ public class UserController {
         modelAndView.setViewName("registration");
         return modelAndView;
     }
-
+    
     @PostMapping("registration")
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
@@ -66,7 +66,7 @@ public class UserController {
         }
         return modelAndView;
     }
-
+    
     @GetMapping("home")
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
@@ -78,12 +78,12 @@ public class UserController {
         modelAndView.setViewName("home");
         return modelAndView;
     }
-
+    
     @GetMapping("exception")
     public ModelAndView getUserPermissionExceptionPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("access-denied");
         return mv;
     }
-
+    
 }
