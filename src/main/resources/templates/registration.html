@@ -4,7 +4,7 @@
 <head>
     <title>회원가입</title>
     <link rel="icon" th:href="@{/img/spring_icon.png}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+    <link rel="stylesheet" th:href="@{/css/registration.css}" type="text/css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,34 +17,40 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" method="post" class="form-horizontal" role="form">
+            <form action="#" autocomplete="off" class="form-horizontal" method="post" role="form"
+                  th:action="@{/registration}" th:object="${user}">
                 <h2>회원가입 입력</h2>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <label th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}" class="validation-message"></label>
-                        <input type="text" th:field="*{loginId}" placeholder="LoginId" class="form-control" />
+                        <label class="validation-message" th:errors="*{loginId}"
+                               th:if="${#fields.hasErrors('loginId')}"></label>
+                        <input class="form-control" placeholder="LoginId" th:field="*{loginId}" type="text"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <label th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="validation-message"></label>
-                        <input type="text" th:field="*{userName}" placeholder="UserName" class="form-control" />
+                        <label class="validation-message" th:errors="*{userName}"
+                               th:if="${#fields.hasErrors('userName')}"></label>
+                        <input class="form-control" placeholder="UserName" th:field="*{userName}" type="text"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
-                        <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+                        <input class="form-control" placeholder="Password" th:field="*{password}" type="password"/>
+                        <label class="validation-message" th:errors="*{password}"
+                               th:if="${#fields.hasErrors('password')}"></label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="password" th:field="*{passwordConfirm}" placeholder="Password Confirm" class="form-control" />
-                        <label th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}" class="validation-message"></label>
+                        <input class="form-control" placeholder="Password Confirm" th:field="*{passwordConfirm}"
+                               type="password"/>
+                        <label class="validation-message" th:errors="*{passwordConfirm}"
+                               th:if="${#fields.hasErrors('passwordConfirm')}"></label>
                     </div>
                 </div>
 
