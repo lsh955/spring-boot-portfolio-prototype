@@ -22,68 +22,70 @@ import javax.validation.Valid;
 public class UserController {
     
     @Autowired
-    private UserService userService;
+    private UserService userService;                        // 서비스레이어에서 세분화된 비즈니스 로직
     
     // 메인화면
-    @GetMapping(value = {"/"})
+    @GetMapping(value = {"/"})                              // GET으로 파라미터를 전달받는다.
     public ModelAndView getindex() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
         return modelAndView;
     }
     
     // 로그인
-    @GetMapping(value = {"login"})
+    @GetMapping(value = {"login"})                          // GET으로 파라미터를 전달받는다.
     public ModelAndView getLoginPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
         return modelAndView;
     }
     
-    @GetMapping("registration")
+    @GetMapping("registration")                             // GET으로 파라미터를 전달받는다.
     public ModelAndView getRegistrationPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("registration");
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        User user = new User();                             // 회원 데이터
+        modelAndView.addObject("user", user);   // 뷰로 보낼 데이터 값
+        modelAndView.setViewName("registration");           // "setViewName"뷰 이름 설정
         return modelAndView;
     }
     
-    @PostMapping("registration")
+    @PostMapping("registration")                            // POST으로 파라미터를 전달받는다.
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         User userExists = userService.findUserByLoginId(user.getLoginId());
         if (userExists != null) {
             bindingResult.rejectValue("loginId", "error.loginId", "There is already a user registered with the loginId provided");
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("registration");
+            modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("registration");
+            modelAndView.addObject("successMessage", "User has been registered successfully");      // 뷰로 보낼 데이터 값
+            modelAndView.addObject("user", new User());                                                         // 뷰로 보낼 데이터 값
+            modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
         }
         return modelAndView;
     }
     
-    @GetMapping("home")
+    @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
     public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
-        System.out.println(userPrincipal.toString());
-        modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
-        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");
-        modelAndView.setViewName("home");
+
+        System.out.println(userPrincipal.toString());       // 데이터를 찍어본다.
+
+        modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
+        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                                    // 뷰로 보낼 데이터 값
+        modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정
         return modelAndView;
     }
     
-    @GetMapping("exception")
+    @GetMapping("exception")                                // GET으로 파라미터를 전달받는다.
     public ModelAndView getUserPermissionExceptionPage() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("access-denied");
-        return mv;
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.setViewName("access-denied");          // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
 }
