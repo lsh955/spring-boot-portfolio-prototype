@@ -23,23 +23,23 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler(
                 "/static/**",
                 "/img/**",
-                        "/css/**",
-                        "/js/**")
-                        .addResourceLocations(
+                "/css/**",
+                "/js/**")
+                .addResourceLocations(
                         "classpath:/resources/static/",
-                                "classpath:/static/img/",
-                                "classpath:/static/css/",
-                                "classpath:/static/js/");
+                        "classpath:/static/img/",
+                        "classpath:/static/css/",
+                        "classpath:/static/js/");
     }
-
+    
     /**
      * 비밀번호 암호화 클래스 Bean등록
      * BCrypt 해시 함수를 이용하여 비밀번호를 저장하는 방법을 사용
      */
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
-
+    
 }
