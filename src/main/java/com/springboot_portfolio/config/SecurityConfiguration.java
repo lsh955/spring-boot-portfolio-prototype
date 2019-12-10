@@ -20,13 +20,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration      // @Configuration : Spring Boot를 사용하면서 필요한 설정
 @EnableWebSecurity  // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
-
+    
     @Autowired
     private UserService userService;    // 서비스레이어에서 세분화된 비즈니스 로직
-
+    
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserService userService) {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
