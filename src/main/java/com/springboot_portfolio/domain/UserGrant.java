@@ -7,10 +7,10 @@ import org.springframework.security.core.GrantedAuthority;
  * @since 2019/12/08
  */
 public class UserGrant implements GrantedAuthority {
-
+    
     @Override
     public String getAuthority() {
         return "ADMIN";
     }
-
+    
 }

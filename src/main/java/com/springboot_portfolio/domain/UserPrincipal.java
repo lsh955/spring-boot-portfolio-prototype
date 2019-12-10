@@ -14,13 +14,13 @@ import java.util.Collection;
  */
 @ToString
 public class UserPrincipal implements UserDetails {
-
+    
     private User user;
-
+    
     public User getUser() {
         return user;
     }
-
+    
     public void setUser(User user) {
         this.user = user;
     }
@@ -71,5 +71,5 @@ public class UserPrincipal implements UserDetails {
     public String getName() {
         return user.getUserName();
     }
-
+    
 }
