@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * @since 2019/12/08
  */
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity  // 이걸 입력하는 순간 기본적인 Security 설정은 날아간다고 보면된다.
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
