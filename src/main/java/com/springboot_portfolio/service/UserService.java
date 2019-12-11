@@ -8,11 +8,15 @@ import com.springboot_portfolio.vo.Role;
 import com.springboot_portfolio.vo.User;
 import com.springboot_portfolio.vo.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author 이승환
@@ -52,6 +56,9 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.findUserByLoginId(username);
+    
+    // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        
         return new UserPrincipal(user);
     }
     
