@@ -29,6 +29,10 @@ public class UserPrincipal implements UserDetails {
         this.user = user;
     }
     
+    /**
+     * UserDetails 구현체 작성시에는 해당 사용자에게 부여된 역할과 권한을 모두 문자열로
+     * getAuthorities()을 통해 획득되도록 구현
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new UserGrant());

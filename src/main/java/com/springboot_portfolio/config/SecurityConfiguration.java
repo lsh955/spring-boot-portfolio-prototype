@@ -67,7 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()                                                // 예외처리 핸들링
                 .accessDeniedPage("/access-denied");                                // 예외가 발생했을때의 페이지 경로
     }
-
+    
     @Override
     public void configure(WebSecurity web) {
         // 인증이 필요없는 허용하는 경로
