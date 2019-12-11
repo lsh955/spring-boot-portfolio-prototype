@@ -1,5 +1,7 @@
 package com.springboot_portfolio.config;
 
+import com.springboot_portfolio.Handler.AuthFailureHandler;
+import com.springboot_portfolio.Handler.AuthSuccessHandler;
 import com.springboot_portfolio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
@@ -26,6 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private UserService userService;                        // 사용자 액세스를위한 서비스 개체
+    
+    @Autowired
+    private AuthFailureHandler authFailureHandler;
+    
+    @Autowired
+    private AuthSuccessHandler authSuccessHandler;
     
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserService userService) {
@@ -57,8 +67,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()                                                   // CSRF 프로텍션을 비활성화(disabled)
                 .formLogin()                                                        // 폼을 통한 로그인을 이용
                 .loginPage("/login")                                                // 로그인 뷰 페이지를 연결
-                .failureUrl("/login?error=true")                                    // 실패 후 이동할 페이지를 지정
-                .defaultSuccessUrl("/home")                                         // 로그인 성공 후 리다이렉트할 URL
+                .successHandler(authSuccessHandler)                                 // 로그인이 성공했을 때 핸들러
+                .failureHandler(authFailureHandler)                                 // 로그인이 실패했을 때 핸들러
                 .usernameParameter("loginId")                                       // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .passwordParameter("password")                                      // 로그인 페이지에서 "name태그"파라메터로 전송된 값
             .and()
