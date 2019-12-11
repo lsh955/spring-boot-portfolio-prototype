@@ -24,7 +24,10 @@ public class UserController {
     @Autowired
     private UserService userService;                        // 사용자 액세스를위한 서비스 개체
     
-    // 메인화면
+    /**
+     * ModelAndView
+     * 메인연결
+     */
     @GetMapping(value = {"/"})                              // GET으로 파라미터를 전달받는다.
     public ModelAndView getindex() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
@@ -32,7 +35,10 @@ public class UserController {
         return modelAndView;
     }
     
-    // 로그인
+    /**
+     * ModelAndView
+     * 로그인 입력 처리
+     */
     @GetMapping(value = {"login"})                          // GET으로 파라미터를 전달받는다.
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
@@ -40,6 +46,10 @@ public class UserController {
         return modelAndView;
     }
     
+    /**
+     * ModelAndView
+     * 회원가입 처리
+     */
     @GetMapping("registration")                             // GET으로 파라미터를 전달받는다.
     public ModelAndView getRegistrationPage() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
@@ -50,6 +60,9 @@ public class UserController {
     }
     
     /**
+     * ModelAndView
+     * 회원가입 정보를 보내는 처리
+     *
      * @param bindingResult
      * 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.
      * 오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
@@ -76,16 +89,27 @@ public class UserController {
         return modelAndView;
     }
     
+    /**
+     * ModelAndView
+     * 인증 후 권한이 있는 처리
+     */
     @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
-        
-        //현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
-        //SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
+    
+        /**
+         * @param Authentication
+         * 현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
+         * @param SecurityContextHolder
+         * SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
+         */
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
-        // UserPrincipal 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
-        // Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
+    
+        /**
+         * @param UserPrincipal
+         * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
+         * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
+         */
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
 
         System.out.println(userPrincipal.toString());       // 데이터를 찍어본다.
@@ -96,6 +120,10 @@ public class UserController {
         return modelAndView;
     }
     
+    /**
+     * ModelAndView
+     * 예외가 발행했을 경우
+     */
     @GetMapping("exception")                                // GET으로 파라미터를 전달받는다.
     public ModelAndView getUserPermissionExceptionPage() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
