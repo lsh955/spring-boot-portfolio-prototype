@@ -44,24 +44,32 @@ public class UserController {
     public ModelAndView getRegistrationPage() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         User user = new User();                             // 회원 데이터
-        modelAndView.addObject("user", user);   // 뷰로 보낼 데이터 값
+        modelAndView.addObject("user", user);  // 뷰로 보낼 데이터 값
         modelAndView.setViewName("registration");           // "setViewName"뷰 이름 설정
         return modelAndView;
     }
     
-    @PostMapping("registration")                            // POST으로 파라미터를 전달받는다.
+    /**
+     * @param bindingResult
+     * 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.
+     * 오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
+     * 폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
+     */
+    @PostMapping("registration")                                                // POST으로 파라미터를 전달받는다.
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
-        User userExists = userService.findUserByLoginId(user.getLoginId());
+        ModelAndView modelAndView = new ModelAndView();                         // "ModelAndView"객체는 Model과 View가 모두리턴
+        User userExists = userService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
-            bindingResult.rejectValue("loginId", "error.loginId", "There is already a user registered with the loginId provided");
+            // 필드에 대한 에러코드를 추가 에러코드에 대한 메세지가 존재하지 않을 경우 defaultMessage를 사용
+            bindingResult.rejectValue("loginId", "error.loginId", "이미 등록 된 사용자가 있습니다");
         }
         if (bindingResult.hasErrors()) {
+            // 에러가 발생할경우 setViewName에 지정된 뷰로 이동한다.
             modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");      // 뷰로 보낼 데이터 값
-            modelAndView.addObject("user", new User());                                                         // 뷰로 보낼 데이터 값
+            modelAndView.addObject("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
+            modelAndView.addObject("user", new User());                                                     // 뷰로 보낼 데이터 값
             modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
         }
         return modelAndView;
@@ -76,7 +84,7 @@ public class UserController {
         System.out.println(userPrincipal.toString());       // 데이터를 찍어본다.
 
         modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
-        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                                    // 뷰로 보낼 데이터 값
+        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
         modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정
         return modelAndView;
     }
