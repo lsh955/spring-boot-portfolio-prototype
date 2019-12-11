@@ -59,7 +59,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")                                                // 로그인 뷰 페이지를 연결
                 .failureUrl("/login?error=true")                                    // 실패 후 이동할 페이지를 지정
                 .defaultSuccessUrl("/home")                                         // 로그인 성공 후 리다이렉트할 URL
-                .failureForwardUrl("/")                                             // 로그인 실패 후 리다이렉트할 URL
                 .usernameParameter("loginId")                                       // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .passwordParameter("password")                                      // 로그인 페이지에서 "name태그"파라메터로 전송된 값
             .and()
