@@ -63,6 +63,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
                 .logout()                                                           // 로그아웃 처리
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // 로그아웃이 성공했을 경우 이동할 페이지
+                .logoutSuccessUrl("/user/logout/result")                            // 로그아웃 성공 후 반환하는 URI
+                .invalidateHttpSession(true)                                        // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
             .and()
                 .exceptionHandling()                                                // 예외처리 핸들링
                 .accessDeniedPage("/access-denied");                                // 예외가 발생했을때의 페이지 경로
