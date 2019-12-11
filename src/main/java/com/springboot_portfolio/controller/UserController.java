@@ -65,12 +65,13 @@ public class UserController {
         }
         if (bindingResult.hasErrors()) {
             // 에러가 발생할경우 setViewName에 지정된 뷰로 이동한다.
-            modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
+            modelAndView.setViewName("registration");                           // "setViewName"뷰 이름 설정
         } else {
+            // 회원가입이 정상적으로 등록될 경우
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
             modelAndView.addObject("user", new User());                                                     // 뷰로 보낼 데이터 값
-            modelAndView.setViewName("registration");       // "setViewName"뷰 이름 설정
+            modelAndView.setViewName("registration");                           // "setViewName"뷰 이름 설정
         }
         return modelAndView;
     }
