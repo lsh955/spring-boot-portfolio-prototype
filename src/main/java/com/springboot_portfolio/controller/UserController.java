@@ -79,7 +79,13 @@ public class UserController {
     @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        
+        //현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
+        //SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        
+        // UserPrincipal 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
+        // Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
 
         System.out.println(userPrincipal.toString());       // 데이터를 찍어본다.
