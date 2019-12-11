@@ -22,7 +22,7 @@ import javax.validation.Valid;
 public class UserController {
     
     @Autowired
-    private UserService userService;                        // 서비스레이어에서 세분화된 비즈니스 로직
+    private UserService userService;                        // 사용자 액세스를위한 서비스 개체
     
     // 메인화면
     @GetMapping(value = {"/"})                              // GET으로 파라미터를 전달받는다.

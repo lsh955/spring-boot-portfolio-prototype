@@ -25,7 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
     
     @Autowired
-    private UserService userService;    // 서비스레이어에서 세분화된 비즈니스 로직
+    private UserService userService;                        // 사용자 액세스를위한 서비스 개체
     
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserService userService) {
