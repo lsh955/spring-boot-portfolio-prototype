@@ -22,4 +22,28 @@ public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
         response.sendRedirect("/home");         // 성공 후 이동할 페이지를 지정
     }
     
+    /**
+     * 클라이언트 IP정보
+     */
+    public static String getClientIp(HttpServletRequest request){
+        String ip = request.getHeader("X-Forwarded-For");
+    
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+    }
+    
 }
