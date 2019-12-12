@@ -64,7 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest()                                                       // 인증 되어야 하는 부분
                 .authenticated()                                                    // 인증된 사용자만 접근
             .and()
-                .csrf().disable()                                                   // CSRF 프로텍션을 비활성화(disabled)
+                .csrf().disable()                                                   // CSRF 프로텍션(사이트 간 요청 위조)을 비활성화(disabled)
                 .formLogin()                                                        // 폼을 통한 로그인을 이용
                 .loginPage("/login")                                                // 로그인 뷰 페이지를 연결
                 .successHandler(authSuccessHandler)                                 // 로그인이 성공했을 때 핸들러
