@@ -44,9 +44,9 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
     
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
+        user.setActive(2);
         userMapper.setUserInfo(user);
-        Role role = roleMapper.getRoleInfo("ADMIN");
+        Role role = roleMapper.getRoleInfo("member");
         UserRole userRole = new UserRole();
         userRole.setRoleId(role.getId());
         userRole.setUserId(user.getId());
