@@ -60,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()                           // 접근을 전부 허용
                 .antMatchers("/login").permitAll()                      // 접근을 전부 허용
                 .antMatchers("/registration").permitAll()               // 접근을 전부 허용
-                .antMatchers("/home").hasAuthority("ADMIN")             // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
+                .antMatchers("/home").hasAuthority("admin")             // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
                 .anyRequest()                                                       // 인증 되어야 하는 부분
                 .authenticated()                                                    // 인증된 사용자만 접근
             .and()

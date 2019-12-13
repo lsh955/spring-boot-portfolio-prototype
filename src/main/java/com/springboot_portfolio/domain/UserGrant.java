@@ -10,7 +10,7 @@ public class UserGrant implements GrantedAuthority {    // GrantedAuthority : Sp
     
     @Override
     public String getAuthority() {
-        return "ADMIN";
+        return "admin";
     }
     
 }

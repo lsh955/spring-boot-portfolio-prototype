@@ -56,6 +56,10 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.findUserByLoginId(username);
+        
+        
+        
+        System.out.println(username);
     
     // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         
