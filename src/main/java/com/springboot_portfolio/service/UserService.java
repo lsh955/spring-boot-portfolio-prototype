@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +26,8 @@ import java.util.Set;
 
 @Service
 public class UserService implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-    
+
+
     @Autowired
     private UserMapper userMapper;
     
@@ -52,18 +54,21 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
         userRole.setUserId(user.getId());
         userRoleMapper.setUserRoleInfo(userRole);
     }
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        ModelAndView modelAndView = new ModelAndView();
         User user = userMapper.findUserByLoginId(username);
-        
-        
-        
-        System.out.println(username);
-    
-    // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        
+
+        if(user == null){   // 데이터베이스에 아이가 없을 경우에...(임시조치)
+            modelAndView.setViewName("index");
+            return (UserDetails) modelAndView;
+        }
+
+
+        // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         return new UserPrincipal(user);
+
     }
     
 }
