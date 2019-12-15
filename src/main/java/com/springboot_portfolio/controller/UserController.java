@@ -112,8 +112,6 @@ public class UserController {
          */
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
 
-        System.out.println(userPrincipal.toString());       // 데이터를 찍어본다.
-
         modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
         modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정
