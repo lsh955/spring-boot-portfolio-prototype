@@ -3,10 +3,13 @@ package com.springboot_portfolio.domain;
 import com.springboot_portfolio.vo.User;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author 이승환
@@ -37,10 +40,6 @@ public class UserPrincipal implements UserDetails {
         return user.getUserName();
     }
     
-    /**
-     * UserDetails 구현체 작성시에는 해당 사용자에게 부여된 역할과 권한을 모두 문자열로
-     * getAuthorities()을 통해 획득되도록 구현
-     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
         return Arrays.asList(new UserGrant());
@@ -73,8 +72,8 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {    // 계정이 활성화 되었는지
-        return true;
     //  return user.getActive() == 1;
+        return true;
     }
 
 }
