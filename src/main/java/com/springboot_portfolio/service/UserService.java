@@ -27,7 +27,6 @@ import java.util.Set;
 @Service
 public class UserService implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
 
-
     @Autowired
     private UserMapper userMapper;
     
