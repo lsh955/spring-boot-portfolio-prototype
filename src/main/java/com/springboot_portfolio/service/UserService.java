@@ -65,7 +65,6 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
             return (UserDetails) modelAndView;
         }
 
-
         // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         return new UserPrincipal(user);
 
