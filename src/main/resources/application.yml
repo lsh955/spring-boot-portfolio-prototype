@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: SpringBoot_Portfolio # 애플리케이션 이름
   http:                   # HTTP 인코딩
     encoding:
       charset: UTF-8      # 요청/응답의 인코딩
@@ -12,7 +14,7 @@ spring:
     prefix: classpath:templates/
   output:
     ansi:
-      enabled: always     # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
+      enabled: always        # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
   #  security:               # 기본 security 계정정보 보안구성(추후삭제 예정)
   #    user:
   #      name: admin
