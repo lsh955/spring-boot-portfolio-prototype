@@ -16,17 +16,25 @@ import java.util.Collection;
 public class UserPrincipal implements UserDetails {
     
     private User user;
-    
-    public User getUser() {
-        return user;
-    }
-    
+
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     public UserPrincipal(User user) {
         this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public String getId() {
+        return user.getLoginId();
+    }
+
+    public String getName() {
+        return user.getUserName();
     }
     
     /**
@@ -34,52 +42,39 @@ public class UserPrincipal implements UserDetails {
      * getAuthorities()을 통해 획득되도록 구현
      */
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
         return Arrays.asList(new UserGrant());
     }
     
     @Override
-    public String getPassword() {
+    public String getPassword() {   //유저 비밀번호
         return user.getPassword();
     }
     
     @Override
-    public String getUsername() {
+    public String getUsername() {   // 유저 이름 혹은 아이디
         return user.getUserName();
     }
     
     @Override
-    public boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired() {  // 유저 아이디가 만료 되었는지
         return true;
     }
     
     @Override
-    public boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked() {   // 유저 아이디가 Lock 걸렸는지
         return true;
     }
     
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() {  //비밀번호가 만료 되었는지
         return true;
     }
-    
-//    @Override
-//    public boolean isEnabled() {
-//        return user.getActive() == 1;
-//    }
-    
+
     @Override
-    public boolean isEnabled() {
+    public boolean isEnabled() {    // 계정이 활성화 되었는지
         return true;
-//      return user.getActive() == 1;
+    //  return user.getActive() == 1;
     }
-    
-    public String getId() {
-        return user.getLoginId();
-    }
-    
-    public String getName() {
-        return user.getUserName();
-    }
-    
+
 }
