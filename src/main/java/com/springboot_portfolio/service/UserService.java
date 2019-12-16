@@ -58,7 +58,7 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
         ModelAndView modelAndView = new ModelAndView();
         User user = userMapper.findUserByLoginId(username);
 
-        if(user == null){   // 데이터베이스에 아이가 없을 경우에...(임시조치)
+        if(user == null){   // 데이터베이스에 아이디,비밀번호가 없을 경우에...(임시조치)
             modelAndView.setViewName("index");
             return (UserDetails) modelAndView;
         }
