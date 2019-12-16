@@ -1,6 +1,7 @@
 package com.springboot_portfolio.domain;
 
 import com.springboot_portfolio.vo.User;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,9 +14,12 @@ import java.util.*;
  * @since 2019/12/08
  */
 @ToString
+@EqualsAndHashCode(of = "Id")
 public class UserPrincipal implements UserDetails {
 
     private User user;
+    
+    private String Id;
 
     public void setUser(User user) {
         this.user = user;
