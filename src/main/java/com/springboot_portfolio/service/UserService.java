@@ -23,7 +23,6 @@ import java.util.Set;
  * @author 이승환
  * @since 2019/12/08
  */
-
 @Service
 public class UserService implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
 
