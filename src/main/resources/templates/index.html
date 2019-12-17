@@ -230,7 +230,7 @@
         </div>
 
         <div class="01" id="01">
-            <p>01</p>
+            <p>01</p><br>
         </div>
 
         <div class="02" id="02">
@@ -312,9 +312,12 @@
                         <div class="captcha">
                             나중에 스프링 붙일때 캡차API 넣을꺼임.
                         </div>
+                        <!-- 나중에 스프링 붙일때 캡차API 넣을꺼임.-->
+                        <!-- <div class="captcha" id="recaptcha" class="g-recaptcha" th:attr="data-sitekey=${@captchaSettings.getSite()}" data-callback="recaptchaCallback">
+                             </div>-->
                     </li>
                     <li class="center">
-                        <p th:if="${param.error}">아이디와 비밀번호가 올바르지 않거나 비활성화된 사용자입니다.</p>
+                        <p th:utext="${LoginMessage}"></p>
                     </li>
                     <li>
                         <input class="login_submit" id="form_btn" type="Submit" value="LOGIN"/>

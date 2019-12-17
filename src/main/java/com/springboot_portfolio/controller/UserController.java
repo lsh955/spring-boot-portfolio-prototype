@@ -31,6 +31,7 @@ public class UserController {
     @GetMapping(value = {"/"})                              // GET으로 파라미터를 전달받는다.
     public ModelAndView getindex() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.addObject("LoginMessage", "아이디와 비밀번호 그리고 자동등록방지를 체크해주세요.");      // 뷰로 보낼 데이터 값
         modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
         return modelAndView;
     }
