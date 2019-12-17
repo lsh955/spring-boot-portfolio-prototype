@@ -1,9 +1,13 @@
 package com.springboot_portfolio;
 
+import com.springboot_portfolio.Handler.SessionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+
+import javax.servlet.http.HttpSessionListener;
 
 /**
  * @author 이승환
@@ -19,6 +23,11 @@ public class SpringbootPortfolioApplication extends SpringBootServletInitializer
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(SpringbootPortfolioApplication.class);
+    }
+    
+    @Bean
+    public HttpSessionListener httpSessionListener() {
+        return new SessionHandler();
     }
     
     public static void main(String[] args) {

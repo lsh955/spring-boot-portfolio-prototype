@@ -72,7 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password");                                     // 로그인 페이지에서 "name태그"파라메터로 전송된 값
         
         http.logout()                                                               // 로그아웃 처리
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // 로그아웃이 성공했을 경우 이동할 페이지
+                .logoutRequestMatcher(new AntPathRequestMatcher("/")) // 로그아웃이 성공했을 경우 이동할 페이지
                 .logoutSuccessUrl("/user/logout/result")                            // 로그아웃 성공 후 반환하는 URI
                 .invalidateHttpSession(true);                                       // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
         
