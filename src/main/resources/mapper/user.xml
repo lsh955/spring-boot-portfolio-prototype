@@ -11,11 +11,14 @@
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
     </resultMap>
+
+
     <select id="findUserByLoginId" resultMap="User">SELECT user_id, active, login_id, user_name, password FROM user
         <where>
             <if test=" loginId != null and loginId != '' ">AND login_id = #{loginId}</if>
         </where>
     </select>
+
     <insert id="setUserInfo" parameterType="com.springboot_portfolio.dao.User" useGeneratedKeys="true"
             keyProperty="param.id"> INSERT INTO user ( active, login_id, user_name, password ) VALUES ( #{param.active}, #{param.loginId}, #{param.userName}, #{param.password} ) </insert>
 
