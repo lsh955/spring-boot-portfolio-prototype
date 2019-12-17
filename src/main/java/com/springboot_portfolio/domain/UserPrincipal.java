@@ -1,10 +1,9 @@
 package com.springboot_portfolio.domain;
 
-import com.springboot_portfolio.vo.User;
+import com.springboot_portfolio.dao.User;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;

@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springboot_portfolio.mapper.UserRoleMapper">
-    <resultMap id="UserRole" type="com.springboot_portfolio.vo.UserRole">
+    <resultMap id="UserRole" type="com.springboot_portfolio.dao.UserRole">
         <result property="userId" column="user_id"/>
         <result property="roleId" column="role_id"/>
     </resultMap>

@@ -1,9 +1,7 @@
 package com.springboot_portfolio.service;
 
 import com.springboot_portfolio.mapper.TestMapper;
-import com.springboot_portfolio.vo.TestVo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import com.springboot_portfolio.dao.TestVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

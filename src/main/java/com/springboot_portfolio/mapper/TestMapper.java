@@ -1,6 +1,6 @@
 package com.springboot_portfolio.mapper;
 
-import com.springboot_portfolio.vo.TestVo;
+import com.springboot_portfolio.dao.TestVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

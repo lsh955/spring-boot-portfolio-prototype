@@ -82,7 +82,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.sessionManagement()                                                    // 세션 정책 설정
                 .maximumSessions(1)                                                 // 세션 허용개수 : 1개
                 .maxSessionsPreventsLogin(false)                                    // 로그인중일 경우 로그인이 안된다.(false일 경우 기존 사용자의 세션이 종료된다.)
-                .expiredUrl("/")                                                    // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
+                .expiredUrl("/sessionexpiration")                                                    // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
                 .sessionRegistry(sessionRegistry());
     }
     

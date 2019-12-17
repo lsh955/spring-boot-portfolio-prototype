@@ -4,7 +4,7 @@
 
 <mapper namespace="com.springboot_portfolio.mapper.UserMapper"> <!-- namespace mapper들을 구분하는 식별자 -->
 
-    <resultMap id="User" type="com.springboot_portfolio.vo.User">
+    <resultMap id="User" type="com.springboot_portfolio.dao.User">
         <result property="id" column="user_id"/>
         <result property="active" column="active"/>
         <result property="loginId" column="login_id"/>
@@ -16,7 +16,7 @@
             <if test=" loginId != null and loginId != '' ">AND login_id = #{loginId}</if>
         </where>
     </select>
-    <insert id="setUserInfo" parameterType="com.springboot_portfolio.vo.User" useGeneratedKeys="true"
+    <insert id="setUserInfo" parameterType="com.springboot_portfolio.dao.User" useGeneratedKeys="true"
             keyProperty="param.id"> INSERT INTO user ( active, login_id, user_name, password ) VALUES ( #{param.active}, #{param.loginId}, #{param.userName}, #{param.password} ) </insert>
 
 </mapper>

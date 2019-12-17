@@ -1,8 +1,7 @@
 package com.springboot_portfolio.controller;
 
 import com.springboot_portfolio.service.TestService;
-import com.springboot_portfolio.vo.TestVo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot_portfolio.dao.TestVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

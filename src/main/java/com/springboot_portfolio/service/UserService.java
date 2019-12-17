@@ -4,20 +4,16 @@ import com.springboot_portfolio.domain.UserPrincipal;
 import com.springboot_portfolio.mapper.RoleMapper;
 import com.springboot_portfolio.mapper.UserMapper;
 import com.springboot_portfolio.mapper.UserRoleMapper;
-import com.springboot_portfolio.vo.Role;
-import com.springboot_portfolio.vo.User;
-import com.springboot_portfolio.vo.UserRole;
+import com.springboot_portfolio.dao.Role;
+import com.springboot_portfolio.dao.User;
+import com.springboot_portfolio.dao.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author 이승환
