@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Mapper
-public interface UserMapper {
+public interface UserDao {
     
     User findUserByLoginId(@Param("loginId") String loginId);
     

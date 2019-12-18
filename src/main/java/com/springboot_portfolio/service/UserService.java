@@ -1,9 +1,9 @@
 package com.springboot_portfolio.service;
 
 import com.springboot_portfolio.domain.UserPrincipal;
-import com.springboot_portfolio.dao.RoleMapper;
-import com.springboot_portfolio.dao.UserMapper;
-import com.springboot_portfolio.dao.UserRoleMapper;
+import com.springboot_portfolio.dao.RoleDao;
+import com.springboot_portfolio.dao.UserDao;
+import com.springboot_portfolio.dao.UserRoleDao;
 import com.springboot_portfolio.dto.Role;
 import com.springboot_portfolio.dto.User;
 import com.springboot_portfolio.dto.UserRole;
@@ -23,13 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserService implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userMapper;
     
     @Autowired
-    private RoleMapper roleMapper;
+    private RoleDao roleMapper;
     
     @Autowired
-    private UserRoleMapper userRoleMapper;
+    private UserRoleDao userRoleMapper;
     
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;

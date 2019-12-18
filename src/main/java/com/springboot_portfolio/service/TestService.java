@@ -1,6 +1,6 @@
 package com.springboot_portfolio.service;
 
-import com.springboot_portfolio.dao.TestMapper;
+import com.springboot_portfolio.dao.TestDao;
 import com.springboot_portfolio.dto.TestVo;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class TestService {
     
     // TestMapper interface를 Autowired 걸고
-    TestMapper testMapper;
+    TestDao testMapper;
     
     // 그 안에 getAll()함수를 Call한다.
     public List<TestVo> getAll() throws Exception {
