@@ -1,12 +1,12 @@
 package com.springboot_portfolio.service;
 
 import com.springboot_portfolio.domain.UserPrincipal;
-import com.springboot_portfolio.mapper.RoleMapper;
-import com.springboot_portfolio.mapper.UserMapper;
-import com.springboot_portfolio.mapper.UserRoleMapper;
-import com.springboot_portfolio.dao.Role;
-import com.springboot_portfolio.dao.User;
-import com.springboot_portfolio.dao.UserRole;
+import com.springboot_portfolio.dao.RoleMapper;
+import com.springboot_portfolio.dao.UserMapper;
+import com.springboot_portfolio.dao.UserRoleMapper;
+import com.springboot_portfolio.dto.Role;
+import com.springboot_portfolio.dto.User;
+import com.springboot_portfolio.dto.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

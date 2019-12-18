@@ -1,7 +1,7 @@
 package com.springboot_portfolio.service;
 
-import com.springboot_portfolio.mapper.TestMapper;
-import com.springboot_portfolio.dao.TestVo;
+import com.springboot_portfolio.dao.TestMapper;
+import com.springboot_portfolio.dto.TestVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -39,8 +39,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
-    implementation "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
     compile group: 'javax.json', name: 'javax.json-api', version: '1.0-b01' // 리캡챠로 부터 받아온 결과가 JSON형태 이기에 JSON 관련 추가
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 

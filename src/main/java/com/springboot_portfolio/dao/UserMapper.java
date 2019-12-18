@@ -1,6 +1,6 @@
-package com.springboot_portfolio.mapper;
+package com.springboot_portfolio.dao;
 
-import com.springboot_portfolio.dao.User;
+import com.springboot_portfolio.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

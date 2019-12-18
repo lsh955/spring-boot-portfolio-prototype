@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dao;
+package com.springboot_portfolio.dto;
 
 /**
  * @author 이승환

@@ -2,7 +2,7 @@ package com.springboot_portfolio.controller;
 
 import com.springboot_portfolio.domain.UserPrincipal;
 import com.springboot_portfolio.service.UserService;
-import com.springboot_portfolio.dao.User;
+import com.springboot_portfolio.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
