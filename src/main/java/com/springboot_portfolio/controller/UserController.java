@@ -30,7 +30,7 @@ public class UserController {
      * ModelAndView
      * 메인연결
      */
-    @GetMapping(value = {"/"})                              // GET으로 파라미터를 전달받는다.
+    @GetMapping("/")                              // GET으로 파라미터를 전달받는다.
     public ModelAndView getindex() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         modelAndView.addObject("LoginMessage", "아이디와 비밀번호 그리고 자동등록방지를 체크해주세요.");      // 뷰로 보낼 데이터 값
@@ -42,7 +42,7 @@ public class UserController {
      * ModelAndView
      * 로그인 입력 처리
      */
-    @GetMapping(value = {"login"})                          // GET으로 파라미터를 전달받는다.
+    @GetMapping("login")                          // GET으로 파라미터를 전달받는다.
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
