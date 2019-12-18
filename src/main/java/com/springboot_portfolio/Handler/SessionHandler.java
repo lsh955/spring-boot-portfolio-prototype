@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSessionListener;
 /**
  * @author 이승환
  * @since 2019-12-17
+ *
+ * 다른 객체들이 보낸 메시지를 받고 이를 처리하는 객체
  */
 @WebListener
 public class SessionHandler implements HttpSessionListener {

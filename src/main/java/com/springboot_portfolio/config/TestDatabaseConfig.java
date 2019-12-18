@@ -14,6 +14,8 @@ import javax.sql.DataSource;
 /**
  * @author 이승환
  * @since 2019-11-26
+ *
+ * 설정 클래스 모음. (Web Security, Controller Advice 등)
  */
 @Configuration
 @MapperScan(basePackages = "com.springboot_portfolio")   // 어떤 Mapperer들을 Scan할 것인가 정의...

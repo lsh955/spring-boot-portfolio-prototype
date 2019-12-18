@@ -20,6 +20,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 /**
  * @author 이승환
  * @since 2019/12/08
+ *
+ * 설정 클래스 모음. (Web Security, Controller Advice 등)
  */
 @Configuration      // @Configuration : Spring Boot를 사용하면서 필요한 설정
 @EnableWebSecurity  // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)

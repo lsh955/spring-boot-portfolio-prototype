@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * @author 이승환
  * @since 2019-11-26
+ *
+ * 컨트롤러 클래스 모음.
  */
 @Controller
 public class TestController {

@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * @author 이승환
  * @since 2019/12/08
+ *
+ * 비즈니스 혹은 사용자 로직을 구현한 클래스. 비즈니스와 연관있는 로직을 표현.
  */
 @Service
 public class UserService implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당

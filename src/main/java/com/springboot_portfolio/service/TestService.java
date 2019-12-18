@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * @author 이승환
  * @since 2019-11-26
+ *
+ * 비즈니스 혹은 사용자 로직을 구현한 클래스. 비즈니스와 연관있는 로직을 표현.
  */
 @Service
 public class TestService {

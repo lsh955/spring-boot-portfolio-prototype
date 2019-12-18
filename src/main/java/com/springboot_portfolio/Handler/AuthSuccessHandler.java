@@ -12,6 +12,8 @@ import java.io.IOException;
 /**
  * @author 이승환
  * @since 2019-12-11
+ *
+ * 다른 객체들이 보낸 메시지를 받고 이를 처리하는 객체
  */
 @Configuration
 public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {

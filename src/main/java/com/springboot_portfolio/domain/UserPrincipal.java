@@ -11,6 +11,8 @@ import java.util.*;
 /**
  * @author 이승환
  * @since 2019/12/08
+ *
+ * 도메인 클래스 모음. 데이터베이스 테이블과 실제로 1:1 매핑되어 정확하게 관리.
  */
 @ToString
 @EqualsAndHashCode(of = "Id")
