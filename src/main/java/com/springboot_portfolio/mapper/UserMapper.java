@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dao;
+package com.springboot_portfolio.mapper;
 
 import com.springboot_portfolio.dto.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Mapper
-public interface UserDao {
+public interface UserMapper {
     
     User findUserByLoginId(@Param("loginId") String loginId);
     

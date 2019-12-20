@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dao;
+package com.springboot_portfolio.mapper;
 
 import com.springboot_portfolio.dto.TestVo;
 import org.apache.ibatis.annotations.Mapper;
@@ -18,7 +18,7 @@ import java.util.List;
  * 만약 DAO의 메소드 하나에 다중 DB접근 로직이 들어갔고, 서비스는 단순히 그 DAO메소드를 호출하는 통로 역할만 한다면 DAO측 모듈화가 제대로 안된 접근 방식일 가능성이 높습니다(항상 그렇다는 뜻은 아니다.)
  */
 @Mapper
-public interface TestDao {
+public interface TestMapper {
     
     // 메소드이름은 mapper xml의 select태그의 id값
     public List<TestVo> getAll() throws Exception;
