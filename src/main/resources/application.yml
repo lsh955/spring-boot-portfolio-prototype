@@ -38,10 +38,10 @@ spring:
 spring:
   profiles: Mariadb       # 데이터베이스
   datasource:
-    #    url: jdbc:mariadb://codedot.co.kr:3306/portfolio?characterEncoding=UTF-8   # 운영 데이터베이스
-    #    username: portfolio
-    #    password: tmdghks05)%
-    url: jdbc:mariadb://localhost:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
+#     url: jdbc:mariadb://codedot.co.kr:3306/portfolio?characterEncoding=UTF-8   # 운영 데이터베이스
+#     username: portfolio
+#     password: tmdghks05)%
+    url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
 #---

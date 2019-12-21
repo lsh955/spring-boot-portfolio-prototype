@@ -12,7 +12,6 @@
         <result property="password" column="password"/>
     </resultMap>
 
-
     <select id="findUserByLoginId" resultMap="User">SELECT user_id, active, login_id, user_name, password FROM user
         <where>
             <if test=" loginId != null and loginId != '' ">AND login_id = #{loginId}</if>
