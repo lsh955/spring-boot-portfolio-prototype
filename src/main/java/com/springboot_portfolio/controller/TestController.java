@@ -3,7 +3,7 @@ package com.springboot_portfolio.controller;
 import com.springboot_portfolio.service.TestService;
 import com.springboot_portfolio.dto.TestVo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class TestController {
     TestService testService;
 
     // Call한 결과를 Return 한다.
-    @RequestMapping("/testquery")
+    @GetMapping("/testquery")
     public @ResponseBody List<TestVo> query() throws Exception {
         return testService.getAll();
     }
