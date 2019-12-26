@@ -14,9 +14,6 @@ import javax.servlet.http.HttpSessionListener;
  * @since 2019-11-26
  */
 @SpringBootApplication
-// @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-// DB연결을 하지않을 때 아래의 어노테이션을 적용한다.
-// @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class}
 public class SpringbootPortfolioApplication extends SpringBootServletInitializer {
     
     // 어플리케이션을 WAR 형태로 배포하기위해 아래와 같은 메인코드를 작성한다.
