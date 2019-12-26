@@ -15,10 +15,6 @@ spring:
   output:
     ansi:
       enabled: always        # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
-  #  security:               # 기본 security 계정정보 보안구성(추후삭제 예정)
-  #    user:
-  #      name: admin
-  #      password: dl945pa
   autoconfigure.exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
   basic:
     enabled: false
@@ -44,10 +40,3 @@ spring:
     url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
-#---
-#google:
-#  recaptcha:
-#    key:
-#      site: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
-#      secret: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-#      url: https://www.google.com/recaptcha/api/siteverify
