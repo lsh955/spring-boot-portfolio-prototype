@@ -1,6 +1,6 @@
-package com.springboot_portfolio.mapper;
+package com.springboot.portfolio.mapper;
 
-import com.springboot_portfolio.dto.UserRole;
+import com.springboot.portfolio.dto.Role;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Mapper
-public interface UserRoleMapper {
+public interface RoleMapper {
     
-    void setUserRoleInfo(@Param("param") UserRole param);
+    Role getRoleInfo(@Param("role") String role);
     
 }

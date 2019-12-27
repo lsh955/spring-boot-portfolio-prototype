@@ -1,6 +1,6 @@
-package com.springboot_portfolio.domain;
+package com.springboot.portfolio.domain;
 
-import com.springboot_portfolio.dto.User;
+import com.springboot.portfolio.dto.User;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;

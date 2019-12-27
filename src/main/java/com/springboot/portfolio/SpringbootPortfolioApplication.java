@@ -1,6 +1,6 @@
-package com.springboot_portfolio;
+package com.springboot.portfolio;
 
-import com.springboot_portfolio.Handler.SessionHandler;
+import com.springboot.portfolio.handler.SessionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

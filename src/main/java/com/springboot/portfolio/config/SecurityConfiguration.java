@@ -1,8 +1,8 @@
-package com.springboot_portfolio.config;
+package com.springboot.portfolio.config;
 
-import com.springboot_portfolio.Handler.AuthFailureHandler;
-import com.springboot_portfolio.Handler.AuthSuccessHandler;
-import com.springboot_portfolio.service.UserService;
+import com.springboot.portfolio.service.UserService;
+import com.springboot.portfolio.handler.AuthFailureHandler;
+import com.springboot.portfolio.handler.AuthSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.springboot_portfolio.config;
+package com.springboot.portfolio.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

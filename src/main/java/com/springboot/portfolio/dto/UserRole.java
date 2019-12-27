@@ -1,4 +1,4 @@
-package com.springboot_portfolio.dto;
+package com.springboot.portfolio.dto;
 
 import org.springframework.stereotype.Component;
 

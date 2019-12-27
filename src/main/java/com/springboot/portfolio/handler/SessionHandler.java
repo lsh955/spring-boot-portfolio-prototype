@@ -1,4 +1,4 @@
-package com.springboot_portfolio.Handler;
+package com.springboot.portfolio.handler;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;

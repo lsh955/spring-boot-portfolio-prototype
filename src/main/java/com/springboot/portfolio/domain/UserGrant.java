@@ -1,4 +1,4 @@
-package com.springboot_portfolio.domain;
+package com.springboot.portfolio.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 
