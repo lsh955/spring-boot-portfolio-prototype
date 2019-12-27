@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Role {
 
     private int id;
-    private String Role;
+    private String role;
 
     public int getId() {
         return id;
@@ -23,11 +23,11 @@ public class Role {
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        this.Role = role;
+        this.role = role;
     }
 
 }
