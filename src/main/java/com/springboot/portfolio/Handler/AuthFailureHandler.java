@@ -1,4 +1,4 @@
-package com.springboot.portfolio.handler;
+package com.springboot.portfolio.Handler;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.AuthenticationException;

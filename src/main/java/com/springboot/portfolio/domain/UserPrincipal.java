@@ -15,12 +15,12 @@ import java.util.*;
  * 도메인 클래스 모음. 데이터베이스 테이블과 실제로 1:1 매핑되어 정확하게 관리.
  */
 @ToString
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "Id")
 public class UserPrincipal implements UserDetails {
 
     private User user;
     
-    private String id;
+    private String Id;
 
     public void setUser(User user) {
         this.user = user;
