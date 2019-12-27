@@ -10,7 +10,6 @@ import com.springboot_portfolio.dto.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -52,7 +51,7 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         ModelAndView modelAndView = new ModelAndView();
         User user = userMapper.findUserByLoginId(username);
 
@@ -61,7 +60,6 @@ public class UserService implements UserDetailsService {    // 사용자의 정�
             return (UserDetails) modelAndView;
         }
 
-        // Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         return new UserPrincipal(user);
 
     }
