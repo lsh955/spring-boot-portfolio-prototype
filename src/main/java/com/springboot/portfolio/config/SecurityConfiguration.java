@@ -64,8 +64,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/home").hasAuthority("admin")             // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
             .anyRequest()                                                       // 인증 되어야 하는 부분
             .authenticated();                                                   // 인증된 사용자만 접근
-        
-        http.csrf();                                                            // CSRF 프로텍션(사이트 간 요청 위조)
+
+        http.csrf().disable();                                                  // CSRF 프로텍션(사이트 간 요청 위조)
 
         http.formLogin()                                                        // 폼을 통한 로그인을 이용
             .loginPage("/login")                                                // 로그인 뷰 페이지를 연결
