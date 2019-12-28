@@ -3,6 +3,7 @@ package com.springboot.portfolio.handler;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
+import java.util.logging.Logger;
 
 /**
  * @author 이승환
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpSessionListener;
  */
 @WebListener
 public class SessionHandler implements HttpSessionListener {
-    
+
+    private final static Logger LOG = Logger.getGlobal();
+
     private int userCount;                              // 로그인된 사용자 수 카운트
     
     @Override
@@ -20,15 +23,15 @@ public class SessionHandler implements HttpSessionListener {
         se.getSession().setMaxInactiveInterval(60*60);  // 세션만료 60분
         
         ++userCount;
-        System.out.println("생성된 SESSION ID : " + se.getSession().getId());
-        System.out.println("로그인된 사용자 수 : " +  userCount + "명");
+        LOG.info("생성된 SESSION ID : " + se.getSession().getId());
+        LOG.info("로그인된 사용자 수 : " +  userCount + "명");
     }
     
     @Override
     public void sessionDestroyed(HttpSessionEvent se) { // 세션이 제거되었을 때 호출
         --userCount;
-        System.out.println("제거된 SESSION ID : " + se.getSession().getId());
-        System.out.println("로그인된 사용자 수 : " + userCount + "명");
+        LOG.info("제거된 SESSION ID : " + se.getSession().getId());
+        LOG.info("로그인된 사용자 수 : " + userCount + "명");
     }
     
 }
