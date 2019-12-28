@@ -3,6 +3,7 @@ package com.springboot.portfolio.domain;
 import com.springboot.portfolio.dto.User;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,8 +19,9 @@ import java.util.*;
 @EqualsAndHashCode(of = "id")
 public class UserPrincipal implements UserDetails {
 
+    @Autowired
     private User user;
-    
+
     private String id;
 
     public void setUser(User user) {

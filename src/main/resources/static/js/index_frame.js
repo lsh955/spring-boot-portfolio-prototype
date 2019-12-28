@@ -27,6 +27,11 @@ $(document).ready(function () {
         Functions_Li_02 = $('.question'),
         Functions_Li_03 = $('.login, .login_background, .message_login_btn');
 
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    $(document).ajaxSend(function(e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+    });
 
     //********************************
     //**** 부가 이벤트 ****************
