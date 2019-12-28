@@ -14,8 +14,6 @@ import java.util.logging.Logger;
 @WebListener
 public class SessionHandler implements HttpSessionListener {
 
-    private final static Logger LOG = Logger.getGlobal();
-
     private int userCount;                              // 로그인된 사용자 수 카운트
     
     @Override
@@ -23,15 +21,15 @@ public class SessionHandler implements HttpSessionListener {
         se.getSession().setMaxInactiveInterval(60*60);  // 세션만료 60분
         
         ++userCount;
-        LOG.info("생성된 SESSION ID : " + se.getSession().getId());
-        LOG.info("로그인된 사용자 수 : " +  userCount + "명");
+        Logger.getGlobal().info("생성된 SESSION ID : " + se.getSession().getId());
+        Logger.getGlobal().info("로그인된 사용자 수 : " +  userCount + "명");
     }
     
     @Override
     public void sessionDestroyed(HttpSessionEvent se) { // 세션이 제거되었을 때 호출
         --userCount;
-        LOG.info("제거된 SESSION ID : " + se.getSession().getId());
-        LOG.info("로그인된 사용자 수 : " + userCount + "명");
+        Logger.getGlobal().info("제거된 SESSION ID : " + se.getSession().getId());
+        Logger.getGlobal().info("로그인된 사용자 수 : " + userCount + "명");
     }
     
 }
