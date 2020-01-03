@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @author 이승환
  * @since 2019/12/08
- *
+ * <p>
  * 설정 클래스 모음. (Web Security, Controller Advice 등)
  */
 @Configuration  // @Configuration : Spring Boot를 사용하면서 필요한 설정

@@ -22,11 +22,6 @@ public class SpringbootPortfolioApplication extends SpringBootServletInitializer
         return application.sources(SpringbootPortfolioApplication.class);
     }
     
-    @Bean
-    public HttpSessionListener httpSessionListener() {
-        return new SessionHandler();
-    }
-    
     public static void main(String[] args) {
         SpringApplication.run(SpringbootPortfolioApplication.class, args);
     }

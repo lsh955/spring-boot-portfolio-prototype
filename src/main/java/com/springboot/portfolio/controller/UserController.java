@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * @author 이승환
  * @since 2019/12/08
- *
+ * <p>
  * 컨트롤러 클래스 모음.
  */
 @Controller
@@ -25,7 +25,7 @@ public class UserController {
     
     @Autowired
     private UserDetailsServiceImpl userService;                        // 사용자 액세스를위한 서비스 개체
-
+    
     /**
      * ModelAndView
      * 메인연결
@@ -66,10 +66,9 @@ public class UserController {
      * ModelAndView
      * 회원가입 정보를 보내는 처리
      *
-     * @param bindingResult
-     * 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.
-     * 오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
-     * 폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
+     * @param bindingResult 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.
+     *                      오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
+     *                      폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
      */
     @PostMapping("registration")                                                // POST으로 파라미터를 전달받는다.
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
@@ -99,7 +98,7 @@ public class UserController {
     @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
-    
+        
         /**
          * @param Authentication
          * 현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
@@ -107,14 +106,14 @@ public class UserController {
          * SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
          */
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    
+        
         /**
          * @param UserPrincipal
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
          * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
          */
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
-
+        
         modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
         modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정

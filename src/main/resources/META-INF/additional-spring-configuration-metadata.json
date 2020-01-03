@@ -4,5 +4,6 @@
       "name": "spring.basic.enabled",
       "type": "java.lang.String",
       "description": "Description for spring.basic.enabled."
-  }
-] }
+    }
+  ]
+}

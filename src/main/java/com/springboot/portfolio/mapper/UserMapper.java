@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
  * @author 이승환
  * @since 2019/12/08
  */
-@Component
 @Mapper
+@Component
 public interface UserMapper {
     
     User findUserByLoginId(@Param("loginId") String loginId);
