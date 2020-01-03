@@ -1,6 +1,6 @@
 package com.springboot.portfolio.controller;
 
-import com.springboot.portfolio.domain.UserPrincipal;
+import com.springboot.portfolio.dao.UserPrincipal;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

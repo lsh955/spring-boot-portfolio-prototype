@@ -1,6 +1,6 @@
 package com.springboot.portfolio.service;
 
-import com.springboot.portfolio.domain.UserPrincipal;
+import com.springboot.portfolio.dao.UserPrincipal;
 import com.springboot.portfolio.mapper.RoleMapper;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.mapper.UserRoleMapper;

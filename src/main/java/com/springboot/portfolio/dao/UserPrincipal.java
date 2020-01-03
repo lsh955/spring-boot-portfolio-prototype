@@ -1,4 +1,4 @@
-package com.springboot.portfolio.domain;
+package com.springboot.portfolio.dao;
 
 import com.springboot.portfolio.dto.User;
 import lombok.EqualsAndHashCode;
