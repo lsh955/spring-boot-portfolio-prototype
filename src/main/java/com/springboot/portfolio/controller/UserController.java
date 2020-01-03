@@ -2,7 +2,7 @@ package com.springboot.portfolio.controller;
 
 import com.springboot.portfolio.dao.UserPrincipal;
 import com.springboot.portfolio.dto.User;
-import com.springboot.portfolio.service.UserService;
+import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,7 +24,7 @@ import javax.validation.Valid;
 public class UserController {
     
     @Autowired
-    private UserService userService;                        // 사용자 액세스를위한 서비스 개체
+    private UserDetailsServiceImpl userService;                        // 사용자 액세스를위한 서비스 개체
 
     /**
      * ModelAndView

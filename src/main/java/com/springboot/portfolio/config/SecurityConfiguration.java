@@ -1,6 +1,6 @@
 package com.springboot.portfolio.config;
 
-import com.springboot.portfolio.service.UserService;
+import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import com.springboot.portfolio.handler.AuthFailureHandler;
 import com.springboot.portfolio.handler.AuthSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
 
     @Autowired
-    private UserService userService;                        // 사용자 액세스를위한 서비스 개체
+    private UserDetailsServiceImpl userService;                        // 사용자 액세스를위한 서비스 개체
 
     @Autowired
     private AuthFailureHandler authFailureHandler;
@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private AuthSuccessHandler authSuccessHandler;
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(UserService userService) {
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userService) {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         // "UserService"에서 데이터를 가지고와서 DaoAuthenticationProvider에서 인증과정을 거친다.
         authenticationProvider.setUserDetailsService(userService);
