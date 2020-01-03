@@ -40,6 +40,12 @@ $(document).ready(function () {
     $('.domain_title span').addClass('animated fadeIn faster');                 // 영문메뉴 큰 타이틀
     $('.popup_btn .fa-times').addClass('animated rotateIn faster');             // 모바일 팝업 닫기 아이콘
 
+    // 브라우저의 온라인 여부 반환 (네트워크 연결상태 여부)
+    if (navigator.onLine == false){
+        alert("현재 네트워크에 연결되어 있지 않습니다.");
+        site_alert(Site_Warning_Text, '현재 네트워크에 연결되어 있지 않습니다.', 7000);
+    }
+
     // Internet Explorer 브라우저 체크
     if (navigator.userAgent.toLowerCase().indexOf('.net') != -1) {
         console.log('사용하고 계신 Internet Explorer 브라우저는 지원하지 않습니다. Chrome, Firefox, Safari 브라우저를 이용해주시기 바랍니다.');
