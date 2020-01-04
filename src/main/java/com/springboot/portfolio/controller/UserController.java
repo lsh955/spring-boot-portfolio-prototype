@@ -1,6 +1,6 @@
 package com.springboot.portfolio.controller;
 
-import com.springboot.portfolio.dao.UserPrincipal;
+import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,7 +112,7 @@ public class UserController {
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
          * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
          */
-        UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
         
         modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값

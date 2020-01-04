@@ -1,4 +1,4 @@
-package com.springboot.portfolio.dao;
+package com.springboot.portfolio.details;
 
 import com.springboot.portfolio.dto.User;
 import lombok.EqualsAndHashCode;
@@ -17,7 +17,7 @@ import java.util.*;
  */
 @ToString
 @EqualsAndHashCode(of = "id")
-public class UserPrincipal implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
     
     @Autowired
     private User user;
@@ -28,7 +28,7 @@ public class UserPrincipal implements UserDetails {
         this.user = user;
     }
     
-    public UserPrincipal(User user) {
+    public UserDetailsImpl(User user) {
         this.user = user;
     }
     
@@ -46,7 +46,7 @@ public class UserPrincipal implements UserDetails {
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
-        return Collections.singletonList(new UserGrant());
+        return Collections.singletonList(new GrantedAuthorityImpl());
     }
     
     @Override

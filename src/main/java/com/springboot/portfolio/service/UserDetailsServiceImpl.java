@@ -1,6 +1,6 @@
 package com.springboot.portfolio.service;
 
-import com.springboot.portfolio.dao.UserPrincipal;
+import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.mapper.RoleMapper;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.dto.Roles;
@@ -56,7 +56,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
             return (UserDetails) modelAndView;
         }
         
-        return new UserPrincipal(user);
+        return new UserDetailsImpl(user);
         
     }
     

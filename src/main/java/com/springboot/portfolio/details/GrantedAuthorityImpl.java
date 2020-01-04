@@ -1,4 +1,4 @@
-package com.springboot.portfolio.dao;
+package com.springboot.portfolio.details;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
  * <p>
  * 유저권한부여 관리(액세스 권한을 부여/제어하는 권한을 얻는다.)
  */
-public class UserGrant implements GrantedAuthority {
+public class GrantedAuthorityImpl implements GrantedAuthority {
     
     @Override
     public String getAuthority() {
