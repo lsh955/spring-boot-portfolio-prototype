@@ -9,10 +9,10 @@ import org.springframework.security.core.GrantedAuthority;
  * 유저권한부여 관리(액세스 권한을 부여/제어하는 권한을 얻는다.)
  */
 public class GrantedAuthorityImpl implements GrantedAuthority {
-    
+
     @Override
     public String getAuthority() {
         return "admin";
     }
-    
+
 }

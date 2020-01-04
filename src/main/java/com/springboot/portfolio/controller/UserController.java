@@ -22,10 +22,10 @@ import javax.validation.Valid;
  */
 @Controller
 public class UserController {
-    
+
     @Autowired
     private UserDetailsServiceImpl userService;                        // 사용자 액세스를위한 서비스 개체
-    
+
     /**
      * ModelAndView
      * 메인연결
@@ -37,7 +37,7 @@ public class UserController {
         modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
         return modelAndView;
     }
-    
+
     /**
      * ModelAndView
      * 로그인 입력 처리
@@ -48,7 +48,7 @@ public class UserController {
         modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
         return modelAndView;
     }
-    
+
     /**
      * ModelAndView
      * 회원가입 처리
@@ -61,7 +61,7 @@ public class UserController {
         modelAndView.setViewName("registration");           // "setViewName"뷰 이름 설정
         return modelAndView;
     }
-    
+
     /**
      * ModelAndView
      * 회원가입 정보를 보내는 처리
@@ -90,7 +90,7 @@ public class UserController {
         }
         return modelAndView;
     }
-    
+
     /**
      * ModelAndView
      * 인증 후 권한이 있는 처리
@@ -98,7 +98,7 @@ public class UserController {
     @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
-        
+
         /**
          * @param Authentication
          * 현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
@@ -106,20 +106,20 @@ public class UserController {
          * SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
          */
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
+
         /**
          * @param UserPrincipal
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
          * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
          */
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-        
+
         modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
         modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정
         return modelAndView;
     }
-    
+
     /**
      * ModelAndView
      * 예외가 발행했을 경우
@@ -130,5 +130,5 @@ public class UserController {
         modelAndView.setViewName("access-denied");          // "setViewName"뷰 이름 설정
         return modelAndView;
     }
-    
+
 }
