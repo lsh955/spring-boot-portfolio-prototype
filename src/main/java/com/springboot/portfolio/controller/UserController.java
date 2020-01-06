@@ -119,4 +119,12 @@ public class UserController {
         return "access-denied";
     }
     
+    /**
+     *
+     */
+    @GetMapping("sessionlimit")
+    public String sessionlimit() {
+        return "sessionlimit";
+    }
+    
 }

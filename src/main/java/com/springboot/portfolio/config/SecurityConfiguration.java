@@ -61,6 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()                       // 접근을 전부 허용
                 .antMatchers("/login").permitAll()                  // 접근을 전부 허용
                 .antMatchers("/registration").permitAll()           // 접근을 전부 허용
+                .antMatchers("/sessionlimit").permitAll()           // 접근을 전부 허용
                 .antMatchers("/home").hasAuthority("admin")         // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
                 .anyRequest()                                                   // 인증 되어야 하는 부분
                 .authenticated();                                               // 인증된 사용자만 접근
@@ -83,9 +84,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/access-denied");                                // 예외가 발생했을때의 페이지 경로
 
         http.sessionManagement()                                                    // 세션 정책 설정
-                .maximumSessions(1)                                                 // 세션 허용개수 : 1개
+                .maximumSessions(1)
                 .maxSessionsPreventsLogin(false)                                    // 로그인중일 경우 로그인이 안된다.(false일 경우 기존 사용자의 세션이 종료된다.)
-                .expiredUrl("/sessionexpiration")                                   // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
+                .expiredUrl("/sessionlimit")                                   // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
                 .sessionRegistry(sessionRegistry());
 
     }
