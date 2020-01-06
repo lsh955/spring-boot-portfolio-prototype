@@ -41,7 +41,7 @@ $(document).ready(function () {
     $('.popup_btn .fa-times').addClass('animated rotateIn faster');             // 모바일 팝업 닫기 아이콘
 
     // 브라우저의 온라인 여부 반환 (네트워크 연결상태 여부)
-    if (navigator.onLine == false){
+    if (navigator.onLine == false) {
         alert("현재 네트워크에 연결되어 있지 않습니다.");
         site_alert(Site_Warning_Text, '현재 네트워크에 연결되어 있지 않습니다.', 7000);
     }

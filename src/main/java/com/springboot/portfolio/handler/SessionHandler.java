@@ -15,23 +15,23 @@ import javax.servlet.http.HttpSessionListener;
 @Slf4j
 @WebListener
 public class SessionHandler implements HttpSessionListener {
-    
+
     private int userCount;                              // 로그인된 사용자 수 카운트
-    
+
     @Override
     public void sessionCreated(HttpSessionEvent se) {   // 세션이 생성되었을 때 호출
         se.getSession().setMaxInactiveInterval(60 * 60);  // 세션만료 60분
-        
+
         ++userCount;
         log.info("생성된 SESSION ID : " + se.getSession().getId());
         log.info("로그인된 사용자 수 : " + userCount + "명");
     }
-    
+
     @Override
     public void sessionDestroyed(HttpSessionEvent se) { // 세션이 제거되었을 때 호출
         --userCount;
         log.info("제거된 SESSION ID : " + se.getSession().getId());
         log.info("로그인된 사용자 수 : " + userCount + "명");
     }
-    
+
 }

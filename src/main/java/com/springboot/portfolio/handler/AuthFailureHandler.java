@@ -17,12 +17,12 @@ import java.io.IOException;
  */
 @Configuration
 public class AuthFailureHandler implements AuthenticationFailureHandler {
-    
+
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         request.setAttribute("loginId", request.getParameter("loginId"));
         request.setAttribute("password", request.getParameter("password"));
         response.sendRedirect("/login?error=true"); // 실패 후 이동할 페이지를 지정
     }
-    
+
 }

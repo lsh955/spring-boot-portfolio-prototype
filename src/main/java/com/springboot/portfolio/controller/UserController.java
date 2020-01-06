@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -31,29 +31,35 @@ public class UserController {
      * 메인연결
      */
     @GetMapping("/")                              // GET으로 파라미터를 전달받는다.
-    public String getindex(Model model) {
-        model.addAttribute("LoginMessage", "아이디와 비밀번호 그리고 자동등록방지를 체크해주세요.");      // 뷰로 보낼 데이터 값
-        return "index";
+    public ModelAndView getindex() {
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.addObject("LoginMessage", "아이디와 비밀번호 그리고 자동등록방지를 체크해주세요.");      // 뷰로 보낼 데이터 값
+        modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
     /**
      * ModelAndView
      * 로그인 입력 처리
      */
-    @GetMapping("login")
-    public String getLoginPage(Model model) {
-        return "index";
+    @GetMapping("login")                          // GET으로 파라미터를 전달받는다.
+    public ModelAndView getLoginPage() {
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.setViewName("index");                  // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
     /**
      * ModelAndView
      * 회원가입 처리
      */
-    @GetMapping("registration")
-    public String getRegistrationPage(Model model) {
+    @GetMapping("registration")                             // GET으로 파라미터를 전달받는다.
+    public ModelAndView getRegistrationPage() {
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         User user = new User();                             // 회원 데이터
-        model.addAttribute("user", user);      // 뷰로 보낼 데이터 값
-        return "registration";
+        modelAndView.addObject("user", user);  // 뷰로 보낼 데이터 값
+        modelAndView.setViewName("registration");           // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
     /**
@@ -65,7 +71,8 @@ public class UserController {
      *                      폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
      */
     @PostMapping("registration")                                                // POST으로 파라미터를 전달받는다.
-    public String createNewUser(Model model, @Valid User user, BindingResult bindingResult) {
+    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();                         // "ModelAndView"객체는 Model과 View가 모두리턴
         User userExists = userService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
             // 필드에 대한 에러코드를 추가 에러코드에 대한 메세지가 존재하지 않을 경우 defaultMessage를 사용
@@ -73,14 +80,15 @@ public class UserController {
         }
         if (bindingResult.hasErrors()) {
             // 에러가 발생할경우 setViewName에 지정된 뷰로 이동한다.
-            return "registration";
+            modelAndView.setViewName("registration");                           // "setViewName"뷰 이름 설정
         } else {
             // 회원가입이 정상적으로 등록될 경우
             userService.saveUser(user);
-            model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
-            model.addAttribute("user", new User());                                                     // 뷰로 보낼 데이터 값
+            modelAndView.addObject("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
+            modelAndView.addObject("user", new User());                                                     // 뷰로 보낼 데이터 값
+            modelAndView.setViewName("registration");                           // "setViewName"뷰 이름 설정
         }
-        return "registration";
+        return modelAndView;
     }
     
     /**
@@ -88,7 +96,8 @@ public class UserController {
      * 인증 후 권한이 있는 처리
      */
     @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
-    public String home(Model model) {
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
         
         /**
          * @param Authentication
@@ -105,9 +114,10 @@ public class UserController {
          */
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
         
-        model.addAttribute("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
-        model.addAttribute("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
-        return "home";
+        modelAndView.addObject("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
+        modelAndView.addObject("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
+        modelAndView.setViewName("home");                   // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
     /**
@@ -115,8 +125,10 @@ public class UserController {
      * 예외가 발행했을 경우
      */
     @GetMapping("exception")                                // GET으로 파라미터를 전달받는다.
-    public String getUserPermissionExceptionPage() {
-        return "access-denied";
+    public ModelAndView getUserPermissionExceptionPage() {
+        ModelAndView modelAndView = new ModelAndView();     // "ModelAndView"객체는 Model과 View가 모두리턴
+        modelAndView.setViewName("access-denied");          // "setViewName"뷰 이름 설정
+        return modelAndView;
     }
     
 }
