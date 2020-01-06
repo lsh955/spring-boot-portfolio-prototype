@@ -64,7 +64,7 @@ public class UserController {
      *                      오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
      *                      폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
      */
-    @PostMapping("registration")                                                // POST으로 파라미터를 전달받는다.
+    @PostMapping("registration")
     public String createNewUser(Model model, @Valid User user, BindingResult bindingResult) {
         User userExists = userDetailsService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
@@ -87,7 +87,7 @@ public class UserController {
      * ModelAndView
      * 인증 후 권한이 있는 처리
      */
-    @GetMapping("home")                                     // GET으로 파라미터를 전달받는다.
+    @GetMapping("home")
     public String home(Model model) {
         
         /**
@@ -114,7 +114,7 @@ public class UserController {
      * ModelAndView
      * 예외가 발행했을 경우
      */
-    @GetMapping("exception")                                // GET으로 파라미터를 전달받는다.
+    @GetMapping("exception")
     public String getUserPermissionExceptionPage() {
         return "access-denied";
     }
