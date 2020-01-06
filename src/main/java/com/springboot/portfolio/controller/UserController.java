@@ -24,7 +24,7 @@ import javax.validation.Valid;
 public class UserController {
     
     @Autowired
-    private UserDetailsServiceImpl userService; // 사용자 액세스를위한 서비스 개체
+    private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     
     /**
      * ModelAndView
@@ -66,7 +66,7 @@ public class UserController {
      */
     @PostMapping("registration")                                                // POST으로 파라미터를 전달받는다.
     public String createNewUser(Model model, @Valid User user, BindingResult bindingResult) {
-        User userExists = userService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
+        User userExists = userDetailsService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
             // 필드에 대한 에러코드를 추가 에러코드에 대한 메세지가 존재하지 않을 경우 defaultMessage를 사용
             bindingResult.rejectValue("loginId", "error.loginId", "이미 등록 된 사용자가 있습니다");
@@ -76,7 +76,7 @@ public class UserController {
             return "registration";
         } else {
             // 회원가입이 정상적으로 등록될 경우
-            userService.saveUser(user);
+            userDetailsService.saveUser(user);
             model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
             model.addAttribute("user", new User());                                                     // 뷰로 보낼 데이터 값
         }
