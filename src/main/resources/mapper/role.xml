@@ -19,5 +19,4 @@
     </resultMap>
     <insert id="setUserRoleInfo"
             parameterType="map"> INSERT INTO user_role ( user_id, role_id ) VALUES ( #{param.userId}, #{param.roleId} ); </insert>
-
 </mapper>
