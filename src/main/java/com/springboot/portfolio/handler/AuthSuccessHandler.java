@@ -1,5 +1,6 @@
 package com.springboot.portfolio.handler;
 
+import com.springboot.portfolio.listener.HttpSessionListenerImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
@@ -28,7 +29,8 @@ public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
 
     @Bean
     public HttpSessionListener httpSessionListener() {  // 로그인 했을때 세션카운트를 할당한다.
-        return new SessionHandler();
+        return new HttpSessionListenerImpl();
     }
 
 }
+

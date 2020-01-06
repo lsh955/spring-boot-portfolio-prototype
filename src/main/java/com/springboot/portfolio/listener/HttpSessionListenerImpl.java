@@ -1,4 +1,4 @@
-package com.springboot.portfolio.handler;
+package com.springboot.portfolio.listener;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSessionListener;
  */
 @Slf4j
 @WebListener
-public class SessionHandler implements HttpSessionListener {
+public class HttpSessionListenerImpl implements HttpSessionListener {
 
     private int userCount;                              // 로그인된 사용자 수 카운트
 
