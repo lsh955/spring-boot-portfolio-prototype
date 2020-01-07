@@ -21,20 +21,20 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-
+    
     @Autowired
     private UserMapper userMapper;
-
+    
     @Autowired
     private RoleMapper roleMapper;
-
+    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }
-
+    
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(2);
@@ -45,19 +45,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         userRole.setUserId(user.getId());
         roleMapper.setUserRoleInfo(userRole);
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) {
         ModelAndView modelAndView = new ModelAndView();
         User user = userMapper.findUserByLoginId(username);
-
+        
         if (user == null) {   // 데이터베이스에 아이디,비밀번호가 없을 경우에...(임시조치)
             modelAndView.setViewName("index");
             return (UserDetails) modelAndView;
         }
-
+        
         return new UserDetailsImpl(user);
-
+        
     }
-
+    
 }

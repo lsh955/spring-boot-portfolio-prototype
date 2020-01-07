@@ -150,7 +150,7 @@
                     <span sec:authentication="principal.username"></span>안녕하세요.
                 </p>
                 <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
-            <!--<p class="sub_text" sec:authorize="isAuthenticated()">사심 가득한 포트폴리오 사이트 방문을 환영합니다.</p>-->
+                <!--<p class="sub_text" sec:authorize="isAuthenticated()">사심 가득한 포트폴리오 사이트 방문을 환영합니다.</p>-->
             </div>
             <!-- TODO
                  01. 메시지 확인기능
@@ -514,5 +514,6 @@
 <script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
 <script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
 <script th:src="@{js/index_frame.js?v=}"></script>               <!-- main layout js -->
+
 </body>
 </html>

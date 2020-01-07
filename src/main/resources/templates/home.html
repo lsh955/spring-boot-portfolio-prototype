@@ -24,8 +24,9 @@
             <div class="panel-heading">
                 <span th:utext="${userName}"></span>
             </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p><br>
+            <p class="text-center" th:utext="${contentsMessage}"></p>
             <span th:text="${session['id']}"></span><br>
+            <span th:text="${session['getId']}"></span><br>
         </div>
     </div>
 

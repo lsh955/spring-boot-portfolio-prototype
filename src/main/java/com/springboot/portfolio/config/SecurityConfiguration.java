@@ -3,7 +3,6 @@ package com.springboot.portfolio.config;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import com.springboot.portfolio.handler.AuthFailureHandler;
 import com.springboot.portfolio.handler.AuthSuccessHandler;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,16 +28,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
+    private AuthFailureHandler authFailureHandler;
+    
+    @Autowired
+    private AuthSuccessHandler authSuccessHandler;
     
     @Autowired
     private UserDetailsServiceImpl userDetailsService;      // 사용자 액세스를위한 서비스 개체
     
     @Autowired
-    private AuthFailureHandler authFailureHandler;
-    
-    @Autowired
-    private AuthSuccessHandler authSuccessHandler;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
     
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userService) {
@@ -63,7 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()                  // 접근을 전부 허용
                 .antMatchers("/registration").permitAll()           // 접근을 전부 허용
                 .antMatchers("/sessionlimit").permitAll()           // 접근을 전부 허용
-                .antMatchers("/home").hasAuthority("admin")         // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
+                .antMatchers("/home").hasAuthority("MEMBER")         // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
                 .anyRequest()                                                   // 인증 되어야 하는 부분
                 .authenticated();                                               // 인증된 사용자만 접근
         

@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -27,8 +29,7 @@ public class UserController {
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     
     /**
-     * ModelAndView
-     * 메인연결
+     * 메인
      */
     @GetMapping("/")
     public String getindex(Model model) {
@@ -37,7 +38,6 @@ public class UserController {
     }
     
     /**
-     * ModelAndView
      * 로그인 입력 처리
      */
     @GetMapping("login")
@@ -46,7 +46,15 @@ public class UserController {
     }
     
     /**
-     * ModelAndView
+     * 로그아웃 처리 처리
+     */
+    @GetMapping("logout")
+    public String getLogoutPage(HttpSession session) {
+        session.invalidate();
+        return "index";
+    }
+    
+    /**
      * 회원가입 처리
      */
     @GetMapping("registration")
@@ -57,7 +65,6 @@ public class UserController {
     }
     
     /**
-     * ModelAndView
      * 회원가입 정보를 보내는 처리
      *
      * @param bindingResult 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.
@@ -84,7 +91,6 @@ public class UserController {
     }
     
     /**
-     * ModelAndView
      * 인증 후 권한이 있는 처리
      */
     @GetMapping("home")
@@ -106,12 +112,11 @@ public class UserController {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
         
         model.addAttribute("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
-        model.addAttribute("adminMessage", "관리자 역할을 가진 사용자의 사용 가능한 콘텐츠");                              // 뷰로 보낼 데이터 값
+        model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                             // 뷰로 보낼 데이터 값
         return "home";
     }
     
     /**
-     * ModelAndView
      * 예외가 발행했을 경우
      */
     @GetMapping("exception")
@@ -120,7 +125,7 @@ public class UserController {
     }
     
     /**
-     *
+     * 중복로그인이 감지되면 보여주는 페이지
      */
     @GetMapping("sessionlimit")
     public String sessionlimit() {
