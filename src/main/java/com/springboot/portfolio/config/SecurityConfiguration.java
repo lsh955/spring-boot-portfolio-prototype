@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -59,10 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {              // 로그인 URL, 권한분리, Logout URL  설정
         http.authorizeRequests()                                                // 요청에 대한 권한을 지정
                 .antMatchers("/").permitAll()                       // 접근을 전부 허용
-                .antMatchers("/login").permitAll()                  // 접근을 전부 허용
-                .antMatchers("/registration").permitAll()           // 접근을 전부 허용
-                .antMatchers("/sessionlimit").permitAll()           // 접근을 전부 허용
-                .antMatchers("/home").hasAuthority("MEMBER")         // 특정 권한을 가지는 사용자만 접근("ADMIN"권한만 "/home"에 접근가능)
+                .antMatchers("/home").hasAuthority("MEMBER")        // 특정 권한을 가지는 사용자만 접근
                 .anyRequest()                                                   // 인증 되어야 하는 부분
                 .authenticated();                                               // 인증된 사용자만 접근
         
@@ -84,16 +79,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/access-denied");                                // 예외가 발생했을때의 페이지 경로
         
         http.sessionManagement()                                                    // 세션 정책 설정
-                .maximumSessions(1)
+                .maximumSessions(1)                                                 // 세션허용 인원
                 .maxSessionsPreventsLogin(false)                                    // 로그인중일 경우 로그인이 안된다.(false일 경우 기존 사용자의 세션이 종료된다.)
-                .expiredUrl("/sessionlimit")                                        // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
-                .sessionRegistry(sessionRegistry());
-        
-    }
-    
-    @Bean
-    public SessionRegistry sessionRegistry() {
-        return new SessionRegistryImpl();
+                .expiredUrl("/sessionlimit");                                       // 중복 로그인이 발생했을 경우 이동할 주소(원인을 알려줄 주소)
     }
     
     @Override
