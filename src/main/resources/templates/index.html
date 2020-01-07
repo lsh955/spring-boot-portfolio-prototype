@@ -5,7 +5,7 @@
     완료일정 : 2020년 언젠가...
 -->
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
@@ -146,8 +146,11 @@
                 <div class="message_photo">
                     <img th:src="@{img/profile.jpg}" alt="승화니'">
                 </div>
-                <p class="main_text">안녕하세요.</p>
-                <p class="sub_text">로그인 후 서비스를 이용하세요.</p>    <!-- 시간에 따라 타이틀 변경할것. -->
+                <p class="main_text" sec:authorize="isAuthenticated()">
+                    <span sec:authentication="principal.username"></span>안녕하세요.
+                </p>
+                <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
+            <!--<p class="sub_text" sec:authorize="isAuthenticated()">사심 가득한 포트폴리오 사이트 방문을 환영합니다.</p>-->
             </div>
             <!-- TODO
                  01. 메시지 확인기능

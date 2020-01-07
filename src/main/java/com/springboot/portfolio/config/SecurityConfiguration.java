@@ -3,6 +3,7 @@ package com.springboot.portfolio.config;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import com.springboot.portfolio.handler.AuthFailureHandler;
 import com.springboot.portfolio.handler.AuthSuccessHandler;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
