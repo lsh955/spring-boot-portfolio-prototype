@@ -132,10 +132,15 @@
                         <i class="fas fa-envelope-open-text"></i>
                     </a>
                 </li>
-                <li class="login">
+                <li class="login" sec:authorize="isAnonymous()">
                     <a href="" title="로그인">
                         <i class="fas fa-lock"></i>
                         <i class="fas fa-times"></i>
+                    </a>
+                </li>
+                <li class="logout" sec:authorize="isAuthenticated()">
+                    <a href="/logout" title="로그아웃">
+                        <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
             </ul>

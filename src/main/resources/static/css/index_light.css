@@ -380,7 +380,8 @@ html {
 
 .functions .fa-sun,
 .functions .fa-history,
-.functions .fa-lock {
+.functions .fa-lock,
+.functions .fa-sign-out-alt {
     color: #dead9b;
     font-size: 34px;
     transition: all .4s;
@@ -390,7 +391,8 @@ html {
 .functions .fa-sun:hover,
 .functions .fa-history:hover,
 .functions .fa-envelope-open-text:hover,
-.functions .fa-lock:hover {
+.functions .fa-lock:hover,
+.functions .fa-sign-out-alt:hover {
     color: #fff;
     transition: all .4s;
 }
