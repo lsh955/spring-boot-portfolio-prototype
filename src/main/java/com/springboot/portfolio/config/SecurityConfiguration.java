@@ -76,7 +76,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true);                                           // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
         
         http.exceptionHandling()                                                        // 예외처리 핸들링
-                .accessDeniedPage("/access-denied");                                    // 예외가 발생했을때의 페이지 경로
+                .accessDeniedPage("/accessdenied");                                     // 예외가 발생했을때의 페이지 경로
         
         http.sessionManagement()                                                        // 세션 정책 설정
                 .maximumSessions(1)                                                     // 세션허용 인원

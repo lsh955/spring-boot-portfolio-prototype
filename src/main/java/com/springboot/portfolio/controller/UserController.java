@@ -120,7 +120,7 @@ public class UserController {
      */
     @GetMapping("exception")
     public String getUserPermissionExceptionPage() {
-        return "access-denied";
+        return "accessdenied";
     }
     
     /**
