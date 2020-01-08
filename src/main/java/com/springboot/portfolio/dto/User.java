@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
     
-    private int id;
-    private int active;
-    private String loginId;
-    private String userName;
-    private String userEmail;
-    private String userTel;
-    private String password;
-    private String passwordConfirm;
+    private int id;                 // 키값
+    private int active;             // 권한정보
+    private String loginId;         // 사용자 아이디
+    private String userName;        // 사용자 성함
+    private String userEmail;       // 사용자 이메일
+    private String userTel;         // 사용자 전화번호
+    private String password;        // 패스워드
+    private String passwordConfirm; // 패스워드 확인
     
     public int getId() {
         return id;
