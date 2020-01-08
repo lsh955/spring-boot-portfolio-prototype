@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -57,11 +56,11 @@ public class UserController {
     /**
      * 회원가입 처리
      */
-    @GetMapping("registration")
-    public String getRegistrationPage(Model model) {
+    @GetMapping("signup")
+    public String getSignupPage(Model model) {
         User user = new User();                             // 회원 데이터
         model.addAttribute("user", user);      // 뷰로 보낼 데이터 값
-        return "registration";
+        return "signup";
     }
     
     /**
@@ -71,7 +70,7 @@ public class UserController {
      *                      오류 정보는 보통 컨트롤러에 의해 폼을 다시 띄울 때 활용된다.
      *                      폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
      */
-    @PostMapping("registration")
+    @PostMapping("signup")
     public String createNewUser(Model model, @Valid User user, BindingResult bindingResult) {
         User userExists = userDetailsService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
@@ -80,14 +79,14 @@ public class UserController {
         }
         if (bindingResult.hasErrors()) {
             // 에러가 발생할경우 setViewName에 지정된 뷰로 이동한다.
-            return "registration";
+            return "signup";
         } else {
             // 회원가입이 정상적으로 등록될 경우
             userDetailsService.saveUser(user);
             model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
             model.addAttribute("user", new User());                                                     // 뷰로 보낼 데이터 값
         }
-        return "registration";
+        return "signup";
     }
     
     /**
