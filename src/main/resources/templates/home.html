@@ -13,20 +13,25 @@
 <body>
 <div class="container">
 
-    <form th:action="@{/logout}" method="get">
-        <button class="btn btn-md btn-danger btn-block" name="signup"
-                type="Submit">로그아웃
-        </button>
-    </form>
-
-    <div class="panel-group" style="margin-top:40px">
+    <div class="panel-group" style="margin-top:50px">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span th:utext="${userName}"></span>
             </div>
-            <p class="text-center" th:utext="${contentsMessage}"></p>
+            <p class="text-center" style="margin: 10px 0 10px;" th:utext="${contentsMessage}"></p>
         </div>
     </div>
+
+    <form method="get" th:action="@{/}">
+        <button class="btn btn-md btn-success btn-block"
+                type="Submit">메인으로
+        </button>
+    </form>
+    <form method="get" th:action="@{/logout}">
+        <button class="btn btn-md btn-danger btn-block" name="signup"
+                type="Submit">로그아웃
+        </button>
+    </form>
 
 </div>
 </body>
