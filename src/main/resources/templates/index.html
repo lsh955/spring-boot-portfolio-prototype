@@ -146,11 +146,10 @@
                 <div class="message_photo">
                     <img th:src="@{img/profile.jpg}" alt="승화니'">
                 </div>
-                <p class="main_text" sec:authorize="isAuthenticated()">
-                    <span sec:authentication="principal.username"></span>안녕하세요.
-                </p>
+                <p class="main_text"><span sec:authentication="principal.username"
+                                           sec:authorize="isAuthenticated()">님</span> 안녕하세요.</p>
                 <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
-                <!--<p class="sub_text" sec:authorize="isAuthenticated()">사심 가득한 포트폴리오 사이트 방문을 환영합니다.</p>-->
+                <p class="sub_text" sec:authorize="isAuthenticated()">승화니' 사심 가득한 포트폴리오</p>
             </div>
             <!-- TODO
                  01. 메시지 확인기능
