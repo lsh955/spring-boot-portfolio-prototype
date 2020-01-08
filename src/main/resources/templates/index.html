@@ -158,8 +158,8 @@
             <div class="message_body">
                 <!-- 비회원즉, 로그인 안할때 guest_message 박스를 기본으로 보여준다. -->
                 <div class="guest_message">
-                    <p class="message_login_text">로그인 후 서비스를 이용하실 수 있습니다.</p>
-                    <input class="message_login_btn" type="button" value="로그인"/>
+                    <p class="message_login_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하실 수 있습니다.</p>
+                    <input class="message_login_btn" sec:authorize="isAnonymous()" type="button" value="로그인"/>
                 </div>
             </div>
         </div>
