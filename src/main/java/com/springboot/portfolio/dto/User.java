@@ -12,11 +12,13 @@ import org.springframework.stereotype.Component;
 public class User {
     
     private int id;
-    private String password;
-    private String passwordConfirm;
+    private int active;
     private String loginId;
     private String userName;
-    private int active;
+    private String userEmail;
+    private String userTel;
+    private String password;
+    private String passwordConfirm;
     
     public int getId() {
         return id;
@@ -26,20 +28,12 @@ public class User {
         this.id = id;
     }
     
-    public String getPassword() {
-        return password;
+    public int getActive() {
+        return active;
     }
     
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-    
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
+    public void setActive(int active) {
+        this.active = active;
     }
     
     public String getLoginId() {
@@ -58,11 +52,35 @@ public class User {
         this.userName = userName;
     }
     
-    public int getActive() {
-        return active;
+    public String getUserEmail() {
+        return userEmail;
     }
     
-    public void setActive(int active) {
-        this.active = active;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+    
+    public String getUserTel() {
+        return userTel;
+    }
+    
+    public void setUserTel(String userTel) {
+        this.userTel = userTel;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+    
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }

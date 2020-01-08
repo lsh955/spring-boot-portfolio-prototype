@@ -23,7 +23,7 @@
                     <div class="col-sm-9">
                         <label class="validation-message" th:errors="*{loginId}"
                                th:if="${#fields.hasErrors('loginId')}"></label>
-                        <input class="form-control" placeholder="LoginId" th:field="*{loginId}" type="text"/>
+                        <input class="form-control" placeholder="아이디" th:field="*{loginId}" type="text"/>
                     </div>
                 </div>
 
@@ -31,13 +31,29 @@
                     <div class="col-sm-9">
                         <label class="validation-message" th:errors="*{userName}"
                                th:if="${#fields.hasErrors('userName')}"></label>
-                        <input class="form-control" placeholder="UserName" th:field="*{userName}" type="text"/>
+                        <input class="form-control" placeholder="성함" th:field="*{userName}" type="text"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input class="form-control" placeholder="Password" th:field="*{password}" type="password"/>
+                        <label class="validation-message" th:errors="*{userEmail}"
+                               th:if="${#fields.hasErrors('userEmail')}"></label>
+                        <input class="form-control" placeholder="이메일" th:field="*{userEmail}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label class="validation-message" th:errors="*{userTel}"
+                               th:if="${#fields.hasErrors('userTel')}"></label>
+                        <input class="form-control" placeholder="전화번호" th:field="*{userTel}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input class="form-control" placeholder="패스워드" th:field="*{password}" type="password"/>
                         <label class="validation-message" th:errors="*{password}"
                                th:if="${#fields.hasErrors('password')}"></label>
                     </div>
@@ -45,7 +61,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input class="form-control" placeholder="Password Confirm" th:field="*{passwordConfirm}"
+                        <input class="form-control" placeholder="패스워드 확인" th:field="*{passwordConfirm}"
                                type="password"/>
                         <label class="validation-message" th:errors="*{passwordConfirm}"
                                th:if="${#fields.hasErrors('passwordConfirm')}"></label>
