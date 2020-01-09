@@ -36,7 +36,8 @@
 
         <div class="small_photo">
             <a href="" title="승화니'">
-                <p class="count" sec:authorize="isAuthenticated()">99..</p>  <!-- 메시지 건수를 카운트로 알려준다.(99건 이상부턴 숫자뒤에 '..'으로 처리) -->
+                <p class="count" sec:authorize="isAuthenticated()">99..</p>
+                <!-- 메시지 건수를 카운트로 알려준다.(99건 이상부턴 숫자뒤에 '..'으로 처리) -->
                 <!-- TODO : 내 사진은 나중에 CSS background 로 처리하자 -->
                 <img th:src="@{img/profile.jpg}" alt="승화니'">
             </a>
