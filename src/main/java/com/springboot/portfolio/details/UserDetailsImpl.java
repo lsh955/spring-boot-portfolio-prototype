@@ -1,8 +1,9 @@
 package com.springboot.portfolio.details;
 
 import com.springboot.portfolio.dto.User;
+import com.springboot.portfolio.mapper.UserMapper;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,14 +17,15 @@ import java.util.*;
  * <p>
  * 데이터베이스 테이블과 실제로 1:1 매핑되어 정확하게 관리.
  */
-@ToString
+@Slf4j
 @EqualsAndHashCode(of = "id")
 public class UserDetailsImpl implements UserDetails {
     
-    @Autowired
     private User user;
-    
     private String id;
+    
+    @Autowired
+    private UserMapper userMapper;
     
     public User getUser() {
         return user;
@@ -44,7 +46,17 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority("MEMBER"));
+    
+        System.out.println("당신의 권한은? : " + user.getActive());
+    
+        authorities.add(new SimpleGrantedAuthority("USER"));
+        
+//        if(user.getActive() == 2){
+//            authorities.add(new SimpleGrantedAuthority("MEMBER"));
+//        }if(user.getActive() == 1){
+//            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+//        }
+
         return authorities;
     }
     

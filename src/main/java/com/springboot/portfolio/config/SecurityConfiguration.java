@@ -37,27 +37,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
     
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userService) {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        // "UserService"에서 데이터를 가지고와서 DaoAuthenticationProvider에서 인증과정을 거친다.
-        authenticationProvider.setUserDetailsService(userService);
-        // "ShaPasswordEncoder"를 사용해서 비밀번호를 인코딩한다.
-        authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
-        return authenticationProvider;
-    }
-    
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        // AuthenticationManagerBuilder를 주입해서 인증에 대한 처리
-        auth.authenticationProvider(authenticationProvider(userDetailsService));
-    }
-    
     @Override
     protected void configure(HttpSecurity http) throws Exception {                      // 로그인 URL, 권한분리, Logout URL  설정
         http.authorizeRequests()                                                        // 요청에 대한 권한을 지정
-                .antMatchers("/", "/login", "/signup", "/sessionfailed").permitAll()          // 접근을 전부 허용
-                .antMatchers("/home").hasAuthority("MEMBER")                // 특정 권한을 가지는 사용자만 접근
+                .antMatchers("/", "/login", "/signup", "/sessionfailed", "/exception").permitAll()   // 접근을 전부 허용
+                .antMatchers("/home").hasAuthority("USER")                // 사용자만 접근
+                .antMatchers("/manager").hasAuthority("ADMIN")              // 관리자만 접근
                 .anyRequest()                                                           // 인증 되어야 하는 부분
                 .authenticated();                                                       // 인증된 사용자만 접근
         
@@ -87,8 +72,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Override
     public void configure(WebSecurity web) {
-        // 인증이 필요없는 허용하는 경로
+        // 특정 요청을 무시(인증이 필요없는 허용하는 경로)
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    }
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        // AuthenticationManagerBuilder를 주입해서 인증에 대한 처리
+        auth.authenticationProvider(authenticationProvider(userDetailsService));
+    }
+    
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userService) {
+        
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        // "UserService"에서 데이터를 가지고와서 DaoAuthenticationProvider에서 인증과정을 거친다.
+        authenticationProvider.setUserDetailsService(userService);
+        // "ShaPasswordEncoder"를 사용해서 비밀번호를 인코딩한다.
+        authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
+        
+        return authenticationProvider;
     }
     
 }

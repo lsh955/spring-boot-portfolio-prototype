@@ -64,6 +64,14 @@ public class UserController {
     }
     
     /**
+     * 관리자 페이지
+     */
+    @GetMapping("manager")
+    public String getAdminPage() {
+        return "manager";
+    }
+    
+    /**
      * 회원가입 정보를 보내는 처리
      *
      * @param bindingResult 모델의 바인딩 작업 중에 발생한 타입 변환 오류정보와 검증 작업에서 발생한 검증 오류 정보가 모두 저장된다.

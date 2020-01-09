@@ -9,9 +9,9 @@ import com.springboot.portfolio.dto.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author 이승환
@@ -28,6 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     @Autowired
     private RoleMapper roleMapper;
     
+    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     
@@ -36,9 +37,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     }
     
     public void saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(2);
-        userMapper.setUserInfo(user);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
+        user.setActive(2);                                                      // 기본 권한은 2번(member)권한 설정
+        userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
         Roles role = roleMapper.getRoleInfo("member");
         UserRole userRole = new UserRole();
         userRole.setRoleId(role.getId());
@@ -48,16 +49,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     
     @Override
     public UserDetails loadUserByUsername(String username) {
-        ModelAndView modelAndView = new ModelAndView();
         User user = userMapper.findUserByLoginId(username);
-        
-        if (user == null) {   // 데이터베이스에 아이디,비밀번호가 없을 경우에...(임시조치)
-            modelAndView.setViewName("index");
-            return (UserDetails) modelAndView;
+    
+        if (user == null) {
+            throw new UsernameNotFoundException(username + " 으로 시작된 아이디는 가입내역이 존재하지 않거나 가입내역이 없습니다.");
         }
-        
         return new UserDetailsImpl(user);
-        
     }
     
 }
