@@ -126,9 +126,9 @@ public class UserController {
     /**
      * 중복로그인이 감지되면 보여주는 페이지
      */
-    @GetMapping("sessionlimit")
-    public String sessionlimit() {
-        return "sessionlimit";
+    @GetMapping("sessionfailed")
+    public String sessionfailed() {
+        return "sessionfailed";
     }
     
 }
