@@ -28,19 +28,10 @@ public class UserController {
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     
     /**
-     * 메인
+     * 메인 또는 로그인처리
      */
     @GetMapping("/")
-    public String getindex(Model model) {
-        model.addAttribute("LoginMessage", "아이디와 비밀번호 그리고 자동등록방지를 체크해주세요.");      // 뷰로 보낼 데이터 값
-        return "index";
-    }
-    
-    /**
-     * 로그인 입력 처리
-     */
-    @GetMapping("login")
-    public String getLoginPage() {
+    public String getIndex() {
         return "index";
     }
     
@@ -57,7 +48,7 @@ public class UserController {
      * 회원가입 처리
      */
     @GetMapping("signup")
-    public String getSignupPage(Model model) {
+    public String getSignUpPage(Model model) {
         User user = new User();                             // 회원 데이터
         model.addAttribute("user", user);      // 뷰로 보낼 데이터 값
         return "signup";

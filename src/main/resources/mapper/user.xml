@@ -6,7 +6,7 @@
 
     <resultMap id="User" type="com.springboot.portfolio.dto.User">
         <result property="id" column="user_id"/>
-        <result property="active" column="active"/>
+        <result property="userType" column="user_type"/>
         <result property="loginId" column="login_id"/>
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
@@ -14,7 +14,7 @@
         <result property="userEmail" column="user_email"/>
     </resultMap>
 
-    <select id="findUserByLoginId" resultMap="User">SELECT user_id, active, login_id, user_name, password, user_tel,
+    <select id="findUserByLoginId" resultMap="User">SELECT user_id, user_type, login_id, user_name, password, user_tel,
         user_email FROM user
         <where>
             <if test=" loginId != null and loginId != '' ">AND login_id = #{loginId}</if>
@@ -22,8 +22,8 @@
     </select>
 
     <insert id="setUserInfo" parameterType="com.springboot.portfolio.dto.User" useGeneratedKeys="true"
-            keyProperty="param.id"> INSERT INTO user (active, login_id, user_name, password, user_tel, user_email)
-                                    VALUES (#{param.active}, #{param.loginId}, #{param.userName},
+            keyProperty="param.id"> INSERT INTO user (user_type, login_id, user_name, password, user_tel, user_email)
+                                    VALUES (#{param.userType}, #{param.loginId}, #{param.userName},
                                             #{param.password}, #{param.userTel}, #{param.userEmail}) </insert>
 
 </mapper>

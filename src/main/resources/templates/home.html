@@ -22,16 +22,13 @@
         </div>
     </div>
 
-    <form method="get" th:action="@{/}">
-        <button class="btn btn-md btn-success btn-block"
-                type="Submit">메인으로
-        </button>
-    </form>
-    <form method="get" th:action="@{/logout}">
-        <button class="btn btn-md btn-danger btn-block" name="signup"
-                type="Submit">로그아웃
-        </button>
-    </form>
+    <div class="btn btn-md btn-success btn-block">
+        <a th:href="@{/}" title="메인으로">메인으로</a>
+    </div>
+
+    <div class="btn btn-md btn-danger btn-block">
+        <a th:href="@{/logout}" title="로그아웃">로그아웃</a>
+    </div>
 
 </div>
 </body>

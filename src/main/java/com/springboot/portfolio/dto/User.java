@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class User {
     
     private int id;                 // 키값
-    private int active;             // 권한정보
+    private String userType;        // 권한정보
     private String loginId;         // 사용자 아이디
     private String userName;        // 사용자 성함
     private String userEmail;       // 사용자 이메일
@@ -28,12 +28,12 @@ public class User {
         this.id = id;
     }
     
-    public int getActive() {
-        return active;
+    public String getUserType() {
+        return userType;
     }
     
-    public void setActive(int active) {
-        this.active = active;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
     
     public String getLoginId() {
@@ -83,4 +83,5 @@ public class User {
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
+    
 }

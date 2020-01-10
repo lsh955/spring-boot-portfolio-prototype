@@ -1,8 +1,6 @@
 package com.springboot.portfolio.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -32,16 +30,6 @@ public class WebConfig implements WebMvcConfigurer {
                         "classpath:/static/img/",
                         "classpath:/static/css/",
                         "classpath:/static/js/");
-    }
-    
-    /**
-     * 비밀번호 암호화 클래스 Bean등록
-     * BCrypt 해시 함수를 이용하여 비밀번호를 저장하는 방법을 사용
-     */
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
     }
     
 }

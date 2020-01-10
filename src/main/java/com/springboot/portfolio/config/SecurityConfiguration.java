@@ -26,30 +26,36 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Autowired
-    private AuthFailureHandler authFailureHandler;
+    private AuthSuccessHandler authSuccessHandler;          // 로그인이 성공했을 때 핸들러
     
     @Autowired
-    private AuthSuccessHandler authSuccessHandler;
+    private AuthFailureHandler authFailureHandler;          // 로그인이 실패했을 때 핸들러
     
     @Autowired
     private UserDetailsServiceImpl userDetailsService;      // 사용자 액세스를위한 서비스 개체
     
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;    // 비밀번호 암호화
+    private BCryptPasswordEncoder bCryptPasswordEncoder;    // BCrypt 해시 함수를 이용하여 비밀번호를 저장하여 암호화
+    
+    @Override
+    public void configure(WebSecurity web) {
+        // 특정 요청을 무시(인증이 필요없는 허용하는 경로)
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    }
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {                      // 로그인 URL, 권한분리, Logout URL  설정
         http.authorizeRequests()                                                        // 요청에 대한 권한을 지정
-                .antMatchers("/", "/login", "/signup", "/sessionfailed", "/exception").permitAll()   // 접근을 전부 허용
-                .antMatchers("/home").hasAuthority("USER")                // 사용자만 접근
-                .antMatchers("/manager").hasAuthority("ADMIN")              // 관리자만 접근
+                .antMatchers("/", "login", "/signup", "/sessionfailed", "/exception").permitAll()  // 접근을 전부 허용
+                .antMatchers("/home").access("hasRole('MEMBER') or hasRole('ADMIN')") // 사용자만 접근
+                .antMatchers("/manager").hasRole("ADMIN")                   // 관리자만 접근
                 .anyRequest()                                                           // 인증 되어야 하는 부분
                 .authenticated();                                                       // 인증된 사용자만 접근
         
         http.csrf().disable();                                                          // CSRF[사이트 간 요청 위조] 프로텍션(사용하지 않음)
         
         http.formLogin()                                                                // 폼을 통한 로그인을 이용
-                .loginPage("/login")                                                    // 로그인 뷰 페이지를 연결
+                .loginPage("/")                                                         // 로그인 뷰 페이지를 연결
                 .usernameParameter("loginId")                                           // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .passwordParameter("password")                                          // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .successHandler(authSuccessHandler)                                     // 로그인이 성공했을 때 핸들러
@@ -57,7 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         http.logout()                                                                   // 로그아웃 처리
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))     // 로그아웃이 성공했을 경우 이동할 페이지
-                .logoutSuccessUrl("/")                                                  // 로그아웃 성공 후 반환하는 URI
+                .logoutSuccessUrl("/?state=logout")                                                  // 로그아웃 성공 후 반환하는 URI
                 .invalidateHttpSession(true);                                           // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
         
         http.sessionManagement()                                                        // 세션 정책 설정
@@ -71,26 +77,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
     
     @Override
-    public void configure(WebSecurity web) {
-        // 특정 요청을 무시(인증이 필요없는 허용하는 경로)
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider(userDetailsService));        // AuthenticationManagerBuilder를 주입해서 인증에 대한 처리
     }
     
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        // AuthenticationManagerBuilder를 주입해서 인증에 대한 처리
-        auth.authenticationProvider(authenticationProvider(userDetailsService));
+    /**
+     * 비밀번호 암호화 클래스 Bean등록
+     * BCrypt 해시 함수를 이용하여 비밀번호를 저장하는 방법을 사용
+     */
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
     
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userService) {
-        
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        // "UserService"에서 데이터를 가지고와서 DaoAuthenticationProvider에서 인증과정을 거친다.
-        authenticationProvider.setUserDetailsService(userService);
-        // "ShaPasswordEncoder"를 사용해서 비밀번호를 인코딩한다.
-        authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
-        
+        authenticationProvider.setUserDetailsService(userService);          // "UserService"에서 데이터를 가지고와서 DaoAuthenticationProvider에서 인증과정을 거친다.
+        authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);   // "ShaPasswordEncoder"를 사용해서 비밀번호를 인코딩한다.
         return authenticationProvider;
     }
     

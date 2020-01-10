@@ -23,6 +23,7 @@ public class UserDetailsImpl implements UserDetails {
     
     private User user;
     private String id;
+    private List<String> roles;
     
     @Autowired
     private UserMapper userMapper;
@@ -39,24 +40,24 @@ public class UserDetailsImpl implements UserDetails {
         return user.getUserName();
     }
     
+    public List<String> getRoles() {
+        return roles;
+    }
+    
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+    
     public UserDetailsImpl(User user) {
         this.user = user;
     }
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        
-        System.out.println("당신의 권한은? : " + user.getActive());
-        
-        authorities.add(new SimpleGrantedAuthority("USER"));
-
-//        if(user.getActive() == 2){
-//            authorities.add(new SimpleGrantedAuthority("MEMBER"));
-//        }if(user.getActive() == 1){
-//            authorities.add(new SimpleGrantedAuthority("ADMIN"));
-//        }
-        
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (String role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role));
+        }
         return authorities;
     }
     

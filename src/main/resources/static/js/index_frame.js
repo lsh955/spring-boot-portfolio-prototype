@@ -141,6 +141,14 @@ $(document).ready(function () {
     //**** 로그인 이벤트 *************
     //********************************
 
+    var para = document.location.href.split("?");
+    console.log(para[1]);
+
+    // TODO : 로그아웃 메시지는 이렇게 처리하면 안된다. 로그아웃된 상태에서 계속 새로고침하면 알림창이 계속뜬다. 생각해서 꼭 바꿀것.
+    if (para[1] === "state=logout") {
+        site_alert(Site_Notice_Text, '안전하게 로그아웃 되었습니다.', 5000);
+    }
+
     // 로그인 되었을 시 알림
     //site_alert(Site_Notice_Text, '이승환님, 안녕하세요. 2019년00월00일 00시00분 로그인되었습니다.', 5000);
 
@@ -517,3 +525,27 @@ function login_effect() {
     $('.id_edge').css('border', '2px solid #b00020');
     $('.id_title').css('color', '#b00020');
 }
+
+
+// 테스트중....
+$(function () {
+    $.ajaxSetup({
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("AJAX", "true");
+        },
+        error: function (e, xhr, settings, exception) {
+            if (e.status === 400) {
+                alert("400");
+            } else if (e.status === 401) {
+                window.location.href = "/";
+                alert("401");
+            } else if (e.status === 403) {
+                $.growlUI('warning', '이 기능을 사용할 권한이 없습니다.');
+                alert("403");
+            }
+            if (callback_ajaxError) {
+                callback_ajaxError(e, xhr, settings, exception);
+            }
+        }
+    });
+});
