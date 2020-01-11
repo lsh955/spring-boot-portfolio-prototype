@@ -361,6 +361,17 @@ $(document).ready(function () {
         });
     });
 
+    $('.menu_background').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.menu_background_text').stop().fadeIn('500');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.menu_background_text').stop().fadeOut('500');
+        }
+    });
+
 
     //********************************
     //**** 팝업 이벤트 ****************
@@ -394,6 +405,18 @@ $(document).ready(function () {
             $('.popup_shadow_on').attr('class', 'popup_shadow_off');
         }
     });
+
+    $('.popup_background').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.popup_background_text').stop().fadeIn('500');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.popup_background_text').stop().fadeOut('500');
+        }
+    });
+
 });
 
 

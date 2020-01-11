@@ -1753,6 +1753,19 @@ progress::-moz-progress-bar {
         background-color: #333;
     }
 
+    .menu_background_text {
+        display: none;
+
+        position: absolute;
+        top: 47%;
+        left: 54%;
+
+        font-size: 17px;
+        color: #fff;
+        font-weight: bold;
+        font-family: "Nanum Gothic", "Adobe Blank";
+    }
+
 
     .left_side .functions {
         display: none;
@@ -1837,13 +1850,26 @@ progress::-moz-progress-bar {
         width: 100%;
 
         position: fixed;
-        top: 60px;
+        top: 44px;
         left: 0;
         bottom: 0;
 
         z-index: 9;
         opacity: 0.5;
         background-color: #333;
+    }
+
+    .popup_background_text {
+        display: none;
+
+        position: absolute;
+        top: 47%;
+        left: 48%;
+
+        font-size: 17px;
+        color: #fff;
+        font-weight: bold;
+        font-family: "Nanum Gothic", "Adobe Blank";
     }
 
 
