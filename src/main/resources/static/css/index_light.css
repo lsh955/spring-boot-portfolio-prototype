@@ -356,6 +356,19 @@ html {
     background-color: #333;
 }
 
+.menu_background_text {
+    display: none;
+
+    position: absolute;
+    top: 47%;
+    left: 54%;
+
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
+}
+
 
 .functions {
     position: absolute;
@@ -721,6 +734,19 @@ html {
     z-index: 9;
     opacity: 0.5;
     background-color: #333;
+}
+
+.popup_background_text {
+    display: none;
+
+    position: absolute;
+    top: 47%;
+    left: 48%;
+
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Nanum Gothic", "Adobe Blank";
 }
 
 
@@ -1755,15 +1781,6 @@ progress::-moz-progress-bar {
 
     .menu_background_text {
         display: none;
-
-        position: absolute;
-        top: 47%;
-        left: 54%;
-
-        font-size: 17px;
-        color: #fff;
-        font-weight: bold;
-        font-family: "Nanum Gothic", "Adobe Blank";
     }
 
 
@@ -1861,15 +1878,6 @@ progress::-moz-progress-bar {
 
     .popup_background_text {
         display: none;
-
-        position: absolute;
-        top: 47%;
-        left: 48%;
-
-        font-size: 17px;
-        color: #fff;
-        font-weight: bold;
-        font-family: "Nanum Gothic", "Adobe Blank";
     }
 
 
