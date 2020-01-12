@@ -128,11 +128,21 @@ $(document).ready(function () {
     //********************************
 
     $('.small_photo').on('click', function () {
-        if ($('.message_box').css('display') == 'none') {     // 메시지 박스가 있는지 없는지 검증한다.
+        if($('.message_box').css('display') == 'none'){     // 메시지 박스가 있는지 없는지 검증한다.
             $('.message_box').stop().fadeIn('fast');        // none이면 보이게 하고
-        } else {
+        }else {
             $('.message_box').stop().fadeOut('fast');       // black이면 숨기게 한다.
         }
+        return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
+    });
+
+    $(window).on('click', function () { // 메시지박스 밖에서 클릭할 때 닫아지도록..
+        $('.message_box').stop().fadeOut('fast');
+        return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
+    });
+
+    $('.message_box').on('click', function () { // 메시지박스 내 클릭해도 닫지 않도록..
+        $('.message_box').stop().fadeIn('fast');
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
 
