@@ -178,6 +178,17 @@ $(document).ready(function () {
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
 
+    $('.small_photo').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.message_box_help').stop().fadeIn('fast');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.message_box_help').stop().fadeOut('fast');
+        }
+    });
+
     //********************************
     //**** 로그인 이벤트 *************
     //********************************

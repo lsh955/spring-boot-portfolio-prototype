@@ -41,7 +41,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
         if (user == null) {
-            throw new UsernameNotFoundException(username + " 으로 시작된 아이디는 가입내역이 존재하지 않거나 가입내역이 없습니다.");
+            throw new UsernameNotFoundException(username + " 계정정보를 찾을 수 없습니다.");
         }
         return createUser(user);
     }
