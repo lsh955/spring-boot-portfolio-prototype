@@ -245,6 +245,7 @@ html {
 
     position: absolute;
 
+    z-index: 1;
     background-color: #bd5c38;
 }
 
@@ -605,8 +606,40 @@ html {
 
 
 
+.menu_help {
+    display: none;
+
+    width: 80px;
+    height: 34px;
+
+    position: absolute;
+    top: 44.9%;
+    left: 100px;
+
+    text-align: center;
+    border-radius: 30px 30px;
+    box-shadow: 0 0 2px 0;
+    background-color: #4b4b4b;
+}
+
+.question_help {
+    display: none;
+
+    width: 80px;
+    height: 34px;
+
+    position: absolute;
+    bottom: 69px;
+    left: 100px;
+
+    text-align: center;
+    border-radius: 30px 30px;
+    box-shadow: 0 0 2px 0;
+    background-color: #4b4b4b;
+}
+
 .signin_help {
-    display: block;
+    display: none;
 
     width: 80px;
     height: 34px;
@@ -621,8 +654,10 @@ html {
     background-color: #4b4b4b;
 }
 
-.signin_help p {
-    padding: 8px 11px 9px 8px;
+.signin_help p,
+.question_help p,
+.menu_help p {
+    padding: 8px 8px 9px 7px;
     color: #fff;
     font-size: 13px;
 }

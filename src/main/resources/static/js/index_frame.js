@@ -118,6 +118,39 @@ $(document).ready(function () {
         return false;
     });
 
+    // TODO : 로그인, 로그아웃 스크립트 개선하기.
+    $('.login').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.signin_help').stop().fadeIn('fast');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.signin_help').stop().fadeOut('fast');
+        }
+    });
+    $('.logout').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.signin_help').stop().fadeIn('fast');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.signin_help').stop().fadeOut('fast');
+        }
+    });
+
+    $('.question').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.question_help').stop().fadeIn('fast');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.question_help').stop().fadeOut('fast');
+        }
+    });
+
     $('.menu_list .07, .menu_list .08').on('click', function () {    // 로그인
         site_alert(Site_Notice_Text, '준비중인 페이지 입니다.', 3000);
     });
@@ -128,9 +161,9 @@ $(document).ready(function () {
     //********************************
 
     $('.small_photo').on('click', function () {
-        if($('.message_box').css('display') == 'none'){     // 메시지 박스가 있는지 없는지 검증한다.
+        if ($('.message_box').css('display') == 'none') {     // 메시지 박스가 있는지 없는지 검증한다.
             $('.message_box').stop().fadeIn('fast');        // none이면 보이게 하고
-        }else {
+        } else {
             $('.message_box').stop().fadeOut('fast');       // black이면 숨기게 한다.
         }
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
@@ -138,14 +171,12 @@ $(document).ready(function () {
 
     $(window).on('click', function () { // 메시지박스 밖에서 클릭할 때 닫아지도록..
         $('.message_box').stop().fadeOut('fast');
-        return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
 
     $('.message_box').on('click', function () { // 메시지박스 내 클릭해도 닫지 않도록..
         $('.message_box').stop().fadeIn('fast');
         return false;   // 이벤트를 종료시켜야 다음 이벤트로 안넘어 간다.
     });
-
 
     //********************************
     //**** 로그인 이벤트 *************
@@ -379,6 +410,17 @@ $(document).ready(function () {
         'mouseleave': function () {
             // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
             $('.menu_background_text').stop().fadeOut('500');
+        }
+    });
+
+    $('.menu_button').on({
+        'mouseenter': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.menu_help').stop().fadeIn('fast');
+        },
+        'mouseleave': function () {
+            // 연속적인 에니메이션 큐를 제거하기 위한 .stop()를 사용
+            $('.menu_help').stop().fadeOut('fast');
         }
     });
 

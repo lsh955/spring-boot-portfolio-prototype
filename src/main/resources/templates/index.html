@@ -189,8 +189,26 @@
             </ul>
         </div>
 
+        <div class="menu_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span>메뉴</span>
+            </p>
+        </div>
+
+        <div class="question_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span>문의하기</span>
+            </p>
+        </div>
+
         <div class="signin_help">
-            <p><i class="fas fa-chevron-left"></i> 로그인</p>
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span sec:authorize="isAnonymous()">로그인</span>
+                <span sec:authorize="isAuthenticated()">로그아웃</span>
+            </p>
         </div>
 
     </div>
