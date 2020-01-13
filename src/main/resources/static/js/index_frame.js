@@ -274,6 +274,17 @@ $(document).ready(function () {
         }
     });
 
+
+    $('#social_login_img').on({
+        'mouseenter': function () {
+            $('#social_login_img').attr("src", "img/btn_google_signin_dark_pressed_web.png");
+        },
+        'mouseleave': function () {
+            $('#social_login_img').attr("src", "img/btn_google_signin_light_pressed_web.png");
+        }
+    });
+
+
     // 아이디/비밀번호 입력값 실시간 감지(나중에 캡차 반환값 얻어서 추가 해야됨)
     $('#form').on({
         'propertychange change keyup paste input': function () {         // 이 라인은 검색해서 갔다 쓴거임.

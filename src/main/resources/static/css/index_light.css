@@ -116,8 +116,8 @@ html {
     border-radius: 8px;
     -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
 }
-
 /* //브라우저 스크롤 스타일 */
+
 
 
 /********************/
@@ -371,6 +371,7 @@ html {
 }
 
 
+
 .functions {
     position: absolute;
     bottom: 20px;
@@ -411,6 +412,7 @@ html {
     transition: all .4s;
 }
 
+
 .functions .fa-times {
     display: none;
 
@@ -418,6 +420,24 @@ html {
     font-size: 40px;
     transition: all .4s;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .message_box {
@@ -542,6 +562,27 @@ html {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .darkmode_help {
     display: none;
 
@@ -604,8 +645,6 @@ html {
     margin-left: 25px;
 }
 
-
-
 .menu_help {
     display: none;
 
@@ -661,6 +700,19 @@ html {
     color: #fff;
     font-size: 13px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -900,14 +952,40 @@ html {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .logpage {
     width: 1000px;
     height: 621px;
-    margin-top: -265px;
+    margin-top: -284px;
     margin-left: -455px;
 
     position: fixed;
-    top: 48%;
+    top: 50%;
     left: 50%;
 
     z-index: 2;
@@ -1041,7 +1119,7 @@ html {
 .logpage .right_login {
     width: 50%;
     height: 100%;
-    padding: 98px 40px 178px 40px;
+    padding: 65px 40px 178px 40px;
 
     float: right;
     position: relative;
@@ -1057,7 +1135,7 @@ html {
     width: 50px;
 
     position: absolute;
-    top: 90px;
+    top: 57px;
     left: 51px;
 
     font-size: 13px;
@@ -1069,7 +1147,7 @@ html {
     width: 65px;
 
     position: absolute;
-    top: 175px;
+    top: 142px;
     left: 50px;
 
     font-size: 13px;
@@ -1107,7 +1185,7 @@ html {
 
 .logpage .right_login .id_edge .fa-fingerprint {
     position: absolute;
-    top: 116px;
+    top: 83px;
     right: 52px;
 
     font-size: 25px;
@@ -1116,7 +1194,7 @@ html {
 
 .logpage .right_login .pwd_edge .fa-keyboard {
     position: absolute;
-    top: 201px;
+    top: 169px;
     right: 52px;
 
     font-size: 23px;
@@ -1135,9 +1213,10 @@ html {
     background-color: #e6e6e6;
 }
 
+
 .logpage .right_login .center {
     position: absolute;
-    top: 384px;
+    top: 351px;
     color: #ab1f15;
     font-size: 13px;
     text-align: center;
@@ -1148,16 +1227,35 @@ html {
     height: 65px;
     line-height: 66px;
     letter-spacing: 1px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 
     text-align: center;
     font-size: 17px;
     font-weight: bold;
     font-family: "Nanum Gothic", "Adobe Blank";
 
+    cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 0 1.5px 0;
     background-color: #e6e6e6;
+}
+
+.logpage .right_login .social_login_box {
+    margin-bottom: 20px;
+}
+
+.logpage .right_login .social_login_box img{
+    cursor: pointer;
+}
+
+.logpage .right_login .social_login_text {
+    float: left;
+    padding-top: 14px;
+    margin-right: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Nanum Gothic", "Adobe Blank";
 }
 
 .logpage .right_login .user_add {
@@ -1218,6 +1316,15 @@ html {
     color: #333;
     border-bottom: 4px solid #ffb500;
 }
+
+
+
+
+
+
+
+
+
 
 
 .logpage .right_find .id_find {
@@ -1292,6 +1399,7 @@ html {
     text-align: center;
     background-color: #eee;
 }
+
 
 
 .logpage .right_find .find_email_edge .find_email {
@@ -1438,6 +1546,21 @@ html {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .logpage .pwd_find {
     width: 100%;
     height: 397px;
@@ -1541,6 +1664,12 @@ html {
 }
 
 
+
+
+
+
+
+
 .login_background {
     display: none;
 
@@ -1555,6 +1684,47 @@ html {
     opacity: 0.5;
     background-color: #333;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .right_side {
@@ -1853,7 +2023,6 @@ progress::-moz-progress-bar {
         display: none;
     }
 
-
     .signin_help {
         display: none;
     }
@@ -1932,7 +2101,7 @@ progress::-moz-progress-bar {
         width: 100%;
 
         position: fixed;
-        top: 44px;
+        top: 60px;
         left: 0;
         bottom: 0;
 
@@ -1969,6 +2138,9 @@ progress::-moz-progress-bar {
     }
 
 
+
+
+
     .window_bax {
         display: none;
     }
@@ -1977,6 +2149,10 @@ progress::-moz-progress-bar {
     .login_shadow_off {
         display: none;
     }
+
+
+
+
 
 
     .right_side {
