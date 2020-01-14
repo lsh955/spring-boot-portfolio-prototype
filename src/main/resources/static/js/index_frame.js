@@ -193,10 +193,8 @@ $(document).ready(function () {
     //**** 로그인 이벤트 *************
     //********************************
 
-    var para = document.location.href.split("?");
-    console.log(para[1]);
-
     // TODO : 로그아웃 메시지는 이렇게 처리하면 안된다. 로그아웃된 상태에서 계속 새로고침하면 알림창이 계속뜬다. 생각해서 꼭 바꿀것.
+    var para = document.location.href.split("?");
     if (para[1] === "state=logout") {
         site_alert(Site_Notice_Text, '안전하게 로그아웃 되었습니다.', 5000);
     }
