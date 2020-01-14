@@ -8,7 +8,8 @@ public enum UserType {
     
     ADMIN("최고관리자"),
     MEMBER("일반사용자"),
-    WAITING("승인대기");
+    WAITING("승인대기"),
+    SECESSION("회원탈퇴");
 
     private String value;
     
