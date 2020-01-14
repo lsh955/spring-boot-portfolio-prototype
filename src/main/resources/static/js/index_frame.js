@@ -273,6 +273,7 @@ $(document).ready(function () {
             $('#form input[id^=user_]').val('');
             $('.login_submit').css('background-color', '#e6e6e6');
             $('.message_box').stop().fadeOut('fast');       // 로그인이 뜨면 message_box를 숨긴다.
+            $('.signin_help span').text('창 닫기');
             login_effect();
             document.querySelector('.functions .login .fa-times').classList.add('animated', 'rotateIn', 'faster');
         } else {
@@ -281,6 +282,7 @@ $(document).ready(function () {
             $('.login_background').stop().fadeOut('fast');
             $('.logpage').stop().fadeOut('fast');
             $('.login_shadow_on').attr('class', 'login_shadow_off');
+            $('.signin_help span').text('로그인');
             document.querySelector('.functions .login .fa-lock').classList.add('animated', 'fadeInRight', 'faster');
         }
     });
@@ -625,24 +627,24 @@ function login_effect() {
 
 
 // 테스트중....
-$(function () {
-    $.ajaxSetup({
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("AJAX", "true");
-        },
-        error: function (e, xhr, settings, exception) {
-            if (e.status === 400) {
-                alert("400");
-            } else if (e.status === 401) {
-                window.location.href = "/";
-                alert("401");
-            } else if (e.status === 403) {
-                $.growlUI('warning', '이 기능을 사용할 권한이 없습니다.');
-                alert("403");
-            }
-            if (callback_ajaxError) {
-                callback_ajaxError(e, xhr, settings, exception);
-            }
-        }
-    });
-});
+// $(function () {
+//     $.ajaxSetup({
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader("AJAX", "true");
+//         },
+//         error: function (e, xhr, settings, exception) {
+//             if (e.status === 400) {
+//                 alert("400");
+//             } else if (e.status === 401) {
+//                 window.location.href = "/";
+//                 alert("401");
+//             } else if (e.status === 403) {
+//                 $.growlUI('warning', '이 기능을 사용할 권한이 없습니다.');
+//                 alert("403");
+//             }
+//             if (callback_ajaxError) {
+//                 callback_ajaxError(e, xhr, settings, exception);
+//             }
+//         }
+//     });
+// });
