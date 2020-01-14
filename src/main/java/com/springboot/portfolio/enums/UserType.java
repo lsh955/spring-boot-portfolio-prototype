@@ -7,8 +7,9 @@ package com.springboot.portfolio.enums;
 public enum UserType {
     
     ADMIN("최고관리자"),
-    MEMBER("일반사용자");
-    
+    MEMBER("일반사용자"),
+    WAITING("승인대기");
+
     private String value;
     
     UserType(String value) {
