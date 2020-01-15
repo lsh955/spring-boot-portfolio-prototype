@@ -13,12 +13,13 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @author 이승환
  * @since 2019/12/08
  * <p>
- * 비즈니스 혹은 사용자 로직을 구현한 클래스. 비즈니스와 연관있는 로직을 표현.
+ * DB에서 유저 정보를 가져오는 역할
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
@@ -50,8 +51,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     
     private UserDetailsImpl createUser(User user) {
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
-        userDetails.setRoles(Collections.singletonList("ROLE_" + user.getUserType()));
+        userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
     
+//    public List<User> loginSelect() {
+//      TODO : 로그인 되고있는 사용자 정보를 불러오는 역할
+//    }
+
 }

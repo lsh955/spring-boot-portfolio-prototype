@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSessionListener;
  * @author 이승환
  * @since 2019-12-17
  * <p>
- * 다른 객체들이 보낸 메시지를 받고 이를 처리하는 객체
+ * 세션에 대한 이벤트가 발생하였을때 호출되어 처리하는 역할
  */
 @Slf4j
 @WebListener

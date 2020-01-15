@@ -12,10 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author 이승환
@@ -35,25 +35,29 @@ public class UserController {
      */
     @GetMapping("/")
     public String getIndex() {
-    
+
+//        TODO 로그인할 때 DB에 사용자의 아이피를 지속 업데이트 한다.
 //        String ipAddress = request.getHeader("X-Forwarded-For");
 //        if (ipAddress == null) {
 //            ipAddress = request.getRemoteAddr();
 //        }
 //        System.out.println("현재 로그인된 아이피 : " + ipAddress);
-//        // user.setUserIpAddress(ipAddress);    // 로그인 할때 접속한 아이피를 저장한다.
+//        user.setUserIpAddress(ipAddress);    // 로그인 할때 접속한 아이피를 저장한다.
         
         return "index";
     }
     
     /**
-     * 로그아웃 처리 처리
+     * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
+     * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
      */
-    @GetMapping("logout")
-    public String getLogoutPage(HttpSession session) {
-        session.invalidate();
-        return "index";
-    }
+//    @ResponseBody
+//    @GetMapping("/jsonloginselect")
+//    public List<User> jsonReturnSample(User user){
+//         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//         System.out.print(authentication.getName());
+//         return userDetailsService.loginSelect();
+//    }
     
     /**
      * 회원가입 처리
@@ -112,7 +116,12 @@ public class UserController {
          * SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
          */
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
+
+        log.info("auth.getName : " + auth.getName());
+        log.info("auth.getAuthorities : " + auth.getAuthorities());
+        log.info("auth.getDetails : " + auth.getDetails());
+
+
         /**
          * @param UserPrincipal
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
@@ -121,7 +130,7 @@ public class UserController {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
         
         model.addAttribute("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
-        model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                             // 뷰로 보낼 데이터 값
+        model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                          // 뷰로 보낼 데이터 값
         return "home";
     }
     

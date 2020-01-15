@@ -15,7 +15,7 @@ import java.util.*;
  * @author 이승환
  * @since 2019/12/08
  * <p>
- * 데이터베이스 테이블과 실제로 1:1 매핑되어 정확하게 관리.
+ * Security에서 사용자의 정보를 담는 역할
  */
 @Slf4j
 @EqualsAndHashCode(of = "id")
@@ -53,10 +53,10 @@ public class UserDetailsImpl implements UserDetails {
     }
     
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {    //유저가 갖고 있는 권한 목록
+    public Collection<? extends GrantedAuthority> getAuthorities() {    // 사용자에게 부여 된 권한을 반환하는 역할
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (String role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role));  // 객체를 생설할 때, 'ROLE_' 를 앞에 붙여주어서 Spring이 이해할 수 있게 한다.
         }
         return authorities;
     }
