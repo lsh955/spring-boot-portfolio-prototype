@@ -13,18 +13,18 @@
     <meta name="theme-color" content="#bd5d38"/>
     <meta name="referrer" content="no-referrer"/>
     <meta name="author" content="이승환"/>
-    <meta name="description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
+    <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." name="description"/>
     <meta property="og:url" content="/"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" th:content="@{img/profile.jpg}"/>
-    <meta property="og:title" content="승화니, 사심 가득한 포트폴리오"/>
-    <meta property="og:site_name" content="승화니, 사심 가득한 포트폴리오"/>
-    <meta property="og:description" content="사심 가득한 포트폴리오 사이트에 방문해 주셔서 감사합니다."/>
+    <meta content="승화니, 사심 가득한 프로젝트" property="og:title"/>
+    <meta content="승화니, 사심 가득한 프로젝트" property="og:site_name"/>
+    <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." property="og:description"/>
 
     <!--TODO : 구글 recaptcha 자리만 잡아둠 나중에 오픈할때 작업할 것!-->
     <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
 
-    <title>승화니' 사심 가득한 포트폴리오</title>
+    <title>승화니' 사심 가득한 프로젝트</title>
 
     <!-- TODO
          1. 스프링에 붙일때 CSS/JS 파일명 뒤에(?v=) 현재날짜와 시간을 붙여넣자.
@@ -49,8 +49,8 @@
         <div class="menu">
 
             <div class="menu_title">
-                <a href="" class="01" title="승화니' 사심 가득한 포트폴리오'">
-                    <p>승화니' 사심 가득한 포트폴리오</p>
+                <a class="01" href="" title="승화니' 사심 가득한 프로젝트'">
+                    <p>승화니' 사심 가득한 프로젝트</p>
                 </a>
             </div>
 
@@ -159,7 +159,7 @@
                 <p class="main_text" sec:authorize="isAuthenticated()"><span
                         sec:authentication="principal.username"></span>님 안녕하세요.</p>
                 <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
-                <p class="sub_text" sec:authorize="isAuthenticated()">승화니' 사심 가득한 포트폴리오</p>
+                <p class="sub_text" sec:authorize="isAuthenticated()">승화니' 사심 가득한 프로젝트</p>
             </div>
             <!-- TODO
                  01. 메시지 확인기능

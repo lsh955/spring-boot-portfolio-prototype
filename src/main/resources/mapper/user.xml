@@ -12,18 +12,19 @@
         <result property="password" column="password"/>
         <result property="userTel" column="user_tel"/>
         <result property="userEmail" column="user_email"/>
+        <result property="userFirstDate" column="user_firstdate"/>
     </resultMap>
 
     <select id="findUserByLoginId" resultMap="User">SELECT user_id, user_type, login_id, user_name, password, user_tel,
-        user_email FROM user
+        user_email, user_firstdate FROM user
         <where>
             <if test=" loginId != null and loginId != '' ">AND login_id = #{loginId}</if>
         </where>
     </select>
 
     <insert id="setUserInfo" parameterType="com.springboot.portfolio.dto.User" useGeneratedKeys="true"
-            keyProperty="param.id"> INSERT INTO user (user_type, login_id, user_name, password, user_tel, user_email)
+            keyProperty="param.id"> INSERT INTO user (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate)
                                     VALUES (#{param.userType}, #{param.loginId}, #{param.userName},
-                                            #{param.password}, #{param.userTel}, #{param.userEmail}) </insert>
+                                            #{param.password}, #{param.userTel}, #{param.userEmail}, now()) </insert>
 
 </mapper>

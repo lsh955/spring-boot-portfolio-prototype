@@ -19,6 +19,7 @@ public class User {
     private String userTel;         // 사용자 전화번호
     private String password;        // 패스워드
     private String passwordConfirm; // 패스워드 확인
+    private String userFirstDate;   // 회원가입 일자
     
     public int getId() {
         return id;
@@ -84,4 +85,11 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
     
+    public String getUserFirstDate() {
+        return userFirstDate;
+    }
+    
+    public void setUserFirstDate(String userFirstDate) {
+        this.userFirstDate = userFirstDate;
+    }
 }
