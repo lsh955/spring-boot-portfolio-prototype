@@ -30,23 +30,23 @@ import java.util.List;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-
+    
     @Autowired
     private UserMapper userMapper;
-
+    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
         user.setUserType("MEMBER");                                             // 기본 권한은 2번(member)권한 설정
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
-
+    
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
@@ -55,7 +55,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         return createUser(user);
     }
-
+    
     private UserDetailsImpl createUser(User user) {
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
         userDetails.setRoles(Collections.singletonList(user.getUserType()));

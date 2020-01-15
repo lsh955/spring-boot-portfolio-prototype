@@ -20,17 +20,17 @@ import java.io.IOException;
 @Slf4j
 @Configuration
 public class AuthFailureHandler implements AuthenticationFailureHandler {
-
+    
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
             throws IOException, ServletException {
-
+        
         String loginId = request.getParameter("loginId");
         String password = request.getParameter("password");
-
+        
         request.setAttribute(loginId, loginId);
         request.setAttribute(password, password);
-
+        
         if (exception instanceof BadCredentialsException) {                         // 비밀번호가 일치하지 않은 경우
             log.info("비밀번호가 일치하지 않습니다.");
         } else if (exception instanceof InternalAuthenticationServiceException) {   // 존재 하지 않는 아이디일 경우
@@ -44,8 +44,8 @@ public class AuthFailureHandler implements AuthenticationFailureHandler {
         } else if (exception instanceof CredentialsExpiredException) {              // 인증 거부 : 비밀번호 유효 기간 만료
             log.info("계정 비밀번호 유효기간이 만료 되었습니다.");
         }
-
+        
         response.sendRedirect("/?error=true"); // 실패 후 이동할 페이지를 지정
     }
-
+    
 }
