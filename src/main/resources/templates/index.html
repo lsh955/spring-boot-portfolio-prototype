@@ -24,6 +24,14 @@
     <!--TODO : 구글 recaptcha 자리만 잡아둠 나중에 오픈할때 작업할 것!-->
     <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
 
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/reCvAPTCHA'}).then(function (token) {
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    </script>
+
     <title>승화니' 사심 가득한 프로젝트</title>
 
     <!-- TODO
@@ -338,6 +346,7 @@
 
         <div class="right_login" style="display: block">
             <form id="form" method="post" th:action="@{/}">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
                 <ul>
                     <li>
                         <p class="id_title">아이디</p>
@@ -371,7 +380,8 @@
                     <li>
                         <div class="social_login_box">
                             <p class="social_login_text">소셜 계정으로 로그인</p>
-                            <img alt="구글계정 로그인" id="social_login_img" src="img/btn_google_signin_light_pressed_web.png" />
+                            <img alt="구글계정 로그인" id="social_login_img"
+                                 src="img/btn_google_signin_light_pressed_web.png"/>
                         </div>
                     </li>
                     <li>

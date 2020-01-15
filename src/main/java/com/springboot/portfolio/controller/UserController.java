@@ -2,9 +2,11 @@ package com.springboot.portfolio.controller;
 
 import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
+import com.springboot.portfolio.dto.reCAPTCHA;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -12,8 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -26,10 +31,10 @@ import java.util.List;
 @Slf4j
 @Controller
 public class UserController {
-    
+
     @Autowired
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
-    
+
     /**
      * 메인
      */
@@ -43,10 +48,10 @@ public class UserController {
 //        }
 //        System.out.println("현재 로그인된 아이피 : " + ipAddress);
 //        user.setUserIpAddress(ipAddress);    // 로그인 할때 접속한 아이피를 저장한다.
-        
+
         return "index";
     }
-    
+
     /**
      * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
      * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
@@ -58,7 +63,7 @@ public class UserController {
 //         System.out.print(authentication.getName());
 //         return userDetailsService.loginSelect();
 //    }
-    
+
     /**
      * 회원가입 처리
      */
@@ -68,7 +73,7 @@ public class UserController {
         model.addAttribute("user", user);      // 뷰로 보낼 데이터 값
         return "signup";
     }
-    
+
     /**
      * 관리자 페이지
      */
@@ -76,7 +81,7 @@ public class UserController {
     public String getAdminPage() {
         return "manager";
     }
-    
+
     /**
      * 회원가입 정보를 보내는 처리
      *
@@ -102,13 +107,13 @@ public class UserController {
         }
         return "signup";
     }
-    
+
     /**
      * 인증 후 권한이 있는 처리
      */
     @GetMapping("home")
     public String home(Model model) {
-        
+
         /**
          * @param Authentication
          * 현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
@@ -128,12 +133,12 @@ public class UserController {
          * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
          */
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-        
+
         model.addAttribute("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                          // 뷰로 보낼 데이터 값
         return "home";
     }
-    
+
     /**
      * 예외가 발행했을 경우
      */
@@ -141,7 +146,7 @@ public class UserController {
     public String getUserPermissionExceptionPage() {
         return "accessdenied";
     }
-    
+
     /**
      * 중복로그인이 감지되면 보여주는 페이지
      */
@@ -149,5 +154,23 @@ public class UserController {
     public String sessionfailed() {
         return "sessionfailed";
     }
-    
+
+    @PostMapping("reCAPTCHA")
+    public reCAPTCHA reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
+        String ip = request.getRemoteAddr();
+        String url = "https://www.google.com/recaptcha/api/siteverify";
+        String params = "?secret=6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response=" + recaptchaResponse;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        reCAPTCHA recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCAPTCHA.class).getBody();
+
+        if (recaptcha.isSuccess()) {
+            System.out.println("reCAPTCHA 성공");
+        } else {
+            System.out.println("reCAPTCHA 실패");
+        }
+        return recaptcha;
+    }
+
 }

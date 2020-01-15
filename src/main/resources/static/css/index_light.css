@@ -116,6 +116,7 @@ html {
     border-radius: 8px;
     -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
 }
+
 /* //브라우저 스크롤 스타일 */
 
 /********************/
@@ -369,7 +370,6 @@ html {
 }
 
 
-
 .functions {
     position: absolute;
     bottom: 20px;
@@ -418,24 +418,6 @@ html {
     font-size: 40px;
     transition: all .4s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .message_box {
@@ -558,27 +540,6 @@ html {
     box-shadow: 0 0 1.5px 0;
     background-color: #e6e6e6;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .darkmode_help {
@@ -715,20 +676,6 @@ html {
     color: #fff;
     font-size: 13px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .popup {
@@ -965,32 +912,6 @@ html {
     font-size: 15px;
     vertical-align: middle;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .logpage {
@@ -1259,7 +1180,7 @@ html {
     margin-bottom: 20px;
 }
 
-.logpage .right_login .social_login_box img{
+.logpage .right_login .social_login_box img {
     cursor: pointer;
 }
 
@@ -1331,15 +1252,6 @@ html {
     color: #333;
     border-bottom: 4px solid #ffb500;
 }
-
-
-
-
-
-
-
-
-
 
 
 .logpage .right_find .id_find {
@@ -1414,7 +1326,6 @@ html {
     text-align: center;
     background-color: #eee;
 }
-
 
 
 .logpage .right_find .find_email_edge .find_email {
@@ -1561,21 +1472,6 @@ html {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .logpage .pwd_find {
     width: 100%;
     height: 397px;
@@ -1679,12 +1575,6 @@ html {
 }
 
 
-
-
-
-
-
-
 .login_background {
     display: none;
 
@@ -1699,47 +1589,6 @@ html {
     opacity: 0.5;
     background-color: #333;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .right_side {
@@ -2153,9 +2002,6 @@ progress::-moz-progress-bar {
     }
 
 
-
-
-
     .window_bax {
         display: none;
     }
@@ -2164,10 +2010,6 @@ progress::-moz-progress-bar {
     .login_shadow_off {
         display: none;
     }
-
-
-
-
 
 
     .right_side {
