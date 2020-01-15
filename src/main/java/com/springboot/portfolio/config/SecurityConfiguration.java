@@ -46,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {                      // 로그인 URL, 권한분리, Logout URL  설정
         http.authorizeRequests()                                                        // 요청에 대한 권한을 지정
-                .antMatchers("/", "login", "/signup", "/sessionfailed", "/exception", "/ReCAPTCHA").permitAll()  // 접근을 전부 허용
+                .antMatchers("/", "/login", "/signup", "/sessionfailed", "/exception", "/ReCAPTCHA").permitAll()  // 접근을 전부 허용
                 .antMatchers("/home").access("hasRole('MEMBER') or hasRole('ADMIN')") // 사용자만 접근
                 .antMatchers("/manager").hasRole("ADMIN")                   // 관리자만 접근
                 .anyRequest()                                                           // 인증 되어야 하는 부분

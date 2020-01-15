@@ -23,7 +23,7 @@ public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setStatus(HttpServletResponse.SC_OK);  // 요청이 정상적으로 완료되었음을 나타내는 상태 코드 (200).
-        response.sendRedirect("/");         // 성공 후 이동할 페이지를 지정
+        response.sendRedirect("/");             // 성공 후 이동할 페이지를 지정
     }
     
     @Bean

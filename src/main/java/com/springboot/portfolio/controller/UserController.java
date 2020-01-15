@@ -3,6 +3,7 @@ package com.springboot.portfolio.controller;
 import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -21,6 +23,7 @@ import javax.validation.Valid;
  * <p>
  * 컨트롤러 클래스 모음.
  */
+@Slf4j
 @Controller
 public class UserController {
     
@@ -28,10 +31,18 @@ public class UserController {
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     
     /**
-     * 메인 또는 로그인처리
+     * 메인
      */
     @GetMapping("/")
     public String getIndex() {
+    
+//        String ipAddress = request.getHeader("X-Forwarded-For");
+//        if (ipAddress == null) {
+//            ipAddress = request.getRemoteAddr();
+//        }
+//        System.out.println("현재 로그인된 아이피 : " + ipAddress);
+//        // user.setUserIpAddress(ipAddress);    // 로그인 할때 접속한 아이피를 저장한다.
+        
         return "index";
     }
     

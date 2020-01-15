@@ -20,6 +20,8 @@ public class User {
     private String password;        // 패스워드
     private String passwordConfirm; // 패스워드 확인
     private String userFirstDate;   // 회원가입 일자
+    private String userLoginDate;   // 로그인 일자
+    private String userIpAddress;   // 사용자 로그인아이디
     
     public int getId() {
         return id;
@@ -91,5 +93,21 @@ public class User {
     
     public void setUserFirstDate(String userFirstDate) {
         this.userFirstDate = userFirstDate;
+    }
+    
+    public String getUserLoginDate() {
+        return userLoginDate;
+    }
+    
+    public void setUserLoginDate(String userLoginDate) {
+        this.userLoginDate = userLoginDate;
+    }
+    
+    public String getUserIpAddress() {
+        return userIpAddress;
+    }
+    
+    public void setUserIpAddress(String userIpAddress) {
+        this.userIpAddress = userIpAddress;
     }
 }
