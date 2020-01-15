@@ -205,10 +205,10 @@ $(document).ready(function () {
     $('.right_find').stop().fadeOut('fast');
 
     // 계정만들기
-    $('.user_add p').on('click', function () {
-        site_alert(Site_Notice_Text, '관리자만 로그인 되며, 계정생성은 당분간 지원하지 않습니다.', 5000);
-        return false;
-    });
+    // $('.user_add p').on('click', function () {
+    //     site_alert(Site_Notice_Text, '관리자만 로그인 되며, 계정생성은 당분간 지원하지 않습니다.', 5000);
+    //     return false;
+    // });
 
     // 아이디/비밀번호 찾기
     // $('.user_find p').on('click', function () {
@@ -625,27 +625,3 @@ function login_effect() {
     $('.id_edge').css('border', '2px solid #b00020');
     $('.id_title').css('color', '#b00020');
 }
-
-
-// 테스트중....
-// $(function () {
-//     $.ajaxSetup({
-//         beforeSend: function (xhr) {
-//             xhr.setRequestHeader("AJAX", "true");
-//         },
-//         error: function (e, xhr, settings, exception) {
-//             if (e.status === 400) {
-//                 alert("400");
-//             } else if (e.status === 401) {
-//                 window.location.href = "/";
-//                 alert("401");
-//             } else if (e.status === 403) {
-//                 $.growlUI('warning', '이 기능을 사용할 권한이 없습니다.');
-//                 alert("403");
-//             }
-//             if (callback_ajaxError) {
-//                 callback_ajaxError(e, xhr, settings, exception);
-//             }
-//         }
-//     });
-// });

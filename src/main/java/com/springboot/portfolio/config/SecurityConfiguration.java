@@ -63,7 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         http.logout()                                                                   // 로그아웃 처리
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))     // 로그아웃이 성공했을 경우 이동할 페이지
-                .logoutSuccessUrl("/?state=logout")                                                  // 로그아웃 성공 후 반환하는 URI
+                .logoutSuccessUrl("/?state=logout")                                     // 로그아웃 성공 후 반환하는 URI
                 .invalidateHttpSession(true);                                           // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
         
         http.sessionManagement()                                                        // 세션 정책 설정
