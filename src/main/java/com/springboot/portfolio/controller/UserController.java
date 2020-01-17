@@ -4,6 +4,7 @@ import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.dto.reCAPTCHA;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
+import com.sun.javafx.collections.MappingChange;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -12,15 +13,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.List;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 이승환
@@ -126,7 +127,6 @@ public class UserController {
         log.info("auth.getAuthorities : " + auth.getAuthorities());
         log.info("auth.getDetails : " + auth.getDetails());
         
-        
         /**
          * @param UserPrincipal
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
@@ -134,7 +134,17 @@ public class UserController {
          */
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
         
-        model.addAttribute("userName", "환영합니다. " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
+        log.info("getId : " + userPrincipal.getId());
+        log.info("getUsername : " + userPrincipal.getUsername());
+        log.info("getAuthorities : " + userPrincipal.getAuthorities());
+        log.info("getRoles : " + userPrincipal.getRoles());
+        log.info("isAccountNonExpired : " + userPrincipal.isAccountNonExpired());
+        log.info("isAccountNonLocked : " + userPrincipal.isAccountNonLocked());
+        log.info("isCredentialsNonExpired : " + userPrincipal.isCredentialsNonExpired());
+        log.info("isEnabled : " + userPrincipal.isEnabled());
+        
+        
+        model.addAttribute("userName", "환영합니다. " + userPrincipal.getUsername() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                          // 뷰로 보낼 데이터 값
         return "home";
     }
@@ -172,5 +182,38 @@ public class UserController {
         }
         return recaptcha;
     }
+    
+    @RequestMapping("getLoginJson")
+    public @ResponseBody Map<String, Object> getLoginJson() {
+    
+        Map<String, Object> jsonObject = new HashMap<String, Object>();
+        Map<String, Object> jsonSubObject = null;
+        ArrayList<Map<String, Object>> jsonList = new ArrayList<Map<String, Object>>();
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
+    
+        jsonSubObject = new HashMap<String, Object>();
+        jsonSubObject.put("getId", userPrincipal.getId());
+        jsonSubObject.put("getUserType", userPrincipal.getUserType());
+        jsonSubObject.put("getUsername", userPrincipal.getUsername());
+        jsonSubObject.put("getLoginId", userPrincipal.getLoginId());
+        jsonSubObject.put("getUserEmail", userPrincipal.getUserEmail());
+        jsonSubObject.put("getUserFirstDate", userPrincipal.getUserFirstDate());
+        jsonSubObject.put("getUserLoginDate", userPrincipal.getUserLoginDate());
+        jsonSubObject.put("getUserIpAddress", userPrincipal.getUserIpAddress());
+        jsonSubObject.put("isAccountNonExpired", userPrincipal.isAccountNonExpired());
+        jsonSubObject.put("isAccountNonLocked", userPrincipal.isAccountNonLocked());
+        jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
+        jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
+        jsonList.add(jsonSubObject);
+    
+        jsonObject.put("success", true);
+        jsonObject.put("total_count", 10);
+        jsonObject.put("total_count", jsonList);
+        
+        return jsonObject;
+    }
+    
     
 }

@@ -1,10 +1,8 @@
 package com.springboot.portfolio.details;
 
 import com.springboot.portfolio.dto.User;
-import com.springboot.portfolio.mapper.UserMapper;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,23 +19,13 @@ import java.util.*;
 @EqualsAndHashCode(of = "id")
 public class UserDetailsImpl implements UserDetails {
     
-    private User user;
-    private String id;
-    private List<String> roles;
+    private int id;
     
-    @Autowired
-    private UserMapper userMapper;
+    private User user;
+    private List<String> roles;
     
     public User getUser() {
         return user;
-    }
-    
-    public String getId() {
-        return user.getLoginId();
-    }
-    
-    public String getName() {
-        return user.getUserName();
     }
     
     public List<String> getRoles() {
@@ -69,6 +57,38 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public String getUsername() {   // 유저 이름 혹은 아이디
         return user.getUserName();
+    }
+    
+    public String getId() {
+        return user.getLoginId();
+    }
+    
+    public String getUserType() {
+        return user.getUserType();
+    }
+    
+    public String getLoginId() {
+        return user.getLoginId();
+    }
+    
+    public String getUserTel() {
+        return user.getUserTel();
+    }
+    
+    public String getUserEmail() {
+        return user.getUserEmail();
+    }
+    
+    public String getUserFirstDate() {
+        return user.getUserFirstDate();
+    }
+    
+    public String getUserLoginDate() {
+        return user.getUserLoginDate();
+    }
+    
+    public String getUserIpAddress() {
+        return user.getUserIpAddress();
     }
     
     @Override

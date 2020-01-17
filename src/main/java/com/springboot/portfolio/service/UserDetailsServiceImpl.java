@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
-        user.setUserType("MEMBER");                                             // 기본 권한은 2번(member)권한 설정
+        user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
     
@@ -50,8 +50,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
-        if (user == null) {
-            throw new UsernameNotFoundException(username + " 계정정보를 찾을 수 없습니다.");
+        if (user.getLoginId() == null) {
+            throw new UsernameNotFoundException(username + " 에 대한 계정정보를 찾을 수 없습니다.");
         }
         return createUser(user);
     }
