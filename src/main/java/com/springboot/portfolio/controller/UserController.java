@@ -4,7 +4,6 @@ import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.dto.reCAPTCHA;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
-import com.sun.javafx.collections.MappingChange;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -18,7 +17,6 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +33,8 @@ public class UserController {
     
     @Autowired
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
+    
+    private int getLoginJsonCount;
     
     /**
      * 메인
@@ -183,35 +183,40 @@ public class UserController {
         return recaptcha;
     }
     
-    @RequestMapping("getLoginJson")
+    @RequestMapping("/getLoginJson")
     public @ResponseBody Map<String, Object> getLoginJson() {
-    
         Map<String, Object> jsonObject = new HashMap<String, Object>();
         Map<String, Object> jsonSubObject = null;
         ArrayList<Map<String, Object>> jsonList = new ArrayList<Map<String, Object>>();
         
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-    
-        jsonSubObject = new HashMap<String, Object>();
-        jsonSubObject.put("getId", userPrincipal.getId());
-        jsonSubObject.put("getUserType", userPrincipal.getUserType());
-        jsonSubObject.put("getUsername", userPrincipal.getUsername());
-        jsonSubObject.put("getLoginId", userPrincipal.getLoginId());
-        jsonSubObject.put("getUserEmail", userPrincipal.getUserEmail());
-        jsonSubObject.put("getUserFirstDate", userPrincipal.getUserFirstDate());
-        jsonSubObject.put("getUserLoginDate", userPrincipal.getUserLoginDate());
-        jsonSubObject.put("getUserIpAddress", userPrincipal.getUserIpAddress());
-        jsonSubObject.put("isAccountNonExpired", userPrincipal.isAccountNonExpired());
-        jsonSubObject.put("isAccountNonLocked", userPrincipal.isAccountNonLocked());
-        jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
-        jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
-        jsonList.add(jsonSubObject);
-    
-        jsonObject.put("success", true);
-        jsonObject.put("total_count", 10);
-        jsonObject.put("total_count", jsonList);
+        try {
+            // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
+            
+            jsonSubObject = new HashMap<String, Object>();
+            jsonSubObject.put("Id", userPrincipal.getId());
+            jsonSubObject.put("UserType", userPrincipal.getUserType());
+            jsonSubObject.put("Username", userPrincipal.getUsername());
+            jsonSubObject.put("LoginId", userPrincipal.getLoginId());
+            jsonSubObject.put("UserEmail", userPrincipal.getUserEmail());
+            jsonSubObject.put("UserFirstDate", userPrincipal.getUserFirstDate());
+            jsonSubObject.put("UserLoginDate", userPrincipal.getUserLoginDate());
+            jsonSubObject.put("UserIpAddress", userPrincipal.getUserIpAddress());
+            jsonSubObject.put("isAccountNonExpired", userPrincipal.isAccountNonExpired());
+            jsonSubObject.put("isAccountNonLocked", userPrincipal.isAccountNonLocked());
+            jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
+            jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
+            jsonList.add(jsonSubObject);
+            
+            jsonObject.put("success", true);
+            jsonObject.put("total_count", 12);
+            jsonObject.put("LoginJsonCount", ++getLoginJsonCount);
+            jsonObject.put("result_list", jsonList);
+            
+        } catch (Exception e) {
         
+        }
         return jsonObject;
     }
     

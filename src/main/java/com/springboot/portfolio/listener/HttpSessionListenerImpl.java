@@ -1,6 +1,7 @@
 package com.springboot.portfolio.listener;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
@@ -14,9 +15,10 @@ import javax.servlet.http.HttpSessionListener;
  */
 @Slf4j
 @WebListener
+@Component
 public class HttpSessionListenerImpl implements HttpSessionListener {
     
-    private int userCount;  // 로그인된 사용자 수 카운트(나중에 지울거임)
+    public int userCount;  // 로그인된 사용자 수 카운트(나중에 지울거임)
     
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {     // 세션이 생성되었을 때 호출

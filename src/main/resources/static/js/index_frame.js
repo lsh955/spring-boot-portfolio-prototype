@@ -20,6 +20,7 @@
 
 $(document).ready(function () {
 
+    // TODO : Json으로 바꿔 리팩터링 해라
     const Site_Notice_Text = '사이트 알림',
         Site_Warning_Text = '사이트 경고',
         Darkmode_Help = $('.darkmode_help'),
@@ -30,6 +31,20 @@ $(document).ready(function () {
     //********************************
     //**** 부가 이벤트 ****************
     //********************************
+
+    // 로그인 시 알림 피드백
+    $.ajax({
+        url : "/getLoginJson",
+        dataType :"json",
+        success : function(data) {
+            console.log(data['result_list']); // 나중에 지울것.
+            let Username = data['result_list'][0]['Username'];
+            site_alert(Site_Notice_Text, Username+'님 안녕하세요! 로그인 되었습니다.', 3000);
+        },
+        error : function(e) {
+            console.log("세션이 만료되거나 인증되지 않았습니다.");   // 나중에 지울것.
+        }
+    });
 
     // 서버운영 종료 자동알림
     setInterval("autotime()", 1000);
@@ -196,7 +211,7 @@ $(document).ready(function () {
     // TODO : 로그아웃 메시지는 이렇게 처리하면 안된다. 로그아웃된 상태에서 계속 새로고침하면 알림창이 계속뜬다. 생각해서 꼭 바꿀것.
     var para = document.location.href.split("?");
     if (para[1] === "state=logout") {
-        site_alert(Site_Notice_Text, '안전하게 로그아웃 되었습니다.', 5000);
+        site_alert(Site_Notice_Text, '안전하게 로그아웃 되었습니다.', 3000);
     }
 
     // 로그인 되었을 시 알림

@@ -1,26 +1,17 @@
 package com.springboot.portfolio.service;
 
 import com.springboot.portfolio.details.UserDetailsImpl;
-import com.springboot.portfolio.dto.reCAPTCHA;
+import com.springboot.portfolio.listener.HttpSessionListenerImpl;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author 이승환
@@ -33,6 +24,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     
     @Autowired
     private UserMapper userMapper;
+    
+    @Autowired
+    private HttpSessionListenerImpl httpSessionListener;
     
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -61,9 +55,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
-
-//    public List<User> loginSelect() {
-//      TODO : 로그인 되고있는 사용자 정보를 불러오는 역할
-//    }
 
 }
