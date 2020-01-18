@@ -52,7 +52,17 @@ public class UserController {
         
         return "index";
     }
-    
+
+    /**
+     * 로그인
+     */
+    @GetMapping("/login")
+    public String getLogin() {
+        System.out.println("login");
+        // 이렇게 밖에 할 수 없다니... 눈물난다.. 나중에 더 좋은 대안을 찾아 수정하자
+        return "login";
+    }
+
     /**
      * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
      * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
@@ -188,34 +198,37 @@ public class UserController {
         Map<String, Object> jsonObject = new HashMap<String, Object>();
         Map<String, Object> jsonSubObject = null;
         ArrayList<Map<String, Object>> jsonList = new ArrayList<Map<String, Object>>();
-        
         try {
-            // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-            
-            jsonSubObject = new HashMap<String, Object>();
-            jsonSubObject.put("Id", userPrincipal.getId());
-            jsonSubObject.put("UserType", userPrincipal.getUserType());
-            jsonSubObject.put("Username", userPrincipal.getUsername());
-            jsonSubObject.put("LoginId", userPrincipal.getLoginId());
-            jsonSubObject.put("UserEmail", userPrincipal.getUserEmail());
-            jsonSubObject.put("UserFirstDate", userPrincipal.getUserFirstDate());
-            jsonSubObject.put("UserLoginDate", userPrincipal.getUserLoginDate());
-            jsonSubObject.put("UserIpAddress", userPrincipal.getUserIpAddress());
-            jsonSubObject.put("isAccountNonExpired", userPrincipal.isAccountNonExpired());
-            jsonSubObject.put("isAccountNonLocked", userPrincipal.isAccountNonLocked());
-            jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
-            jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
-            jsonList.add(jsonSubObject);
-            
-            jsonObject.put("success", true);
-            jsonObject.put("total_count", 12);
-            jsonObject.put("LoginJsonCount", ++getLoginJsonCount);
-            jsonObject.put("result_list", jsonList);
-            
+                // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
+            if(userPrincipal.getId() != null) {
+                getLoginJsonCount ++;
+                if(getLoginJsonCount < 2) {
+                    System.out.println(getLoginJsonCount);
+                    jsonSubObject = new HashMap<String, Object>();
+                    jsonSubObject.put("Id", userPrincipal.getId());
+                    jsonSubObject.put("UserType", userPrincipal.getUserType());
+                    jsonSubObject.put("Username", userPrincipal.getUsername());
+                    jsonSubObject.put("LoginId", userPrincipal.getLoginId());
+                    jsonSubObject.put("UserEmail", userPrincipal.getUserEmail());
+                    jsonSubObject.put("UserFirstDate", userPrincipal.getUserFirstDate());
+                    jsonSubObject.put("UserLoginDate", userPrincipal.getUserLoginDate());
+                    jsonSubObject.put("UserIpAddress", userPrincipal.getUserIpAddress());
+                    jsonSubObject.put("isAccountNonExpired", userPrincipal.isAccountNonExpired());
+                    jsonSubObject.put("isAccountNonLocked", userPrincipal.isAccountNonLocked());
+                    jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
+                    jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
+                    jsonList.add(jsonSubObject);
+
+                    jsonObject.put("success", true);
+                    jsonObject.put("total_count", 12);
+                    jsonObject.put("LoginJsonCount", getLoginJsonCount);
+                    jsonObject.put("result_list", jsonList);
+                }
+            }
         } catch (Exception e) {
-        
+
         }
         return jsonObject;
     }
