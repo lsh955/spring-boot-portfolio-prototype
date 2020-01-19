@@ -189,7 +189,7 @@ public class UserController {
         Map<String, Object> jsonSubObject = null;
         ArrayList<Map<String, Object>> jsonList = new ArrayList<Map<String, Object>>();
         try {
-                // TODO : 같은 브라우저에서 계속 접속했을 때 안뜬다. 즉, 1회성 코드
+                // TODO : 현재 같은 브라우저에서 계속 접속했을 때 안뜬다. 즉, 1회성 코드
                 // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
