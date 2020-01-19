@@ -200,7 +200,7 @@ public class UserController {
                     jsonSubObject = new HashMap<String, Object>();
                     jsonSubObject.put("Id", userPrincipal.getId());
                     jsonSubObject.put("UserType", userPrincipal.getUserType());
-                    jsonSubObject.put("Username", userPrincipal.getUsername());
+                    jsonSubObject.put("Username", userPrincipal.getUsername()); // 이것만 살려두고 추후에 다 삭제할것.
                     jsonSubObject.put("LoginId", userPrincipal.getLoginId());
                     jsonSubObject.put("UserEmail", userPrincipal.getUserEmail());
                     jsonSubObject.put("UserFirstDate", userPrincipal.getUserFirstDate());
