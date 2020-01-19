@@ -54,16 +54,6 @@ public class UserController {
     }
 
     /**
-     * 로그인
-     */
-    @GetMapping("/login")
-    public String getLogin() {
-        System.out.println("login");
-        // 이렇게 밖에 할 수 없다니... 눈물난다.. 나중에 더 좋은 대안을 찾아 수정하자
-        return "login";
-    }
-
-    /**
      * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
      * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
      */

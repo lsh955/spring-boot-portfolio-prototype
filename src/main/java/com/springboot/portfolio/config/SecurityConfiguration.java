@@ -52,8 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/sessionfailed",
                             "/exception",
                             "/ReCAPTCHA",
-                            "/getLoginJson",
-                            "/login").permitAll()  // 접근을 전부 허용
+                            "/getLoginJson").permitAll()  // 접근을 전부 허용
                 .antMatchers("/home").access("hasRole('MEMBER') or hasRole('ADMIN')") // 사용자만 접근
                 .antMatchers("/manager").hasRole("ADMIN")                   // 관리자만 접근
                 .anyRequest()                                                           // 인증 되어야 하는 부분
@@ -62,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();                                                          // CSRF[사이트 간 요청 위조] 프로텍션(사용하지 않음)
         
         http.formLogin()                                                                // 폼을 통한 로그인을 이용
-                .loginPage("/login")                                                         // 로그인 뷰 페이지를 연결
+                .loginPage("/")                                                         // 로그인 뷰 페이지를 연결
                 .usernameParameter("loginId")                                           // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .passwordParameter("password")                                          // 로그인 페이지에서 "name태그"파라메터로 전송된 값
                 .successHandler(authSuccessHandler)                                     // 로그인이 성공했을 때 핸들러
