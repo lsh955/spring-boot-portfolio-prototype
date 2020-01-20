@@ -13,7 +13,7 @@ import java.util.*;
  * @author 이승환
  * @since 2019/12/08
  * <p>
- * Security에서 사용자의 정보를 담는 역할
+ * Security에서 사용자의 정보를 가져오는 역할
  */
 @Slf4j
 @EqualsAndHashCode(of = "id")

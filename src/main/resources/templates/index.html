@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="theme-color" content="#bd5d38"/>
     <meta name="referrer" content="no-referrer"/>
@@ -21,9 +22,9 @@
     <meta content="승화니, 사심 가득한 프로젝트" property="og:site_name"/>
     <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." property="og:description"/>
 
-    <!--TODO : 구글 recaptcha 자리만 잡아둠 나중에 오픈할때 작업할 것!-->
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
+    <title>승화니' 사심 가득한 프로젝트</title>
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
     <script>
         grecaptcha.ready(function () {
             grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/reCvAPTCHA'}).then(function (token) {
@@ -31,8 +32,6 @@
             });
         });
     </script>
-
-    <title>승화니' 사심 가득한 프로젝트</title>
 
     <!-- TODO
          1. 스프링에 붙일때 CSS/JS 파일명 뒤에(?v=) 현재날짜와 시간을 붙여넣자.

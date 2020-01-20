@@ -34,15 +34,21 @@ $(document).ready(function () {
 
     // 로그인 시 알림 피드백
     $.ajax({
-        url : "/getLoginJson",
+        url : "/getLoginJson",  // TODO : 추후에 토큰값 사용해서 클라이언트가 접속못하게 작업할것.
+        timeout : 5000,
         dataType :"json",
         success : function(data) {
-            console.log(data['result_list']); // 나중에 지울것.
-            let Username = data['result_list'][0]['Username'];
-            site_alert(Site_Notice_Text, Username+'님 안녕하세요! 로그인 되었습니다.', 3000);
+            try {
+                console.log(data['result_list']); // TODO : 나중에 지울것.
+                let Username = data['result_list'][0]['Username'];
+                site_alert(Site_Notice_Text, Username+'님 안녕하세요! 로그인 되었습니다.', 3000);
+            } catch(e) {
+                console.log("세션이 만료되거나 인증되지 않았습니다.");   // TODO : 나중에 지울것.
+            }
         },
-        error : function(e) {
-            console.log("세션이 만료되거나 인증되지 않았습니다.");   // 나중에 지울것.
+        error : function(request, status, error) {  // 오류가 발생했을 때 호출
+            console.log("서버통신 오류 입니다.");   // TODO : 나중에 지울것.
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
 
