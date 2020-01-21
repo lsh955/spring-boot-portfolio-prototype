@@ -55,5 +55,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
-
+    
 }

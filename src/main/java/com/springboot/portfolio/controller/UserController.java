@@ -52,7 +52,7 @@ public class UserController {
         
         return "index";
     }
-
+    
     /**
      * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
      * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
@@ -184,18 +184,19 @@ public class UserController {
     }
     
     @RequestMapping("/getLoginJson")
-    public @ResponseBody Map<String, Object> getLoginJson() {
+    public @ResponseBody
+    Map<String, Object> getLoginJson() {
         Map<String, Object> jsonObject = new HashMap<String, Object>();
         Map<String, Object> jsonSubObject = null;
         ArrayList<Map<String, Object>> jsonList = new ArrayList<Map<String, Object>>();
         try {
-                // TODO : 현재 같은 브라우저에서 계속 접속했을 때 안뜬다. 즉, 1회성 코드
-                // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
-                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-            if(userPrincipal.getId() != null) {
-                getLoginJsonCount ++;
-                if(getLoginJsonCount < 2) {
+            // TODO : 현재 같은 브라우저에서 계속 접속했을 때 안뜬다. 즉, 1회성 코드
+            // 인증된 사용자의 세션정보 알고 정보를 가져오기 위해 SecurityContextHolder를 이용한다.
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
+            if (userPrincipal.getId() != null) {
+                getLoginJsonCount++;
+                if (getLoginJsonCount < 2) {
                     System.out.println(getLoginJsonCount);
                     jsonSubObject = new HashMap<String, Object>();
                     jsonSubObject.put("Id", userPrincipal.getId());
@@ -211,7 +212,7 @@ public class UserController {
                     jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
                     jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
                     jsonList.add(jsonSubObject);
-
+                    
                     jsonObject.put("success", true);
                     jsonObject.put("total_count", 12);
                     jsonObject.put("LoginJsonCount", getLoginJsonCount);
@@ -219,7 +220,7 @@ public class UserController {
                 }
             }
         } catch (Exception e) {
-
+        
         }
         return jsonObject;
     }

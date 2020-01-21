@@ -47,12 +47,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {                      // 로그인 URL, 권한분리, Logout URL  설정
         http.authorizeRequests()                                                        // 요청에 대한 권한을 지정
                 .antMatchers("/",
-                            "/login",
-                            "/signup",
-                            "/sessionfailed",
-                            "/exception",
-                            "/ReCAPTCHA",
-                            "/getLoginJson").permitAll()  // 접근을 전부 허용
+                        "/login",
+                        "/signup",
+                        "/sessionfailed",
+                        "/exception",
+                        "/ReCAPTCHA",
+                        "/getLoginJson").permitAll()  // 접근을 전부 허용
                 .antMatchers("/home").access("hasRole('MEMBER') or hasRole('ADMIN')") // 사용자만 접근
                 .antMatchers("/manager").hasRole("ADMIN")                   // 관리자만 접근
                 .anyRequest()                                                           // 인증 되어야 하는 부분
@@ -71,7 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))     // 로그아웃이 성공했을 경우 이동할 페이지
                 .logoutSuccessUrl("/?state=logout")                                     // 로그아웃 성공 후 반환하는 URI
                 .invalidateHttpSession(true);                                           // 로그아웃시 인증정보를 지우하고 세션을 무효화 시킨다는 설정
-
+        
         http.sessionManagement()                                                        // 세션 정책 설정
                 .maximumSessions(1)                                                     // 세션허용 인원
                 .maxSessionsPreventsLogin(false)                                        // 로그인중일 경우 로그인이 안된다.(false일 경우 기존 사용자의 세션이 종료된다.)
