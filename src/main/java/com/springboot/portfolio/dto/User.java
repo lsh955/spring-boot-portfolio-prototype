@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class User {
-    
+
     private int id;                 // 키값
     private String userType;        // 권한정보
     private String loginId;         // 사용자 아이디
@@ -22,91 +22,91 @@ public class User {
     private String userFirstDate;   // 회원가입 일자
     private String userLoginDate;   // 로그인 일자
     private String userIpAddress;   // 사용자 로그인아이디
-    
+
     public int getId() {
         return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getUserType() {
         return userType;
     }
-    
+
     public void setUserType(String userType) {
         this.userType = userType;
     }
-    
+
     public String getLoginId() {
         return loginId;
     }
-    
+
     public void setLoginId(String loginId) {
         this.loginId = loginId;
     }
-    
+
     public String getUserName() {
         return userName;
     }
-    
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
+
     public String getUserEmail() {
         return userEmail;
     }
-    
+
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-    
+
     public String getUserTel() {
         return userTel;
     }
-    
+
     public void setUserTel(String userTel) {
         this.userTel = userTel;
     }
-    
+
     public String getPassword() {
         return password;
     }
-    
+
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
-    
+
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
-    
+
     public String getUserFirstDate() {
         return userFirstDate;
     }
-    
+
     public void setUserFirstDate(String userFirstDate) {
         this.userFirstDate = userFirstDate;
     }
-    
+
     public String getUserLoginDate() {
         return userLoginDate;
     }
-    
+
     public void setUserLoginDate(String userLoginDate) {
         this.userLoginDate = userLoginDate;
     }
-    
+
     public String getUserIpAddress() {
         return userIpAddress;
     }
-    
+
     public void setUserIpAddress(String userIpAddress) {
         this.userIpAddress = userIpAddress;
     }
