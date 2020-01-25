@@ -1,7 +1,6 @@
 package com.springboot.portfolio.service;
 
 import com.springboot.portfolio.details.UserDetailsImpl;
-import com.springboot.portfolio.listener.HttpSessionListenerImpl;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private HttpSessionListenerImpl httpSessionListener;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
