@@ -1,7 +1,6 @@
 package com.springboot.portfolio.service;
 
 import com.springboot.portfolio.details.UserDetailsImpl;
-import com.springboot.portfolio.listener.HttpSessionListenerImpl;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,26 +20,23 @@ import java.util.*;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-    
+
     @Autowired
     private UserMapper userMapper;
-    
-    @Autowired
-    private HttpSessionListenerImpl httpSessionListener;
-    
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
+
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
-    
+
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
@@ -49,11 +45,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         return createUser(user);
     }
-    
+
     private UserDetailsImpl createUser(User user) {
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
         userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
-    
+
 }
