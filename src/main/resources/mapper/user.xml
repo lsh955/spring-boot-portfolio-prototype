@@ -25,8 +25,10 @@
     </select>
 
     <insert id="setUserInfo" parameterType="com.springboot.portfolio.dto.User" useGeneratedKeys="true"
-            keyProperty="param.id"> INSERT INTO user (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate, user_logindate, user_ipaddress)
-                                    VALUES (#{param.userType}, #{param.loginId}, #{param.userName},
-                                            #{param.password}, #{param.userTel}, #{param.userEmail}, now(), #{param.userLoginDate}, #{param.userIpAddress}) </insert>
+            keyProperty="param.id">INSERT INTO user (user_type, login_id, user_name, password, user_tel, user_email,
+        user_firstdate, user_logindate, user_ipaddress)
+        VALUES (#{param.userType}, #{param.loginId}, #{param.userName},
+        #{param.password}, #{param.userTel}, #{param.userEmail}, now(), #{param.userLoginDate}, #{param.userIpAddress})
+    </insert>
 
 </mapper>
