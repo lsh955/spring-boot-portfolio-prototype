@@ -1,7 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.2.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id "org.sonarqube" version "2.7"
+//    id "org.sonarqube" version "2.7"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -29,18 +29,18 @@ configurations {
     }
 }
 
-sonarqube { // 정적 코드분석
-    properties {
-        property "sonar.host.url", "http://58.229.100.158:10001"
-        property "sonar.login", "lshk955"
-        property "sonar.password", "tmdghks05)%"
-        property "sonar.projectKey", "codedot.co.kr_portfolio_v2.0"
-        property "sonar.projectName", "codedot.co.kr_portfolio_v2.0"
-        property "sonar.projectVersion", "1.0"
-        property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.projectDescription", "Spring Boot Portfolio"
-    }
-}
+//sonarqube { // 정적 코드분석
+//    properties {
+//        property "sonar.host.url", "http://58.229.100.158:10001"
+//        property "sonar.login", "lshk955"
+//        property "sonar.password", "tmdghks05)%"
+//        property "sonar.projectKey", "codedot.co.kr_portfolio_v2.0"
+//        property "sonar.projectName", "codedot.co.kr_portfolio_v2.0"
+//        property "sonar.projectVersion", "1.0"
+//        property "sonar.sourceEncoding", "UTF-8"
+//        property "sonar.projectDescription", "Spring Boot Portfolio"
+//    }
+//}
 
 repositories {
     mavenCentral()
