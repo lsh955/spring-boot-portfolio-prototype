@@ -3,6 +3,7 @@ package com.springboot.portfolio.controller;
 import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
 import com.springboot.portfolio.dto.reCAPTCHA;
+import com.springboot.portfolio.service.EmailSendService;
 import com.springboot.portfolio.service.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class UserController {
     @Autowired
     private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     
+    @Autowired
+    private EmailSendService emailSendService;
+    
     private int getLoginJsonCount;
     
     /**
@@ -41,6 +45,8 @@ public class UserController {
      */
     @GetMapping("/")
     public String getIndex() {
+        
+        emailSendService.sendMail("lshk955@naver.com", "lshk955@naver.com", "테스트 제목", "테스트 내용");
 
 //        TODO 로그인할 때 DB에 사용자의 아이피를 지속 업데이트 한다.
 //        String ipAddress = request.getHeader("X-Forwarded-For");
