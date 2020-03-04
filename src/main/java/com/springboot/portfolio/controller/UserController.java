@@ -45,8 +45,6 @@ public class UserController {
      */
     @GetMapping("/")
     public String getIndex() {
-        
-        emailSendService.sendMail("lshk955@naver.com", "lshk955@naver.com", "테스트 제목", "테스트 내용");
 
 //        TODO 로그인할 때 DB에 사용자의 아이피를 지속 업데이트 한다.
 //        String ipAddress = request.getHeader("X-Forwarded-For");
@@ -97,7 +95,7 @@ public class UserController {
      *                      폼을 출력할 때 BindingResult에 담긴 오류 정보를 활용해서 에러 메시지를 생성할 수 있다.
      */
     @PostMapping("signup")
-    public String createNewUser(Model model, @Valid User user, BindingResult bindingResult) {
+    public String createNewUser(Model model, @Valid User user, BindingResult bindingResult, HttpServletRequest req) {
         User userExists = userDetailsService.findUserByLoginId(user.getLoginId());     // User지정된 로그인 해당 ID, null값을 반환한다.
         if (userExists != null) {
             // 필드에 대한 에러코드를 추가 에러코드에 대한 메세지가 존재하지 않을 경우 defaultMessage를 사용
@@ -108,7 +106,7 @@ public class UserController {
             return "signup";
         } else {
             // 회원가입이 정상적으로 등록될 경우
-            userDetailsService.saveUser(user);
+            userDetailsService.saveUser(user, req);
             model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
             model.addAttribute("user", new User());                                                     // 뷰로 보낼 데이터 값
         }
