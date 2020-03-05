@@ -17,9 +17,7 @@ public class EmailSendService {
     private MailSender sender;
     
     public void sendMail(String from, String to, String subject, String text) {
-        
         SimpleMailMessage message = createMail(from, to, subject, text);
-        
         try {
             sender.send(message);
         } catch (MailException es) {
@@ -30,12 +28,10 @@ public class EmailSendService {
     
     private SimpleMailMessage createMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
-        
         message.setFrom(from);                // 보내는사람
         message.setTo(to);                    // 받는사람
         message.setSubject(subject);          // 제목
         message.setText(text);                // 내용
-        
         return message;
     }
     
