@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmailSendService {
-    
+
     @Autowired
     private MailSender sender;
-    
+
     public void sendMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = createMail(from, to, subject, text);
         try {
@@ -25,7 +25,7 @@ public class EmailSendService {
             throw new IllegalArgumentException();
         }
     }
-    
+
     private SimpleMailMessage createMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);                // 보내는사람
@@ -34,5 +34,5 @@ public class EmailSendService {
         message.setText(text);                // 내용
         return message;
     }
-    
+
 }

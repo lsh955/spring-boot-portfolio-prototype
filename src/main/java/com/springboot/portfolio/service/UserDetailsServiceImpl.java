@@ -23,21 +23,21 @@ import java.util.*;
 @Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-    
+
     @Autowired
     private UserMapper userMapper;
-    
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
+
     @Autowired
     private EmailSendService emailSendService;
-    
+
     public void saveUser(User user, HttpServletRequest request) {
-        
+
         String requestIp = request.getHeader("X-Forwarded-For");
         log.info("> X-FORWARDED-FOR : " + requestIp);
-        
+
         // 서버 환경이나 프록시 등 중개서버가 다르기에 Util로 만들어 놓은 코드
         if (requestIp == null) {
             requestIp = request.getHeader("Proxy-Client-IP");
@@ -61,22 +61,22 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         log.info(">> Result : IP Address : " + requestIp);
         user.setUserIpAddress(requestIp);   // 사용자 IP 정보
-        
+
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
-        
+
         //System.out.println("user.getUserEmail()" + user.getUserEmail());
-        
+
         String emaildata = user.getUserEmail();
-        
+
         emailSendService.sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
     }
-    
+
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
@@ -85,11 +85,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         return createUser(user);
     }
-    
+
     private UserDetailsImpl createUser(User user) {
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
         userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
-    
+
 }
