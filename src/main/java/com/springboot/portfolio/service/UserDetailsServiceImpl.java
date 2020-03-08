@@ -66,8 +66,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
 
-        //System.out.println("user.getUserEmail()" + user.getUserEmail());
-
         String emaildata = user.getUserEmail();
 
         emailSendService.sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
