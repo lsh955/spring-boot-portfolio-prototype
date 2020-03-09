@@ -1,5 +1,6 @@
 package com.springboot.portfolio.service;
 
+import com.springboot.portfolio.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
@@ -15,6 +16,12 @@ public class EmailSendService {
 
     @Autowired
     private MailSender sender;
+    
+    // 회원가입 시 이메일발송
+    public void saveUserEmail(User user) {
+        String emaildata = user.getUserEmail();
+        sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
+    }
 
     public void sendMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = createMail(from, to, subject, text);

@@ -33,6 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     @Autowired
     private EmailSendService emailSendService;
 
+    // 회원가입
     public void saveUser(User user, HttpServletRequest request) {
 
         String requestIp = request.getHeader("X-Forwarded-For");
@@ -65,12 +66,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
-
-        String emaildata = user.getUserEmail();
-
-        emailSendService.sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
     }
+    
+    // 회원가입 시 이메일발송
+//    public void saveUserEmail(User user) {
+//        String emaildata = user.getUserEmail();
+//        emailSendService.sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
+//    }
 
+    // 아이디조회
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }

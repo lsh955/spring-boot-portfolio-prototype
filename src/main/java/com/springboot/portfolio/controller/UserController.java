@@ -45,15 +45,6 @@ public class UserController {
      */
     @GetMapping("/")
     public String getIndex() {
-
-//        TODO 로그인할 때 DB에 사용자의 아이피를 지속 업데이트 한다.
-//        String ipAddress = request.getHeader("X-Forwarded-For");
-//        if (ipAddress == null) {
-//            ipAddress = request.getRemoteAddr();
-//        }
-//        System.out.println("현재 로그인된 아이피 : " + ipAddress);
-//        user.setUserIpAddress(ipAddress);    // 로그인 할때 접속한 아이피를 저장한다.
-
         return "index";
     }
 
@@ -107,8 +98,9 @@ public class UserController {
         } else {
             // 회원가입이 정상적으로 등록될 경우
             userDetailsService.saveUser(user, req);
-            model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
             model.addAttribute("user", new User());                                                     // 뷰로 보낼 데이터 값
+            model.addAttribute("successMessage", "사용자가 성공적으로 등록되었습니다");      // 뷰로 보낼 데이터 값
+            emailSendService.saveUserEmail(user);
         }
         return "signup";
     }
@@ -178,7 +170,8 @@ public class UserController {
         RestTemplate restTemplate = new RestTemplate();
 
         reCAPTCHA recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCAPTCHA.class).getBody();
-
+    
+        assert recaptcha != null;
         if (recaptcha.isSuccess()) {
             System.out.println("reCAPTCHA 성공");
         } else {
@@ -223,7 +216,7 @@ public class UserController {
                     jsonObject.put("result_list", jsonList);
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
         return jsonObject;
