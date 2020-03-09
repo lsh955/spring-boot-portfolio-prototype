@@ -1,0 +1,606 @@
+<!--
+    현재 개발중인 사이트 입니다.
+    기획과 코드는 얼마든지 변동될 수 있습니다.
+    진행상황 : 8% (아직 갈 길이 멉니다.)
+    완료일정 : 2020년 언젠가...
+-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
+
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-ico">
+    <link href="./favicon.ico" rel="apple-touch-icon" sizes="180x180">
+    <link href="./favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="./favicon.ico" rel="icon" sizes="16x16" type="image/png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="theme-color" content="#bd5d38"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="author" content="이승환"/>
+    <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." name="description"/>
+    <meta property="og:url" content="/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" th:content="@{img/profile.jpg}"/>
+    <meta content="승화니, 사심 가득한 프로젝트" property="og:title"/>
+    <meta content="승화니, 사심 가득한 프로젝트" property="og:site_name"/>
+    <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." property="og:description"/>
+
+    <title>승화니' 사심 가득한 프로젝트</title>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/reCvAPTCHA'}).then(function (token) {
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    </script>
+
+    <!-- TODO
+         1. 스프링에 붙일때 CSS/JS 파일명 뒤에(?v=) 현재날짜와 시간을 붙여넣자.
+         2. 구글폰트는 완성되면 파일로 만들자.
+         3. 주석은 완성되면 서버단 주석으로 바꾸자.
+    -->
+    <link rel="stylesheet" th:href="@{css/index_light.css}" type="text/css"/>    <!-- main layout css -->
+</head>
+<body>
+<div class="wrapper">
+    <div class="left_side">
+
+        <div class="small_photo">
+            <a href="" title="승화니'">
+                <p class="count" sec:authorize="isAuthenticated()">99..</p>
+                <!-- 메시지 건수를 카운트로 알려준다.(99건 이상부턴 숫자뒤에 '..'으로 처리) -->
+                <!-- TODO : 내 사진은 나중에 CSS background 로 처리하자 -->
+                <img th:src="@{img/profile.jpg}" alt="승화니'">
+            </a>
+        </div>
+
+        <div class="menu">
+
+            <div class="menu_title">
+                <a class="01" href="" title="승화니' 사심 가득한 프로젝트'">
+                    <p>승화니' 사심 가득한 프로젝트</p>
+                </a>
+            </div>
+
+            <div class="mobile_popup_btn">
+                <i class="fas fa-bell animated swing faster"></i>
+                <i class="far fa-times-circle"></i>
+            </div>
+
+            <div class="menu_button">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div class="menu_contents">
+
+                <div class="mobile_menu_close">
+                    <img alt="닫기" th:src="@{img/close_white.png}"/>
+                </div>
+
+                <div class="menu_list">
+
+                    <div class="domain_title">
+                        <span>MENU.</span>
+                    </div>
+
+                    <ul class="">
+                        <li>
+                            <a href="" class="01" title="">
+                                <p class="on">ABOUT</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="02" title="">
+                                <p class="">CODEDOT.CO.KR</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="03" title="">
+                                <p class="">SKILLS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="04" title="">
+                                <p class="">SELF PROJECTS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="05" title="">
+                                <p class="">WORK PROJECTS</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="06" title="">
+                                <p class="">EDUCATION</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="07" title="">
+                                <p class="">COMING SOON...</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="08" title="">
+                                <p class="">COMING SOON...</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="functions">
+            <ul>
+                <li class="dark_mode">
+                    <a href="" title="다크모드">
+                        <i class="fas fa-moon"></i>
+                        <!-- <i class="fas fa-sun"></i>
+                        <i class="fas fa-history"></i> -->
+                    </a>
+                </li>
+                <li class="question">
+                    <a href="" title="문의하기">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </a>
+                </li>
+                <li class="login" sec:authorize="isAnonymous()">
+                    <a href="" title="로그인">
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-times"></i>
+                    </a>
+                </li>
+                <li class="logout" sec:authorize="isAuthenticated()">
+                    <a href="/logout" title="로그아웃">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="message_box" style="display: none">
+            <div class="message_head">
+                <div class="message_photo">
+                    <img th:src="@{img/profile.jpg}" alt="승화니'">
+                </div>
+                <p class="main_text" sec:authorize="isAnonymous()">안녕하세요.</p>
+                <p class="main_text" sec:authorize="isAuthenticated()"><span
+                        sec:authentication="principal.username"></span>님 안녕하세요.</p>
+                <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
+                <p class="sub_text" sec:authorize="isAuthenticated()">승화니' 사심 가득한 프로젝트</p>
+            </div>
+            <!-- TODO
+                 01. 메시지 확인기능
+                 02. 회원정보 수정기능
+                 03. 회원쪽지 보내기 -->
+            <div class="message_body">
+                <!-- 비회원즉, 로그인 안할때 guest_message 박스를 기본으로 보여준다. -->
+                <div class="guest_message">
+                    <p class="message_login_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하실 수 있습니다.</p>
+                    <input class="message_login_btn" sec:authorize="isAnonymous()" type="button" value="로그인"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="darkmode_help">
+            <p><i class="fas fa-info-circle"></i>다크/라이트 모드란?</p>
+            <ul>
+                <li class="dark">
+                    <p><i class="fas fa-moon"></i>레이아웃, 콘텐츠를 어둡게(Dark) 변경합니다.</p>
+                </li>
+                <li class="light">
+                    <p><i class="fas fa-sun"></i>레이아웃, 콘텐츠를 밝게(Light) 변경합니다.</p>
+                </li>
+                <li class="auto">
+                    <p>
+                        <i class="fas fa-history"></i>레이아웃, 콘텐츠를 시간에 맞춰 변경합니다.<br>
+                        <span>(06:00~17:59 Light, 18:00~05:59 Dark)</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="message_box_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span>나의멘션</span>
+            </p>
+        </div>
+
+        <div class="menu_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span>메뉴</span>
+            </p>
+        </div>
+
+        <div class="question_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span>문의하기</span>
+            </p>
+        </div>
+
+        <div class="signin_help">
+            <p>
+                <i class="fas fa-chevron-left"></i>
+                <span sec:authorize="isAnonymous()">로그인</span>
+                <span sec:authorize="isAuthenticated()">로그아웃</span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="menu_shadow_off">
+        <p class="menu_background">
+            <span class="menu_background_text">빈공간 클릭 시 메뉴창이 닫아집니다.</span>
+        </p>
+    </div>
+
+    <div class="popup">
+        <div class="popup_title">
+            <ul>
+                <li>
+                    <p><i class="fas fa-bell"></i>알려드립니다!</p>
+                </li>
+            </ul>
+        </div>
+        <div class="popup_btn">
+            <i class="fas fa-sort-down"></i>
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="popup_list">
+            <div class="mobile_popup_title">
+                <i class="fas fa-bell animated swing faster"></i>
+                <p>알려드립니다!</p>
+            </div>
+            <ul>
+                <li>
+                    <p>사이트 운영은 평일 09:00 ~ 21:00, 주말은 랜덤! 입니다.</p>
+                </li>
+                <li>
+                    <p>사이트는 크롬, 파이어폭스, 사파리 브라우저에 최적화 되어 있습니다.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="popup_shadow_off">
+        <p class="popup_background">
+            <span class="popup_background_text">빈공간 클릭 시 팝업창이 닫아집니다.</span>
+        </p>
+    </div>
+
+    <div class="not_found">
+        <i class="far fa-times"></i>
+        <p class="not_found_text">페이지가 더 이상 존재하지 않습니다.</p>
+    </div>
+
+    <div class="contents_guide">
+
+        <div class="00" id="00">
+            <!-- 스크립트 개선될때까지 임시로 추가 -->
+        </div>
+
+        <div class="01" id="01">
+            <p>01</p><br>
+        </div>
+
+        <div class="02" id="02">
+            <p>02</p>
+        </div>
+
+        <div class="03" id="03">
+            <p>03</p>
+        </div>
+
+        <div class="04" id="04">
+            <p>04</p>
+        </div>
+
+        <div class="05" id="05">
+            <p>05</p>
+        </div>
+
+        <div class="06" id="06">
+            <p>06</p>
+        </div>
+
+        <div class="07" id="07">
+            <p>07</p>
+        </div>
+
+        <div class="08" id="08">
+            <p>08</p>
+        </div>
+
+    </div>
+
+    <div class="window_bax" style="display: none">
+        <p class="title">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="title_text">사이트 알림</span>
+        </p>
+        <p class="bax_text">발견된 알림이 없습니다.</p>
+    </div>
+
+    <div class="logpage" style="display: none">
+
+        <!-- <div class="close">
+            <i class="fas fa-times"></i>
+        </div> -->
+
+        <div class="left_login" style="display: block">
+            <p class="login_title_login">LOGIN<span class="test_action">.</span></p>
+            <!-- .test_action 효과를 줄까말까 고민중이다. -->
+            <p class="login_text_login_ko">등록된 계정을 입력하여, 사이트를 이용해보세요.</p>
+            <p class="login_text_login_en">We will find the lost account information with a simple information.</p>
+        </div>
+
+        <div class="left_find" style="display: none">
+            <p class="login_title_find">Find<span class="test_action">.</span></p>
+            <!-- .test_action 효과를 줄까말까 고민중이다. -->
+            <p class="login_text_find_ko">간단한 정보로 잃어버린 계정정보를 찾아드립니다.</p>
+            <p class="login_text_find_en">We will find the lost account with simple information.</p>
+        </div>
+
+        <div class="right_login" style="display: block">
+            <form id="form" method="post" th:action="@{/}">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
+                <ul>
+                    <li>
+                        <p class="id_title">아이디</p>
+                        <div class="id_edge">
+                            <input class="input_id" id="user_id" name="loginId" th:placeholder="ID" type="text"/>
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="pwd_title">비밀번호</p>
+                        <div class="pwd_edge">
+                            <input class="input_password" id="user_password" name="password" th:placeholder="PASSWORD"
+                                   type="password"/>
+                            <i class="far fa-keyboard"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="captcha">
+                            나중에 스프링 붙일때 캡차API 넣을꺼임.
+                        </div>
+                        <!-- 나중에 스프링 붙일때 캡차API 넣을꺼임.-->
+                        <!-- <div class="captcha" id="recaptcha" class="g-recaptcha" th:attr="data-sitekey=${@captchaSettings.getSite()}" data-callback="recaptchaCallback">
+                             </div>-->
+                    </li>
+                    <li class="center">
+                        <p th:if="${param.error}">아이디 또는 패스워드가 올바르지 않거나 비활성화된 사용자입니다.</p>
+                    </li>
+                    <li>
+                        <input class="login_submit" id="form_btn" type="Submit" value="LOGIN"/>
+                    </li>
+                    <li>
+                        <div class="social_login_box">
+                            <p class="social_login_text">소셜 계정으로 로그인</p>
+                            <img alt="구글계정 로그인" id="social_login_img"
+                                 src="img/btn_google_signin_light_pressed_web.png"/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="user_add">
+                            <a href="/signup" title="계정 만들기">
+                                <p>계정 만들기</p>
+                            </a>
+                        </div>
+                        <div class="user_find">
+                            <a href="/" title="아이디/비밀번호 찾기">
+                                <p>아이디/비밀번호 찾기</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="right_find">
+            <div class="find_category">
+                <ul>
+                    <li>
+                        <a href="/" title="아이디 찾기">
+                            <p class="on">아이디 찾기</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" title="비밀번호 찾기">
+                            <p class="">비밀번호 찾기</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="id_find" style="display: block">
+                <form id="find_id_form" action="/" method="post">
+                    <ul>
+                        <li>
+                            <p class="find_email_title">이메일</p>
+                            <div class="find_email_edge">
+                                <input class="find_email" id="user_email_find" name="user_email_find"
+                                       placeholder="이메일을 입력하세요."
+                                       type="text"/>
+                                <i class="fas fa-at"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="or">또는</p>
+                        </li>
+                        <li>
+                            <p class="find_tel_title">전화번호</p>
+                            <div class="find_tel_edge">
+                                <input class="find_tel" id="user_tel_find" name="user_tel_find"
+                                       placeholder="전화번호를 입력하세요."
+                                       type="password"/>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <input class="form_id_submit" id="form_id_btn" type="button" value="Find"/>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="pwd_find" style="display: none">
+                <form id="find_pwd_form" action="/" method="post">
+                    <ul>
+                        <li>
+                            <p class="find_id_title">아이디</p>
+                            <div class="find_id_edge">
+                                <input class="find_id_pwd" id="user_id_find_pwd" name="user_id_find_pwd"
+                                       placeholder="아이디를 입력하세요."
+                                       type="text"/>
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="find_email_title">이메일</p>
+                            <div class="find_email_edge">
+                                <input class="find_email_pwd" id="user_email_find_pwd" name="user_email_find_pwd"
+                                       placeholder="이메일을 입력하세요." type="text"/>
+                                <i class="fas fa-at"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="or">또는</p>
+                        </li>
+                        <li>
+                            <p class="find_tel_title">전화번호</p>
+                            <div class="find_tel_edge">
+                                <input class="find_tel_pwd" id="user_tel_find_pwd" name="user_tel_find_pwd"
+                                       placeholder="전화번호를 입력하세요." type="password"/>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <input class="form_pwd_submit" id="form_pwd_btn" type="button" value="Find"/>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <div class="backward">
+                <a href="/" title="로그인 하기">
+                    <i class="fas fa-backward"></i>
+                    <p>로그인 하기</p>
+                </a>
+            </div>
+
+        </div>
+        <div class="clear_both"></div>
+    </div>
+
+    <div class="login_shadow_off">
+        <div class="login_background"></div>
+    </div>
+
+    <div class="right_side">
+        <ul>
+            <li class="01">
+                <a href="" class="on" title="">
+                    <i class="fas fa-circle"></i>
+                </a>
+            </li>
+            <li class="02">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="03">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="04">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="05">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="06">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="07">
+                <a href="" class="" title="">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+            <li class="08">
+                <a href="" class="" title="문의하기">
+                    <i class="fas fa-circle "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="site_up">
+        <ul>
+            <li>
+                <a href="" class="01" title="">
+                    <i class="fas fa-chevron-circle-up"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mobile_menu_button ">
+        <i class="fas fa-circle animated rubberBand faster"></i>
+        <i class="fas fa-bars"></i>
+    </div>
+
+</div>
+
+<div class="progress_bar">
+    <progress value="0" max="0" class="process"></progress>
+</div>
+
+<!-- 우선순위가 낮은 CSS파일은 HTML문서 하단에 배치한다. -->
+<link th:href="@{/css/animate.min.css?v=}" rel="stylesheet"/>    <!-- animate css -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway|Source+Sans+Pro&display=swap?v="
+      rel="stylesheet"/>    <!-- Raleway, Nanum Gothic, Source Sans Pro -->
+
+<script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
+<script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
+<script th:src="@{js/index_frame.js?v=}"></script>               <!-- main layout js -->
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBf_CQoxOJtvmLDmvu41hPt7aOk4gK3L3Y",
+        authDomain: "spring-boot-portfolio.firebaseapp.com",
+        databaseURL: "https://spring-boot-portfolio.firebaseio.com",
+        projectId: "spring-boot-portfolio",
+        storageBucket: "spring-boot-portfolio.appspot.com",
+        messagingSenderId: "838635500072",
+        appId: "1:838635500072:web:a7def2fadda3b02da6bb1d",
+        measurementId: "G-8P04E6X1HL"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+</body>
+</html>

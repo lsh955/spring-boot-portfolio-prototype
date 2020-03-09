@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>회원가입</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/login}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="submit">로그인페이지로 돌아가기</button>
+</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form action="#" autocomplete="off" class="form-horizontal" method="post" role="form"
+                  th:action="@{/signup}" th:object="${user}">
+                <h2>회원가입 입력</h2>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label class="validation-message" th:errors="*{loginId}"
+                               th:if="${#fields.hasErrors('loginId')}"></label>
+                        <input class="form-control" placeholder="아이디" th:field="*{loginId}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label class="validation-message" th:errors="*{userName}"
+                               th:if="${#fields.hasErrors('userName')}"></label>
+                        <input class="form-control" placeholder="성함" th:field="*{userName}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label class="validation-message" th:errors="*{userEmail}"
+                               th:if="${#fields.hasErrors('userEmail')}"></label>
+                        <input class="form-control" placeholder="이메일" th:field="*{userEmail}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label class="validation-message" th:errors="*{userTel}"
+                               th:if="${#fields.hasErrors('userTel')}"></label>
+                        <input class="form-control" placeholder="전화번호" th:field="*{userTel}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input class="form-control" placeholder="패스워드" th:field="*{password}" type="password"/>
+                        <label class="validation-message" th:errors="*{password}"
+                               th:if="${#fields.hasErrors('password')}"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input class="form-control" placeholder="패스워드 확인" th:field="*{passwordConfirm}"
+                               type="password"/>
+                        <label class="validation-message" th:errors="*{passwordConfirm}"
+                               th:if="${#fields.hasErrors('passwordConfirm')}"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary btn-block">사용자등록</button>
+                    </div>
+                </div>
+
+                <span th:utext="${successMessage}"></span>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

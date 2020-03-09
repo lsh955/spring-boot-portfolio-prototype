@@ -1,0 +1,6 @@
+projectKey=codedot.co.kr_portfolio_v2.0
+serverUrl=http://58.229.100.158:10001
+serverVersion=8.1.0.31237
+dashboardUrl=http://58.229.100.158:10001/dashboard?id=codedot.co.kr_portfolio_v2.0
+ceTaskId=AW9p5b7NpOwxImZyJTxd
+ceTaskUrl=http://58.229.100.158:10001/api/ce/task?id=AW9p5b7NpOwxImZyJTxd

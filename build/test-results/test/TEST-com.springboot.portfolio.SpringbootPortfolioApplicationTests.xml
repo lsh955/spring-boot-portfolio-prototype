@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.springboot.portfolio.SpringbootPortfolioApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-02T07:47:35" hostname="DESKTOP-1L7N0K8" time="0.603">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.springboot.portfolio.SpringbootPortfolioApplicationTests" time="0.603"/>
+  <system-out><![CDATA[20200302 16:47:31.989 [Test worker] INFO o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.springboot.portfolio.SpringbootPortfolioApplicationTests], using SpringBootContextLoader 
+20200302 16:47:31.996 [Test worker] INFO o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.springboot.portfolio.SpringbootPortfolioApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}. 
+20200302 16:47:31.997 [Test worker] INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.springboot.portfolio.SpringbootPortfolioApplicationTests]: SpringbootPortfolioApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration. 
+20200302 16:47:32.099 [Test worker] INFO o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.springboot.portfolio.SpringbootPortfolioApplication for test class com.springboot.portfolio.SpringbootPortfolioApplicationTests 
+20200302 16:47:32.199 [Test worker] INFO o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener] 
+20200302 16:47:32.219 [Test worker] INFO o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1e755a3a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d031bfc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3bc0428d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@74bf6612, org.springframework.test.context.support.DirtiesContextTestExecutionListener@402f4635, org.springframework.test.context.transaction.TransactionalTestExecutionListener@35066937, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@ceb8130, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@3ebe949, org.springframework.test.context.event.EventPublishingTestExecutionListener@39cf19ef, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@3f068030, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6f3474e1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@33c979ef, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@72881e18, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@79041779, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@355be7c4] 
+                  __         __      __                __
+  _________  ____/ /__  ____/ /___  / /_ _________    / /_______
+ / ___/ __ \/ __  / _ \/ __  / __ \/ __// ___/ __ \  / //_/ ___/
+/ /__/ /_/ / /_/ /  __/ /_/ / /_/ / /__/ /__/ /_/ / / ,< / /
+\___/\____/\__,_/\___/\__,_/\____/\__(_)___/\____(_)_/|_/_/
+
+ :: Spring Boot ::                          (2.2.2.RELEASE)
+
+20200302 16:47:32.576 [Test worker] WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/knet_lsh/.gradle/caches/modules-2/files-2.1/org.json/json/20190722/7bce7bacf0ab5e9f894d307a3de8b7f540064d5/json-20190722.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/knet_lsh/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+ 
+20200302 16:47:32.593 [Test worker] INFO c.s.p.SpringbootPortfolioApplicationTests - Starting SpringbootPortfolioApplicationTests on DESKTOP-1L7N0K8 with PID 16380 (started by Lee Seunghwa in D:\02._Development\Gitdata\springboot_portfolio) 
+20200302 16:47:32.594 [Test worker] INFO c.s.p.SpringbootPortfolioApplicationTests - The following profiles are active: Mariadb 
+20200302 16:47:34.368 [Test worker] INFO o.s.s.w.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/css/**'], [] 
+20200302 16:47:34.369 [Test worker] INFO o.s.s.w.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/js/**'], [] 
+20200302 16:47:34.369 [Test worker] INFO o.s.s.w.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/img/**'], [] 
+20200302 16:47:34.501 [Test worker] INFO o.s.s.w.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76ead840, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e7b5b97, org.springframework.security.web.header.HeaderWriterFilter@38f22ac7, org.springframework.security.web.authentication.logout.LogoutFilter@7bc8b714, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@182ceb73, org.springframework.security.web.session.ConcurrentSessionFilter@67306c91, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38de89d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e5693d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@255aa3a0, org.springframework.security.web.session.SessionManagementFilter@3abc3149, org.springframework.security.web.access.ExceptionTranslationFilter@756b3e4c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ff9d4] 
+20200302 16:47:34.836 [Test worker] INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+20200302 16:47:34.947 [Test worker] INFO o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index 
+20200302 16:47:35.075 [Test worker] WARN o.t.t.TemplateMode - [THYMELEAF][Test worker] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead. 
+20200302 16:47:35.314 [Test worker] INFO c.s.p.SpringbootPortfolioApplicationTests - Started SpringbootPortfolioApplicationTests in 3.055 seconds (JVM running for 4.585) 
+test_user_01 : DataBase Connect Start...
+test_user_01 : DataBase Connect Success
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
