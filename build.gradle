@@ -19,10 +19,6 @@ sourceCompatibility = '1.8'
 //Spring Boot Overriding
 ext['hibernate.version'] = '5.2.11.Final'
 
-task wrapper2(type: Wrapper) {
-    gradleVersion = "6.2.1"
-}
-
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
