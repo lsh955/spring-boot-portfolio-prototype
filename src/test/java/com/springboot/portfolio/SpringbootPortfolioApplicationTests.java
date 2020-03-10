@@ -9,8 +9,8 @@ import java.sql.DriverManager;
 @SpringBootTest
 public class SpringbootPortfolioApplicationTests {
     
-    private static final String DRIVER = "org.mariadb.jdbc.Driver";
-    private static final String URL = "jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8";
+    private static final String DRIVER = "org.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8";
     private static final String USER = "test_user_01";
     private static final String PW = "dl945pa";
     
