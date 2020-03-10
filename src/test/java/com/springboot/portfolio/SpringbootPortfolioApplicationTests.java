@@ -16,12 +16,12 @@ public class SpringbootPortfolioApplicationTests {
 
     @Test
     public void contextLoads() throws Exception {
-        System.out.println(USER + " : DataBase Connect Start...");
+        System.out.println(USER + " : 테스트 데이터베이스 연결중...");
         Class.forName(DRIVER);
         try (Connection getcon = DriverManager.getConnection(URL, USER, PW)) {
-            System.out.println(USER + " : DataBase Connect Success");
+            System.out.println(USER + " : 테스트 데이터베이스 연결성공");
         } catch (Exception e) {
-            System.err.println(USER + " : DataBase Connect Failure");
+            System.err.println(USER + " : 테스트 데이터베이스 연결실패");
         }
     }
 
