@@ -45,16 +45,6 @@ public class UserController {
      */
     @GetMapping("/")
     public String getIndex() {
-        // TODO : 첫 로딩에서 getIndex이 2번 거쳐간다. 아직 원인이 뭔지 모르는 상황...
-        return "index";
-    }
-    
-    /**
-     * 로그인
-     */
-    @GetMapping("/login")
-    public String getLogin() {
-        // TODO : 첫 로딩에서 getLogin이 3번 거쳐간다. 아직 원이 뭔지 모르는 상황...
         return "index";
     }
     
