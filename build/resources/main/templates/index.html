@@ -11,17 +11,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=edge"/>
     <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
 
-    <link href="./favicon.ico" rel="shortcut icon" type="image/x-ico">
-    <link href="./favicon.ico" rel="apple-touch-icon" sizes="180x180">
-    <link href="./favicon.ico" rel="icon" sizes="32x32" type="image/png">
-    <link href="./favicon.ico" rel="icon" sizes="16x16" type="image/png">
+    <link href="/static/img/favicon.ico" rel="shortcut icon" type="image/x-ico">
+    <link href="/static/img/favicon.ico" rel="apple-touch-icon" sizes="180x180">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="16x16" type="image/png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="theme-color" content="#bd5d38"/>
     <meta name="referrer" content="no-referrer"/>
     <meta name="author" content="이승환"/>
     <meta content="사심 가득한 프로젝트 사이트에 방문해 주셔서 감사합니다." name="description"/>
-    <meta property="og:url" content="/"/>
+    <meta property="og:url" content="http://codedot.co.kr/"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" th:content="@{img/profile.jpg}"/>
     <meta content="승화니, 사심 가득한 프로젝트" property="og:title"/>
@@ -350,7 +350,7 @@
         </div>
 
         <div class="right_login" style="display: block">
-            <form id="form" method="post" th:action="@{/}">
+            <form id="form" method="POST" th:action="@{/login}">
                 <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
                 <ul>
                     <li>

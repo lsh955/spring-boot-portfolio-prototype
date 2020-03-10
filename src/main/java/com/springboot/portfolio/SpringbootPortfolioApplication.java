@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class SpringbootPortfolioApplication extends SpringBootServletInitializer {
-
+    
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(SpringbootPortfolioApplication.class);   // 어플리케이션을 WAR 형태로 배포하기위해 아래와 같은 메인코드를 작성한다.
@@ -20,5 +20,5 @@ public class SpringbootPortfolioApplication extends SpringBootServletInitializer
     public static void main(String[] args) {
         SpringApplication.run(SpringbootPortfolioApplication.class, args);
     }
-
+    
 }
