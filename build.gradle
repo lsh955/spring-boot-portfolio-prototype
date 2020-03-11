@@ -51,6 +51,7 @@ dependencies { // TODO : 나중에 안쓰는것들은 정리하자
     annotationProcessor 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     implementation 'org.mariadb.jdbc:mariadb-java-client'
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.5.4'
     implementation 'org.springframework.session:spring-session-core'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
