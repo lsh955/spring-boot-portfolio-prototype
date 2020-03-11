@@ -1,3 +1,6 @@
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+---
 spring:
   application:
     name: SpringBoot_Portfolio # 애플리케이션 이름
@@ -16,13 +19,9 @@ spring:
     ansi:
       enabled: always        # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
   autoconfigure.exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
-  basic:
-    enabled: false
   devtools:
     livereload:
       enabled: true
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
 ---
 spring:
   mail:
@@ -54,3 +53,14 @@ spring:
     url: jdbc:log4jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
+---
+google:
+  client:
+    clientId: 838635500072-o0suq4o6shrrj1i2dni2dosk4phn4q97.apps.googleusercontent.com
+    clientSecret: uiVSgnePz1j9hoUxUwK8rXuQ
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    clientAuthenticationScheme: form
+    scope: email, profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo

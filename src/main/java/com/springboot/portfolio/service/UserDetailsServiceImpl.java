@@ -29,9 +29,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
-    @Autowired
-    private EmailSendService emailSendService;
+
+//    TODO 검토 후 삭제할 것.
+//    @Autowired
+//    private EmailSendService emailSendService;
     
     // 회원가입
     public void saveUser(User user, HttpServletRequest request) {
@@ -68,6 +69,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
     
+    
+    // TODO 검토 후 삭제할 것.
     // 회원가입 시 이메일발송
 //    public void saveUserEmail(User user) {
 //        String emaildata = user.getUserEmail();

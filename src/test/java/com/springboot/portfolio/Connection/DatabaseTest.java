@@ -1,4 +1,4 @@
-package com.springboot.portfolio.connection;
+package com.springboot.portfolio.Connection;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -51,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/sessionfailed",
                         "/exception",
                         "/ReCAPTCHA",
+                        "google",
                         "/getLoginJson").permitAll()  // 접근을 전부 허용
                 .antMatchers("/home").access("hasRole('MEMBER') or hasRole('ADMIN')") // 사용자만 접근
                 .antMatchers("/manager").hasRole("ADMIN")                   // 관리자만 접근
