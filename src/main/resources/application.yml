@@ -53,14 +53,3 @@ spring:
     url: jdbc:log4jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8  # 테스트 데이터베이스
     username: test_user_01
     password: dl945pa
----
-google:
-  client:
-    clientId: 838635500072-o0suq4o6shrrj1i2dni2dosk4phn4q97.apps.googleusercontent.com
-    clientSecret: uiVSgnePz1j9hoUxUwK8rXuQ
-    accessTokenUri: https://accounts.google.com/o/oauth2/token
-    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-    clientAuthenticationScheme: form
-    scope: email, profile
-  resource:
-    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
