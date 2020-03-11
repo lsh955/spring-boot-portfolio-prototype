@@ -1,4 +1,4 @@
-package com.springboot.portfolio;
+package com.springboot.portfolio.connection;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 @SpringBootTest
-public class DatabaseConnectionTest {
+public class DatabaseTest {
     
     private static final String TESTSERVER_DRIVER = "org.mariadb.jdbc.Driver";
     private static final String TESTSERVER_URL = "jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8";
