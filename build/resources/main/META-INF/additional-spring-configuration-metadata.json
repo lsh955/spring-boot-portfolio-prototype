@@ -14,6 +14,11 @@
       "name": "spring.server.port",
       "type": "java.lang.String",
       "description": "Description for spring.server.port."
+    },
+    {
+      "name": "google.client.accessTokenUri",
+      "type": "java.lang.String",
+      "description": "Description for google.client.accessTokenUri."
     }
   ]
 }
