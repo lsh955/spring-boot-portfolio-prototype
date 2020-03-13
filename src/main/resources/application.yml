@@ -38,7 +38,7 @@ spring:
     active: Mariadb       # 기본 데이터베이스 환경 선택
   datasource:
     #    driver-class-name: org.mariadb.jdbc.Driver   # 운영 데이터베이스
-    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy  # 실서버로 배포할땐 바꿀것.
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy  # 실서버로 배포할땐 바꿀것(org.mariadb.jdbc.Driver)
     hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림.. 제길..-,-)
       maxLifetime: 700000           # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
       connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
