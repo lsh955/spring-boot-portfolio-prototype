@@ -43,7 +43,7 @@ public class UserController {
     /**
      * 메인
      */
-    @GetMapping("/")
+    @GetMapping({"/", "/index"})
     public String getIndex() {
         return "index";
     }
