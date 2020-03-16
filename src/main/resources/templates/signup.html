@@ -1,3 +1,5 @@
+<!-- 임시 회원가입 페이지라 임의로 html에 css 박아둠 -->
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
@@ -7,29 +9,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-
+<body style="background-color: #f5f6f7;">
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <form action="#" autocomplete="off" class="form-horizontal" method="post" role="form"
                   th:action="@{/signup}" th:object="${user}">
-                <h2 style="text-align: center;margin: 50px 0;font-weight: 900;font-size: 35px;">임시 회원가입 페이지</h2>
-
-                <div class="form-group">
-                    <div class="">
-                        <label class="validation-message" th:errors="*{loginId}"
-                               th:if="${#fields.hasErrors('loginId')}"></label>
-                        <input autofocus class="form-control" placeholder="아이디" required th:field="*{loginId}" type="text"/>
-                    </div>
-                </div>
+                <h1 style="text-align: center;margin: 60px 0;font-weight: 900;font-size: 35px;">임시 회원가입 페이지</h1>
 
                 <div class="form-group">
                     <div class="">
                         <label class="validation-message" th:errors="*{userName}"
                                th:if="${#fields.hasErrors('userName')}"></label>
-                        <input class="form-control" placeholder="성함" required th:field="*{userName}" type="text"/>
+                        <input class="form-control" placeholder="성함" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{userName}" type="text"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <label class="validation-message" th:errors="*{loginId}"
+                               th:if="${#fields.hasErrors('loginId')}"></label>
+                        <input autofocus class="form-control" placeholder="아이디" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{loginId}" type="text"/>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                     <div class="">
                         <label class="validation-message" th:errors="*{userEmail}"
                                th:if="${#fields.hasErrors('userEmail')}"></label>
-                        <input class="form-control" placeholder="이메일" required th:field="*{userEmail}" type="email"/>
+                        <input class="form-control" placeholder="이메일" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{userEmail}" type="email"/>
                     </div>
                 </div>
 
@@ -45,13 +45,13 @@
                     <div class="">
                         <label class="validation-message" th:errors="*{userTel}"
                                th:if="${#fields.hasErrors('userTel')}"></label>
-                        <input class="form-control" placeholder="전화번호" required th:field="*{userTel}" type="tel"/>
+                        <input class="form-control" placeholder="전화번호" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{userTel}" type="tel"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="">
-                        <input class="form-control" placeholder="패스워드" required th:field="*{password}" type="password"/>
+                        <input class="form-control" placeholder="패스워드" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{password}" type="password"/>
                         <label class="validation-message" th:errors="*{password}"
                                th:if="${#fields.hasErrors('password')}"></label>
                     </div>
@@ -59,22 +59,19 @@
 
                 <div class="form-group" style="margin-bottom: 40px;">
                     <div class="">
-                        <input class="form-control" placeholder="패스워드 확인" th:field="*{passwordConfirm}"
-                               required type="password"/>
-                        <label class="validation-message" th:errors="*{passwordConfirm}"
-                               th:if="${#fields.hasErrors('passwordConfirm')}"></label>
+                        <input class="form-control" placeholder="패스워드 확인" required style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{passwordConfirm}" type="password"/>
+                        <label class="validation-message" th:errors="*{passwordConfirm}" th:if="${#fields.hasErrors('passwordConfirm')}"></label>
                     </div>
                 </div>
 
                 <div class="form-group" style="float: right;width: 50%;">
-                    <button class="btn btn-primary btn-block" style="margin-bottom: 10px;font-size: 16px;padding: 14px;" type="submit">등 록</button>
+                    <button class="btn btn-primary btn-block" style="font-weight: 600;margin-bottom: 10px;font-size: 18px;padding: 14px;" type="submit">등 록</button>
                 </div>
                 <div class="form-group" style="float: left;width: 50%;">
-                    <a th:href="@{/}">
-                        <p class="btn btn-md btn-warning btn-block" style="margin-bottom: 10px;font-size: 16px;padding: 14px;">취 소</p>
+                    <a style="text-decoration: none;" th:href="@{/}">
+                        <p class="btn btn-md btn-warning btn-block" style="font-weight: 600;margin-bottom: 10px;font-size: 18px;padding: 14px;">취 소</p>
                     </a>
                 </div>
-
                 <span th:utext="${successMessage}"></span>
             </form>
         </div>
