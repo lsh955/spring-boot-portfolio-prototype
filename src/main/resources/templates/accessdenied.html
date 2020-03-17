@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>접근 거부</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta content="IE=9; IE=8; IE=7; IE=edge" http-equiv="X-UA-Compatible"/>
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
+
+    <link href="/static/img/favicon.ico" rel="shortcut icon" type="image/x-ico">
+    <link href="/static/img/favicon.ico" rel="apple-touch-icon" sizes="180x180">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="16x16" type="image/png">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+    <title>접근불가</title>
+
+    <link rel="stylesheet" th:href="@{css/info.css}" type="text/css"/>
 </head>
 
 <body>
-<h1>접근 불가 페이지입니다.</h1>
+
+<div class="wrapper">
+    <div class="contents">
+        <i class="fas fa-exclamation-triangle animated jello fast delay-1s"></i>
+        <h1>잘못된 접근 입니다.</h1>
+        <h2>권한이 없거나, 잘못된 경로로 접속하셨습니다. </h2>
+
+        <p class="main-button">
+            <a th:href="@{/}" title="메인화면으로 이동하기">메인화면 이동</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <p class="copyright">Copyright 2020. leeseunghwan All pictures cannot be copied without permission.</p>
+    </div>
+</footer>
+
+<!-- 우선순위가 낮은 CSS파일은 HTML문서 하단에 배치한다. -->
+<link rel="stylesheet" th:href="@{css/animate.min.css?v=}"/>    <!-- animate css -->
+<script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
+<script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
+
 </body>
 </html>

@@ -1,0 +1,202 @@
+/*!
+ **
+ * Copyright 2020. 이승환(Lee Seunghwan) All pictures cannot be copied without permission.
+ *
+ * name : 이승환(Lee Seunghwan)
+ **
+ */
+
+
+/********************/
+/**** default [[ ****/
+/********************/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+}
+
+html {
+    height: 100%;
+    color: #333;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f6f7;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+input,
+select {
+    border: none;
+}
+
+input[type=button] {
+    cursor: pointer;
+}
+
+*:focus,
+input:focus {
+    outline: none;
+}
+
+.clear_both {
+    clear: both;
+}
+
+.layer-open {
+    overflow: hidden;
+}
+
+::selection {
+    background: #ffb500;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #ffb500;
+    color: #fff;
+}
+
+/* 브라우저 스크롤 스타일 */
+html {
+    /* Internet Explorer */
+    scrollbar-3dLight-Color: #efefef;
+    scrollbar-arrow-color: #dfdfdf;
+    scrollbar-base-color: #efefef;
+    scrollbar-Face-Color: #dfdfdf;
+    scrollbar-Track-Color: #efefef;
+    scrollbar-DarkShadow-Color: #efefef;
+    scrollbar-Highlight-Color: #efefef;
+    scrollbar-Shadow-Color: #efefef
+}
+
+/* Webkit(Safari, Chrome) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #efefef;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    width: 50px;
+    background: rgba(0, 0, 0, .2);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+.wrapper {
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/********************/
+/**** ]] default ****/
+/********************/
+
+.wrapper .contents {
+    text-align: center;
+}
+
+.wrapper .contents .fa-exclamation-triangle {
+    margin-top: 25%;
+
+    font-size: 60px;
+    color: #e6514e;
+}
+
+.wrapper .contents h1 {
+    margin-top: 4%;
+
+    font-size: 40px;
+    font-weight: 700;
+    font-family: NanumSquare, Helvetica Neue, sans-serif;
+}
+
+.wrapper .contents h2 {
+    margin-top: 2%;
+
+    color: #5a5a5a;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: NanumSquare, Helvetica Neue, sans-serif;
+}
+
+.wrapper .contents a {
+    width: 200px;
+    height: 50px;
+
+    display: block;
+
+    color: #fff;
+    font-size: 17px;
+    font-family: NanumSquare, Helvetica Neue, sans-serif;
+}
+
+.wrapper .contents .main-button {
+    width: 200px;
+    height: 50px;
+    padding-top: 15px;
+    margin: 15% auto;
+    border-radius: 3px;
+
+    background-color: #e6514e;
+}
+
+
+footer {
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+
+    background-color: #2e3e4e;
+}
+
+footer .wrapper {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+footer .wrapper .copyright {
+    padding: 8px 0;
+    margin: 0;
+
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+
