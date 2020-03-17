@@ -52,7 +52,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/sessionfailed",
                         "/exception",
                         "/manager",
-                        "/browserissue",
                         "/ReCAPTCHA",
                         "/google",
                         "/getLoginJson").permitAll()  // 접근을 전부 허용
