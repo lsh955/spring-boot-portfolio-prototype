@@ -47,7 +47,7 @@ public class UserController {
     public String getIndex(HttpServletRequest request) {
         
         String header = request.getHeader("User-Agent");
-    
+        
         if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {
             return "browser_issue";
         } else {
