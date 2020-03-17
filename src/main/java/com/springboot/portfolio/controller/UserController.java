@@ -169,14 +169,6 @@ public class UserController {
         return "sessionfailed";
     }
     
-    /**
-     * 브라우저 미지원
-     */
-    @GetMapping("browserissue")
-    public String browserissue() {
-        return "browser_issue";
-    }
-    
     @PostMapping("reCAPTCHA")
     public reCAPTCHA reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
         String ip = request.getRemoteAddr();
