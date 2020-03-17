@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>새로운 환경에서 로그인되었습니다.</title>
-</head>
+    <meta charset="utf-8">
+    <meta content="IE=9; IE=8; IE=7; IE=edge" http-equiv="X-UA-Compatible"/>
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
 
+    <link href="/static/img/favicon.ico" rel="shortcut icon" type="image/x-ico">
+    <link href="/static/img/favicon.ico" rel="apple-touch-icon" sizes="180x180">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="16x16" type="image/png">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+    <title>새로운 환경에서 로그인되었습니다.</title>
+
+    <link rel="stylesheet" th:href="@{css/info.css}" type="text/css"/>
+</head>
 <body>
-<h1>새로운 환경에서 로그인되었습니다. 사용중인 계정을 로그아웃 처리 합니다.</h1>
-<a href="/" th:title="메인으로">메인으로</a>
+<div class="wrapper">
+    <div class="contents">
+        <i class="fas fa-exclamation-triangle animated jello fast delay-1s"></i>
+        <h1>다른 환경에서 이미 로그인되고 있습니다.</h1>
+        <h2>이미 로그인된 계정을 로그아웃 처리 합니다.</h2>
+
+        <p class="main-button">
+            <a th:href="@{/}" title="메인화면으로 이동하기">메인화면 이동</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <p class="copyright">Copyright(c)2020 by 이승환. All pictures cannot be copied without permission.</p>
+    </div>
+</footer>
+
+<!-- 우선순위가 낮은 CSS파일은 HTML문서 하단에 배치한다. -->
+<link rel="stylesheet" th:href="@{css/animate.min.css?v=}"/>    <!-- animate css -->
+<script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
+<script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
+
+
 </body>
 </html>
