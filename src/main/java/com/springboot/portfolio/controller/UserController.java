@@ -48,7 +48,7 @@ public class UserController {
         
         String header = request.getHeader("User-Agent");
     
-        if (header.contains("MSIE") || header.contains("rv:") || header.contains("Trident")) {
+        if (header.contains("MSIE") || header.contains("Trident")) {
             return "browser_issue";
         } else {
             return "index";
