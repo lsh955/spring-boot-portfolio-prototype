@@ -44,8 +44,15 @@ public class UserController {
      * 메인
      */
     @GetMapping({"/", "/index"})
-    public String getIndex() {
-        return "index";
+    public String getIndex(HttpServletRequest request) {
+        
+        String header = request.getHeader("User-Agent");
+    
+        if (header.contains("MSIE") || header.contains("rv:") || header.contains("Trident")) {
+            return "browser_issue";
+        } else {
+            return "index";
+        }
     }
     
     /**
@@ -159,6 +166,14 @@ public class UserController {
     @GetMapping("sessionfailed")
     public String sessionfailed() {
         return "sessionfailed";
+    }
+    
+    /**
+     * 브라우저 미지원
+     */
+    @GetMapping("browserissue")
+    public String browserissue() {
+        return "browser_issue";
     }
     
     @PostMapping("reCAPTCHA")

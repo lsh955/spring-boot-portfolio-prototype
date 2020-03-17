@@ -175,6 +175,34 @@ html {
     background-color: #e6514e;
 }
 
+.wrapper .contents .browser-box {
+    margin: 8% 0 0;
+}
+
+.wrapper .contents .browser-box ul {
+    display: inline-flex;
+}
+
+.wrapper .contents .browser-box ul li {
+    width: 82px;
+    height: 82px;
+    margin-right: 50px;
+}
+
+.wrapper .contents .browser-box ul li a {
+    width: 82px;
+    height: 82px;
+    margin-right: 50px;
+
+    display: block;
+
+    color: #333;
+    font-size: 82px;
+}
+
+.wrapper .contents .browser-box ul li:nth-last-child(1) {
+    margin-right: 0;
+}
 
 footer {
     width: 100%;
@@ -195,8 +223,9 @@ footer .wrapper .copyright {
     margin: 0;
 
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
+    font-family: 'NanumGothicRegular', '나눔고딕', 'NotoSansRegular', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Dotum', 'Gulim', 'Arial', sans-serif;
 }
 
 

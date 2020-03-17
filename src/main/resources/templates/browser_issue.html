@@ -12,20 +12,39 @@
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
 
-    <title>중복로그인</title>
+    <title>브라우저 지원중단</title>
 
     <link rel="stylesheet" th:href="@{css/info.css}" type="text/css"/>
 </head>
 <body>
+
 <div class="wrapper">
     <div class="contents">
         <i class="fas fa-exclamation-triangle animated jello fast delay-1s"></i>
-        <h1>다른 환경에서 이미 로그인되고 있습니다.</h1>
-        <h2>이미 로그인된 계정을 로그아웃 처리 합니다.</h2>
+        <h1>최신 브라우저로 업그레이드 해주세요.</h1>
+        <h2>이 브라우저는 곧 지원 중단됩니다.<br>오래된 버전의 브라우저로 접속할 경우 페이지가 깨져 보이거나<br>일부 기능이 제한될 수 있습니다.</h2>
 
-        <p class="main-button">
-            <a th:href="@{/}" title="메인화면으로 이동하기">메인화면 이동</a>
-        </p>
+
+        <div class="browser-box">
+            <ul>
+                <li>
+                    <a href="https://www.google.com/chrome/index.html?brand=CHNY&utm_campaign=en&utm_source=en-et-youtube&utm_medium=et" target="_blank" title="크롬 브라우저">
+                        <i class="fab fa-chrome"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.microsoft.com/en-us/edge" target="_blank" title="엣지 브라우저">
+                        <i class="fab fa-edge"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.opera.com/ko" target="_blank" title="오페라 브라우저">
+                        <i class="fab fa-opera"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
@@ -39,7 +58,6 @@
 <link rel="stylesheet" th:href="@{css/animate.min.css?v=}"/>    <!-- animate css -->
 <script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>          <!-- jquery 3.4.1 -->
 <script th:src="@{js/font_awesome_all.js?v=}"></script>          <!-- font awesome icon -->
-
 
 </body>
 </html>
