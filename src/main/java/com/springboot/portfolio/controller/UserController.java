@@ -48,6 +48,7 @@ public class UserController {
         
         String header = request.getHeader("User-Agent");
         
+        // IE환경 검증
         if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {
             return "browser_issue";
         } else {
