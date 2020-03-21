@@ -50,9 +50,9 @@ public class UserController {
         
         // IE환경 검증
         if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {
-            return "browser_issue";
+            return "browser_issue"; // 브라우저 업그레이드 권장페이지
         } else {
-            return "index";
+            return "index"; // 메인페이지
         }
     }
     
