@@ -77,7 +77,8 @@
                     <div class="">
                         <input autocomplete="off" class="form-control" placeholder="패스워드 확인"
                                required
-                               style="height: 60px;border: 1px solid #dadada;font-size: 15px;" th:field="*{passwordConfirm}" type="password"/>
+                               style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
+                               th:field="*{passwordConfirm}" type="password"/>
                         <label class="validation-message" th:errors="*{passwordConfirm}"
                                th:if="${#fields.hasErrors('passwordConfirm')}"></label>
                     </div>

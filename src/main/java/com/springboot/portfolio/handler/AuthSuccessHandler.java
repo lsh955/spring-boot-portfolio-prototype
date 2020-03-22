@@ -19,17 +19,17 @@ import java.io.IOException;
  */
 @Configuration
 public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setStatus(HttpServletResponse.SC_OK);  // 요청이 정상적으로 완료되었음을 나타내는 상태 코드 (200).
         response.sendRedirect("/");             // 성공 후 이동할 페이지를 지정
     }
-    
+
     @Bean
     public HttpSessionListener httpSessionListener() {  // 로그인 했을때 세션카운트를 할당한다.
         return new HttpSessionListenerImpl();
     }
-    
+
 }
 
