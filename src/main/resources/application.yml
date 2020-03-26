@@ -20,9 +20,6 @@ spring:
     livereload:
       enabled: true
 ---
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
----
 spring:
   mail: # Naver Smtp 계정정보
     host: smtp.naver.com
@@ -32,6 +29,9 @@ spring:
     properties:
       mail.smtp.auth: true
       mail.smtp.ssl.enable: true
+---
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
 ---
 spring:
   profiles:
