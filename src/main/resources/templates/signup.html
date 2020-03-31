@@ -30,7 +30,7 @@
                         <label class="validation-message" th:errors="*{userName}"
                                th:if="${#fields.hasErrors('userName')}"></label>
                         <input autocomplete="off" class="form-control" placeholder="성함"
-                               required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
+                               autofocus required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
                                th:field="*{userName}" type="text"/>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     <div class="">
                         <label class="validation-message" th:errors="*{loginId}"
                                th:if="${#fields.hasErrors('loginId')}"></label>
-                        <input autocomplete="off" autofocus class="form-control" placeholder="아이디"
+                        <input autocomplete="off" class="form-control" placeholder="아이디"
                                required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
                                th:field="*{loginId}" type="text"/>
                     </div>
