@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ import java.io.IOException;
  * 인증실패 핸들러
  */
 @Slf4j
-@Configuration
+@Component
 public class AuthFailureHandler implements AuthenticationFailureHandler {
     
     @Override
