@@ -1,7 +1,7 @@
 package com.springboot.portfolio.service;
 
 import com.springboot.portfolio.dto.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
  * @author 이승환
  * @since 2020-03-04
  */
+@RequiredArgsConstructor
 @Service
 public class EmailSendService {
 
-    @Autowired
-    private MailSender sender;
+    private final MailSender sender;
 
     // 회원가입 시 이메일발송
     public void saveUserEmail(User user) {

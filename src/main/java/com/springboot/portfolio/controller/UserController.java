@@ -2,11 +2,11 @@ package com.springboot.portfolio.controller;
 
 import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.dto.User;
-import com.springboot.portfolio.dto.reCAPTCHA;
+import com.springboot.portfolio.dto.reCaptcha;
 import com.springboot.portfolio.service.EmailSendService;
-import com.springboot.portfolio.service.UserDetailsServiceImpl;
+import com.springboot.portfolio.details.UserDetailsServiceImpl;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,14 +29,12 @@ import java.util.Map;
  * 컨트롤러 클래스 모음.
  */
 @Slf4j
+@RequiredArgsConstructor
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
-
-    @Autowired
-    private EmailSendService emailSendService;
+    private final UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
+    private final EmailSendService emailSendService;
 
     private int getLoginJsonCount;
 
@@ -170,14 +168,14 @@ public class UserController {
     }
 
     @PostMapping("reCAPTCHA")
-    public reCAPTCHA reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
+    public reCaptcha reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
         String ip = request.getRemoteAddr();
         String url = "https://www.google.com/recaptcha/api/siteverify";
         String params = "?secret=6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response=" + recaptchaResponse;
 
         RestTemplate restTemplate = new RestTemplate();
 
-        reCAPTCHA recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCAPTCHA.class).getBody();
+        reCaptcha recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCaptcha.class).getBody();
 
         assert recaptcha != null;
         if (recaptcha.isSuccess()) {

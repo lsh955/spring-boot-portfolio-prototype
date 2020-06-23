@@ -1,8 +1,11 @@
 package com.springboot.portfolio.config;
 
-import com.springboot.portfolio.service.UserDetailsServiceImpl;
+import com.springboot.portfolio.details.UserDetailsServiceImpl;
 import com.springboot.portfolio.handler.AuthFailureHandler;
 import com.springboot.portfolio.handler.AuthSuccessHandler;
+import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,30 +24,23 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * <p>
  * 설정 클래스 모음. (Web Security, Controller Advice 등)
  */
-@Configuration      // @Configuration : Spring Boot를 사용하면서 필요한 설정
-@EnableWebSecurity  // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+@RequiredArgsConstructor
+@EnableWebSecurity      // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)
+@Configuration          // @Configuration : Spring Boot를 사용하면서 필요한 설정
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private AuthSuccessHandler authSuccessHandler;          // 로그인이 성공했을 때 핸들러
-    
     @Autowired
     private AuthFailureHandler authFailureHandler;          // 로그인이 실패했을 때 핸들러
-    
     @Autowired
     private UserDetailsServiceImpl userDetailsService;      // 사용자 액세스를위한 서비스 개체
-    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;    // BCrypt 해시 함수를 이용하여 비밀번호를 저장하여 암호화
     
     @Override
-    public void configure(WebSecurity web) {
-        // 특정 요청을 무시(인증이 필요없는 허용하는 경로)
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-    }
-    
-    @Override
     protected void configure(HttpSecurity http) throws Exception {                      // 로그인 URL, 권한분리, Logout URL  설정
+        // @formatter:off
         http.authorizeRequests()                                                        // 요청에 대한 권한을 지정
                 .antMatchers("/",
                         "/index",
@@ -82,7 +78,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         http.exceptionHandling()                                                        // 예외처리 핸들링
                 .accessDeniedPage("/accessdenied");                                     // 예외가 발생했을때의 페이지 경로
-        
+        // @formatter:on
+    }
+    
+    @Override
+    public void configure(WebSecurity web) {
+        // 특정 요청을 무시(인증이 필요없는 허용하는 경로)
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
     }
     
     @Override

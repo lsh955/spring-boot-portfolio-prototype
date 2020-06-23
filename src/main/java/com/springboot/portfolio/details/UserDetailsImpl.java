@@ -24,22 +24,6 @@ public class UserDetailsImpl implements UserDetails {
     private User user;
     private List<String> roles;
 
-    public User getUser() {
-        return user;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
-
-    public UserDetailsImpl(User user) {
-        this.user = user;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    // 사용자에게 부여 된 권한을 반환하는 역할
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -57,6 +41,42 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public String getUsername() {   // 유저 이름 혹은 아이디
         return user.getUserName();
+    }
+    
+    public UserDetailsImpl(User user) {
+        this.user = user;
+    }
+    
+    @Override
+    public boolean isAccountNonExpired() {  // 유저 아이디가 만료 되었는지
+        return true;
+    }
+    
+    @Override
+    public boolean isAccountNonLocked() {   // 유저 아이디가 Lock 걸렸는지
+        return true;
+    }
+    
+    @Override
+    public boolean isCredentialsNonExpired() {  //비밀번호가 만료 되었는지
+        return true;
+    }
+    
+    @Override
+    public boolean isEnabled() {    // 계정이 활성화 되었는지
+        return true;
+    }
+    
+    public User getUser() {
+        return user;
+    }
+    
+    public List<String> getRoles() {
+        return roles;
+    }
+    
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
     public String getId() {
@@ -89,26 +109,6 @@ public class UserDetailsImpl implements UserDetails {
 
     public String getUserIpAddress() {
         return user.getUserIpAddress();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {  // 유저 아이디가 만료 되었는지
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {   // 유저 아이디가 Lock 걸렸는지
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {  //비밀번호가 만료 되었는지
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {    // 계정이 활성화 되었는지
-        return true;
     }
 
 }

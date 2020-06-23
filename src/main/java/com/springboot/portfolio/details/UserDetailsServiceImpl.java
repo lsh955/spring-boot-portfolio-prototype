@@ -1,14 +1,14 @@
-package com.springboot.portfolio.service;
+package com.springboot.portfolio.details;
 
-import com.springboot.portfolio.details.UserDetailsImpl;
 import com.springboot.portfolio.mapper.UserMapper;
 import com.springboot.portfolio.dto.User;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,18 +21,12 @@ import java.util.*;
  * DB에서 유저 정보를 가져오는 역할
  */
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
 
-    @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-//    TODO 검토 후 삭제할 것.
-//    @Autowired
-//    private EmailSendService emailSendService;
+    private final UserMapper userMapper;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     // 회원가입
     public void saveUser(User user, HttpServletRequest request) {
@@ -40,7 +34,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         String requestIp = request.getHeader("X-Forwarded-For");
         log.info("> X-FORWARDED-FOR : " + requestIp);
 
-        // 서버 환경이나 프록시 등 중개서버가 다르기에 Util로 만들어 놓은 코드
         if (requestIp == null) {
             requestIp = request.getHeader("Proxy-Client-IP");
             log.info("1. Proxy-Client-IP : " + requestIp);
@@ -68,14 +61,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
-
-
-    // TODO 검토 후 삭제할 것.
-    // 회원가입 시 이메일발송
-//    public void saveUserEmail(User user) {
-//        String emaildata = user.getUserEmail();
-//        emailSendService.sendMail("lshk955@naver.com", emaildata, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
-//    }
 
     // 아이디조회
     public User findUserByLoginId(String loginId) {
