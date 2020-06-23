@@ -57,7 +57,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         user.setUserIpAddress(requestIp);   // 사용자 IP 정보
         
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
-        user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
+        user.setUserType("STANDBY");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
     
