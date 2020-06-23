@@ -11,7 +11,7 @@ war {
 }
 
 group = 'dev'
-sourceCompatibility = '1.8'
+sourceCompatibility = '1.0'
 
 repositories {
     mavenCentral()
