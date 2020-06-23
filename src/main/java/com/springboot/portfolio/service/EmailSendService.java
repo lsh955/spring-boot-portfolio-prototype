@@ -14,15 +14,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class EmailSendService {
-
+    
     private final MailSender sender;
-
+    
     // 회원가입 시 이메일발송
     public void saveUserEmail(User user) {
         String emailData = user.getUserEmail();
         sendMail("lshk955@naver.com", emailData, user.getLoginId() + "님 회원가입이 정상처리 되었습니다.", user.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
     }
-
+    
     public void sendMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = createMail(from, to, subject, text);
         try {
@@ -32,7 +32,7 @@ public class EmailSendService {
             throw new IllegalArgumentException();
         }
     }
-
+    
     private SimpleMailMessage createMail(String from, String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);                // 보내는사람
@@ -41,5 +41,5 @@ public class EmailSendService {
         message.setText(text);                // 내용
         return message;
     }
-
+    
 }

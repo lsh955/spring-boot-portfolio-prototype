@@ -18,12 +18,12 @@ import java.util.*;
 @Slf4j
 @EqualsAndHashCode(of = "id")
 public class UserDetailsImpl implements UserDetails {
-
+    
     private int id;
-
+    
     private User user;
     private List<String> roles;
-
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    // 사용자에게 부여 된 권한을 반환하는 역할
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -32,12 +32,12 @@ public class UserDetailsImpl implements UserDetails {
         }
         return authorities;
     }
-
+    
     @Override
     public String getPassword() {   //유저 비밀번호
         return user.getPassword();
     }
-
+    
     @Override
     public String getUsername() {   // 유저 이름 혹은 아이디
         return user.getUserName();
@@ -78,37 +78,37 @@ public class UserDetailsImpl implements UserDetails {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
-
+    
     public String getId() {
         return user.getLoginId();
     }
-
+    
     public String getUserType() {
         return user.getUserType();
     }
-
+    
     public String getLoginId() {
         return user.getLoginId();
     }
-
+    
     public String getUserTel() {
         return user.getUserTel();
     }
-
+    
     public String getUserEmail() {
         return user.getUserEmail();
     }
-
+    
     public String getUserFirstDate() {
         return user.getUserFirstDate();
     }
-
+    
     public String getUserLoginDate() {
         return user.getUserLoginDate();
     }
-
+    
     public String getUserIpAddress() {
         return user.getUserIpAddress();
     }
-
+    
 }

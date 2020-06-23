@@ -19,5 +19,5 @@ public class reCaptcha {
     private String challenge_ts;
     private String hostname;
     private String error_codes;
-
+    
 }

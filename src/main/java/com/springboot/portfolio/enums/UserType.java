@@ -17,12 +17,12 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum UserType {
-
+    
     DELETE("탈퇴"),
     STANDBY("대기"),
     MEMBER("사용자"),
     ADMIN("관리자");
-
+    
     private String values;
-
+    
 }

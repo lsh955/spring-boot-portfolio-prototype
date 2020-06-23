@@ -28,5 +28,5 @@ public interface UserMapper {
      * @return id (아이디), pwd (패스워드), name (이름), managerRole (권한), managerState (상태)
      */
     int setUserInfo(@Param("param") User param);
-
+    
 }

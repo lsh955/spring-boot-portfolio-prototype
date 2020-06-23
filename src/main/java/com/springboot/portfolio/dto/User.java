@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class User {
-
+    
     private int id;                 // 키값
     private String userType;        // 권한정보
     private String loginId;         // 사용자 아이디
@@ -26,5 +26,5 @@ public class User {
     private String userFirstDate;   // 회원가입 일자
     private String userLoginDate;   // 로그인 일자
     private String userIpAddress = "192.168.0.1";   // 사용자 로그인아이디
-
+    
 }

@@ -24,16 +24,16 @@ import java.util.*;
 @RequiredArgsConstructor
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {    // 사용자의 정보를 검색하는 역할은 UserDetailsService에서 담당
-
+    
     private final UserMapper userMapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    
     // 회원가입
     public void saveUser(User user, HttpServletRequest request) {
-
+        
         String requestIp = request.getHeader("X-Forwarded-For");
         log.info("> X-FORWARDED-FOR : " + requestIp);
-
+        
         if (requestIp == null) {
             requestIp = request.getHeader("Proxy-Client-IP");
             log.info("1. Proxy-Client-IP : " + requestIp);
@@ -56,17 +56,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         log.info(">> Result : IP Address : " + requestIp);
         user.setUserIpAddress(requestIp);   // 사용자 IP 정보
-
+        
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));     // 패스워드를 암호화 해준다.
         user.setUserType("WAITING");                                            // 기본 사용자 권한은 승인대기
         userMapper.setUserInfo(user);                                           // 데이터베이스에 저장
     }
-
+    
     // 아이디조회
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userMapper.findUserByLoginId(username);
@@ -75,11 +75,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
         }
         return createUser(user);
     }
-
+    
     private UserDetailsImpl createUser(User user) {
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
         userDetails.setRoles(Collections.singletonList(user.getUserType()));
         return userDetails;
     }
-
+    
 }

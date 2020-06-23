@@ -32,20 +32,20 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Controller
 public class UserController {
-
+    
     private final UserDetailsServiceImpl userDetailsService; // 사용자 액세스를위한 서비스 개체
     private final EmailSendService emailSendService;
-
+    
     private int getLoginJsonCount;
-
+    
     /**
      * 메인
      */
     @GetMapping({"/", "/index"})
     public String getIndex(HttpServletRequest request) {
-
+        
         String header = request.getHeader("User-Agent");
-
+        
         // IE환경 검증
         if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {
             return "browser_issue"; // 브라우저 업그레이드 권장페이지
@@ -53,7 +53,7 @@ public class UserController {
             return "index"; // 메인페이지
         }
     }
-
+    
     /**
      * 로그인 되고있는 사용자 정보를 세션으로 불러오는 역할
      * JSON으로 뿌려 클라이언트 AJAX로 뿌린다.
@@ -65,7 +65,7 @@ public class UserController {
 //         System.out.print(authentication.getName());
 //         return userDetailsService.loginSelect();
 //    }
-
+    
     /**
      * 회원가입 처리
      */
@@ -75,7 +75,7 @@ public class UserController {
         model.addAttribute("user", user);      // 뷰로 보낼 데이터 값
         return "signup";
     }
-
+    
     /**
      * 관리자 페이지
      */
@@ -83,7 +83,7 @@ public class UserController {
     public String getAdminPage() {
         return "manager";
     }
-
+    
     /**
      * 회원가입 정보를 보내는 처리
      *
@@ -110,13 +110,13 @@ public class UserController {
         }
         return "signup";
     }
-
+    
     /**
      * 인증 후 권한이 있는 처리
      */
     @GetMapping("home")
     public String home(Model model) {
-
+        
         /**
          * @param Authentication
          * 현재 요청에 연결된 Authentication을 얻으려면 SecurityContextHolder.getContext(). getAuthentication()으로 얻는다.
@@ -124,18 +124,18 @@ public class UserController {
          * SecurityContextHolder.getContext()는 현재 요청에 연결된 SecurityContext를 반환한다.
          */
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
+        
         log.info("auth.getName : " + auth.getName());
         log.info("auth.getAuthorities : " + auth.getAuthorities());
         log.info("auth.getDetails : " + auth.getDetails());
-
+        
         /**
          * @param UserPrincipal
          * 객체에 저장 된 정보를 사용하여 인증 및 권한부여를 수행.
          * Authentication 객체의 getPrincipal() 메서드를 실행하게 되면, UserDetails를 구현한 사용자 객체를 Return 한다.
          */
         UserDetailsImpl userPrincipal = (UserDetailsImpl) auth.getPrincipal();
-
+        
         log.info("getId : " + userPrincipal.getId());
         log.info("getUsername : " + userPrincipal.getUsername());
         log.info("getAuthorities : " + userPrincipal.getAuthorities());
@@ -144,13 +144,13 @@ public class UserController {
         log.info("isAccountNonLocked : " + userPrincipal.isAccountNonLocked());
         log.info("isCredentialsNonExpired : " + userPrincipal.isCredentialsNonExpired());
         log.info("isEnabled : " + userPrincipal.isEnabled());
-
-
+        
+        
         model.addAttribute("userName", "환영합니다. " + userPrincipal.getUsername() + " (" + userPrincipal.getId() + ")");   // 뷰로 보낼 데이터 값
         model.addAttribute("contentsMessage", "권한을 가진 사용 가능한 콘텐츠");                                          // 뷰로 보낼 데이터 값
         return "home";
     }
-
+    
     /**
      * 예외가 발행했을 경우
      */
@@ -158,7 +158,7 @@ public class UserController {
     public String getUserPermissionExceptionPage() {
         return "accessdenied";
     }
-
+    
     /**
      * 중복로그인이 감지되면 보여주는 페이지
      */
@@ -166,17 +166,17 @@ public class UserController {
     public String sessionfailed() {
         return "sessionfailed";
     }
-
+    
     @PostMapping("reCAPTCHA")
     public reCaptcha reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
         String ip = request.getRemoteAddr();
         String url = "https://www.google.com/recaptcha/api/siteverify";
         String params = "?secret=6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response=" + recaptchaResponse;
-
+        
         RestTemplate restTemplate = new RestTemplate();
-
+        
         reCaptcha recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCaptcha.class).getBody();
-
+        
         assert recaptcha != null;
         if (recaptcha.isSuccess()) {
             System.out.println("reCAPTCHA 성공");
@@ -185,7 +185,7 @@ public class UserController {
         }
         return recaptcha;
     }
-
+    
     @RequestMapping("/getLoginJson")
     public @ResponseBody
     Map<String, Object> getLoginJson() {
@@ -215,7 +215,7 @@ public class UserController {
                     jsonSubObject.put("isCredentialsNonExpired", userPrincipal.isCredentialsNonExpired());
                     jsonSubObject.put("isEnabled", userPrincipal.isEnabled());
                     jsonList.add(jsonSubObject);
-
+                    
                     jsonObject.put("success", true);
                     jsonObject.put("total_count", 12);
                     jsonObject.put("LoginJsonCount", getLoginJsonCount);
@@ -223,10 +223,10 @@ public class UserController {
                 }
             }
         } catch (Exception ignored) {
-
+        
         }
         return jsonObject;
     }
-
-
+    
+    
 }
