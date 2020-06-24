@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public interface UserMapper {
     
     /**
-     * 아이디 기준으로 회원이 존재하는지 조회한다.
+     * 아이디 기준으로 회원이 존재하는지 검증한다.
      *
      * @param loginId (아이디)
      * @return id, userType, loginId, userName, password, userTel, userEmail, userFirstDate, userLoginDate, userIpAddress

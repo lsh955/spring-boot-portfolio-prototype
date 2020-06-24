@@ -27,6 +27,21 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     private final UserMapper userMapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     
+    @Override
+    public UserDetails loadUserByUsername(String username) {
+        User user = userMapper.findUserByLoginId(username);
+        if (user.getLoginId() == null) {
+            throw new UsernameNotFoundException(username + " 에 대한 계정정보를 찾을 수 없습니다.");
+        }
+        return createUser(user);
+    }
+    
+    private UserDetailsImpl createUser(User user) {
+        UserDetailsImpl userDetails = new UserDetailsImpl(user);
+        userDetails.setRoles(Collections.singletonList(user.getUserType()));
+        return userDetails;
+    }
+    
     // 회원가입
     public void saveUser(User user, HttpServletRequest request) {
         
@@ -64,21 +79,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {    // 사용
     // 아이디조회
     public User findUserByLoginId(String loginId) {
         return userMapper.findUserByLoginId(loginId);
-    }
-    
-    @Override
-    public UserDetails loadUserByUsername(String username) {
-        User user = userMapper.findUserByLoginId(username);
-        if (user.getLoginId() == null) {
-            throw new UsernameNotFoundException(username + " 에 대한 계정정보를 찾을 수 없습니다.");
-        }
-        return createUser(user);
-    }
-    
-    private UserDetailsImpl createUser(User user) {
-        UserDetailsImpl userDetails = new UserDetailsImpl(user);
-        userDetails.setRoles(Collections.singletonList(user.getUserType()));
-        return userDetails;
     }
     
 }
