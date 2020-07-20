@@ -69,30 +69,7 @@ public class UserController {
 	@PostMapping("setsignup")
 	public String getSetSignUp(Model model, @Valid UserDao userDao, BindingResult bindingResult, HttpServletRequest request) {
 
-		String ipAddress = request.getHeader("X-Forwarded-For");
-		log.info("> X-FORWARDED-FOR : " + ipAddress);
-
-//		if (ipAddress == null) {
-//			ipAddress = request.getHeader("Proxy-Client-IP");
-//			log.info("1. Proxy-Client-IP : " + ipAddress);
-//		}
-//		if (ipAddress == null) {
-//			ipAddress = request.getHeader("WL-Proxy-Client-IP");
-//			log.info("2.  WL-Proxy-Client-IP : " + ipAddress);
-//		}
-//		if (ipAddress == null) {
-//			ipAddress = request.getHeader("HTTP_CLIENT_IP");
-//			log.info("3. HTTP_CLIENT_IP : " + ipAddress);
-//		}
-//		if (ipAddress == null) {
-//			ipAddress = request.getHeader("HTTP_X_FORWARDED_FOR");
-//			log.info("4. HTTP_X_FORWARDED_FOR : " + ipAddress);
-//		}
-		if (ipAddress == null) {
-			ipAddress = request.getRemoteAddr();
-			log.info("5. getRemoteAddr : " + ipAddress);
-		}
-
+		String ipAddress = request.getRemoteAddr();
 		log.info(">> Result : IP Address : " + ipAddress);
 
 		model.addAttribute("user", new UserDao());
