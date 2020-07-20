@@ -54,8 +54,8 @@ public class UserController {
 	@GetMapping("signup")
 	public String getSignUpPage(Model model) {
 
-		UserDao userDao = new UserDao();						// 회원 데이터
-		model.addAttribute("userDao", userDao);	// 뷰로 보낼 데이터 값
+		UserDao userDao = new UserDao();                        // 회원 데이터
+		model.addAttribute("userDao", userDao);    // 뷰로 보낼 데이터 값
 
 		return "signup";
 
@@ -73,10 +73,10 @@ public class UserController {
 		model.addAttribute("user", new UserDao());
 		userDao.setUserIpAddress(request.getRemoteAddr());
 
-		if(signUpService.SignUpIdCheck(userDao).equals("Success")) {
-			return "index";			// 회원가입 성공
-		}else {
-			return "signup";		// 아이디 중복
+		if (signUpService.SignUpIdCheck(userDao).equals("Success")) {
+			return "index";            // 회원가입 성공
+		} else {
+			return "signup";        // 아이디 중복
 		}
 
 	}

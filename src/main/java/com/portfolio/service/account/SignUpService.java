@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author 이승환
  * @since 2020-07-20
- * 
+ * <p>
  * 회원가입 처리
  */
 @Slf4j
@@ -57,11 +57,11 @@ public class SignUpService {
 
 		log.info("회원정보 저장 >> 진입");
 
-		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));	// 패스워드를 암호화 해준다.
-		userDao.setUserType(UserState.STANDBY.name());		// 최초 가입자는 대기상태
-		emailSendService.saveUserEmail(userDao);	// 회원가입 완료 이메일 전송
+		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
+		userDao.setUserType(UserState.STANDBY.name());        // 최초 가입자는 대기상태
+		emailSendService.saveUserEmail(userDao);    // 회원가입 완료 이메일 전송
 
-		userMapper.SetSignUp(userDao);		// 저장
+		userMapper.SetSignUp(userDao);        // 저장
 
 	}
 
