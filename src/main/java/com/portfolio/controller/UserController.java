@@ -56,6 +56,7 @@ public class UserController {
 
 		UserDao userDao = new UserDao();						// 회원 데이터
 		model.addAttribute("userDao", userDao);	// 뷰로 보낼 데이터 값
+
 		return "signup";
 
 	}
@@ -96,6 +97,13 @@ public class UserController {
 		return "sessionfailed";
 	}
 
+	/**
+	 * 구글 리캡챠
+	 *
+	 * @param recaptchaResponse
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("reCAPTCHA")
 	public reCaptcha reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String recaptchaResponse, HttpServletRequest request) {
 		String ip = request.getRemoteAddr();

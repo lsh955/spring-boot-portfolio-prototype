@@ -7,7 +7,6 @@ import com.portfolio.mapper.UserMapper;
 import com.portfolio.service.EmailSendService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @author 이승환
  * @since 2020-07-20
  * 
- * 회원가입 서비스
+ * 회원가입 처리
  */
 @Slf4j
 @Service
