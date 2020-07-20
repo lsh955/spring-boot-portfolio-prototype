@@ -68,18 +68,13 @@ public class UserController {
 	 */
 	@PostMapping("setsignup")
 	public String getSetSignUp(Model model, @Valid UserDao userDao, BindingResult bindingResult, HttpServletRequest request) {
-
 		model.addAttribute("user", new UserDao());
-		userDao.setUserIpAddress(request.getRemoteAddr());
-
-		if (signUpService.SignUpIdCheck(userDao).equals("Success")) {
-			return "index";         // 회원가입 성공
-		} else {
-			return "signup";        // 회원가입 실패(아이디중복)
+		userDao.setUserIpAddress(request.getRemoteAddr());	// IP 주소
+		if (signUpService.SignUpIdCheck(userDao).equals("Overlap")) {
+			return "signup";	// 회원가입 실패(아이디중복)
 		}
-
+		return "index";		// 회원가입 성공
 	}
-
 
 	/**
 	 * 중복로그인 페이지

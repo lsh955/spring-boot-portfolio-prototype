@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author 이승환
@@ -24,9 +23,8 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 public class UserDetailsImpl implements UserDetails {
 
-	private final UserDao userDao;
 	private String id;
-	private List<String> roles;
+	private final UserDao userDao;
 
 	public UserDetailsImpl(UserDao userDao) {
 		this.userDao = userDao;

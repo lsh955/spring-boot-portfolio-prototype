@@ -21,13 +21,11 @@ public class EmailSendService {
 
 	// 회원가입 시 이메일발송
 	public void saveUserEmail(UserDao userDao) {
-		log.info("saveUserEmail >> 진입");
 		String emailData = userDao.getUserEmail();
 		sendMail("lshk955@naver.com", emailData, userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
 	}
 
 	public void sendMail(String from, String to, String subject, String text) {
-		log.info("sendMail >> 진입");
 		SimpleMailMessage message = createMail(from, to, subject, text);
 		try {
 			sender.send(message);
@@ -38,12 +36,11 @@ public class EmailSendService {
 	}
 
 	private SimpleMailMessage createMail(String from, String to, String subject, String text) {
-		log.info("SimpleMailMessage >> 진입");
 		SimpleMailMessage message = new SimpleMailMessage();
-		message.setFrom(from);                // 보내는사람
-		message.setTo(to);                    // 받는사람
-		message.setSubject(subject);          // 제목
-		message.setText(text);                // 내용
+		message.setFrom(from);			// 보내는사람
+		message.setTo(to);				// 받는사람
+		message.setSubject(subject);	// 제목
+		message.setText(text);			// 내용
 		return message;
 	}
 

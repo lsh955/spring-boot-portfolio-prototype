@@ -30,22 +30,14 @@ public class SignUpService {
 	 * 회원가입전 아이디 중복확인
 	 *
 	 * @param userDao
+	 * @return Success(성공) 또는 Overlap(중복)
 	 */
 	public String SignUpIdCheck(UserDao userDao) {
-
-		log.info("회원가입전 아이디 중복확인 >> 진입");
-
-		if (userDetailsService.loadIdBySignUp(userDao.getLoginId()).equals("Success")) {
-			SaveSignUp(userDao);
-			log.info("SignUpIdCheck >> Success");
-			log.info("사용자가 성공적으로 등록되었습니다");
-			return "Success";
-		} else {
-			log.info("SignUpIdCheck >> Overlap");
-			log.info("이미 등록 된 사용자가 있습니다");
+		if (userDetailsService.loadIdBySignUp(userDao.getLoginId()).equals("Overlap")) {
 			return "Overlap";
 		}
-
+		SaveSignUp(userDao);
+		return "Success";
 	}
 
 	/**
@@ -54,15 +46,10 @@ public class SignUpService {
 	 * @param userDao
 	 */
 	private void SaveSignUp(UserDao userDao) {
-
-		log.info("회원정보 저장 >> 진입");
-
-		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
-		userDao.setUserType(UserState.STANDBY.name());        // 최초 가입자는 대기상태
-		emailSendService.saveUserEmail(userDao);    // 회원가입 완료 이메일 전송
-
-		userMapper.SetSignUp(userDao);        // 저장
-
+		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));	// 패스워드를 암호화 해준다.
+		userDao.setUserType(UserState.STANDBY.name());	// 최초 가입자는 대기상태
+		emailSendService.saveUserEmail(userDao);	// 회원가입 완료 이메일 전송
+		userMapper.SetSignUp(userDao);	// 저장
 	}
 
 }
