@@ -1,62 +1,62 @@
 spring:
-  application:
-    name: SpringBoot Portfolio  # 애플리케이션 이름
-  http:                         # HTTP 인코딩
-    encoding:
-      charset: UTF-8            # 요청/응답의 인코딩
-      enabled: true             # 인코딩 지원 활성화
-      force: true               # 구성된 인코딩을 강제 활성화
-  thymeleaf:
-    mode: HTML5                 # 템플릿 모드
-    cache: false                # 캐시모드
-    suffix: .html               # 템플릿 기본확장자
-    encoding: UTF-8             # 텔플릿 인코딩
-    prefix: classpath:templates/
-  output:
-    ansi:
-      enabled: always           # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
-  autoconfigure.exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
-  devtools:
-    livereload:
-      enabled: true
+    application:
+        name: Portfolio  # 애플리케이션 이름
+    http:                         # HTTP 인코딩
+        encoding:
+            charset: UTF-8            # 요청/응답의 인코딩
+            enabled: true             # 인코딩 지원 활성화
+            force: true               # 구성된 인코딩을 강제 활성화
+    thymeleaf:
+        mode: HTML5                 # 템플릿 모드
+        cache: false                # 캐시모드
+        suffix: .html               # 템플릿 기본확장자
+        encoding: UTF-8             # 텔플릿 인코딩
+        prefix: classpath:templates/
+    output:
+        ansi:
+            enabled: always           # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력
+    autoconfigure.exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+    devtools:
+        livereload:
+            enabled: true
 
-  mail: # Naver Smtp 계정정보
-    host: smtp.naver.com
-    port: 465
-    username: lshk955@naver.com
-    password: tmdghks02)@
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.ssl.enable: true
+    mail: # Naver Smtp 계정정보
+        host: smtp.naver.com
+        port: 465
+        username: lshk955@naver.com
+        password: tmdghks02)@
+        properties:
+            mail.smtp.auth: true
+            mail.smtp.ssl.enable: true
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+    mapper-locations: classpath:mapper/*.xml
 
 ---
 spring:
-  profiles:
-    active: Mariadb-Test
+    profiles:
+        active: Mariadb-Test
 ---
 spring:
-  profiles: Mariadb-Real       # 운영 데이터베이스
-  datasource:
-    url: jdbc:mariadb://codedot.co.kr:3306/portfolio?characterEncoding=UTF-8
-    username: portfolio
-    password: tmdghks05)%
-    driver-class-name: org.mariadb.jdbc.Driver
-    hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림.. 제길..-,-)
-      maxLifetime: 700000           # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
-      connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
-      validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정
+    profiles: Mariadb-Real       # 운영 데이터베이스
+    datasource:
+        url: jdbc:mariadb://codedot.co.kr:3306/portfolio?characterEncoding=UTF-8
+        username: portfolio
+        password: tmdghks05)%
+        driver-class-name: org.mariadb.jdbc.Driver
+        hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림.. 제길..-,-)
+            maxLifetime: 700000           # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
+            connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
+            validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정
 ---
 spring:
-  profiles: Mariadb-Test       # 테스트 데이터베이스
-  datasource:
-    url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8
-    username: test_user_01
-    password: dl945pa
-    driver-class-name: org.mariadb.jdbc.Driver
-    hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림.. 제길..-,-)
-      maxLifetime: 700000           # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
-      connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
-      validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정
+    profiles: Mariadb-Test       # 테스트 데이터베이스
+    datasource:
+        url: jdbc:mariadb://codedot.co.kr:3306/test_user_01?characterEncoding=UTF-8
+        username: test_user_01
+        password: dl945pa
+        driver-class-name: org.mariadb.jdbc.Driver
+        hikari:                         # DB Connection이 증가하여 DB와의 연결이 끊어지는 문제가 발생하여 'hikariCP'값 셋팅(딱히 무리있는 작업이 없는데 끊어져버림.. 제길..-,-)
+            maxLifetime: 700000           # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
+            connection-timeout: 30000     # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
+            validation-timeout: 30000     # 커넥션이 유효한지 검사할 때 대기 시간을 지정

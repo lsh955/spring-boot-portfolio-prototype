@@ -33,11 +33,11 @@
 
     <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
     <script>
-        grecaptcha.ready(function () {
-            grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/reCvAPTCHA'}).then(function (token) {
-                document.getElementById('g-recaptcha-response').value = token;
-            });
-        });
+		grecaptcha.ready(function () {
+			grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/reCvAPTCHA'}).then(function (token) {
+				document.getElementById('g-recaptcha-response').value = token;
+			});
+		});
     </script>
 
     <!-- TODO
@@ -170,8 +170,8 @@
                     <img th:src="@{img/profile.jpg}" alt="승화니'">
                 </div>
                 <p class="main_text" sec:authorize="isAnonymous()">안녕하세요.</p>
-                <p class="main_text" sec:authorize="isAuthenticated()"><span
-                        sec:authentication="principal.username"></span>님 안녕하세요.</p>
+                <!--                <p class="main_text" sec:authorize="isAuthenticated()"><span-->
+                <!--                        sec:authentication="principal.username"></span>님 안녕하세요.</p>-->
                 <p class="sub_text" sec:authorize="isAnonymous()">로그인 후 서비스를 이용하세요.</p>
                 <p class="sub_text" sec:authorize="isAuthenticated()">승화니' 사심 가득한 프로젝트</p>
             </div>
@@ -587,20 +587,20 @@
 <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
 
 <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyBf_CQoxOJtvmLDmvu41hPt7aOk4gK3L3Y",
-        authDomain: "spring-boot-portfolio.firebaseapp.com",
-        databaseURL: "https://spring-boot-portfolio.firebaseio.com",
-        projectId: "spring-boot-portfolio",
-        storageBucket: "spring-boot-portfolio.appspot.com",
-        messagingSenderId: "838635500072",
-        appId: "1:838635500072:web:a7def2fadda3b02da6bb1d",
-        measurementId: "G-8P04E6X1HL"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+		apiKey           : "AIzaSyBf_CQoxOJtvmLDmvu41hPt7aOk4gK3L3Y",
+		authDomain       : "spring-boot-portfolio.firebaseapp.com",
+		databaseURL      : "https://spring-boot-portfolio.firebaseio.com",
+		projectId        : "spring-boot-portfolio",
+		storageBucket    : "spring-boot-portfolio.appspot.com",
+		messagingSenderId: "838635500072",
+		appId            : "1:838635500072:web:a7def2fadda3b02da6bb1d",
+		measurementId    : "G-8P04E6X1HL"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
 </script>
 
 </body>
