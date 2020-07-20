@@ -28,7 +28,6 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-	private final UserDao userDao;
 	private final SignUpService signUpService;
 
 	/**
@@ -82,7 +81,7 @@ public class UserController {
 	}
 
 	/**
-	 * 예외가 발행했을 경우
+	 * 예외 발생 페이지
 	 */
 	@GetMapping("exception")
 	public String getUserPermissionExceptionPage() {
@@ -90,7 +89,7 @@ public class UserController {
 	}
 
 	/**
-	 * 중복로그인이 감지되면 보여주는 페이지
+	 * 중복로그인 페이지
 	 */
 	@GetMapping("sessionfailed")
 	public String sessionfailed() {
