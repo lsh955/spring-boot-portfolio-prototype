@@ -69,11 +69,8 @@ public class UserController {
 	@PostMapping("setsignup")
 	public String getSetSignUp(Model model, @Valid UserDao userDao, BindingResult bindingResult, HttpServletRequest request) {
 
-		String ipAddress = request.getRemoteAddr();
-		log.info(">> Result : IP Address : " + ipAddress);
-
 		model.addAttribute("user", new UserDao());
-		userDao.setUserIpAddress(ipAddress);
+		userDao.setUserIpAddress(request.getRemoteAddr());
 
 		if(signUpService.SignUpIdCheck(userDao).equals("Success")) {
 			return "index";			// 회원가입 성공
