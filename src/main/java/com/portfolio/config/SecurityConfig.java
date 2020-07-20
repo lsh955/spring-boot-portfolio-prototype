@@ -34,16 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();                                                      // CSRF[사이트 간 요청 위조] 프로텍션(사용하지 않음)
 
 		http.authorizeRequests()                                                    // 요청에 대한 권한을 지정
-			.antMatchers("/",
-				"/index",
-				"/signup",
-				"/setsignup",
-				"/sessionfailed",
-				"/exception",
-				"/manager",
-				"/ReCAPTCHA",
-				"/google",
-				"/getLoginJson").permitAll()  // 접근을 전부 허용
+			.antMatchers("/**").permitAll()  // 접근을 전부 허용
 			.antMatchers("/home").hasAnyRole(UserType.ADMIN.name(), UserType.MEMBER.name()) // 관리자 또는 사용자만 접근
 			.antMatchers("/manager").hasRole(UserType.ADMIN.name())                        // 관리자만 접근
 			.anyRequest()                                                           // 인증 되어야 하는 부분

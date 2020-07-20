@@ -73,11 +73,20 @@ public class UserController {
 		userDao.setUserIpAddress(request.getRemoteAddr());
 
 		if (signUpService.SignUpIdCheck(userDao).equals("Success")) {
-			return "index";            // 회원가입 성공
+			return "index";         // 회원가입 성공
 		} else {
-			return "signup";        // 아이디 중복
+			return "signup";        // 회원가입 실패(아이디중복)
 		}
 
+	}
+
+
+	/**
+	 * 중복로그인 페이지
+	 */
+	@GetMapping("sessionfailed")
+	public String sessionfailed() {
+		return "sessionfailed";
 	}
 
 	/**
@@ -86,14 +95,6 @@ public class UserController {
 	@GetMapping("exception")
 	public String getUserPermissionExceptionPage() {
 		return "accessdenied";
-	}
-
-	/**
-	 * 중복로그인 페이지
-	 */
-	@GetMapping("sessionfailed")
-	public String sessionfailed() {
-		return "sessionfailed";
 	}
 
 	/**
