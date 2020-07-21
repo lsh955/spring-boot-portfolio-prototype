@@ -87,12 +87,10 @@ public class UserController {
 	 * 구글 리캡챠
 	 *
 	 * @param reCaptcha
-	 * @param request
 	 * @return
 	 */
 	@PostMapping("reCAPTCHA")
-	public reCaptcha reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String reCaptcha, HttpServletRequest request) {
-		String ip = request.getRemoteAddr();
+	public reCaptcha reCAPTCHA(@RequestParam(name = "g-recaptcha-response") String reCaptcha) {
 		String url = "https://www.google.com/recaptcha/api/siteverify";
 		String params = "?secret=6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response=" + reCaptcha;
 		RestTemplate restTemplate = new RestTemplate();
