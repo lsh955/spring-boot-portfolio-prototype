@@ -46,7 +46,7 @@ public class SignUpService {
 	private void SaveSignUp(UserDao userDao) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));	// 패스워드를 암호화 해준다.
 		userDao.setUserType(UserState.STANDBY.name());	// 최초 가입자는 대기상태
-		emailSendService.saveUserEmail(userDao);	// 회원가입 완료 이메일 전송
+		emailSendService.signUpEmail(userDao);	// 회원가입 완료 이메일 전송
 		userMapper.SetSignUp(userDao);	// 저장
 	}
 

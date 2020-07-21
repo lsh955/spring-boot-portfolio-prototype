@@ -18,30 +18,29 @@ public class EmailSendService {
 	private final MailSender sender;
 
 	/**
-	 * 회원가입 시 이메일발송
+	 * 회원가입 시 이메일 처리
 	 *
 	 * @param userDao
 	 */
-	public void saveUserEmail(UserDao userDao) {
-		sendMail("lshk955@naver.com", userDao.getUserEmail(), userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
+	public void signUpEmail(UserDao userDao) {
+		setMail("lshk955@naver.com", userDao.getUserEmail(), userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
 	}
 
-	public void sendMail(String from, String to, String subject, String text) {
-		try {
-			sender.send(createMail(from, to, subject, text));
-		} catch (MailException es) {
-			es.printStackTrace();
-			throw new IllegalArgumentException();
-		}
-	}
-
-	private SimpleMailMessage createMail(String from, String to, String subject, String text) {
+	/**
+	 * SimpleMailMessage 메일발송
+	 *
+	 * @param from		보내는사람
+	 * @param to		받는사람
+	 * @param subject	제목
+	 * @param text		내용
+	 */
+	private void setMail(String from, String to, String subject, String text) {
 		SimpleMailMessage message = new SimpleMailMessage();
-		message.setFrom(from);			// 보내는사람
-		message.setTo(to);				// 받는사람
-		message.setSubject(subject);	// 제목
-		message.setText(text);			// 내용
-		return message;
+		message.setFrom(from);
+		message.setTo(to);
+		message.setSubject(subject);
+		message.setText(text);
+		sender.send(message);
 	}
 
 }
