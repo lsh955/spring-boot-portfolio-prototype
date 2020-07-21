@@ -41,12 +41,12 @@
 					console.log("token : " + token)
 					document.getElementById('g-recaptcha-response').value = token;
 					$.ajax({
-						url: '/robot/token',
+						url: '/token',
 						type : 'POST',
 						dataType: 'json',
 						data : {'token': token},
 						success : function(result){
-							console.log("result : " + result);
+							console.log("GoogleCaptcha : " + JSON.stringify(result));
 						},
 						fail: function(e){
 							console.log("fail")

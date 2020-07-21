@@ -21,7 +21,7 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-public class UserController {
+public class AccountController {
 
 	private final SignUpService signUpService;
 

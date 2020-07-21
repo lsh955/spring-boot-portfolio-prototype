@@ -21,7 +21,6 @@ public class CaptchaController {
 	@PostMapping("/token")
 	public @ResponseBody
 	GoogleCaptcha getToken(@RequestParam("token") String token) {
-		log.info("token : " + token);
 		return captcha.googleCaptcha(token);
 	}
 

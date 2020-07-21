@@ -15,7 +15,6 @@ import org.springframework.web.client.RestTemplate;
  * @author 이승환
  * @since 2020-07-21
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CaptchaService {
@@ -33,7 +32,7 @@ public class CaptchaService {
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-		map.add("secret", "6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response");
+		map.add("secret", "6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T");
 		map.add("response", token);
 
 		RestTemplate restTemplate = new RestTemplate();

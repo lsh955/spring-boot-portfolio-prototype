@@ -17,7 +17,11 @@ public class EmailSendService {
 
 	private final MailSender sender;
 
-	// 회원가입 시 이메일발송
+	/**
+	 * 회원가입 시 이메일발송
+	 *
+	 * @param userDao
+	 */
 	public void saveUserEmail(UserDao userDao) {
 		sendMail("lshk955@naver.com", userDao.getUserEmail(), userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
 	}

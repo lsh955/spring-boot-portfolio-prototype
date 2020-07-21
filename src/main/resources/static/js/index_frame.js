@@ -47,7 +47,7 @@ $(document).ready(function () {
 			}
 		},
 		error   : function (request, status, error) {  // 오류가 발생했을 때 호출
-			console.log("서버통신 오류 입니다.");   // TODO : 나중에 지울것.
+			console.log("웰컴 메시지 서버통신 오류 입니다.");   // TODO : 나중에 지울것.
 			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
 		}
 	});
