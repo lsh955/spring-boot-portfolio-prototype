@@ -5,6 +5,7 @@ package com.ordinary.repository.dto;
  * @since 2020/01/15
  *
  * Google reCAPTCHA v3 또는 Invisible reCAPTCHA 응답
+ * https://developers.google.com/recaptcha/docs/v3?hl=ko
  */
 public class GoogleCaptcha {
 
