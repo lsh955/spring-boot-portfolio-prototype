@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class reCaptcha {
+public class GoogleCaptcha {
 
 	private String success;
 	private String challenge_ts;

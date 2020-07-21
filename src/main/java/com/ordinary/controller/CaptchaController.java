@@ -1,7 +1,7 @@
 package com.ordinary.controller;
 
-import com.ordinary.repository.dto.reCaptcha;
-import com.ordinary.service.ReCaptchaService;
+import com.ordinary.repository.dto.GoogleCaptcha;
+import com.ordinary.service.CaptchaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-public class RecaptchaController {
+public class CaptchaController {
 
-	private final ReCaptchaService recaptchaService;
+	private final CaptchaService captcha;
 
 	@PostMapping("/token")
 	public @ResponseBody
-	reCaptcha token(@RequestParam("token") String token) {
+	GoogleCaptcha getToken(@RequestParam("token") String token) {
 		log.info("token : " + token);
-		return recaptchaService.token(token);
+		return captcha.googleCaptcha(token);
 	}
 
 }

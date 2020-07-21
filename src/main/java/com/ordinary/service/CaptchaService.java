@@ -1,6 +1,6 @@
 package com.ordinary.service;
 
-import com.ordinary.repository.dto.reCaptcha;
+import com.ordinary.repository.dto.GoogleCaptcha;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
@@ -18,12 +18,10 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ReCaptchaService {
+public class CaptchaService {
 
-	public reCaptcha token(String token) {
+	public GoogleCaptcha googleCaptcha(String token) {
 		String url = "https://www.google.com/recaptcha/api/siteverify";
-
-		RestTemplate restTemplate = new RestTemplate();
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -32,11 +30,10 @@ public class ReCaptchaService {
 		map.add("secret", "6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response");
 		map.add("response", token);
 
+		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 
-		reCaptcha response = restTemplate.postForObject( url, request, reCaptcha.class );
-
-		return response;
+		return restTemplate.postForObject( url, request, GoogleCaptcha.class );
 	}
 
 }

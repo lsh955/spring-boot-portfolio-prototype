@@ -1,7 +1,7 @@
 package com.ordinary.controller;
 
 import com.ordinary.repository.dao.UserDao;
-import com.ordinary.service.ReCaptchaService;
+import com.ordinary.service.CaptchaService;
 import com.ordinary.service.account.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import javax.validation.Valid;
 public class UserController {
 
 	private final SignUpService signUpService;
-	private final ReCaptchaService recaptcha;
+	private final CaptchaService recaptcha;
 
 	/**
 	 * 메인 페이지
