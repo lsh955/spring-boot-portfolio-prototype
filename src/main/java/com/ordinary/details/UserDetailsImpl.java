@@ -1,7 +1,6 @@
 package com.ordinary.details;
 
 import com.ordinary.repository.dao.UserDao;
-import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +15,6 @@ import java.util.Collection;
  * Spring Security에서 사용자의 정보를 담는 인터페이스 구현체,
  * 구현한 클래스를 사용자 정보로 인식하고 인증 작업 진행.
  */
-@Getter
 public class UserDetailsImpl implements UserDetails {
 
 	private final UserDao userDao;
