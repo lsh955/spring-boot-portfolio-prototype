@@ -1,4 +1,4 @@
-package com.ordinary.connection.Service;
+package com.ordinary.service;
 
 import org.junit.jupiter.api.DisplayName;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
  * @since 2020-07-21
  */
 @DisplayName("EmailSend All Test")
-public class EmailSendTest {
+public class EmailSendServiceTest {
 
 	//TODO : 이메일 전송(실패)
 

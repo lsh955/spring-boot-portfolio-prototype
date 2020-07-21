@@ -1,4 +1,4 @@
-package com.ordinary.connection.Connect;
+package com.ordinary.connection;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

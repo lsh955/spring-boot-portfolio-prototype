@@ -1,4 +1,4 @@
-package com.ordinary.connection.Service;
+package com.ordinary.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @DisplayName("Account All Test")
 @SpringBootTest
-public class AccountTest {
+public class AccountTotalTest {
 
 	//TODO : 회원가입(실패)
 
