@@ -19,14 +19,12 @@ public class EmailSendService {
 
 	// 회원가입 시 이메일발송
 	public void saveUserEmail(UserDao userDao) {
-		String emailData = userDao.getUserEmail();
-		sendMail("lshk955@naver.com", emailData, userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
+		sendMail("lshk955@naver.com", userDao.getUserEmail(), userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");
 	}
 
 	public void sendMail(String from, String to, String subject, String text) {
-		SimpleMailMessage message = createMail(from, to, subject, text);
 		try {
-			sender.send(message);
+			sender.send(createMail(from, to, subject, text));
 		} catch (MailException es) {
 			es.printStackTrace();
 			throw new IllegalArgumentException();
