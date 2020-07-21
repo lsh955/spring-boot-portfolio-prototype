@@ -2,7 +2,6 @@ package com.portfolio.service;
 
 import com.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
  * @author 이승환
  * @since 2020-03-04
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class EmailSendService {

@@ -1,9 +1,7 @@
 package com.portfolio.details;
 
 import com.portfolio.dao.UserDao;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,12 +16,9 @@ import java.util.Collection;
  * Spring Security에서 사용자의 정보를 담는 인터페이스 구현체,
  * 구현한 클래스를 사용자 정보로 인식하고 인증 작업 진행.
  */
-@Slf4j
 @Getter
-@EqualsAndHashCode(of = "id")
 public class UserDetailsImpl implements UserDetails {
 
-	private String id;
 	private final UserDao userDao;
 
 	public UserDetailsImpl(UserDao userDao) {

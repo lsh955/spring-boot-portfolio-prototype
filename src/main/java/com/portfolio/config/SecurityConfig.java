@@ -1,7 +1,6 @@
 package com.portfolio.config;
 
 import com.portfolio.enums.UserType;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,7 +18,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  */
 @Configuration          // @Configuration : Spring Boot를 사용하면서 필요한 설정
 @EnableWebSecurity      // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)
-@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
@@ -36,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()                                                    // 요청에 대한 권한을 지정
 			.antMatchers("/**").permitAll()  // 접근을 전부 허용
 			.antMatchers("/home").hasAnyRole(UserType.ADMIN.name(), UserType.MEMBER.name()) // 관리자 또는 사용자만 접근
-			.antMatchers("/manager").hasRole(UserType.ADMIN.name())                        // 관리자만 접근
+			.antMatchers("/manager").hasRole(UserType.ADMIN.name())                        	// 관리자만 접근
 			.anyRequest()                                                           // 인증 되어야 하는 부분
 			.authenticated();                                                       // 인증된 사용자만 접근
 

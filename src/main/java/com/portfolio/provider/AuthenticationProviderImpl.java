@@ -2,7 +2,6 @@ package com.portfolio.provider;
 
 import com.portfolio.details.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,7 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @author 이승환
  * @since 2020-07-17
  */
-@Slf4j
 @Configuration
 @RequiredArgsConstructor
 public class AuthenticationProviderImpl implements AuthenticationProvider {

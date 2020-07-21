@@ -6,7 +6,6 @@ import com.portfolio.enums.UserState;
 import com.portfolio.mapper.UserMapper;
 import com.portfolio.service.EmailSendService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
  * <p>
  * 회원가입 처리
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SignUpService {

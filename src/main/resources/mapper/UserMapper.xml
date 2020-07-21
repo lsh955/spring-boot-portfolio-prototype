@@ -10,7 +10,7 @@
         WHERE login_id = #{loginId}
     </select>
 
-    <insert id="SetSignUp" parameterType="com.portfolio.dao.UserDao" useGeneratedKeys="true" keyProperty="param.id">
+    <insert id="SetSignUp" parameterType="com.portfolio.dao.UserDao" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO user
         (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate, user_logindate, user_ipaddress)
         VALUES

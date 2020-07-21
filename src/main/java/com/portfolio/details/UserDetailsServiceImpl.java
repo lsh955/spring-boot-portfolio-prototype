@@ -3,7 +3,6 @@ package com.portfolio.details;
 import com.portfolio.mapper.UserMapper;
 import com.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
  * DataBase에서 유저 정보를 직접 가져오는 인터페이스 구현체,
  * 구현한 클래스에 사용자 정보를 불러오는 작업 진행.
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
