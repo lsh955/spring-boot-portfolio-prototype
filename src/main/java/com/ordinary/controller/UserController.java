@@ -30,7 +30,7 @@ public class UserController {
 	private final SignUpService signUpService;
 
 	/**
-	 * 메인
+	 * 메인 페이지
 	 */
 	@GetMapping({"/", "/index"})
 	public String getIndex(HttpServletRequest request) {
