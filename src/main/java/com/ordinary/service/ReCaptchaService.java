@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * @since 2020-07-21
  */
 @Service
-public class GoogleReCaptcha {
+public class ReCaptchaService {
 
 
 
