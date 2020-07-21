@@ -27,6 +27,6 @@ public class UserDao {
 	private String passwordConfirm; // 패스워드 확인
 	private String userFirstDate;   // 회원가입 일자
 	private String userLoginDate;   // 로그인 일자
-	private String userIpAddress;   // 사용자 로그인아이디
+	private String userIpAddress = "0.0.0.0";   // 사용자 로그인아이디
 
 }
