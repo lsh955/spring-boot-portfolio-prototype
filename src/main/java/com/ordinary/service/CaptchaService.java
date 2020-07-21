@@ -2,7 +2,6 @@ package com.ordinary.service;
 
 import com.ordinary.repository.dto.GoogleCaptcha;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
