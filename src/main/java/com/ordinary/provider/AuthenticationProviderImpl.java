@@ -22,6 +22,14 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 	private final BCryptPasswordEncoder passwordEncoder;
 	private final UserDetailsServiceImpl userDetailsService;
 
+	/**
+	 * AuthenticationManager.authenticate (Authentication)와 동일한 방식으로 인증을 수행
+	 * (Performs authentication with the same contract as AuthenticationManager.authenticate(Authentication))
+	 *
+	 * @param authentication
+	 * @return
+	 * @throws AuthenticationException
+	 */
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		// 로그인 페이지에서 넘어온 입력값
