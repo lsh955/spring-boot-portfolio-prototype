@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class EmailSendService {
 
 	private final MailSender sender;
+	private final SimpleMailMessage simpleMailMessage;
 
 	/**
 	 * SimpleMailMessage 메일발송
@@ -21,15 +22,14 @@ public class EmailSendService {
 	 * @param from		보내는사람
 	 * @param to		받는사람
 	 * @param subject	제목
-	 * @param text		내용
+	 * @param contents	내용
 	 */
-	public void sendMail(String from, String to, String subject, String text) {
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setFrom(from);
-		message.setTo(to);
-		message.setSubject(subject);
-		message.setText(text);
-		sender.send(message);
+	public void sendMail(String from, String to, String subject, String contents) {
+		simpleMailMessage.setFrom(from);
+		simpleMailMessage.setTo(to);
+		simpleMailMessage.setSubject(subject);
+		simpleMailMessage.setText(contents);
+		sender.send(simpleMailMessage);
 	}
 
 }
