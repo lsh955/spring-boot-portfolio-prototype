@@ -1,6 +1,6 @@
 package com.portfolio.details;
 
-import com.portfolio.dao.UserDao;
+import com.portfolio.repository.dao.UserDao;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

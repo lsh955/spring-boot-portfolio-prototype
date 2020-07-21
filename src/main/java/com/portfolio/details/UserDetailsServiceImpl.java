@@ -1,7 +1,7 @@
 package com.portfolio.details;
 
-import com.portfolio.mapper.UserMapper;
-import com.portfolio.dao.UserDao;
+import com.portfolio.repository.mapper.UserMapper;
+import com.portfolio.repository.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,9 +1,9 @@
 package com.portfolio.service.account;
 
-import com.portfolio.dao.UserDao;
+import com.portfolio.repository.dao.UserDao;
 import com.portfolio.details.UserDetailsServiceImpl;
 import com.portfolio.enums.UserState;
-import com.portfolio.mapper.UserMapper;
+import com.portfolio.repository.mapper.UserMapper;
 import com.portfolio.service.EmailSendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

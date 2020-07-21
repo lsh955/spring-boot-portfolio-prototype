@@ -1,7 +1,7 @@
 package com.portfolio.controller;
 
-import com.portfolio.dao.UserDao;
-import com.portfolio.dto.reCaptcha;
+import com.portfolio.repository.dao.UserDao;
+import com.portfolio.repository.dto.reCaptcha;
 import com.portfolio.service.account.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

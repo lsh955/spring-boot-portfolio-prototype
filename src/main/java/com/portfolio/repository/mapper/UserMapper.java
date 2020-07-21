@@ -1,6 +1,6 @@
-package com.portfolio.mapper;
+package com.portfolio.repository.mapper;
 
-import com.portfolio.dao.UserDao;
+import com.portfolio.repository.dao.UserDao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

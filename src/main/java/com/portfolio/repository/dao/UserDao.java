@@ -1,4 +1,4 @@
-package com.portfolio.dao;
+package com.portfolio.repository.dao;
 
 import lombok.Getter;
 import lombok.Setter;

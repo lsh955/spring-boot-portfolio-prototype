@@ -1,6 +1,6 @@
 package com.portfolio.service;
 
-import com.portfolio.dao.UserDao;
+import com.portfolio.repository.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
