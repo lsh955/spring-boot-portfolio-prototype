@@ -20,6 +20,12 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class CaptchaService {
 
+	/**
+	 * Captcha token 처리
+	 *
+	 * @param token
+	 * @return
+	 */
 	public GoogleCaptcha googleCaptcha(String token) {
 		String url = "https://www.google.com/recaptcha/api/siteverify";
 
