@@ -13,11 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class reCaptcha {
 
-	private boolean success;
-	private Integer number;
-	private String action;
+	private String success;
 	private String challenge_ts;
 	private String hostname;
-	private String error_codes;
+	private String score;
+	private String action;
 
 }

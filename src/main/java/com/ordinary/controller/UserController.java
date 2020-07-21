@@ -1,17 +1,14 @@
 package com.ordinary.controller;
 
 import com.ordinary.repository.dao.UserDao;
-import com.ordinary.repository.dto.reCaptcha;
+import com.ordinary.service.ReCaptchaService;
 import com.ordinary.service.account.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -28,6 +25,7 @@ import javax.validation.Valid;
 public class UserController {
 
 	private final SignUpService signUpService;
+	private final ReCaptchaService recaptcha;
 
 	/**
 	 * 메인 페이지
@@ -81,27 +79,6 @@ public class UserController {
 	@GetMapping("exception")
 	public String getUserPermissionExceptionPage() {
 		return "accessdenied";
-	}
-
-	/**
-	 * 구글 리캡챠
-	 *
-	 * @param reCaptcha
-	 * @return
-	 */
-	@PostMapping("reCAPTCHA")
-	public reCaptcha getReCAPTCHA(@RequestParam(name = "g-recaptcha-response") String reCaptcha) {
-		String url = "https://www.google.com/recaptcha/api/siteverify";
-		String params = "?secret=6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T&response=" + reCaptcha;
-		RestTemplate restTemplate = new RestTemplate();
-		reCaptcha recaptcha = restTemplate.exchange(url + params, HttpMethod.POST, null, reCaptcha.class).getBody();
-		assert recaptcha != null;
-		if (recaptcha.isSuccess()) {
-			log.info("reCAPTCHA 성공");
-		} else {
-			log.info("reCAPTCHA 실패");
-		}
-		return recaptcha;
 	}
 
 }
