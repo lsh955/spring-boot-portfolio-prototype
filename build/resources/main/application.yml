@@ -1,6 +1,6 @@
 spring:
     application:
-        name: Portfolio  # 애플리케이션 이름
+        name: Ordinary  # 애플리케이션 이름
     http:                         # HTTP 인코딩
         encoding:
             charset: UTF-8            # 요청/응답의 인코딩
