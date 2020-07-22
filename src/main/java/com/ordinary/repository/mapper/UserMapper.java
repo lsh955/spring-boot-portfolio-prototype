@@ -17,7 +17,7 @@ public interface UserMapper {
 	 * @param loginId
 	 * @return id, userType, loginId, userName, password, userTel, userEmail, userFirstDate, userLoginDate, userIpAddress
 	 */
-	UserDao findUserByLoginId(@Param("loginId") String loginId);
+	UserDao findUserByLoginId(String loginId);
 
 	/**
 	 * 회원가입
@@ -25,6 +25,14 @@ public interface UserMapper {
 	 * @param userDao
 	 * @return
 	 */
-	int SetSignUp(@Param("param") UserDao userDao);
+	int setSignUp(UserDao userDao);
+
+	/**
+	 * 아이디 중복체크
+	 *
+	 * @param loginId
+	 * @return
+	 */
+	int idCheck(String loginId);
 
 }

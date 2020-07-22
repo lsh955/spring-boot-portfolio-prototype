@@ -10,11 +10,17 @@
         WHERE login_id = #{loginId}
     </select>
 
-    <insert id="SetSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="id">
+    <insert id="setSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO user
         (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate, user_logindate, user_ipaddress)
         VALUES
-        (#{param.userType}, #{param.loginId}, #{param.userName}, #{param.password}, #{param.userTel}, #{param.userEmail}, now(), #{param.userLoginDate}, #{param.userIpAddress})
+        (#{userType}, #{loginId}, #{userName}, #{password}, #{userTel}, #{userEmail}, now(), #{userLoginDate}, #{userIpAddress})
     </insert>
+
+    <select id="idCheck" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+        WHERE login_id = #{loginId}
+    </select>
 
 </mapper>
