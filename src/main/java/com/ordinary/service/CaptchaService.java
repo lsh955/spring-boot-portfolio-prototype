@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 public class CaptchaService {
 
 	/**
-	 * Google Captcha token 처리
+	 * Google Captcha 요청
 	 *
 	 * @param token
 	 * @return
