@@ -38,12 +38,12 @@
 			grecaptcha.ready(function() {
 				grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/'}).then(function(token) {
 					$.ajax({
-						url: '/token',
+						url: '/api/token',
 						type : 'POST',
 						dataType: 'json',
 						data : {'token': token},
 						success : function(result){
-							//console.log("GoogleCaptcha : " + JSON.stringify(result));
+							console.log("GoogleCaptcha : " + JSON.stringify(result));
 							console.log("google captcha verification success")
 						},
 						fail: function(e){

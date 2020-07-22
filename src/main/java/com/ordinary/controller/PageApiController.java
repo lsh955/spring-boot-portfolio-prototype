@@ -1,13 +1,13 @@
 package com.ordinary.controller;
 
 import com.ordinary.enums.SlackChannel;
+import com.ordinary.repository.dto.CaptchaDto;
 import com.ordinary.repository.dto.SlackBasicDto;
+import com.ordinary.service.CaptchaService;
 import com.ordinary.service.SlackBotService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -22,9 +22,22 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class PageApiController {
 
 	private final SlackBotService slackBotService;
+	private final CaptchaService captcha;
 
 	/**
-	 * SlackBot - 기본 TEXT만 전송
+	 * Google reCaptcha
+	 *
+	 * @param token
+	 * @return
+	 */
+	@RequestMapping(value = "token", method = POST)
+	public @ResponseBody
+	CaptchaDto getToken(@RequestParam("token") String token) {
+		return captcha.googleCaptcha(token);
+	}
+
+	/**
+	 * SlackBot(기본 TEXT만 전송)
 	 *
 	 * @param dto
 	 */
@@ -34,6 +47,10 @@ public class PageApiController {
 	}
 
 
-	//TODO : 로그인 후 웰컴 메시지
+	//TODO : 로그인 후 로그인정보 알림
+	@RequestMapping(value = "welcome", method = POST)
+	public void getWelcome() {
+
+	}
 
 }
