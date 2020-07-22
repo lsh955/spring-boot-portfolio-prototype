@@ -14,6 +14,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 /**
  * @author 이승환
  * @since 2020-07-22
+ * 
+ * 슬랙 봇 컨트롤러
  */
 @Slf4j
 @RestController
@@ -25,7 +27,7 @@ public class SlackBotController {
 
 	@RequestMapping(value = "attachment", method = POST)
 	public void attachment(@RequestBody SlackBotDto dto) {
-		slackBotService.send(SlackTarget.CH_BOT, dto);
+		slackBotService.sendSlack(SlackTarget.CH_BOT, dto);
 	}
 
 }

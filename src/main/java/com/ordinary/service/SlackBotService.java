@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author 이승환
  * @since 2020-07-22
+ * 
+ * 슬랙 봇 전송 서비스
  */
 @Slf4j
 @Service
@@ -30,7 +32,13 @@ public class SlackBotService {
 		}
 	}
 
-	public void send(SlackTarget target, Object object) {
+	/**
+	 * 전송
+	 * 
+	 * @param target
+	 * @param object
+	 */
+	public void sendSlack(SlackTarget target, Object object) {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForEntity(target.getWebHookUrl(), writeValueAsString(object), String.class);
 	}
