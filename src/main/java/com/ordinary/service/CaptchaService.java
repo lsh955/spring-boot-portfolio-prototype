@@ -1,6 +1,6 @@
 package com.ordinary.service;
 
-import com.ordinary.repository.dto.GoogleCaptcha;
+import com.ordinary.repository.dto.CaptchaDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -26,7 +26,7 @@ public class CaptchaService {
 	 * @param token
 	 * @return
 	 */
-	public GoogleCaptcha googleCaptcha(String token) {
+	public CaptchaDto googleCaptcha(String token) {
 		// API요청
 		String url = "https://www.google.com/recaptcha/api/siteverify";
 
@@ -44,7 +44,7 @@ public class CaptchaService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 
 		// RestTemplate Post 전송
-		return restTemplate.postForObject( url, request, GoogleCaptcha.class );
+		return restTemplate.postForObject( url, request, CaptchaDto.class );
 	}
 
 }

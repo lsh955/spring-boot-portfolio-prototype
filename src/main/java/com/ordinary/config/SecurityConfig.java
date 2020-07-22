@@ -1,6 +1,6 @@
 package com.ordinary.config;
 
-import com.ordinary.enums.UserType;
+import com.ordinary.enums.account.UserType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

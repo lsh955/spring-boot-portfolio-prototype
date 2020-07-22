@@ -7,7 +7,7 @@ package com.ordinary.repository.dto;
  * Google reCAPTCHA v3 또는 Invisible reCAPTCHA 응답
  * https://developers.google.com/recaptcha/docs/v3?hl=ko
  */
-public class GoogleCaptcha {
+public class CaptchaDto {
 
     private String success;     // 이 요청이 해당 사이트에 유효한 reCAPTCHA 토큰인지 여부
     private String score;       // 요청에 대한 점수 (0.0-1.0)

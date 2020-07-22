@@ -1,6 +1,6 @@
 package com.ordinary.controller;
 
-import com.ordinary.repository.dto.GoogleCaptcha;
+import com.ordinary.repository.dto.CaptchaDto;
 import com.ordinary.service.CaptchaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class CaptchaController {
 	 */
 	@PostMapping("/token")
 	public @ResponseBody
-	GoogleCaptcha getToken(@RequestParam("token") String token) {
+	CaptchaDto getToken(@RequestParam("token") String token) {
 		return captcha.googleCaptcha(token);
 	}
 
