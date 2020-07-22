@@ -27,18 +27,23 @@ public class CaptchaService {
 	 * @return
 	 */
 	public GoogleCaptcha googleCaptcha(String token) {
+		// API요청
 		String url = "https://www.google.com/recaptcha/api/siteverify";
 
 		HttpHeaders headers = new HttpHeaders();
+		// Content-Type : application/x-www-form-urlencoded
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
+		// secret과 token값을 Post로 전송하기 위해 MultiValueMap으로 묶어서 처리
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("secret", "6LfWFs8UAAAAAMng0MZUnuaYH83e5v6Jwv50Ci5T");
 		map.add("response", token);
 
+		// RestTemplate Post방식으로 토큰값, 비밀키값을 전송한다.
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 
+		// RestTemplate Post 전송
 		return restTemplate.postForObject( url, request, GoogleCaptcha.class );
 	}
 
