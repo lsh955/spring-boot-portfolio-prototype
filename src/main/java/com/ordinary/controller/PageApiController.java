@@ -21,8 +21,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequiredArgsConstructor
 public class PageApiController {
 
-	private final SlackBotService slackBotService;
 	private final CaptchaService captcha;
+	private final SlackBotService slackBotService;
 
 	/**
 	 * Google reCaptcha
