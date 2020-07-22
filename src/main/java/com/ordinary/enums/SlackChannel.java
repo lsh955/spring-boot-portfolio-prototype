@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum SlackChannel {
 
-	TARGET_CH("https://hooks.slack.com/services/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", "portfolio-bot");
+	TARGET("https://hooks.slack.com/services/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", "portfolio-bot");
 
 	private final String webHookUrl;
 	private final String channel;

@@ -30,7 +30,7 @@ public class PageApiController {
 	 */
 	@RequestMapping(value = "slack", method = POST)
 	public void basic(@RequestBody SlackBasicDto dto) {
-		slackBotService.sendSlack(SlackChannel.TARGET_CH, dto);
+		slackBotService.sendSlack(SlackChannel.TARGET, dto);
 	}
 
 
