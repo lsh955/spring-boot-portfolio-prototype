@@ -13,13 +13,15 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author 이승환
  * @since 2020-07-21
+ *
+ * https://www.google.com/recaptcha/intro/v3.html
  */
 @Service
 @RequiredArgsConstructor
 public class CaptchaService {
 
 	/**
-	 * Captcha token 처리
+	 * Google Captcha token 처리
 	 *
 	 * @param token
 	 * @return
