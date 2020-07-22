@@ -28,8 +28,8 @@
         - 다운로드
     다. 보안
         - 사이트 HTTP 적용 >> 완료
-        - spring security xss
         - 비밀번호 암호화(Bcrypt) >> 완료
+        - spring security xss
     라. 실시간 채팅 : Socket.io
     마. 브라우저 알림 : 웹소켓을 이용한 실시간 알림
     사. 구글 리캡챠 >> 완료(적용범위는 우선 메인페이지만...)
