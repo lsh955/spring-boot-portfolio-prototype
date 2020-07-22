@@ -34,7 +34,7 @@ public class SignUpService {
 		if (userDetailsService.loadIdBySignUp(userDao.getLoginId()).equals("Overlap")) {
 			return "Overlap";
 		}
-		SaveSignUp(userDao);
+		SignUpSave(userDao);
 		return "Success";
 	}
 
@@ -43,7 +43,7 @@ public class SignUpService {
 	 *
 	 * @param userDao
 	 */
-	private void SaveSignUp(UserDao userDao) {
+	private void SignUpSave(UserDao userDao) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));	// 패스워드를 암호화 해준다.
 		userDao.setUserType(UserState.STANDBY.name());	// 최초 가입자는 대기상태
 		userMapper.setSignUp(userDao);	// 저장

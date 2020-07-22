@@ -4,13 +4,13 @@
 
 <mapper namespace="com.ordinary.repository.mapper.UserMapper">
 
-    <select id="findUserByLoginId" resultType="com.ordinary.repository.dao.UserDao">
+    <select id="getFindUserByLoginId" resultType="com.ordinary.repository.dao.UserDao">
         SELECT *
         FROM user
         WHERE login_id = #{loginId}
     </select>
 
-    <select id="idCheck" resultType="int">
+    <select id="getIdCheck" resultType="int">
         SELECT COUNT(*)
         FROM user
         WHERE login_id = #{loginId}
@@ -23,13 +23,13 @@
             (#{userDao.userType}, #{userDao.loginId}, #{userDao.userName}, #{userDao.password}, #{userDao.userTel}, #{userDao.userEmail}, now(), #{userDao.userLoginDate}, #{userDao.userIpAddress})
     </insert>
 
-    <select id="findId" resultType="String">
+    <select id="getFindId" resultType="String">
         SELECT login_id
         FROM user
         WHERE user_email = #{userEmail}
     </select>
 
-    <select id="findPassword" resultType="String">
+    <select id="getFindPassword" resultType="String">
         SELECT password
         FROM user
         WHERE login_id = #{loginId}

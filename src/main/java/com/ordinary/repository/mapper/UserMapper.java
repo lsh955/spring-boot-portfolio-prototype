@@ -17,7 +17,7 @@ public interface UserMapper {
 	 * @param loginId
 	 * @return id, userType, loginId, userName, password, userTel, userEmail, userFirstDate, userLoginDate, userIpAddress
 	 */
-	UserDao findUserByLoginId(@Param("loginId") String loginId);
+	UserDao getFindUserByLoginId(@Param("loginId") String loginId);
 
 	/**
 	 * 아이디 중복체크
@@ -25,7 +25,7 @@ public interface UserMapper {
 	 * @param loginId
 	 * @return 0(없음) 또는 1(있음)
 	 */
-	int idCheck(@Param("loginId") String loginId);
+	int getIdCheck(@Param("loginId") String loginId);
 
 	/**
 	 * 회원가입
@@ -42,7 +42,7 @@ public interface UserMapper {
 	 * @param userEmail
 	 * @return loginId
 	 */
-	String findId(@Param("userEmail") String userEmail);
+	String getFindId(@Param("userEmail") String userEmail);
 
 	/**
 	 * 비밀번호 찾기
@@ -50,6 +50,6 @@ public interface UserMapper {
 	 * @param loginId
 	 * @return password
 	 */
-	String findPassword(@Param("loginId") String loginId);
+	String getFindPassword(@Param("loginId") String loginId);
 
 }
