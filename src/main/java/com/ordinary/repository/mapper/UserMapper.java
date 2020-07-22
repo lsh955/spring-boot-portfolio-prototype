@@ -20,19 +20,19 @@ public interface UserMapper {
 	UserDao findUserByLoginId(@Param("loginId") String loginId);
 
 	/**
+	 * 아이디 중복체크
+	 *
+	 * @param loginId
+	 * @return 0(없음) 또는 1(있음)
+	 */
+	int idCheck(@Param("loginId") String loginId);
+
+	/**
 	 * 회원가입
 	 *
 	 * @param userDao
 	 * @return
 	 */
 	int setSignUp(@Param("userDao") UserDao userDao);
-
-	/**
-	 * 아이디 중복체크
-	 *
-	 * @param loginId
-	 * @return
-	 */
-	int idCheck(@Param("loginId") String loginId);
 
 }
