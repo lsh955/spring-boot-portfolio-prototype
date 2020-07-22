@@ -23,4 +23,10 @@
             (#{userDao.userType}, #{userDao.loginId}, #{userDao.userName}, #{userDao.password}, #{userDao.userTel}, #{userDao.userEmail}, now(), #{userDao.userLoginDate}, #{userDao.userIpAddress})
     </insert>
 
+    <select id="findId" resultType="String">
+        SELECT login_id
+        FROM user
+        WHERE user_email = #{userEmail}
+    </select>
+
 </mapper>

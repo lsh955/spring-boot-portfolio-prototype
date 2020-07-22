@@ -35,4 +35,13 @@ public interface UserMapper {
 	 */
 	int setSignUp(@Param("userDao") UserDao userDao);
 
+
+	/**
+	 * 아이디 찾기
+	 * 
+	 * @param userEmail
+	 * @return loginId
+	 */
+	String findId(@Param("userEmail") String userEmail);
+
 }
