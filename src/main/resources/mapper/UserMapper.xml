@@ -29,4 +29,10 @@
         WHERE user_email = #{userEmail}
     </select>
 
+    <select id="findPassword" resultType="String">
+        SELECT password
+        FROM user
+        WHERE login_id = #{loginId}
+    </select>
+
 </mapper>

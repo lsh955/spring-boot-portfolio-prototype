@@ -44,4 +44,12 @@ public interface UserMapper {
 	 */
 	String findId(@Param("userEmail") String userEmail);
 
+	/**
+	 * 비밀번호 찾기
+	 * 
+	 * @param loginId
+	 * @return password
+	 */
+	String findPassword(@Param("loginId") String loginId);
+
 }

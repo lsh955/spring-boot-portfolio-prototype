@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FindService {
 
-	public void findID() {
+	public void findId() {
 
 	}
 
