@@ -24,7 +24,7 @@ public class PageApiController {
 	private final SlackBotService slackBotService;
 
 	/**
-	 * SlackBot - 기본 TEXT 전송형식
+	 * SlackBot - 기본 TEXT만 전송
 	 *
 	 * @param dto
 	 */
