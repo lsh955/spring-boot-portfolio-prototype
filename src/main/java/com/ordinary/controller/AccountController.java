@@ -27,6 +27,9 @@ public class AccountController {
 
 	/**
 	 * 메인 페이지
+	 *
+	 * @param request
+	 * @return
 	 */
 	@GetMapping({"/", "/index"})
 	public String getIndex(HttpServletRequest request) {
@@ -39,7 +42,10 @@ public class AccountController {
 	}
 
 	/**
-	 * 회원가입 처리
+	 * 회원가입 페이지 요청
+	 *
+	 * @param model
+	 * @return
 	 */
 	@GetMapping("signup")
 	public String getSignUpPage(Model model) {
@@ -49,8 +55,9 @@ public class AccountController {
 	}
 
 	/**
-	 * 회원가입 요청
+	 * 회원가입 처리
 	 *
+	 * @param userDao
 	 * @param request
 	 * @return
 	 */
@@ -65,6 +72,8 @@ public class AccountController {
 
 	/**
 	 * 중복로그인 페이지
+	 *
+	 * @return
 	 */
 	@GetMapping("sessionfailed")
 	public String sessionfailed() {
@@ -73,6 +82,8 @@ public class AccountController {
 
 	/**
 	 * 예외 발생 페이지
+	 *
+	 * @return
 	 */
 	@GetMapping("exception")
 	public String getUserPermissionExceptionPage() {

@@ -18,6 +18,12 @@ public class CaptchaController {
 
 	private final CaptchaService captcha;
 
+	/**
+	 * 구글 리캡챠
+	 *
+	 * @param token
+	 * @return
+	 */
 	@PostMapping("/token")
 	public @ResponseBody
 	GoogleCaptcha getToken(@RequestParam("token") String token) {
