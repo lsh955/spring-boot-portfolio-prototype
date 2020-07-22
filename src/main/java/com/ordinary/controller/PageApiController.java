@@ -46,7 +46,6 @@ public class PageApiController {
 		slackBotService.sendSlack(SlackChannel.TARGET, dto);
 	}
 
-
 	//TODO : 로그인 후 로그인정보 알림
 	@RequestMapping(value = "welcome", method = POST)
 	public void getWelcome() {
