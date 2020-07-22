@@ -34,6 +34,6 @@ public class PageApiController {
 	}
 
 
-	//TODO : 로그인 후 웰컴 메시지 띄우기
+	//TODO : 로그인 후 웰컴 메시지
 
 }
