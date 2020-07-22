@@ -26,7 +26,7 @@ public class AccountController {
 	private final SignUpService signUpService;
 
 	/**
-	 * 메인 페이지
+	 * 메인 페이지 요청
 	 *
 	 * @param request
 	 * @return
@@ -71,7 +71,7 @@ public class AccountController {
 	}
 
 	/**
-	 * 중복로그인 페이지
+	 * 중복로그인 페이지 요청
 	 *
 	 * @return
 	 */
@@ -81,7 +81,7 @@ public class AccountController {
 	}
 
 	/**
-	 * 예외 발생 페이지
+	 * 예외발생 페이지 요청
 	 *
 	 * @return
 	 */
