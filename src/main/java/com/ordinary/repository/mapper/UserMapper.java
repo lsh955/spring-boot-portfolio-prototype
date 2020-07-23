@@ -38,7 +38,7 @@ public interface UserMapper {
 
 	/**
 	 * 아이디 찾기
-	 * 
+	 *
 	 * @param userEmail
 	 * @return loginId
 	 */
@@ -46,7 +46,7 @@ public interface UserMapper {
 
 	/**
 	 * 비밀번호 찾기
-	 * 
+	 *
 	 * @param loginId
 	 * @return password
 	 */

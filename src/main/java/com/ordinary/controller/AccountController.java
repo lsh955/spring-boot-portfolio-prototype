@@ -35,7 +35,7 @@ public class AccountController {
 	@GetMapping({"/", "/index"})
 	public String getIndex(HttpServletRequest request) {
 		String header = request.getHeader("User-Agent");
-		if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {	// IE환경 검증
+		if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {    // IE환경 검증
 			return "browser_issue"; // 브라우저 업그레이드 권장페이지
 		} else {
 			return "index"; // 메인페이지
@@ -65,10 +65,10 @@ public class AccountController {
 	@PostMapping("sendsignup")
 	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
 		if (signUpService.SignUpIdCheck(userDao).equals("Overlap")) {
-			return "signup";	// 회원가입 실패(아이디중복)
+			return "signup";    // 회원가입 실패(아이디중복)
 		}
-		userDao.setUserIpAddress(request.getRemoteAddr());	// 접속 IP Address
-		return "index";		// 회원가입 성공
+		userDao.setUserIpAddress(request.getRemoteAddr());    // 접속 IP Address
+		return "index";        // 회원가입 성공
 	}
 
 	/**

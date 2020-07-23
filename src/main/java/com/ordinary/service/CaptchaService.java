@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author 이승환
  * @since 2020-07-21
- *
+ * <p>
  * https://www.google.com/recaptcha/intro/v3.html
  */
 @Service
@@ -44,7 +44,7 @@ public class CaptchaService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 
 		// RestTemplate Post 전송
-		return restTemplate.postForObject( url, request, CaptchaDto.class );
+		return restTemplate.postForObject(url, request, CaptchaDto.class);
 	}
 
 }
