@@ -39,6 +39,8 @@ dependencies {
     // lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     // log
     compile 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
