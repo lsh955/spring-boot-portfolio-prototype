@@ -15,6 +15,7 @@ spring:
                     google:             # https://console.developers.google.com/apis/credentials/oauthclient/838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com?project=spring-boot-portfolio
                         client-id: 838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com
                         client-secret: ZKRcAEiQb8bZu7NS34c00bAT
+                        scope : email, profile
     thymeleaf:
         mode: HTML5                     # 템플릿 모드
         cache: false                    # 캐시모드
