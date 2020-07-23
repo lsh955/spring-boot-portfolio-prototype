@@ -16,6 +16,14 @@ spring:
                         client-id: 838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com
                         client-secret: ZKRcAEiQb8bZu7NS34c00bAT
                         scope : email, profile
+    mail:                               # Naver Smtp 계정정보
+        host: smtp.naver.com
+        port: 465
+        username: lshk955@naver.com
+        password: tmdghks02)@
+        properties:
+            mail.smtp.auth: true
+            mail.smtp.ssl.enable: true
     thymeleaf:
         mode: HTML5                     # 템플릿 모드
         cache: false                    # 캐시모드
@@ -28,13 +36,5 @@ spring:
     devtools:
         livereload:
             enabled: true
-    mail:                               # Naver Smtp 계정정보
-        host: smtp.naver.com
-        port: 465
-        username: lshk955@naver.com
-        password: tmdghks02)@
-        properties:
-            mail.smtp.auth: true
-            mail.smtp.ssl.enable: true
 mybatis:
     mapper-locations: classpath:mapper/*.xml
