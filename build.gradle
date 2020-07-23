@@ -21,8 +21,8 @@ dependencies {
 
     // Spring Web Services
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5' // 회원상테에 따른 권한처리
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
     // Spring Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
