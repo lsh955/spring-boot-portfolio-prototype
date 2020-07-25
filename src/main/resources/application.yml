@@ -8,14 +8,6 @@ spring:
             maxLifetime: 700000         # 커넥션의 최대 유지 시간을 밀리초 단위로 설정(이 시간이 지난 커넥션 중에서 사용중인 커넥션은 종료된 이후에 풀에서 제거)
             connection-timeout: 30000   # 풀에서 커넥션을 구할 때 대기 시간을 밀리초 단위로 지정(대기시간 안에 구하지 못하면 익셉션이 발생)
             validation-timeout: 30000   # 커넥션이 유효한지 검사할 때 대기 시간을 지정
-    security:
-        oauth2:
-            client:
-                registration:
-                    google:             # https://console.developers.google.com/apis/credentials/oauthclient/838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com?project=spring-boot-portfolio
-                        client-id: 838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com
-                        client-secret: ZKRcAEiQb8bZu7NS34c00bAT
-                        scope : email, profile
     mail:                               # Naver Smtp 계정정보
         host: smtp.naver.com
         port: 465
@@ -38,3 +30,22 @@ spring:
             enabled: true
 mybatis:
     mapper-locations: classpath:mapper/*.xml
+google:
+    client:
+        clientId: 838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com
+        clientSecret: ZKRcAEiQb8bZu7NS34c00bAT
+        accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+        userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+        clientAuthenticationScheme: form
+        scope:
+            - email
+            - profile
+            - openid
+    resource:
+        userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+server:
+    ssl:
+        key-store: keystore.p12
+        key-store-password: cheese
+        keyStoreType: PKCS12
+        keyAlias: tomcat

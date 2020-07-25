@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * 아이디, 비밀번호 찾기
  */
 @Service
-public class FindService {
+public class AccountFindService {
 
 	public void findId() {
 

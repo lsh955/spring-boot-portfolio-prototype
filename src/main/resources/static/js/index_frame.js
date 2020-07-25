@@ -308,9 +308,9 @@ $(document).ready(function () {
 
 
 	$('#social_login_img').on({
-		'click'     : function () {
-			site_alert(Site_Notice_Text, '소셜계정 로그인 기능은 준비중 입니다.', 3000);
-		},
+		// 'click'     : function () {
+		// 	site_alert(Site_Notice_Text, '소셜계정 로그인 기능은 준비중 입니다.', 3000);
+		// },
 		'mouseenter': function () {
 			$('#social_login_img').attr("src", "img/btn_google_signin_dark_pressed_web.png");
 		},
