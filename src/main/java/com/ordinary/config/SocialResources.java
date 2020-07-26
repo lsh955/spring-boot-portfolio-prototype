@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 
-class SocialResources {
+public class SocialResources {
 
 	@NestedConfigurationProperty
 	private AuthorizationCodeResourceDetails client = new AuthorizationCodeResourceDetails();

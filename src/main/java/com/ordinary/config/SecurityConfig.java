@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private final OAuth2ClientContext oauth2ClientContext;
 
-
 	@Override
 	public void configure(WebSecurity web) {
 		// 특정 요청을 무시(인증이 필요없는 허용하는 경로)
