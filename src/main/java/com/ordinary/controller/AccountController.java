@@ -1,7 +1,7 @@
 package com.ordinary.controller;
 
 import com.ordinary.repository.dao.UserDao;
-import com.ordinary.service.account.SignUpService;
+import com.ordinary.service.account.SignUpUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,7 +24,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AccountController {
 
-	private final SignUpService signUpService;
+	private final SignUpUserService signUpUserService;
 
 	/**
 	 * 메인 페이지 요청
@@ -64,7 +64,7 @@ public class AccountController {
 	 */
 	@PostMapping("sendsignup")
 	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
-		if (signUpService.SignUpIdCheck(userDao).equals("Overlap")) {
+		if (signUpUserService.SignUpIdCheck(userDao).equals("Overlap")) {
 			return "signup";    // 회원가입 실패(아이디중복)
 		}
 		userDao.setUserIpAddress(request.getRemoteAddr());    // 접속 IP Address

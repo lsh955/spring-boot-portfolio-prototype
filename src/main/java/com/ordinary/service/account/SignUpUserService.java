@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class SignUpService {
+public class SignUpUserService {
 
 	private final UserMapper userMapper;
 	private final UserDetailsServiceImpl userDetailsService;

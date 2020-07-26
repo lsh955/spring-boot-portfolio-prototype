@@ -1,8 +1,7 @@
 package com.ordinary.config;
 
 import com.ordinary.enums.account.UserType;
-import com.ordinary.service.account.google.GoogleAuthenticationFilter;
-import com.ordinary.service.account.google.GoogleSocialService;
+import com.ordinary.service.account.social.SocialAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -38,7 +37,7 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private final OAuth2ClientContext oauth2ClientContext;
-	private final GoogleSocialService googleSocialService;
+
 
 	@Override
 	public void configure(WebSecurity web) {
@@ -58,14 +57,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/manager").hasRole(UserType.ADMIN.name())                            // 관리자만 접근
 			.anyRequest().authenticated();                                                       // 인증된 사용자 만 접근
 
-		http.addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
+		http.addFilterBefore(doFilter(), BasicAuthenticationFilter.class);
 
 		http.formLogin()                                                            // 폼을 통한 로그인을 이용
 			.loginPage("/")                                                         // 로그인 뷰 페이지를 연결
 			.usernameParameter("loginId")                                           // 로그인 페이지에서 "name태그"파라메터로 전송된 값
 			.passwordParameter("password")                                          // 로그인 페이지에서 "name태그"파라메터로 전송된 값
 			.defaultSuccessUrl("/");
-
 
 		http.logout()                                                               // 로그아웃 처리
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))     // 로그아웃이 성공했을 경우 이동할 페이지
@@ -86,17 +84,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * 비밀번호 암호화 클래스 Bean등록
-	 * BCrypt 해시 함수를 이용하여 비밀번호를 저장하는 방법을 사용
+	 *
+	 * @return
 	 */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
+		// BCrypt 해시 함수 이용하여, 비밀번호 저장하는 방법 사용
 		return new BCryptPasswordEncoder();
 	}
 
+	/**
+	 * 인증 요청에 따른 리다이렉션을 위한 빈을 등록
+	 *
+	 * @param filter
+	 * @return
+	 */
 	@Bean
-	public FilterRegistrationBean oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
+	public FilterRegistrationBean getFilterRegistrationBean(OAuth2ClientContextFilter filter) {
 		FilterRegistrationBean registration = new FilterRegistrationBean();
 		registration.setFilter(filter);
+		// Spring Security 필터 보다 우선순위를 낮게 설정
 		registration.setOrder(-100);
 		return registration;
 	}
@@ -107,15 +114,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new SocialResources();
 	}
 
-	private Filter ssoFilter() {
+	private Filter doFilter() {
 		CompositeFilter filter = new CompositeFilter();
 		List<Filter> filters = new ArrayList<>();
-		filters.add(ssoFilter(google(), new GoogleAuthenticationFilter(googleSocialService)));
+		filters.add(doFilter(google(), new SocialAuthenticationFilter("/account/google")));
 		filter.setFilters(filters);
 		return filter;
 	}
 
-	private Filter ssoFilter(SocialResources client, OAuth2ClientAuthenticationProcessingFilter filter) {
+	private Filter doFilter(SocialResources client, OAuth2ClientAuthenticationProcessingFilter filter) {
 		OAuth2RestTemplate restTemplate = new OAuth2RestTemplate(client.getClient(), oauth2ClientContext);
 		filter.setRestTemplate(restTemplate);
 		UserInfoTokenServices tokenServices = new UserInfoTokenServices(client.getResource().getUserInfoUri(), client.getClient().getClientId());
