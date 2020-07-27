@@ -23,17 +23,7 @@
         <div class="col-md-6 col-md-offset-3">
             <form action="#" autocomplete="off" class="form-horizontal" method="post" role="form"
                   th:action="@{/sendsignup}" th:object="${userDao}">
-                <h1 style="text-align: center;margin: 60px 0;font-weight: 900;font-size: 35px;">임시 회원가입 페이지</h1>
-
-                <div class="form-group">
-                    <div class="">
-                        <label class="validation-message" th:errors="*{name}"
-                               th:if="${#fields.hasErrors('name')}"></label>
-                        <input autocomplete="off" class="form-control" placeholder="성함"
-                               autofocus required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
-                               th:field="*{name}" type="text"/>
-                    </div>
-                </div>
+                <h1 style="text-align: center;margin: 60px 0;font-weight: 900;font-size: 35px;">회원가입</h1>
 
                 <div class="form-group">
                     <div class="">
@@ -42,6 +32,16 @@
                         <input autocomplete="off" class="form-control" placeholder="이메일"
                                required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
                                th:field="*{email}" type="email"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <label class="validation-message" th:errors="*{name}"
+                               th:if="${#fields.hasErrors('name')}"></label>
+                        <input autocomplete="off" class="form-control" placeholder="성함"
+                               autofocus required style="height: 60px;border: 1px solid #dadada;font-size: 15px;"
+                               th:field="*{name}" type="text"/>
                     </div>
                 </div>
 
