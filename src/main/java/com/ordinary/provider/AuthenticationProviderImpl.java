@@ -34,15 +34,15 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 	 */
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		// 로그인 페이지에서 넘어온 입력값
+		// 로그인 페이지에서 넘어온 값
 		String email = (String) authentication.getPrincipal();
 		String pwd = (String) authentication.getCredentials();
 
 		// 사용자 정보 불러오기
 		UserDetails callUser = userDetailsService.loadUserByUsername(email);
 
-		if (passwordEncoder.matches(pwd, callUser.getPassword())) { // 비밀번호 검증
-			// UsernamePasswordAuthenticationToken 인증객체 return
+		// 비밀번호 검증
+		if (passwordEncoder.matches(pwd, callUser.getPassword())) {
 			return new UsernamePasswordAuthenticationToken(email, pwd, callUser.getAuthorities());
 		} else {
 			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
