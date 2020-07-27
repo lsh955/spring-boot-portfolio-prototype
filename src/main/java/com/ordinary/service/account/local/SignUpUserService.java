@@ -50,7 +50,10 @@ public class SignUpUserService {
 		userDao.setType(AccountType.LOCAL.name());
 		userDao.setState(AccountState.STANDBY.name());	// 최초 가입자는 대기상태
 		userMapper.setSignUp(userDao);    // 저장
-		emailSendService.sendMail("lshk955@naver.com", userDao.getEmail(), userDao.getName() + "님 회원가입이 정상처리 되었습니다.", userDao.getEmail() + "아이디로 회원가입이 정상 처리되었습니다.");    // 회원가입 완료 이메일 전송
+		emailSendService.sendMail("lshk955@naver.com",
+										userDao.getEmail(),
+								 userDao.getName() + "님 회원가입이 정상처리 되었습니다.",
+								userDao.getEmail() + "아이디로 회원가입이 정상 처리되었습니다.");    // 회원가입 완료 이메일 전송
 	}
 
 }
