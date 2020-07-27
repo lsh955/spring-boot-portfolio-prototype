@@ -43,6 +43,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
 		// 비밀번호 검증
 		if (passwordEncoder.matches(pwd, callUser.getPassword())) {
+			
+			//TODO : 로그인 시 접속시간 업데이트 하기
+			
 			return new UsernamePasswordAuthenticationToken(email, pwd, callUser.getAuthorities());
 		} else {
 			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
