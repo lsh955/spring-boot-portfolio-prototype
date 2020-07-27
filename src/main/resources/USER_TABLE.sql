@@ -1,3 +1,5 @@
+# 사용자정보 테이블
+
 CREATE TABLE user
 (
     idx          int auto_increment primary key,
