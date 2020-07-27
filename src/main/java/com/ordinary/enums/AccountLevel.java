@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 /**
  * @author 이승환
  * @since 2020-01-10
+ * 
+ * 계정 권한레벨
  */
 @Getter
 @RequiredArgsConstructor
