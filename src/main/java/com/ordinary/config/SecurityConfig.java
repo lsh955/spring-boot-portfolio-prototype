@@ -59,8 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.formLogin()                                                            // 폼을 통한 로그인을 이용
 			.loginPage("/")                                                         // 로그인 뷰 페이지를 연결
-			.usernameParameter("loginId")                                           // 로그인 페이지에서 "name태그"파라메터로 전송된 값
-			.passwordParameter("password")                                          // 로그인 페이지에서 "name태그"파라메터로 전송된 값
+			.usernameParameter("email")                                        // 로그인 페이지에서 "name태그"파라메터로 전송된 값
+			.passwordParameter("password")                                     // 로그인 페이지에서 "name태그"파라메터로 전송된 값
 			.defaultSuccessUrl("/");												// 로그인 성공했을 시 URI
 
 		http.logout()                                                               // 로그아웃 처리

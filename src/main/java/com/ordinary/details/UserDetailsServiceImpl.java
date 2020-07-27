@@ -24,8 +24,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private final UserMapper userMapper;
 
 	@Override
-	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-		UserDao findUser = userMapper.getFindUserByLoginId(id);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		UserDao findUser = userMapper.getFindUserByLoginEmail(email);
 		if (findUser == null) {
 			throw new UsernameNotFoundException("아이디가 존재하지 않거나, 올바르지 않습니다.");
 		}
@@ -35,11 +35,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	/**
 	 * 회원가입전 아이디 중복확인
 	 *
-	 * @param id
+	 * @param email
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
-	public String loadIdBySignUp(String id) {
-		if (userMapper.getIdCheck(id) != 0) {
+	public String loadIdBySignUp(String email) {
+		if (userMapper.getEmailCheck(email) != 0) {
 			return "Overlap";
 		}
 		return "Success";

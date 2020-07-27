@@ -4,34 +4,56 @@
 
 <mapper namespace="com.ordinary.repository.mapper.UserMapper">
 
-    <select id="getFindUserByLoginId" resultType="com.ordinary.repository.dao.UserDao">
+    <select id="getFindUserByLoginEmail" resultType="com.ordinary.repository.dao.UserDao">
         SELECT *
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
 
-    <select id="getIdCheck" resultType="int">
+    <select id="getEmailCheck" resultType="int">
         SELECT COUNT(*)
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
 
-    <insert id="setSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="id">
+    <insert id="setSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="idx">
         INSERT INTO user
-            (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate, user_logindate, user_ipaddress)
-        VALUES (#{userDao.userType}, #{userDao.loginId}, #{userDao.userName}, #{userDao.password}, #{userDao.userTel}, #{userDao.userEmail}, now(), #{userDao.userLoginDate}, #{userDao.userIpAddress})
+        (type,
+         level,
+         state,
+         email,
+         password,
+         name,
+         tel,
+         joinDate,
+         deleteDate,
+         loginDate,
+         logOutDate,
+         ipAddress)
+        VALUES (#{userDao.type},
+                #{userDao.level},
+                #{userDao.state},
+                #{userDao.email},
+                #{userDao.password},
+                #{userDao.name},
+                #{userDao.tel},
+                now(),
+                #{userDao.deleteDate},
+                #{userDao.loginDate},
+                #{userDao.logOutDate},
+                #{userDao.ipAddress})
     </insert>
 
-    <select id="getFindId" resultType="String">
-        SELECT login_id
+    <select id="getFindEmail" resultType="String">
+        SELECT email
         FROM user
-        WHERE user_email = #{userEmail}
+        WHERE tel = #{tel}
     </select>
 
     <select id="getFindPassword" resultType="String">
         SELECT password
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
 
 </mapper>

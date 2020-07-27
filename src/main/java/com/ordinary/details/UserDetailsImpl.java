@@ -27,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// 부여 된 권한을 반환
 		ArrayList<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_" + userDao.getUserType()));
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + userDao.getType()));
 		return authorities;
 	}
 
@@ -40,7 +40,7 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public String getUsername() {
 		// 유저 이름 혹은 아이디
-		return this.userDao.getUserName();
+		return this.userDao.getEmail();
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class SignUpUserService {
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
 	public String SignUpIdCheck(UserDao userDao) {
-		if (userDetailsService.loadIdBySignUp(userDao.getLoginId()).equals("Overlap")) {
+		if (userDetailsService.loadIdBySignUp(userDao.getEmail()).equals("Overlap")) {
 			return "Overlap";
 		}
 		SignUpSave(userDao);
@@ -45,9 +45,9 @@ public class SignUpUserService {
 	 */
 	private void SignUpSave(UserDao userDao) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
-		userDao.setUserType(AccountState.STANDBY.name());    // 최초 가입자는 대기상태
+		userDao.setType(AccountState.STANDBY.name());    // 최초 가입자는 대기상태
 		userMapper.setSignUp(userDao);    // 저장
-		emailSendService.sendMail("lshk955@naver.com", userDao.getUserEmail(), userDao.getLoginId() + "님 회원가입이 정상처리 되었습니다.", userDao.getLoginId() + "아이디로 회원가입이 정상 처리되었습니다.");    // 회원가입 완료 이메일 전송
+		emailSendService.sendMail("lshk955@naver.com", userDao.getEmail(), userDao.getName() + "님 회원가입이 정상처리 되었습니다.", userDao.getEmail() + "아이디로 회원가입이 정상 처리되었습니다.");    // 회원가입 완료 이메일 전송
 	}
 
 }
