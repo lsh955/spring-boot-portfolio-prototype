@@ -1,4 +1,4 @@
-package com.ordinary.enums.account;
+package com.ordinary.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.ordinary.config;
 
-
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;

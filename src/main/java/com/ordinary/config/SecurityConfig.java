@@ -1,6 +1,6 @@
 package com.ordinary.config;
 
-import com.ordinary.enums.account.AccountLevel;
+import com.ordinary.enums.AccountLevel;
 import com.ordinary.service.account.social.SocialAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;

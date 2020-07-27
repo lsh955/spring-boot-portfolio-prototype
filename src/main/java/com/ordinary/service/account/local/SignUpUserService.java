@@ -2,7 +2,7 @@ package com.ordinary.service.account.local;
 
 import com.ordinary.repository.dao.UserDao;
 import com.ordinary.details.UserDetailsServiceImpl;
-import com.ordinary.enums.account.AccountState;
+import com.ordinary.enums.AccountState;
 import com.ordinary.repository.mapper.UserMapper;
 import com.ordinary.service.EmailSendService;
 import lombok.RequiredArgsConstructor;
