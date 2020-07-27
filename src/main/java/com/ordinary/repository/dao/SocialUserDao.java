@@ -16,21 +16,23 @@ import org.springframework.stereotype.Component;
 public class SocialUserDao {
 
 	private int id;                 // 키값
-	private String userType;
+	private String userType;		// 사용자 타입
+	private String userState;		// 사용자 상태
+	private String socialType;		// 소셜 타입
 
 	// oauth2Request
-	private String clientId;
-	private Boolean approved;
+	private String clientId;		// 클라이언트를 구분할 수 있는 아이디
+	private Boolean approved;		// 요청승인
 
 	// userAuthentication
 	private String sub;
-	private String name;
-	private String given_name;
-	private String family_name;
-	private String picture;
-	private String email;
-	private boolean email_verified;
-	private String locale;
+	private String name;			// 성함
+	private String given_name;		// 이름
+	private String family_name;		// 성
+	private String picture;			// 프로필 사진
+	private String email;			// 이메일
+	private boolean email_verified;	// 이메일 검증여부
+	private String locale;			// 국가
 
 
 }
