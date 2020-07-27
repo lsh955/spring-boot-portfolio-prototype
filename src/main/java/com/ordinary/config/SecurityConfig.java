@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();                                                      // CSRF[사이트 간 요청 위조] 프로텍션(사용하지 않음)
 
 		http.authorizeRequests()                                                    // 요청에 대한 권한을 지정
-			.antMatchers("/**").permitAll()  							// 접근을 전부 허용
+			.antMatchers("/**", "/api**").permitAll()  						// 접근을 전부 허용
 			.antMatchers("/home").hasAnyRole(AccountLevel.ADMIN.name(), AccountLevel.MEMBER.name()) // 관리자와 사용자만 접근
 			.antMatchers("/manager").hasRole(AccountLevel.ADMIN.name())     // 관리자만 접근
 			.anyRequest().authenticated();                                          // 인증된 사용자 만 접근
@@ -59,8 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.formLogin()                                                            // 폼을 통한 로그인을 이용
 			.loginPage("/")                                                         // 로그인 뷰 페이지를 연결
-			.usernameParameter("email")                                        // 로그인 페이지에서 "name태그"파라메터로 전송된 값
-			.passwordParameter("password")                                     // 로그인 페이지에서 "name태그"파라메터로 전송된 값
+			.usernameParameter("email")                                        		// 로그인 페이지에서 "name태그"파라메터로 전송된 값
+			.passwordParameter("password")                                     		// 로그인 페이지에서 "name태그"파라메터로 전송된 값
 			.defaultSuccessUrl("/");												// 로그인 성공했을 시 URI
 
 		http.logout()                                                               // 로그아웃 처리
