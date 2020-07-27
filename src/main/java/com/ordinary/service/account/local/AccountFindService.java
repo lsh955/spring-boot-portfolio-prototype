@@ -1,4 +1,4 @@
-package com.ordinary.service.account;
+package com.ordinary.service.account.local;
 
 import org.springframework.stereotype.Service;
 

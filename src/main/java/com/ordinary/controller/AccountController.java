@@ -1,7 +1,7 @@
 package com.ordinary.controller;
 
 import com.ordinary.repository.dao.UserDao;
-import com.ordinary.service.account.SignUpUserService;
+import com.ordinary.service.account.local.SignUpUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

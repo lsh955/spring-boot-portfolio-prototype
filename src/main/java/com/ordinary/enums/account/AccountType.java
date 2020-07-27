@@ -9,10 +9,11 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum SocialType {
-
-	GOOGLE("GOOGLE", "구글");
-
+public enum AccountType {
+	
+	GOOGLE("GOOGLE", "구글"),
+	LOCAL("LOCAL", "직접");
+	
 	private final String key;
 	private final String title;
 	

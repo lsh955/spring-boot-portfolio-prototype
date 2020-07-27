@@ -5,4 +5,7 @@ package com.ordinary.service.account.social;
  * @since 2020-07-26
  */
 public class SocialUserService {
+
+
+
 }

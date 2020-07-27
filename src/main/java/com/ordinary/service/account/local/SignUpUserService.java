@@ -1,4 +1,4 @@
-package com.ordinary.service.account;
+package com.ordinary.service.account.local;
 
 import com.ordinary.repository.dao.UserDao;
 import com.ordinary.details.UserDetailsServiceImpl;
