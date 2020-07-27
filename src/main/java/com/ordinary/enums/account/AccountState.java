@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum UserState {
+public enum AccountState {
 
 	DELETE("DELETE", "탈퇴"),
 	STANDBY("STANDBY", "대기");

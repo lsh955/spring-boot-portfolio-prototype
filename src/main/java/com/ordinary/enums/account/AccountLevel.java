@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum UserType {
+public enum AccountLevel {
 
 	ADMIN("ADMIN", "관리자"),
 	MEMBER("MEMBER", "사용자");

@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum AccountType {
 	
-	GOOGLE("GOOGLE", "구글"),
-	LOCAL("LOCAL", "직접");
-	
+	LOCAL("LOCAL", "직접"),
+	GOOGLE("GOOGLE", "구글");
+
 	private final String key;
 	private final String title;
 	

@@ -1,6 +1,6 @@
 package com.ordinary.config;
 
-import com.ordinary.enums.account.UserType;
+import com.ordinary.enums.account.AccountLevel;
 import com.ordinary.service.account.social.SocialAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
@@ -51,8 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()                                                    // 요청에 대한 권한을 지정
 			.antMatchers("/**").permitAll()  							// 접근을 전부 허용
-			.antMatchers("/home").hasAnyRole(UserType.ADMIN.name(), UserType.MEMBER.name()) // 관리자와 사용자만 접근
-			.antMatchers("/manager").hasRole(UserType.ADMIN.name())     // 관리자만 접근
+			.antMatchers("/home").hasAnyRole(AccountLevel.ADMIN.name(), AccountLevel.MEMBER.name()) // 관리자와 사용자만 접근
+			.antMatchers("/manager").hasRole(AccountLevel.ADMIN.name())     // 관리자만 접근
 			.anyRequest().authenticated();                                          // 인증된 사용자 만 접근
 
 		http.addFilterBefore(doFilter(), BasicAuthenticationFilter.class);			// 새로 작성한 Filter를 적용한다.
