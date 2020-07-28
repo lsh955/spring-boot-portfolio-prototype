@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 public enum AccountState {
 
 	DELETE("DELETE", "탈퇴"),
-	STANDBY("STANDBY", "대기");
+	STANDBY("STANDBY", "대기"),
+	ACCESS("ACCESS", "승인");
 
 	private final String key;
 	private final String title;
