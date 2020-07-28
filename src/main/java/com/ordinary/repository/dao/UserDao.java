@@ -17,19 +17,19 @@ import org.springframework.stereotype.Component;
 @Alias("UserDao")
 public class UserDao {
 
-	private int idx;					// 키값
-	private String type;				// 계정 타입
-	private String level;				// 계정 권한
-	private String state;				// 계정 상태
-	private String email;				// 사용자 이메일
-	private String password;			// 사용자 패스워드
-	private String passwordReConfirm;	// 사용자 패스워드 재 확인
-	private String name;				// 사용자 성함
-	private String tel;					// 사용자 전화번호
-	private String joinDate;			// 가입 일자
-	private String deleteDate;			// 탈퇴 일자
-	private String loginDate;			// 로그인 일자
-	private String logOutDate;			// 로그아웃 일자
-	private String ipAddress;			// 접속 아이피
+	private int idx;						// 키값
+	private String type;					// 계정 타입
+	private String level;					// 계정 권한
+	private String state;					// 계정 상태
+	private String email;					// 사용자 이메일
+	private String name;					// 사용자 성함
+	private String tel;						// 사용자 전화번호
+	private String password;				// 사용자 패스워드
+	private String passwordReConfirm;		// 사용자 패스워드 재 확인
+	private String joinDate;				// 가입 일자
+	private String deleteDate;				// 탈퇴 일자
+	private String loginDate;				// 로그인 일자
+	private String logOutDate;				// 로그아웃 일자
+	private String ipAddress = "0.0.0.0";	// 접속 아이피
 
 }
