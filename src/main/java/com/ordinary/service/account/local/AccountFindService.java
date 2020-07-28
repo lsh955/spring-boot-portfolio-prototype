@@ -1,5 +1,6 @@
 package com.ordinary.service.account.local;
 
+import com.ordinary.repository.dao.UserDao;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountFindService {
 
-	public void findId() {
+	public void findId(UserDao userDao) {
 
 	}
 
-	public void findPassword() {
+	public void findPassword(UserDao userDao) {
 
 	}
 
