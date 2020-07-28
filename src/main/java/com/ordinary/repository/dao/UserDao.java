@@ -30,6 +30,6 @@ public class UserDao {
 	private String deleteDate;				// 탈퇴 일자
 	private String loginDate;				// 로그인 일자
 	private String logOutDate;				// 로그아웃 일자
-	private String ipAddress = "0.0.0.0";	// 접속 아이피
+	private String ipAddress;				// 접속 아이피
 
 }

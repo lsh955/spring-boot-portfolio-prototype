@@ -67,7 +67,6 @@ public class AccountController {
 		if (signUpUserService.SignUpIdCheck(userDao).equals("Overlap")) {
 			return "signup";    // 회원가입 실패(아이디중복)
 		}
-		log.info("request.getRemoteAddr() >> " + request.getRemoteAddr());
 		userDao.setIpAddress(request.getRemoteAddr());    // 접속 IP Address
 		return "redirect:/";        // 회원가입 성공
 	}
