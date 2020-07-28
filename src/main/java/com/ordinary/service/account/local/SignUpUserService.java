@@ -34,11 +34,11 @@ public class SignUpUserService {
 	 * @param userDao
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
-	public String SignUpIdCheck(UserDao userDao, String ipAddress) {
+	public String SignUpIdCheck(UserDao userDao) {
 		if (userDetailsService.loadIdBySignUp(userDao.getEmail()).equals("Overlap")) {
 			return "Overlap";
 		}
-		SignUpSave(userDao, ipAddress);
+		SignUpSave(userDao);
 		return "Success";
 	}
 
@@ -47,11 +47,10 @@ public class SignUpUserService {
 	 *
 	 * @param userDao
 	 */
-	private void SignUpSave(UserDao userDao, String ipAddress) {
+	private void SignUpSave(UserDao userDao) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
 		userDao.setType(AccountType.LOCAL.name());
 		userDao.setState(AccountState.STANDBY.name());	// 최초 가입자는 대기상태
-		userDao.setIpAddress(ipAddress);
 		userMapper.setSignUp(userDao);    // 저장
 		emailSendService.sendMail("lshk955@naver.com",
 										userDao.getEmail(),

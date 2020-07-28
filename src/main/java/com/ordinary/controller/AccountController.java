@@ -64,8 +64,8 @@ public class AccountController {
 	 */
 	@PostMapping("sendsignup")
 	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
-		String ipAddress = request.getRemoteAddr();
-		if (signUpUserService.SignUpIdCheck(userDao, ipAddress).equals("Success")) {
+		userDao.setIpAddress(request.getRemoteAddr());
+		if (signUpUserService.SignUpIdCheck(userDao).equals("Success")) {
 			return "redirect:/";        // 회원가입 성공
 		}
 		return "signup";    			// 회원가입 실패(아이디중복)
