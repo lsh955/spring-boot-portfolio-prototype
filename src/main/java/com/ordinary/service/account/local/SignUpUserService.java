@@ -8,6 +8,7 @@ import com.ordinary.enums.AccountState;
 import com.ordinary.repository.mapper.UserMapper;
 import com.ordinary.service.EmailSendService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
  * <p>
  * 회원가입 처리
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SignUpUserService {
@@ -32,11 +34,11 @@ public class SignUpUserService {
 	 * @param userDao
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
-	public String SignUpIdCheck(UserDao userDao) {
+	public String SignUpIdCheck(UserDao userDao, String ipAddress) {
 		if (userDetailsService.loadIdBySignUp(userDao.getEmail()).equals("Overlap")) {
 			return "Overlap";
 		}
-		SignUpSave(userDao);
+		SignUpSave(userDao, ipAddress);
 		return "Success";
 	}
 
@@ -45,10 +47,11 @@ public class SignUpUserService {
 	 *
 	 * @param userDao
 	 */
-	private void SignUpSave(UserDao userDao) {
+	private void SignUpSave(UserDao userDao, String ipAddress) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
 		userDao.setType(AccountType.LOCAL.name());
 		userDao.setState(AccountState.STANDBY.name());	// 최초 가입자는 대기상태
+		userDao.setIpAddress(ipAddress);
 		userMapper.setSignUp(userDao);    // 저장
 		emailSendService.sendMail("lshk955@naver.com",
 										userDao.getEmail(),

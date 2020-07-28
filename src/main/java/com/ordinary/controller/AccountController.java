@@ -64,11 +64,10 @@ public class AccountController {
 	 */
 	@PostMapping("sendsignup")
 	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
-		if (signUpUserService.SignUpIdCheck(userDao).equals("Overlap")) {
-			return "signup";    // 회원가입 실패(아이디중복)
+		if (signUpUserService.SignUpIdCheck(userDao, request.getRemoteAddr()).equals("Success")) {
+			return "redirect:/";        // 회원가입 성공
 		}
-		userDao.setIpAddress(request.getRemoteAddr());    // 접속 IP Address
-		return "redirect:/";        // 회원가입 성공
+		return "signup";    			// 회원가입 실패(아이디중복)
 	}
 
 	/**
