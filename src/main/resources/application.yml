@@ -16,12 +16,6 @@ spring:
         properties:
             mail.smtp.auth: true
             mail.smtp.ssl.enable: true
-    thymeleaf:
-        mode: HTML5                     # 템플릿 모드
-        cache: false                    # 캐시모드
-        suffix: .html                   # 템플릿 기본확장자
-        encoding: UTF-8                 # 텔플릿 인코딩
-        prefix: classpath:templates/
     output:
         ansi:
             enabled: always             # 콘솔 창에 출력되는 로깅 메세지를 색으로 구분해서 출력

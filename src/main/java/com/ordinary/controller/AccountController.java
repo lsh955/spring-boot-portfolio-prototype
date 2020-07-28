@@ -68,7 +68,7 @@ public class AccountController {
 			return "signup";    // 회원가입 실패(아이디중복)
 		}
 		userDao.setIpAddress(request.getRemoteAddr());    // 접속 IP Address
-		return "index";        // 회원가입 성공
+		return "redirect:/";        // 회원가입 성공
 	}
 
 	/**
