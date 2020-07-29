@@ -5,7 +5,18 @@
 <mapper namespace="com.ordinary.repository.mapper.UserMapper">
 
     <select id="getFindUserByLoginEmail" resultType="com.ordinary.repository.dao.UserDao">
-        SELECT *
+        SELECT type,
+               level,
+               state,
+               email,
+               name,
+               tel,
+               password,
+               joinDate,
+               deleteDate,
+               loginDate,
+               logOutDate,
+               ipAddress
         FROM user
         WHERE email = #{email}
     </select>
