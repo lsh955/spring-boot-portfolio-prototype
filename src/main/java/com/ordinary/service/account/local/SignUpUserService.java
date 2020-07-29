@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 public class SignUpUserService {
 
 	private final UserMapper userMapper;
+	private final DateStateService dateStateService;
 	private final UserDetailsServiceImpl userDetailsService;
 	private final EmailSendService emailSendService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;

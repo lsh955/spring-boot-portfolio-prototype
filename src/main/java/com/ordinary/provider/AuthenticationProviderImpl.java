@@ -1,6 +1,7 @@
 package com.ordinary.provider;
 
 import com.ordinary.details.UserDetailsServiceImpl;
+import com.ordinary.service.account.local.DateStateService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
 	private final BCryptPasswordEncoder passwordEncoder;
 	private final UserDetailsServiceImpl userDetailsService;
+	private final DateStateService dateStateService;
 
 	/**
 	 * AuthenticationManager.authenticate (Authentication)와 동일한 방식으로 인증을 수행
@@ -43,9 +45,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
 		// 비밀번호 검증
 		if (passwordEncoder.matches(pwd, callUser.getPassword())) {
-			
-			//TODO : 로그인 시 접속시간 업데이트 하기
-			
+			dateStateService.loginDateUpDate(email);	// 접속시간 업데이트
 			return new UsernamePasswordAuthenticationToken(email, pwd, callUser.getAuthorities());
 		} else {
 			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");

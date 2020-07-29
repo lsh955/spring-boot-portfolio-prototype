@@ -38,9 +38,9 @@
                 #{userDao.tel},
                 #{userDao.password},
                 now(),
-                #{userDao.deleteDate},
-                #{userDao.loginDate},
-                #{userDao.logOutDate},
+                null,
+                null,
+                null,
                 #{userDao.ipAddress})
     </insert>
 
@@ -55,5 +55,23 @@
         FROM user
         WHERE email = #{email}
     </select>
+
+    <update id="loginDateUpDate" parameterType="string">
+        UPDATE user
+        SET loginDate = (now())
+        WHERE email = #{email};
+    </update>
+
+    <update id="logOutDateUpDate" parameterType="com.ordinary.repository.dao.UserDao">
+        UPDATE user
+        SET logOutDate = (now())
+        WHERE email = #{userDao.email};
+    </update>
+
+    <update id="deletDateUpDate" parameterType="com.ordinary.repository.dao.UserDao">
+        UPDATE user
+        SET deleteDate = (now())
+        WHERE email = #{userDao.email};
+    </update>
 
 </mapper>

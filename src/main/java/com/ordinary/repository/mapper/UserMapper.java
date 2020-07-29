@@ -33,7 +33,7 @@ public interface UserMapper {
 	 * @param userDao
 	 * @return
 	 */
-	int setSignUp(@Param("userDao") UserDao userDao);
+	void setSignUp(@Param("userDao") UserDao userDao);
 
 
 	/**
@@ -51,5 +51,29 @@ public interface UserMapper {
 	 * @return password
 	 */
 	String getFindPassword(@Param("email") String email);
+
+	/**
+	 * 로그인 시각 업데이트
+	 *
+	 * @param email
+	 * @return
+	 */
+	void loginDateUpDate(@Param("email") String email);
+
+	/**
+	 * 로그아웃 시각 업데이트
+	 *
+	 * @param email
+	 * @return
+	 */
+	void logOutDateUpDate(@Param("email") String email);
+
+	/**
+	 * 계정삭제 시각 업데이트
+	 *
+	 * @param email
+	 * @return
+	 */
+	void deletDateUpDate(@Param("email") String email);
 
 }
