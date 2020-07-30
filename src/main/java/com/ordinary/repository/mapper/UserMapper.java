@@ -35,7 +35,6 @@ public interface UserMapper {
 	 */
 	void setSignUp(@Param("userDao") UserDao userDao);
 
-
 	/**
 	 * 아이디 찾기
 	 *

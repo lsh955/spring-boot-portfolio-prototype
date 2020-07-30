@@ -50,8 +50,9 @@ public class SignUpUserService {
 	 */
 	private void SignUpSave(UserDao userDao) {
 		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
-		userDao.setType(AccountType.LOCAL.name());
-		userDao.setState(AccountState.STANDBY.name());	// 최초 가입자는 대기상태
+		userDao.setType(AccountType.LOCAL.name());		// 최초 로컬
+		userDao.setLevel(AccountLevel.MEMBER.name());	// 최초 사용자
+		userDao.setState(AccountState.STANDBY.name());	// 최초 대기
 		userMapper.setSignUp(userDao);    // 저장
 		emailSendService.sendMail("lshk955@naver.com",
 										userDao.getEmail(),
