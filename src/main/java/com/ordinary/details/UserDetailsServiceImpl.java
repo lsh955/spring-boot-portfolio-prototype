@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 * 이메일 데이터 조회
 	 *
 	 * @param email
-	 * @return Success(성공) 또는 Overlap(중복)
+	 * @return true(성공) 또는 false(중복)
 	 */
 	public boolean isEmailCheck(String email) {
 		return userMapper.loadAllEmail(email) == 0;

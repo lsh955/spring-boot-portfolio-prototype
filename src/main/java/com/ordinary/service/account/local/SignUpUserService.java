@@ -32,7 +32,7 @@ public class SignUpUserService {
 	 * 회원가입전 이메일 중복조회
 	 *
 	 * @param userDao
-	 * @return Success(성공) 또는 Overlap(중복)
+	 * @return true(성공) 또는 false(중복)
 	 */
 	public boolean isSignUpEmailCheck(UserDao userDao) {
 		if (!userDetailsService.isEmailCheck(userDao.getEmail())) {
@@ -53,7 +53,7 @@ public class SignUpUserService {
 		userDao.setLevel(AccountLevel.MEMBER.name());	// 최초 사용자
 		userDao.setState(AccountState.STANDBY.name());	// 최초 대기
 
-		userMapper.inputSignUp(userDao);    				// 최종 저장
+		userMapper.inputSignUp(userDao);				// 최종 저장
 
 		// 저장 후 이메일 전송
 		emailSendService.sendMail("lshk955@naver.com",
