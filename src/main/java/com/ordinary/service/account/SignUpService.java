@@ -1,4 +1,4 @@
-package com.ordinary.service.account.local;
+package com.ordinary.service.account;
 
 import com.ordinary.enums.AccountLevel;
 import com.ordinary.enums.AccountType;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class SignUpUserService {
+public class SignUpService {
 
 	private final UserMapper userMapper;
 	private final UserDetailsServiceImpl userDetailsService;

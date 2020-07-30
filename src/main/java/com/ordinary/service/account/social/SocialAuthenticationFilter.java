@@ -1,6 +1,8 @@
 package com.ordinary.service.account.social;
 
+import com.ordinary.repository.dto.GoogleUserDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -18,6 +20,9 @@ import java.io.IOException;
  */
 @Slf4j
 public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProcessingFilter {
+
+	private ObjectMapper mapper = new ObjectMapper();
+	private SocialAuthenticationService authenticationService;
 
 	public SocialAuthenticationFilter(String defaultFilterProcessesUrl) {
 		super(defaultFilterProcessesUrl);
@@ -40,6 +45,11 @@ public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProces
 
 		Object approved = auth.getOAuth2Request().isApproved();
 		log.info("\n approved >> " + approved);
+
+		final GoogleUserDetails userDetails = mapper.convertValue(details, GoogleUserDetails.class);
+		userDetails.setAccessToken(accessToken);
+
+		// authenticationService.doAuthentication(userDetails);
 
 		super.successfulAuthentication(request, response, chain, authResult);
 

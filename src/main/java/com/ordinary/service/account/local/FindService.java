@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 아이디, 비밀번호 찾기
  */
 @Service
-public class AccountFindService {
+public class FindService {
 
 	public void findId(UserDao userDao) {
 

@@ -1,7 +1,7 @@
 package com.ordinary.controller;
 
 import com.ordinary.repository.dao.UserDao;
-import com.ordinary.service.account.local.SignUpUserService;
+import com.ordinary.service.account.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,10 +24,10 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AccountController {
 
-	private final SignUpUserService signUpUserService;
+	private final SignUpService accountUserService;
 
 	/**
-	 * 메인 페이지 요청
+	 * 메인 페이지 요철
 	 *
 	 * @param request
 	 * @return
@@ -65,7 +65,7 @@ public class AccountController {
 	@PostMapping("sendsignup")
 	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
 		userDao.setIpAddress(request.getRemoteAddr());
-		if (signUpUserService.isSignUpEmailCheck(userDao)) {
+		if (accountUserService.isSignUpEmailCheck(userDao)) {
 			return "redirect:/";        // 회원가입 성공
 		}
 		return "signup";    			// 회원가입 실패(아이디중복)

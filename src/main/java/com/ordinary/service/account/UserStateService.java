@@ -1,4 +1,4 @@
-package com.ordinary.service.account.local;
+package com.ordinary.service.account;
 
 import com.ordinary.repository.dao.UserDao;
 import com.ordinary.repository.mapper.UserMapper;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class DateStateService {
+public class UserStateService {
 
 	private final UserMapper userMapper;
 
