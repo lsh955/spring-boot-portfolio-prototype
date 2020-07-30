@@ -34,8 +34,8 @@ public class SignUpUserService {
 	 * @param userDao
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
-	public boolean loadSignUpEmailCheck(UserDao userDao) {
-		if (!userDetailsService.loadEmailCheck(userDao.getEmail())) {
+	public boolean isSignUpEmailCheck(UserDao userDao) {
+		if (!userDetailsService.isEmailCheck(userDao.getEmail())) {
 			return false;
 		}
 		inputSignUpSave(userDao);

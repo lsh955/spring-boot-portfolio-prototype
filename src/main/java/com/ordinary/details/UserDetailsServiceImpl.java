@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 * @param email
 	 * @return Success(성공) 또는 Overlap(중복)
 	 */
-	public boolean loadEmailCheck(String email) {
+	public boolean isEmailCheck(String email) {
 		return userMapper.loadAllEmail(email) == 0;
 	}
 
