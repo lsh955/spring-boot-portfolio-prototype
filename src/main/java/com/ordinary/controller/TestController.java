@@ -13,4 +13,5 @@ public class TestController {
 	public Principal home(Principal principal) {
 		return principal;
 	}
+
 }

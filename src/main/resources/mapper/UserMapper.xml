@@ -4,7 +4,7 @@
 
 <mapper namespace="com.ordinary.repository.mapper.UserMapper">
 
-    <select id="getFindUserByLoginEmail" resultType="com.ordinary.repository.dao.UserDao">
+    <select id="loadAllData" resultType="com.ordinary.repository.dao.UserDao">
         SELECT type,
                level,
                state,
@@ -21,13 +21,13 @@
         WHERE email = #{email}
     </select>
 
-    <select id="getEmailCheck" resultType="int">
+    <select id="loadAllEmail" resultType="int">
         SELECT COUNT(*)
         FROM user
         WHERE email = #{email}
     </select>
 
-    <insert id="setSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="idx">
+    <insert id="inputSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="idx">
         INSERT INTO user
         (type,
          level,
@@ -55,31 +55,31 @@
                 #{userDao.ipAddress})
     </insert>
 
-    <select id="getFindEmail" resultType="String">
+    <select id="findEmail" resultType="String">
         SELECT email
         FROM user
         WHERE tel = #{tel}
     </select>
 
-    <select id="getFindPassword" resultType="String">
+    <select id="findPassword" resultType="String">
         SELECT password
         FROM user
         WHERE email = #{email}
     </select>
 
-    <update id="loginDateUpDate" parameterType="string">
+    <update id="inputLoginDate" parameterType="string">
         UPDATE user
         SET loginDate = (now())
         WHERE email = #{email};
     </update>
 
-    <update id="logOutDateUpDate" parameterType="com.ordinary.repository.dao.UserDao">
+    <update id="inputLogOutDate" parameterType="com.ordinary.repository.dao.UserDao">
         UPDATE user
         SET logOutDate = (now())
         WHERE email = #{userDao.email};
     </update>
 
-    <update id="deletDateUpDate" parameterType="com.ordinary.repository.dao.UserDao">
+    <update id="inputDeletDate" parameterType="com.ordinary.repository.dao.UserDao">
         UPDATE user
         SET deleteDate = (now())
         WHERE email = #{userDao.email};

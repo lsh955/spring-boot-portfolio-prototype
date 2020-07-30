@@ -25,7 +25,7 @@ public class DateStateService {
 	 * @param email
 	 */
 	public void loginDateUpDate(String email) {
-		userMapper.loginDateUpDate(email);
+		userMapper.inputLoginDate(email);
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class DateStateService {
 	 * @param userDao
 	 */
 	public void logOutDateUpDate(UserDao userDao) {
-		userMapper.logOutDateUpDate(userDao.getEmail());
+		userMapper.inputLogOutDate(userDao.getEmail());
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class DateStateService {
 	 * @param userDao
 	 */
 	public void deletDateUpDate(UserDao userDao) {
-		userMapper.deletDateUpDate(userDao.getEmail());
+		userMapper.inputDeletDate(userDao.getEmail());
 	}
 
 }

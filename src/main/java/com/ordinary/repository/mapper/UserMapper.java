@@ -17,23 +17,23 @@ public interface UserMapper {
 	 * @param email
 	 * @return idx, type, level, state, email, password, name, tel, joinDate, deleteDate, loginDate, logOutDate, ipAddress
 	 */
-	UserDao getFindUserByLoginEmail(@Param("email") String email);
+	UserDao loadAllData(@Param("email") String email);
 
 	/**
-	 * 아이디 중복체크
+	 * 아이디 중복조회
 	 *
 	 * @param email
 	 * @return 0(없음) 또는 1(있음)
 	 */
-	int getEmailCheck(@Param("email") String email);
+	int loadAllEmail(@Param("email") String email);
 
 	/**
-	 * 회원가입
+	 * 회원가입 저장
 	 *
 	 * @param userDao
 	 * @return
 	 */
-	void setSignUp(@Param("userDao") UserDao userDao);
+	void inputSignUp(@Param("userDao") UserDao userDao);
 
 	/**
 	 * 아이디 찾기
@@ -41,7 +41,7 @@ public interface UserMapper {
 	 * @param tel
 	 * @return Email
 	 */
-	String getFindEmail(@Param("tel") String tel);
+	String findEmail(@Param("tel") String tel);
 
 	/**
 	 * 비밀번호 찾기
@@ -49,30 +49,30 @@ public interface UserMapper {
 	 * @param email
 	 * @return password
 	 */
-	String getFindPassword(@Param("email") String email);
+	String findPassword(@Param("email") String email);
 
 	/**
-	 * 로그인 시각 업데이트
+	 * 로그인 시각
 	 *
 	 * @param email
 	 * @return
 	 */
-	void loginDateUpDate(@Param("email") String email);
+	void inputLoginDate(@Param("email") String email);
 
 	/**
-	 * 로그아웃 시각 업데이트
+	 * 로그아웃 시각
 	 *
 	 * @param email
 	 * @return
 	 */
-	void logOutDateUpDate(@Param("email") String email);
+	void inputLogOutDate(@Param("email") String email);
 
 	/**
-	 * 계정삭제 시각 업데이트
+	 * 계정삭제 시각
 	 *
 	 * @param email
 	 * @return
 	 */
-	void deletDateUpDate(@Param("email") String email);
+	void inputDeletDate(@Param("email") String email);
 
 }
