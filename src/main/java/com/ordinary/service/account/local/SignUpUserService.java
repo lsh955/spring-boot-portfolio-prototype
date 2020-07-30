@@ -24,7 +24,6 @@ import org.springframework.stereotype.Service;
 public class SignUpUserService {
 
 	private final UserMapper userMapper;
-	private final DateStateService dateStateService;
 	private final UserDetailsServiceImpl userDetailsService;
 	private final EmailSendService emailSendService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -49,15 +48,18 @@ public class SignUpUserService {
 	 * @param userDao
 	 */
 	private void SignUpSave(UserDao userDao) {
-		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));    // 패스워드를 암호화 해준다.
+		userDao.setPassword(bCryptPasswordEncoder.encode(userDao.getPassword()));	// 패스워드 암호화
 		userDao.setType(AccountType.LOCAL.name());		// 최초 로컬
 		userDao.setLevel(AccountLevel.MEMBER.name());	// 최초 사용자
 		userDao.setState(AccountState.STANDBY.name());	// 최초 대기
-		userMapper.setSignUp(userDao);    // 저장
+
+		userMapper.setSignUp(userDao);    				// 최종 저장
+
+		// 저장 후 이메일 전송
 		emailSendService.sendMail("lshk955@naver.com",
-										userDao.getEmail(),
+										 userDao.getEmail(),
 								 userDao.getName() + "님 회원가입이 정상처리 되었습니다.",
-								userDao.getEmail() + "아이디로 회원가입이 정상 처리되었습니다.");    // 회원가입 완료 이메일 전송
+								userDao.getEmail() + "아이디로 회원가입이 정상 처리되었습니다.");
 	}
 
 }
