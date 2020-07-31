@@ -1,5 +1,6 @@
 package com.ordinary.service.account.social;
 
+import com.ordinary.repository.dao.UserDao;
 import com.ordinary.repository.dto.GoogleUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -23,6 +24,7 @@ public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProces
 
 	private ObjectMapper mapper = new ObjectMapper();
 	private SocialAuthenticationService authenticationService;
+	private UserDao userDao;
 
 	public SocialAuthenticationFilter(String defaultFilterProcessesUrl) {
 		super(defaultFilterProcessesUrl);
@@ -48,6 +50,8 @@ public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProces
 
 		final GoogleUserDetails userDetails = mapper.convertValue(details, GoogleUserDetails.class);
 		userDetails.setAccessToken(accessToken);
+
+		userDao.setEmail(userDetails.getEmail());
 
 		// authenticationService.doAuthentication(userDetails);
 

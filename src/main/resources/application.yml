@@ -24,6 +24,8 @@ spring:
             enabled: true
 mybatis:
     mapper-locations: classpath:mapper/**.xml
+#    configuration:
+#        map-underscore-to-camel-case: true
 google:
     client:
         clientId: 838635500072-9hsunrv4qum9quorvlql0nnui6gahgc7.apps.googleusercontent.com
