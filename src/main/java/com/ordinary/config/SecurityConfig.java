@@ -36,7 +36,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private final OAuth2ClientContext oauth2ClientContext;
+	private OAuth2ClientContext oauth2ClientContext;
 
 	@Override
 	public void configure(WebSecurity web) {
