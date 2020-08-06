@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.portfolio.connection.DatabaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-07-21T04:53:15" hostname="DESKTOP-1L7N0K8" time="42.396">
+  <properties/>
+  <testcase name="MainServerConnection()" classname="com.portfolio.connection.DatabaseTest" time="21.379"/>
+  <testcase name="TestServerConnection()" classname="com.portfolio.connection.DatabaseTest" time="21.017"/>
+  <system-out><![CDATA[portfolio : 메인계정 데이터베이스 연결중...
+test_user_01 : 테스트계정 데이터베이스 연결중...
+]]></system-out>
+  <system-err><![CDATA[portfolio : 메인계정 데이터베이스 연결실패
+test_user_01 : 테스트계정 데이터베이스 연결실패
+]]></system-err>
+</testsuite>

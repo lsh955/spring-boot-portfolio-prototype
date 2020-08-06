@@ -21,35 +21,35 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequiredArgsConstructor
 public class PageApiController {
 
-	private final CaptchaService captcha;
-	private final SlackBotService slackBotService;
+    private final CaptchaService captcha;
+    private final SlackBotService slackBotService;
 
-	/**
-	 * Google reCaptcha
-	 *
-	 * @param token
-	 * @return
-	 */
-	@RequestMapping(value = "token", method = POST)
-	public @ResponseBody
-	CaptchaDto getToken(@RequestParam("token") String token) {
-		return captcha.googleCaptcha(token);
-	}
+    /**
+     * Google reCaptcha
+     *
+     * @param token
+     * @return
+     */
+    @RequestMapping(value = "token", method = POST)
+    public @ResponseBody
+    CaptchaDto getToken(@RequestParam("token") String token) {
+        return captcha.googleCaptcha(token);
+    }
 
-	/**
-	 * SlackBot(기본 TEXT만 전송)
-	 *
-	 * @param dto
-	 */
-	@RequestMapping(value = "slack", method = POST)
-	public void basic(@RequestBody SlackBasicDto dto) {
-		slackBotService.sendSlack(SlackChannel.TARGET, dto);
-	}
+    /**
+     * SlackBot(기본 TEXT만 전송)
+     *
+     * @param dto
+     */
+    @RequestMapping(value = "slack", method = POST)
+    public void basic(@RequestBody SlackBasicDto dto) {
+        slackBotService.sendSlack(SlackChannel.TARGET, dto);
+    }
 
-	//TODO : 로그인 후 로그인정보 알림
-	@RequestMapping(value = "welcome", method = POST)
-	public void getWelcome() {
+    //TODO : 로그인 후 로그인정보 알림
+    @RequestMapping(value = "welcome", method = POST)
+    public void getWelcome() {
 
-	}
+    }
 
 }

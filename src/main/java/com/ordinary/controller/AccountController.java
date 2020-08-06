@@ -24,71 +24,71 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AccountController {
 
-	private final SignUpService accountUserService;
+    private final SignUpService accountUserService;
 
-	/**
-	 * 메인 페이지 요철
-	 *
-	 * @param request
-	 * @return
-	 */
-	@GetMapping({"/", "/index"})
-	public String getIndex(HttpServletRequest request) {
-		String header = request.getHeader("User-Agent");
-		if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {    // IE환경 검증
-			return "browser_issue"; // 브라우저 업그레이드 권장페이지
-		} else {
-			return "index"; // 메인페이지
-		}
-	}
+    /**
+     * 메인 페이지 요철
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping({"/", "/index"})
+    public String getIndex(HttpServletRequest request) {
+        String header = request.getHeader("User-Agent");
+        if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1) {    // IE환경 검증
+            return "browser_issue"; // 브라우저 업그레이드 권장페이지
+        } else {
+            return "index"; // 메인페이지
+        }
+    }
 
-	/**
-	 * 회원가입 페이지 요청
-	 *
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("signup")
-	public String getSignUpPage(Model model) {
-		UserDao userDao = new UserDao();                        // 회원 데이터
-		model.addAttribute("userDao", userDao);    // 뷰로 보낼 데이터 값
-		return "signup";
-	}
+    /**
+     * 회원가입 페이지 요청
+     *
+     * @param model
+     * @return
+     */
+    @GetMapping("signup")
+    public String getSignUpPage(Model model) {
+        UserDao userDao = new UserDao();                        // 회원 데이터
+        model.addAttribute("userDao", userDao);    // 뷰로 보낼 데이터 값
+        return "signup";
+    }
 
-	/**
-	 * 회원가입 처리
-	 *
-	 * @param userDao
-	 * @param request
-	 * @return
-	 */
-	@PostMapping("sendsignup")
-	public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
-		userDao.setIpAddress(request.getRemoteAddr());
-		if (accountUserService.isSignUpEmailCheck(userDao)) {
-			return "redirect:/";        // 회원가입 성공
-		}
-		return "signup";    			// 회원가입 실패(아이디중복)
-	}
+    /**
+     * 회원가입 처리
+     *
+     * @param userDao
+     * @param request
+     * @return
+     */
+    @PostMapping("sendsignup")
+    public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
+        userDao.setIpAddress(request.getRemoteAddr());
+        if (accountUserService.isSignUpEmailCheck(userDao)) {
+            return "redirect:/";        // 회원가입 성공
+        }
+        return "signup";                // 회원가입 실패(아이디중복)
+    }
 
-	/**
-	 * 중복로그인 페이지 요청
-	 *
-	 * @return
-	 */
-	@GetMapping("sessionfailed")
-	public String sessionfailed() {
-		return "sessionfailed";
-	}
+    /**
+     * 중복로그인 페이지 요청
+     *
+     * @return
+     */
+    @GetMapping("sessionfailed")
+    public String sessionfailed() {
+        return "sessionfailed";
+    }
 
-	/**
-	 * 예외발생 페이지 요청
-	 *
-	 * @return
-	 */
-	@GetMapping("exception")
-	public String getUserPermissionExceptionPage() {
-		return "accessdenied";
-	}
+    /**
+     * 예외발생 페이지 요청
+     *
+     * @return
+     */
+    @GetMapping("exception")
+    public String getUserPermissionExceptionPage() {
+        return "accessdenied";
+    }
 
 }

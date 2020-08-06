@@ -9,10 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 @DisplayName("EmailSend All Test")
 public class EmailSendServiceTest {
 
-	//TODO : 이메일 전송(실패)
+    //TODO : 이메일 전송(실패)
 
 
-	//TODO : 이메일 전송(성공)
+    //TODO : 이메일 전송(성공)
 
 
 }

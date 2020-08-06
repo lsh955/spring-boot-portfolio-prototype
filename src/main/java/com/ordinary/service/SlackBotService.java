@@ -20,33 +20,33 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class SlackBotService {
 
-	private final ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-	/**
-	 * RestTemplate Post 방식으로 요청
-	 *
-	 * @param target
-	 * @param object
-	 */
-	public void sendSlack(SlackChannel target, Object object) {
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForEntity(target.getWebHookUrl(), writeValueAsString(object), String.class);
-	}
+    /**
+     * RestTemplate Post 방식으로 요청
+     *
+     * @param target
+     * @param object
+     */
+    public void sendSlack(SlackChannel target, Object object) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.postForEntity(target.getWebHookUrl(), writeValueAsString(object), String.class);
+    }
 
-	/**
-	 * Slack Web Hook 최종전송
-	 *
-	 * @param obj
-	 * @return
-	 */
-	private String writeValueAsString(Object obj) {
-		try {
-			objectMapper.configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, true);
-			return objectMapper.writeValueAsString(obj);
-		} catch (JsonProcessingException e) {
-			log.error("Occur JsonProcessingException: {}", e);
-			throw new IllegalArgumentException(e.getMessage());
-		}
-	}
+    /**
+     * Slack Web Hook 최종전송
+     *
+     * @param obj
+     * @return
+     */
+    private String writeValueAsString(Object obj) {
+        try {
+            objectMapper.configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, true);
+            return objectMapper.writeValueAsString(obj);
+        } catch (JsonProcessingException e) {
+            log.error("Occur JsonProcessingException: {}", e);
+            throw new IllegalArgumentException(e.getMessage());
+        }
+    }
 
 }

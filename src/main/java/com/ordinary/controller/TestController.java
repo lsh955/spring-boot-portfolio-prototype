@@ -9,9 +9,9 @@ import java.security.Principal;
 @RestController
 public class TestController {
 
-	@RequestMapping(value = "/principal", method = RequestMethod.GET)
-	public Principal home(Principal principal) {
-		return principal;
-	}
+    @RequestMapping(value = "/principal", method = RequestMethod.GET)
+    public Principal home(Principal principal) {
+        return principal;
+    }
 
 }

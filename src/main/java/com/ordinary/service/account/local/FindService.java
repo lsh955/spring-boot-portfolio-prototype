@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class FindService {
 
-	public void findId(UserDao userDao) {
+    public void findId(UserDao userDao) {
 
-	}
+    }
 
-	public void findPassword(UserDao userDao) {
+    public void findPassword(UserDao userDao) {
 
-	}
+    }
 
 }

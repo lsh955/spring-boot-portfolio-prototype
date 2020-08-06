@@ -22,26 +22,26 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SocialAuthenticationService {
 
-	private UserMapper userMapper;
-	private UserDao userDao;
-	private SignUpService signUpService;
-	private UserDetailsServiceImpl userDetailsService;
-	private UserStateService userStateService;
+    private UserMapper userMapper;
+    private UserDao userDao;
+    private SignUpService signUpService;
+    private UserDetailsServiceImpl userDetailsService;
+    private UserStateService userStateService;
 
-	public void doAuthentication(GoogleUserDetails googleUserDetails) {
-		if(userDetailsService.isEmailCheck(googleUserDetails.getEmail())){
-			// TODO : 새 회원인 경우에는 회원가입
-			userDao.setType(AccountType.GOOGLE.name());		// 최초 로컬
-			userDao.setLevel(AccountLevel.MEMBER.name());	// 최초 사용자
-			userDao.setState(AccountState.STANDBY.name());	// 최초 대기
-			userDao.setEmail(googleUserDetails.getEmail());
-			userDao.setName(googleUserDetails.getName());
-			userMapper.inputSignUp(userDao);				// 최종 저장
-			userStateService.loginDateUpDate(userDao.getEmail());
-		}else {
-			// TODO : 기존 회원인 경우에는 데이터베이스에서 조회해서 인증처리
-			userStateService.loginDateUpDate(userDao.getEmail());
-		}
-	}
+    public void doAuthentication(GoogleUserDetails googleUserDetails) {
+        if (userDetailsService.isEmailCheck(googleUserDetails.getEmail())) {
+            // TODO : 새 회원인 경우에는 회원가입
+            userDao.setType(AccountType.GOOGLE.name());        // 최초 로컬
+            userDao.setLevel(AccountLevel.MEMBER.name());    // 최초 사용자
+            userDao.setState(AccountState.STANDBY.name());    // 최초 대기
+            userDao.setEmail(googleUserDetails.getEmail());
+            userDao.setName(googleUserDetails.getName());
+            userMapper.inputSignUp(userDao);                // 최종 저장
+            userStateService.loginDateUpDate(userDao.getEmail());
+        } else {
+            // TODO : 기존 회원인 경우에는 데이터베이스에서 조회해서 인증처리
+            userStateService.loginDateUpDate(userDao.getEmail());
+        }
+    }
 
 }

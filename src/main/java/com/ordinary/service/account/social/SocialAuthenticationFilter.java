@@ -22,42 +22,42 @@ import java.io.IOException;
 @Slf4j
 public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProcessingFilter {
 
-	private ObjectMapper mapper = new ObjectMapper();
-	private SocialAuthenticationService authenticationService;
-	private UserDao userDao;
+    private ObjectMapper mapper = new ObjectMapper();
+    private SocialAuthenticationService authenticationService;
+    private UserDao userDao;
 
-	public SocialAuthenticationFilter(String defaultFilterProcessesUrl) {
-		super(defaultFilterProcessesUrl);
-	}
+    public SocialAuthenticationFilter(String defaultFilterProcessesUrl) {
+        super(defaultFilterProcessesUrl);
+    }
 
-	@Override
-	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 
-		OAuth2AccessToken accessToken = restTemplate.getAccessToken();
-		log.info("\n accessToken >> " + accessToken);
+        OAuth2AccessToken accessToken = restTemplate.getAccessToken();
+        log.info("\n accessToken >> " + accessToken);
 
-		OAuth2Authentication auth = (OAuth2Authentication) authResult;
-		log.info("\n auth >> " + auth);
+        OAuth2Authentication auth = (OAuth2Authentication) authResult;
+        log.info("\n auth >> " + auth);
 
-		Object details = auth.getUserAuthentication().getDetails();
-		log.info("\n details >> " + details);
+        Object details = auth.getUserAuthentication().getDetails();
+        log.info("\n details >> " + details);
 
-		Object clientId = auth.getOAuth2Request().getClientId();
-		log.info("\n clientId >> " + clientId);
+        Object clientId = auth.getOAuth2Request().getClientId();
+        log.info("\n clientId >> " + clientId);
 
-		Object approved = auth.getOAuth2Request().isApproved();
-		log.info("\n approved >> " + approved);
+        Object approved = auth.getOAuth2Request().isApproved();
+        log.info("\n approved >> " + approved);
 
-		final GoogleUserDetails userDetails = mapper.convertValue(details, GoogleUserDetails.class);
-		userDetails.setAccessToken(accessToken);
+        final GoogleUserDetails userDetails = mapper.convertValue(details, GoogleUserDetails.class);
+        userDetails.setAccessToken(accessToken);
 
-		userDao.setEmail(userDetails.getEmail());
+        userDao.setEmail(userDetails.getEmail());
 
-		// TODO : 다른 서비스이용 시 NullPointException 뜸.
-		// authenticationService.doAuthentication(userDetails);
+        // TODO : 다른 서비스이용 시 NullPointException 뜸.
+        // authenticationService.doAuthentication(userDetails);
 
-		super.successfulAuthentication(request, response, chain, authResult);
+        super.successfulAuthentication(request, response, chain, authResult);
 
-	}
+    }
 
 }

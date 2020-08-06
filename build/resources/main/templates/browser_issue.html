@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=9; IE=8; IE=7; IE=edge" http-equiv="X-UA-Compatible"/>
+    <link href="data:image/x-icon;" rel="shortcut icon" type="image/x-icon">
+
+    <link href="/static/img/favicon.ico" rel="shortcut icon" type="image/x-ico">
+    <link href="/static/img/favicon.ico" rel="apple-touch-icon" sizes="180x180">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="/static/img/favicon.ico" rel="icon" sizes="16x16" type="image/png">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+    <title>브라우저 지원중단</title>
+
+    <link rel="stylesheet" th:href="@{css/info.css}" type="text/css"/>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="contents">
+        <i class="fas fa-exclamation-triangle animated jello fast delay-1s"></i>
+        <h1>이 브라우저는 곧 지원 중단됩니다.</h1>
+        <h2>오래된 버전의 브라우저로 접속할 경우 페이지가 깨져 보이거나 일부 기능이 제한될 수 있습니다.<br>아래의 최신 브라우저로 업그레이드 해주세요.</h2>
+        <div class="browser-box">
+            <ul>
+                <li>
+                    <a href="https://www.google.com/chrome/index.html?brand=CHNY&utm_campaign=en&utm_source=en-et-youtube&utm_medium=et"
+                       target="_blank" title="크롬 브라우저">
+                        <i class="fab fa-chrome"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.microsoft.com/en-us/edge" target="_blank" title="엣지 브라우저">
+                        <i class="fab fa-edge"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.opera.com/ko" target="_blank" title="오페라 브라우저">
+                        <i class="fab fa-opera"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <p class="copyright">Copyright(c)2020 by 이승환. All pictures cannot be copied without permission.</p>
+    </div>
+</footer>
+
+<link rel="stylesheet" th:href="@{css/animate.min.css?v=}"/>    <!-- animate css -->
+<script th:src="@{js/jquery-3.4.1.min.js?v=}"></script>         <!-- jquery 3.4.1 -->
+<script th:src="@{js/font_awesome_all.js?v=}"></script>         <!-- font awesome icon -->
+
+</body>
+</html>

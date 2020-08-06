@@ -34,25 +34,25 @@
 
     <script src="https://www.google.com/recaptcha/api.js?render=6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c"></script>
     <script>
-		$(document).ready(function () {
-			grecaptcha.ready(function () {
-				grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/'}).then(function (token) {
-					$.ajax({
-						url     : '/api/token',
-						type    : 'POST',
-						dataType: 'json',
-						data    : {'token': token},
-						success : function (result) {
-							// console.log("GoogleCaptcha : " + JSON.stringify(result));
-							console.log("google captcha verification success")
-						},
-						fail    : function (e) {
-							console.log("google captcha verification fail")
-						}
-					});// end ajax
-				});
-			});
-		});
+        $(document).ready(function () {
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LfWFs8UAAAAAE-EtsSu7AiDuqx52-KSpcKJG37c', {action: '/'}).then(function (token) {
+                    $.ajax({
+                        url: '/api/token',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {'token': token},
+                        success: function (result) {
+                            // console.log("GoogleCaptcha : " + JSON.stringify(result));
+                            console.log("google captcha verification success")
+                        },
+                        fail: function (e) {
+                            console.log("google captcha verification fail")
+                        }
+                    });// end ajax
+                });
+            });
+        });
     </script>
 
     <!-- TODO
@@ -604,20 +604,20 @@
 <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
 
 <script>
-	// Your web app's Firebase configuration
-	var firebaseConfig = {
-		apiKey           : "AIzaSyBf_CQoxOJtvmLDmvu41hPt7aOk4gK3L3Y",
-		authDomain       : "spring-boot-portfolio.firebaseapp.com",
-		databaseURL      : "https://spring-boot-portfolio.firebaseio.com",
-		projectId        : "spring-boot-portfolio",
-		storageBucket    : "spring-boot-portfolio.appspot.com",
-		messagingSenderId: "838635500072",
-		appId            : "1:838635500072:web:a7def2fadda3b02da6bb1d",
-		measurementId    : "G-8P04E6X1HL"
-	};
-	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-	firebase.analytics();
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBf_CQoxOJtvmLDmvu41hPt7aOk4gK3L3Y",
+        authDomain: "spring-boot-portfolio.firebaseapp.com",
+        databaseURL: "https://spring-boot-portfolio.firebaseio.com",
+        projectId: "spring-boot-portfolio",
+        storageBucket: "spring-boot-portfolio.appspot.com",
+        messagingSenderId: "838635500072",
+        appId: "1:838635500072:web:a7def2fadda3b02da6bb1d",
+        measurementId: "G-8P04E6X1HL"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 </script>
 
 </body>

@@ -27,7 +27,8 @@
         WHERE email = #{email}
     </select>
 
-    <insert id="inputSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="idx">
+    <insert id="inputSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true"
+            keyProperty="idx">
         INSERT INTO user
         (type,
          level,

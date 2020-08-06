@@ -21,25 +21,25 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private final UserMapper userMapper;
+    private final UserMapper userMapper;
 
-	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		UserDao findUser = userMapper.loadAllData(email);
-		if (findUser == null) {
-			throw new UsernameNotFoundException("아이디가 존재하지 않거나, 올바르지 않습니다.");
-		}
-		return new UserDetailsImpl(findUser);
-	}
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserDao findUser = userMapper.loadAllData(email);
+        if (findUser == null) {
+            throw new UsernameNotFoundException("아이디가 존재하지 않거나, 올바르지 않습니다.");
+        }
+        return new UserDetailsImpl(findUser);
+    }
 
-	/**
-	 * 이메일 데이터 조회
-	 *
-	 * @param email
-	 * @return true(성공) 또는 false(중복)
-	 */
-	public boolean isEmailCheck(String email) {
-		return userMapper.loadAllEmail(email) == 0;
-	}
+    /**
+     * 이메일 데이터 조회
+     *
+     * @param email
+     * @return true(성공) 또는 false(중복)
+     */
+    public boolean isEmailCheck(String email) {
+        return userMapper.loadAllEmail(email) == 0;
+    }
 
 }
