@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum AccountType {
 
-    LOCAL("LOCAL", "직접"),
+    LOCAL("LOCAL", "로컬"),
     GOOGLE("GOOGLE", "구글");
 
     private final String key;
