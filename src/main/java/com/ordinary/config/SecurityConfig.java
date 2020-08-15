@@ -32,7 +32,7 @@ import java.util.List;
  * 설정 클래스 모음. (Web Security, Controller Advice 등)
  */
 @EnableOAuth2Client
-@EnableWebSecurity      // @EnableWebSecurity : Spring Security 설정할 클래스라고 재정의(이걸 입력하는 순간 기본적인 "Security"설정은 날아간다.)
+@EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
