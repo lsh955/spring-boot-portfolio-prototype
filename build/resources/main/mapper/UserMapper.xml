@@ -4,35 +4,86 @@
 
 <mapper namespace="com.ordinary.repository.mapper.UserMapper">
 
-    <select id="getFindUserByLoginId" resultType="com.ordinary.repository.dao.UserDao">
-        SELECT *
+    <select id="loadAllData" resultType="com.ordinary.repository.dao.UserDao">
+        SELECT type,
+               level,
+               state,
+               email,
+               name,
+               tel,
+               password,
+               joinDate,
+               deleteDate,
+               loginDate,
+               logOutDate,
+               ipAddress
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
 
-    <select id="getIdCheck" resultType="int">
+    <select id="loadAllEmail" resultType="int">
         SELECT COUNT(*)
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
 
-    <insert id="setSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true" keyProperty="id">
+    <insert id="inputSignUp" parameterType="com.ordinary.repository.dao.UserDao" useGeneratedKeys="true"
+            keyProperty="idx">
         INSERT INTO user
-            (user_type, login_id, user_name, password, user_tel, user_email, user_firstdate, user_logindate, user_ipaddress)
-        VALUES
-            (#{userDao.userType}, #{userDao.loginId}, #{userDao.userName}, #{userDao.password}, #{userDao.userTel}, #{userDao.userEmail}, now(), #{userDao.userLoginDate}, #{userDao.userIpAddress})
+        (type,
+         level,
+         state,
+         email,
+         name,
+         tel,
+         password,
+         joinDate,
+         deleteDate,
+         loginDate,
+         logOutDate,
+         ipAddress)
+        VALUES (#{userDao.type},
+                #{userDao.level},
+                #{userDao.state},
+                #{userDao.email},
+                #{userDao.name},
+                #{userDao.tel},
+                #{userDao.password},
+                now(),
+                null,
+                null,
+                null,
+                #{userDao.ipAddress})
     </insert>
 
-    <select id="getFindId" resultType="String">
-        SELECT login_id
+    <select id="findEmail" resultType="String">
+        SELECT email
         FROM user
-        WHERE user_email = #{userEmail}
+        WHERE tel = #{tel}
     </select>
 
-    <select id="getFindPassword" resultType="String">
+    <select id="findPassword" resultType="String">
         SELECT password
         FROM user
-        WHERE login_id = #{loginId}
+        WHERE email = #{email}
     </select>
+
+    <update id="inputLoginDate" parameterType="string">
+        UPDATE user
+        SET loginDate = (now())
+        WHERE email = #{email};
+    </update>
+
+    <update id="inputLogOutDate" parameterType="com.ordinary.repository.dao.UserDao">
+        UPDATE user
+        SET logOutDate = (now())
+        WHERE email = #{userDao.email};
+    </update>
+
+    <update id="inputDeletDate" parameterType="com.ordinary.repository.dao.UserDao">
+        UPDATE user
+        SET deleteDate = (now())
+        WHERE email = #{userDao.email};
+    </update>
 
 </mapper>
