@@ -51,7 +51,7 @@ public class SocialAuthenticationFilter extends OAuth2ClientAuthenticationProces
         final GoogleUserDetails userDetails = mapper.convertValue(details, GoogleUserDetails.class);
         userDetails.setAccessToken(accessToken);
 
-        userDao.setEmail(userDetails.getEmail());
+        //userDao.setEmail(userDetails.getEmail());
 
         // TODO : 다른 서비스이용 시 NullPointException 뜸.
         // authenticationService.doAuthentication(userDetails);

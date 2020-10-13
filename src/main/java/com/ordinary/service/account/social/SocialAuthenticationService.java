@@ -31,11 +31,11 @@ public class SocialAuthenticationService {
     public void doAuthentication(GoogleUserDetails googleUserDetails) {
         if (userDetailsService.isEmailCheck(googleUserDetails.getEmail())) {
             // TODO : 새 회원인 경우에는 회원가입
-            userDao.setType(AccountType.GOOGLE.name());        // 최초 로컬
-            userDao.setLevel(AccountLevel.MEMBER.name());    // 최초 사용자
-            userDao.setState(AccountState.STANDBY.name());    // 최초 대기
-            userDao.setEmail(googleUserDetails.getEmail());
-            userDao.setName(googleUserDetails.getName());
+//            userDao.setType(AccountType.GOOGLE.name());        // 최초 로컬
+//            userDao.setLevel(AccountLevel.MEMBER.name());    // 최초 사용자
+//            userDao.setState(AccountState.STANDBY.name());    // 최초 대기
+//            userDao.setEmail(googleUserDetails.getEmail());
+//            userDao.setName(googleUserDetails.getName());
             userMapper.inputSignUp(userDao);                // 최종 저장
             userStateService.loginDateUpDate(userDao.getEmail());
         } else {

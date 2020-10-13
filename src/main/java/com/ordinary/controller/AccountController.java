@@ -1,6 +1,6 @@
 package com.ordinary.controller;
 
-import com.ordinary.repository.dao.UserDao;
+import com.ordinary.repository.dto.UserDto;
 import com.ordinary.service.account.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +24,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AccountController {
 
+    private final UserDto userDto;
     private final SignUpService accountUserService;
 
     /**
@@ -50,22 +51,21 @@ public class AccountController {
      */
     @GetMapping("signup")
     public String getSignUpPage(Model model) {
-        UserDao userDao = new UserDao();                        // 회원 데이터
-        model.addAttribute("userDao", userDao);    // 뷰로 보낼 데이터 값
+        model.addAttribute("userDto", userDto);    // 뷰로 보낼 데이터 값
         return "signup";
     }
 
     /**
      * 회원가입 처리
      *
-     * @param userDao
+     * @param userDto
      * @param request
      * @return
      */
     @PostMapping("sendsignup")
-    public String getSendSignUp(@Valid UserDao userDao, HttpServletRequest request) {
-        userDao.setIpAddress(request.getRemoteAddr());
-        if (accountUserService.isSignUpEmailCheck(userDao)) {
+    public String getSendSignUp(@Valid UserDto userDto, HttpServletRequest request) {
+        userDto.fromIpAddress(request.getRemoteAddr());
+        if (accountUserService.isSignUpEmailCheck(userDto)) {
             return "redirect:/";        // 회원가입 성공
         }
         return "signup";                // 회원가입 실패(아이디중복)

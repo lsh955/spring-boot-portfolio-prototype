@@ -49,10 +49,10 @@
                 #{userDao.name},
                 #{userDao.tel},
                 #{userDao.password},
-                now(),
-                null,
-                null,
-                null,
+                #{userDao.joinDate},
+                #{userDao.deleteDate},
+                #{userDao.loginDate},
+                #{userDao.logOutDate},
                 #{userDao.ipAddress})
     </insert>
 

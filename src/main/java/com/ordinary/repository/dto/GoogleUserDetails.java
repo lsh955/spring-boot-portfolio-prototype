@@ -1,6 +1,5 @@
 package com.ordinary.repository.dto;
 
-
 import lombok.Getter;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.stereotype.Component;
@@ -23,11 +22,9 @@ public class GoogleUserDetails {
     private long expiration;
     private String access_token;
 
-
     public void setAccessToken(OAuth2AccessToken accessToken) {
         this.access_token = accessToken.getValue();
         this.expiration = accessToken.getExpiration().getTime();
     }
-
 
 }
